@@ -7,7 +7,8 @@ Uurimislaegas on veebiportaal, mis koosneb kuuest omavahel integreeritud mooduli
 
 Paigaldusjuhend
 ---------------
-Platvorm - xxx (v...)
+Platvorm - Wordpress (v 4.1)
+
 Vajalikud moodulid -
   - moodul 1, v...
   - moodul 2, v...
