@@ -7,7 +7,9 @@ Uurimislaegas on veebiportaal, mis koosneb kuuest omavahel integreeritud mooduli
 
 Paigaldusjuhend
 ---------------
-Platvorm - Wordpress (v 4.1)
+Wordpress (v 4.1)
+AngularJS
+Twitter Bootstrap
 
 Vajalikud moodulid -
   - moodul 1, v...
