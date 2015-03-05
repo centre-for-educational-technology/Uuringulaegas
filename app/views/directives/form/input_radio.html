@@ -1,0 +1,8 @@
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{ label }} <span ng-show="req">*</span></label>
+    <div class="col-sm-8">
+        <label class="radio-inline" ng-repeat="(key, value) in options">
+            <input type="radio" name="{{ name }}" ng-value="key" ng-model="$parent.model"> {{ value }}
+        </label>
+    </div>
+</div>

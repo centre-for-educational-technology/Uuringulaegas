@@ -1,0 +1,1213 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cimy User Extra Fields\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-29 17:53-0800\n"
+"PO-Revision-Date: 2014-12-29 17:53-0800\n"
+"Last-Translator: Németh Balázs <nb0000@gmail.com>\n"
+"Language-Team: Németh Balázs <nb0000@gmail.com>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../cimy_uef_register.php:481
+#: ../cimy_uef_register.php:485
+#: ../cimy_uef_register.php:499
+#: ../cimy_uef_register.php:519
+#: ../cimy_uef_register.php:531
+#: ../cimy_uef_register.php:544
+#: ../cimy_uef_register.php:555
+#: ../cimy_uef_register.php:565
+#: ../cimy_uef_register.php:570
+#: ../cimy_uef_register.php:581
+#: ../cimy_uef_register.php:586
+#: ../cimy_uef_register.php:597
+#: ../cimy_uef_register.php:602
+#: ../cimy_uef_register.php:644
+#: ../cimy_uef_register.php:653
+#: ../cimy_uef_admin.php:1112
+msgid "ERROR"
+msgstr "HIBA"
+
+#: ../cimy_uef_register.php:481
+msgid "does not match."
+msgstr "nem egyezik."
+
+#: ../cimy_uef_register.php:485
+msgid "hasn&#8217;t a correct email syntax."
+msgstr "nem szabványos email formátumú."
+
+#: ../cimy_uef_register.php:499
+msgid "couldn&#8217;t be empty."
+msgstr "nem lehet üres."
+
+#: ../cimy_uef_register.php:518
+#: ../cimy_uef_register.php:527
+msgid "isn&#8217;t correct"
+msgstr "nem helyes"
+
+#: ../cimy_uef_register.php:524
+#: ../cimy_uef_register.php:1030
+#: ../cimy_uef_register.php:1033
+msgid "YES"
+msgstr "IGEN"
+
+#: ../cimy_uef_register.php:524
+#: ../cimy_uef_register.php:1030
+#: ../cimy_uef_register.php:1033
+msgid "NO"
+msgstr "NEM"
+
+#: ../cimy_uef_register.php:529
+msgid "should be"
+msgstr "legyen"
+
+#: ../cimy_uef_register.php:544
+msgid "should be an image."
+msgstr "kép kell, hogy legyen."
+
+#: ../cimy_uef_register.php:555
+msgid "does not accept this file type."
+msgstr "nem fogadja el ezt a fájltípust."
+
+#: ../cimy_uef_register.php:565
+msgid "couldn&#8217;t have size less than"
+msgstr "mérete nem lehet kisebb, mint"
+
+#: ../cimy_uef_register.php:570
+msgid "couldn&#8217;t have length less than"
+msgstr "hossza nem lehet kisebb, mint"
+
+#: ../cimy_uef_register.php:581
+msgid "couldn&#8217;t have size different than"
+msgstr "mérete nem lehet más, mint"
+
+#: ../cimy_uef_register.php:586
+msgid "couldn&#8217;t have length different than"
+msgstr "hossza nem lehet más, mint"
+
+#: ../cimy_uef_register.php:597
+msgid "couldn&#8217;t have size more than"
+msgstr "mérete nem lehet nagyobb, mint"
+
+#: ../cimy_uef_register.php:602
+msgid "couldn&#8217;t have length more than"
+msgstr "hossza nem lehet nagyobb, mint"
+
+#: ../cimy_uef_register.php:644
+#: ../cimy_uef_register.php:653
+msgid "Typed code is not correct."
+msgstr "A megadott kód nem megfelelő."
+
+#: ../cimy_uef_register.php:723
+#: ../cimy_uef_admin.php:1534
+#: ../cimy_uef_admin.php:1535
+#: ../cimy_user_extra_fields.php:196
+msgid "Username"
+msgstr "Felhasználónév"
+
+#: ../cimy_uef_register.php:750
+#: ../cimy_uef_admin.php:1544
+#: ../cimy_uef_admin.php:1545
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../cimy_uef_register.php:1004
+#: ../cimy_uef_profile.php:304
+msgid "Please upload a file with one of the following extensions"
+msgstr "Kérjük, töltsön fel egy fájlt a következő kiterjesztések egyikével"
+
+#: ../cimy_uef_register.php:1010
+#: ../cimy_uef_profile.php:310
+#: ../cimy_uef_options.php:282
+msgid "Please upload an image with one of the following extensions"
+msgstr "Kérjük, töltsön fel egy képet a következő kiterjesztések egyikével"
+
+#: ../cimy_uef_register.php:1193
+msgid "Strength indicator"
+msgstr "Erősség jelző"
+
+#: ../cimy_uef_register.php:1194
+msgid "Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr "Megjegyzés: a jelszó álljon legalább 7 karakterből. Legyen benn kicsi és nagy betű, szám és szimbólum (! ? $ ^ &amp;) is."
+
+#: ../cimy_uef_register.php:1233
+msgid "Change image"
+msgstr "Kép módosítása"
+
+#: ../cimy_uef_register.php:1236
+msgid "Insert the code:"
+msgstr "Kód beszúrása:"
+
+#: ../cimy_uef_register.php:1308
+#: ../cimy_uef_register.php:1310
+msgid "Confirm your registration"
+msgstr "Regisztráció megerősítése"
+
+#: ../cimy_uef_register.php:1316
+msgid "A password will be e-mailed to you."
+msgstr "A jelszó levélben lesz elküldve."
+
+#: ../cimy_uef_register.php:1324
+msgid "&larr; Back"
+msgstr "&larr; vissza"
+
+#: ../cimy_uef_admin.php:17
+msgid "Add field"
+msgstr "Mező létrehozása"
+
+#: ../cimy_uef_admin.php:18
+msgid "Update field"
+msgstr "Mező frissítése"
+
+#: ../cimy_uef_admin.php:19
+msgid "Delete field"
+msgstr "Mező törlése"
+
+#: ../cimy_uef_admin.php:20
+msgid "Delete selected fields"
+msgstr "Kijelölt mezők törlése"
+
+#: ../cimy_uef_admin.php:21
+msgid "Change order"
+msgstr "Sorrend módosítása"
+
+#: ../cimy_uef_admin.php:30
+#: ../cimy_uef_admin.php:916
+msgid "Min length"
+msgstr "Min. hossz"
+
+#: ../cimy_uef_admin.php:31
+#: ../cimy_uef_admin.php:917
+msgid "Exact length"
+msgstr "Pontos hossz"
+
+#: ../cimy_uef_admin.php:32
+#: ../cimy_uef_admin.php:918
+msgid "Max length"
+msgstr "Max. hossz"
+
+#: ../cimy_uef_admin.php:33
+msgid "Exact or Max length"
+msgstr "Pontos vagy Max. hossz"
+
+#: ../cimy_uef_admin.php:133
+#: ../cimy_uef_init.php:22
+msgid "Fields"
+msgstr "Mezők"
+
+#: ../cimy_uef_admin.php:133
+msgid "changed to"
+msgstr "módosítva erre"
+
+#: ../cimy_uef_admin.php:136
+msgid "You cannot give an order that misses some numbers"
+msgstr "Nem lehet hiányos sorrendet megadni."
+
+#: ../cimy_uef_admin.php:139
+#: ../cimy_uef_admin.php:214
+msgid "Nothing selected"
+msgstr "Semmi sincs kiválasztva"
+
+#: ../cimy_uef_admin.php:211
+msgid "Field(s)"
+msgstr "Mező(k)"
+
+#: ../cimy_uef_admin.php:211
+msgid "deleted correctly"
+msgstr "helyesen törölve"
+
+#: ../cimy_uef_admin.php:245
+#: ../cimy_uef_admin.php:898
+msgid "Min size"
+msgstr "Min méret"
+
+#: ../cimy_uef_admin.php:246
+#: ../cimy_uef_admin.php:899
+msgid "Exact size"
+msgstr "Pontos méret"
+
+#: ../cimy_uef_admin.php:247
+#: ../cimy_uef_admin.php:900
+msgid "Max size"
+msgstr "Max méret"
+
+#: ../cimy_uef_admin.php:249
+msgid "Exact or Max size"
+msgstr "Pontos vagy Max méret"
+
+#: ../cimy_uef_admin.php:252
+#: ../cimy_uef_admin.php:907
+msgid "Min date"
+msgstr "Min dátum"
+
+#: ../cimy_uef_admin.php:253
+#: ../cimy_uef_admin.php:908
+msgid "Exact date"
+msgstr "Pontos dátum"
+
+#: ../cimy_uef_admin.php:254
+#: ../cimy_uef_admin.php:909
+msgid "Max date"
+msgstr "Max dátum"
+
+#: ../cimy_uef_admin.php:315
+msgid "Name not specified"
+msgstr "Név nincs megadva"
+
+#: ../cimy_uef_admin.php:317
+msgid "Name cannot contains spaces"
+msgstr "A névben nem lehet szóköz"
+
+#: ../cimy_uef_admin.php:320
+msgid "Label not specified"
+msgstr "Címke nincs megadva"
+
+#: ../cimy_uef_admin.php:325
+msgid "not selected (with this type is necessary)"
+msgstr "Nincs kiválasztva (ennél a típusnál kötelező)"
+
+#: ../cimy_uef_admin.php:331
+msgid "If you select"
+msgstr "Ha ezt választod:"
+
+#: ../cimy_uef_admin.php:331
+msgid "you cannot select Min or Max"
+msgstr "akkor nem lehet Min vagy Max"
+
+#: ../cimy_uef_admin.php:337
+#: ../cimy_uef_admin.php:342
+#: ../cimy_uef_admin.php:347
+msgid "should be in the range of"
+msgstr "ebben az intervallumban kéne lennie:"
+
+#: ../cimy_uef_admin.php:358
+msgid "Equal TO not specified"
+msgstr "„Legyen egyenlő ezzel” nincs megadva"
+
+#: ../cimy_uef_admin.php:361
+msgid "With checkbox type Equal TO can only be"
+msgstr "Jelölőnégyzet típusnál a „Legyen egyenlő ezzel” csak ez lehet:"
+
+#: ../cimy_uef_admin.php:364
+msgid "With radio type Equal TO can only be"
+msgstr "Rádió típusnál a „Legyen egyenlő ezzel” csak ez lehet:"
+
+#: ../cimy_uef_admin.php:380
+msgid "With checkbox type Value can only be"
+msgstr "Jelölőnégyzet típusnál az „Érték” csak ez lehet:"
+
+#: ../cimy_uef_admin.php:383
+msgid "With radio type Value can only be"
+msgstr "Rádió típusnál az „Érték” csak ez lehet:"
+
+#: ../cimy_uef_admin.php:439
+msgid "Field inserted correctly"
+msgstr "Mező sikeresen beillesztve"
+
+#: ../cimy_uef_admin.php:441
+msgid "Field #"
+msgstr "Mező #"
+
+#: ../cimy_uef_admin.php:441
+msgid "updated correctly"
+msgstr "sikeresen frissítve"
+
+#: ../cimy_uef_admin.php:453
+msgid "Name inserted is just in the database, change to another one"
+msgstr "A megadott név már szerepel az adatbázisban, meg kell változtatni"
+
+#: ../cimy_uef_admin.php:468
+#: ../cimy_uef_options.php:367
+msgid "Add a new Field"
+msgstr "Új mező létrehozása"
+
+#: ../cimy_uef_admin.php:586
+msgid "To add a new field you have to choose a name, type and label; optional are value and description. Rules are applied during user registration."
+msgstr "Egy új mező létrehozásához meg kell adni a nevet, típust és címkét, az érték és a leírás opcionális. Felhasználó regisztrációja során a szabályok alkalmazva lesznek."
+
+#: ../cimy_uef_admin.php:588
+msgid "With <strong>radio</strong> and <strong>checkbox</strong>: <em>Value</em> and <em>equal TO</em> can only be 'Yes' or 'No' that means 'selected' or 'not selected'"
+msgstr "A <strong>rádió</strong> és <strong>jelölőnégyzet</strong> típusnál az <em>Érték</em> és <em>Legyen egyenlő ezzel</em> csak 'Yes' és 'No' lehet, amelyek 'bejelölve' és 'nem bejelölve' jelentéssel bírnak."
+
+#: ../cimy_uef_admin.php:589
+msgid "With <strong>drop-down</strong>: you have to add all options into label for example: label/item1,item2,item3"
+msgstr "A <strong>legördülő</strong> típusnál minden opciót fel kell sorolni, például: címke/elem1,elem2,elem3"
+
+#: ../cimy_uef_admin.php:590
+msgid "With <strong>picture</strong>: you can preload a default image putting url in <em>Value</em>; 'min,exact,max size' are in KB; <em>equal TO</em> means max pixel size (width or height) for thumbnail"
+msgstr "A <strong>kép</strong> típusnál előre lehet tölteni egy képet, az URLjét megadva <em>Érték</em>nek; A „min,pontos,max méret” KiB-ben értendő; <em>Legyen egyenlő ezzel</em> jelentése max. képpont méret (szélesség vagy magasság)"
+
+#: ../cimy_uef_admin.php:591
+msgid "With <strong>picture-url</strong>: you can preload a default image putting url in <em>Value</em>; <em>equal TO</em> means max width pixel size (height will be proportional)"
+msgstr "A <strong>kép-url</strong> típusnál előre lehet tölteni egy képet, az URLjét megadva <em>Érték</em>nek; <em>Legyen egyenlő ezzel</em> jelentése max. képpont méret (szélesség vagy magasság)"
+
+#: ../cimy_uef_admin.php:592
+msgid "With <strong>registration-date</strong>: <em>equal TO</em> means date and time format"
+msgstr "A <strong>regisztráció-dátum</strong> típusnál a <em>Legyen egyenlő ezzel</em> jelentése dátum és idő formátum"
+
+#: ../cimy_uef_admin.php:593
+msgid "With <strong>avatar</strong>: you can preload a default image putting url in <em>Value</em>; 'min,exact,max size' are in KB; <em>equal TO</em> is automatically set to 512 pixels"
+msgstr "Az <strong>avatár</strong> típusnál előre lehet tölteni egy képet, az URLjét megadva <em>Érték</em>nek; 'min,pontos,max méret' KiB; <em>Legyen egyenő ezzel</em> automatikusan 512 képontra lesz állítva"
+
+#: ../cimy_uef_admin.php:594
+msgid "With <strong>file</strong>: you can preload a default file putting url in <em>Value</em>; 'min,exact,max size' are in KB; under <em>equal TO</em> can be specified allowed extensions separated by comma, example: zip,pdf,doc"
+msgstr "A <strong>fájl</strong> típusnál előre ki lehet választani egy fájlt, az urljét megadva <em>Érték</em>nek; 'min,pontos,max méret' KiB; A <em>Legyen egyenlő ezzel</em> mezőben megadhatók az elfogadott kiterjesztések vesszővel elválasztva, például: zip,pdf,doc"
+
+#: ../cimy_uef_admin.php:595
+msgid "With <strong>date</strong>: you can preload a default date in <em>Value</em>; 'min date' can be relative: -1d, -1m, -1y or a specific date; 'max date' can be relative: +1d, +1m, +1y or a specific date; <em>equal TO</em> can be a specific date"
+msgstr "A <strong>dátum</strong> típusnál előre megadható egy dátum az <em>Érték</em> mezőben; A 'min dátum' lehet relatív: -1d, -1m, -1y vagy adott dátum; 'max dátum' lehet relatív: +1d, +1m, +1y vagy adott dátum; A <em>Legyen egyenlő ezzel</em> lehet adott dátum"
+
+#: ../cimy_uef_admin.php:602
+#: ../cimy_uef_admin.php:612
+#: ../cimy_uef_admin.php:834
+#: ../cimy_uef_admin.php:942
+#: ../cimy_uef_admin.php:1539
+#: ../cimy_uef_admin.php:1540
+msgid "Name"
+msgstr "Név"
+
+#: ../cimy_uef_admin.php:602
+#: ../cimy_uef_admin.php:613
+#: ../cimy_uef_admin.php:834
+#: ../cimy_uef_admin.php:945
+#: ../cimy_uef_admin.php:1850
+#: ../cimy_uef_admin.php:1855
+msgid "Value"
+msgstr "Érték"
+
+#: ../cimy_uef_admin.php:603
+#: ../cimy_uef_admin.php:616
+#: ../cimy_uef_admin.php:834
+#: ../cimy_uef_admin.php:948
+msgid "Type"
+msgstr "Típus"
+
+#: ../cimy_uef_admin.php:604
+#: ../cimy_uef_admin.php:632
+#: ../cimy_uef_admin.php:835
+#: ../cimy_uef_admin.php:965
+msgid "Label"
+msgstr "Címke"
+
+#: ../cimy_uef_admin.php:604
+#: ../cimy_uef_admin.php:633
+#: ../cimy_uef_admin.php:835
+#: ../cimy_uef_admin.php:968
+msgid "Description"
+msgstr "Leírás"
+
+#: ../cimy_uef_admin.php:605
+#: ../cimy_uef_admin.php:836
+msgid "Rules"
+msgstr "Szabályok"
+
+#: ../cimy_uef_admin.php:606
+#: ../cimy_uef_admin.php:837
+msgid "Actions"
+msgstr "Műveletek"
+
+#: ../cimy_uef_admin.php:627
+#: ../cimy_uef_admin.php:959
+#: ../cimy_uef_admin.php:1285
+#: ../cimy_uef_admin.php:1376
+msgid "Fieldset"
+msgstr "Mezőcsoport"
+
+#: ../cimy_uef_admin.php:649
+#: ../cimy_uef_admin.php:986
+msgid "Can be empty"
+msgstr "Lehet üres"
+
+#: ../cimy_uef_admin.php:651
+#: ../cimy_uef_admin.php:988
+msgid "Check for E-mail syntax"
+msgstr "Email formátum ellenőrzése"
+
+#: ../cimy_uef_admin.php:654
+#: ../cimy_uef_admin.php:991
+msgid "Can be modified"
+msgstr "Módosítható"
+
+#: ../cimy_uef_admin.php:655
+#: ../cimy_uef_admin.php:992
+msgid "Can be modified only if empty"
+msgstr "Csak akkor módosítható, ha üres"
+
+#: ../cimy_uef_admin.php:656
+#: ../cimy_uef_admin.php:993
+msgid "Can be modified only by admin"
+msgstr "Csak adminisztrátor módosíthatja"
+
+#: ../cimy_uef_admin.php:657
+#: ../cimy_uef_admin.php:994
+msgid "Can be modified only by admin or if empty"
+msgstr "Csak adminisztrátor módosíthatja, vagy más is ha üres"
+
+#: ../cimy_uef_admin.php:658
+#: ../cimy_uef_admin.php:995
+msgid "Cannot be modified"
+msgstr "Nem módosítható"
+
+#: ../cimy_uef_admin.php:663
+#: ../cimy_uef_admin.php:1001
+msgid "Should be equal TO"
+msgstr "Legyen egyenlő ezzel"
+
+#: ../cimy_uef_admin.php:666
+#: ../cimy_uef_admin.php:1004
+msgid "Case sensitive"
+msgstr "Betűméret számít"
+
+#: ../cimy_uef_admin.php:670
+#: ../cimy_uef_admin.php:1007
+msgid "Regular Expression"
+msgstr "Reguláris kifejezés"
+
+#: ../cimy_uef_admin.php:674
+#: ../cimy_uef_admin.php:1013
+msgid "Show the field in the registration"
+msgstr "Mező megjelenítése regisztrációnál"
+
+#: ../cimy_uef_admin.php:678
+#: ../cimy_uef_admin.php:1017
+msgid "Show the field in User's profile"
+msgstr "Mező megjelenítése a felhasználó profiljánál"
+
+#: ../cimy_uef_admin.php:682
+#: ../cimy_uef_admin.php:1027
+msgid "Show the field in Users Extended section"
+msgstr "Mező megjelenítése a Felhasználó kibővítése részen"
+
+#: ../cimy_uef_admin.php:686
+#: ../cimy_uef_admin.php:1031
+msgid "Show the field in the search engine"
+msgstr "Mező megjelenítése a kereső motorban"
+
+#: ../cimy_uef_admin.php:690
+#: ../cimy_uef_admin.php:1035
+msgid "Show the field in the blog"
+msgstr "Mező megjelenítése a blogon"
+
+#: ../cimy_uef_admin.php:693
+#: ../cimy_uef_admin.php:1038
+msgid "Show the field if the role is at least:"
+msgstr "Mező megjelenítése, ha a szerepkör legalább:"
+
+#: ../cimy_uef_admin.php:695
+#: ../cimy_uef_admin.php:1040
+msgid "Anonymous"
+msgstr "Névtelen"
+
+#: ../cimy_uef_admin.php:701
+#: ../cimy_uef_admin.php:1046
+msgid "User has 'view_cimy_extra_fields' capability"
+msgstr "Felhasználónak van 'view_cimy_extra_fields' képessége"
+
+#: ../cimy_uef_admin.php:707
+#: ../cimy_uef_admin.php:1055
+msgid "Send an email to the admin if the user changes its value"
+msgstr "Email küldése az admisztrátornak, ha a felhasználó módosítja az értékét"
+
+#: ../cimy_uef_admin.php:709
+#: ../cimy_uef_admin.php:1060
+msgid "Advanced options"
+msgstr "Haladó beállítások"
+
+#: ../cimy_uef_admin.php:714
+msgid "Clear"
+msgstr "Törlés"
+
+#: ../cimy_uef_admin.php:798
+msgid "Invert selection"
+msgstr "Kijelölés megfordítása"
+
+#: ../cimy_uef_admin.php:799
+msgid "Are you sure you want to delete field(s) and all data inserted into by users?"
+msgstr "Biztosan törölni szeretné a kijelölt mezőket, és minden felhasználók által ezekben megadott adatot?"
+
+#: ../cimy_uef_admin.php:805
+msgid "WordPress Fields"
+msgstr "WordPress mezők"
+
+#: ../cimy_uef_admin.php:807
+#: ../cimy_uef_admin.php:1850
+#: ../cimy_uef_admin.php:1855
+#: ../cimy_uef_options.php:367
+#: ../cimy_uef_db.php:115
+#: ../cimy_uef_db.php:369
+msgid "Extra Fields"
+msgstr "Extra mezők"
+
+#: ../cimy_uef_admin.php:818
+msgid "None!"
+msgstr "Nincs!"
+
+#: ../cimy_uef_admin.php:833
+#: ../cimy_uef_admin.php:930
+msgid "Order"
+msgstr "Sorrend"
+
+#: ../cimy_uef_admin.php:1064
+msgid "Reset"
+msgstr "Alapra"
+
+#: ../cimy_uef_admin.php:1130
+#: ../cimy_uef_options.php:391
+msgid "SUCCESSFUL"
+msgstr "SIKERES"
+
+#: ../cimy_uef_admin.php:1149
+#: ../cimy_uef_admin.php:1877
+msgid "select"
+msgstr "válasszon"
+
+#: ../cimy_uef_admin.php:1289
+#: ../cimy_uef_admin.php:1380
+msgid "Users per page"
+msgstr "Felhasználó/oldal"
+
+#: ../cimy_uef_admin.php:1291
+#: ../cimy_uef_admin.php:1382
+msgid "Apply"
+msgstr "Alkalmaz"
+
+#: ../cimy_uef_admin.php:1456
+#: ../cimy_uef_init.php:23
+#: ../cimy_uef_init.php:31
+#: ../cimy_uef_init.php:36
+msgid "Users Extended"
+msgstr "Cimy nézet"
+
+#: ../cimy_uef_admin.php:1464
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Keresési eredmények - „%s”"
+
+#: ../cimy_uef_admin.php:1502
+#, php-format
+msgid "%1$s <span class=\"count\">(%2$s)</span>"
+msgstr "%1$s <span class=\"count\">(%2$s)</span>"
+
+#: ../cimy_uef_admin.php:1511
+msgid "Search Users"
+msgstr "Felhasználók keresése"
+
+#: ../cimy_uef_admin.php:1549
+#: ../cimy_uef_admin.php:1550
+msgid "Role"
+msgstr "Szerepkör"
+
+#: ../cimy_uef_admin.php:1554
+#: ../cimy_uef_admin.php:1555
+#: ../cimy_user_extra_fields.php:328
+msgid "Website"
+msgstr "Weboldal"
+
+#: ../cimy_uef_admin.php:1559
+#: ../cimy_uef_admin.php:1560
+msgid "Posts"
+msgstr "Bejegyzések"
+
+#: ../cimy_uef_admin.php:1683
+msgid "View posts by this author"
+msgstr "A szerző bejegyzései"
+
+#: ../cimy_uef_admin.php:1708
+msgid "Super Admin"
+msgstr "Szuper-admin"
+
+#: ../cimy_uef_admin.php:1719
+#, php-format
+msgid "e-mail: %s"
+msgstr "E-mail: %s"
+
+#: ../cimy_uef_admin.php:1830
+msgid "Change"
+msgstr "Módosít"
+
+#: ../cimy_uef_admin.php:1846
+msgid "Update selected users"
+msgstr "Kiválasztott felhasználók frissítése"
+
+#: ../cimy_uef_admin.php:1867
+msgid "Update"
+msgstr "Frissítés"
+
+#: ../cimy_uef_admin.php:1882
+msgid "OK"
+msgstr "OK"
+
+#: ../cimy_uef_admin.php:1883
+msgid "Cancel"
+msgstr "Mégsem"
+
+#: ../cimy_uef_email_handler.php:45
+#, php-format
+msgid "New user registration on your site %s:"
+msgstr "Új felhasználó regisztrált a weboldalon %s:"
+
+#: ../cimy_uef_email_handler.php:46
+#: ../cimy_uef_email_handler.php:243
+#: ../cimy_uef_db.php:214
+#: ../cimy_uef_db.php:364
+#, php-format
+msgid "Username: %s"
+msgstr "Felhasználónév: %s"
+
+#: ../cimy_uef_email_handler.php:47
+#, php-format
+msgid "E-mail: %s"
+msgstr "Email: %s"
+
+#: ../cimy_uef_email_handler.php:52
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[%s] új felhasználó regisztrált"
+
+#: ../cimy_uef_email_handler.php:64
+#, php-format
+msgid "[%s] Your username and password"
+msgstr "[%s] A felhasználóneve és jelszava"
+
+#: ../cimy_uef_email_handler.php:105
+#: ../cimy_uef_email_handler.php:118
+#: ../cimy_uef_email_handler.php:131
+#: ../cimy_uef_email_handler.php:137
+#, php-format
+msgid "%s: %s"
+msgstr "%s: %s"
+
+#: ../cimy_uef_email_handler.php:211
+#, php-format
+msgid ""
+"To activate your user, please click the following link:\n"
+"\n"
+"%s\n"
+"\n"
+"After you activate, you will receive *another email* with your login.\n"
+"\n"
+msgstr ""
+"A felhasználó aktiválásához, kattintson a következő linkre:\n"
+"\n"
+"%s\n"
+"\n"
+"Aktiválás után, kapni fog *még egy emailt* a belépési adataival.\n"
+"\n"
+
+#: ../cimy_uef_email_handler.php:215
+#, php-format
+msgid "[%1$s] Activate %2$s"
+msgstr "[%1$s] Aktivál %2$s"
+
+#: ../cimy_uef_email_handler.php:234
+#: ../cimy_uef_email_handler.php:243
+msgid "Your account is now active!"
+msgstr "A fiókja mostantól aktív."
+
+#: ../cimy_uef_email_handler.php:235
+#, php-format
+msgid "Your site at <a href=\"%1$s\">%2$s</a> is active. You may now log in to your site using your chosen username of &#8220;%3$s&#8221;.  Please check your email inbox at %4$s for your password and login instructions.  If you do not receive an email, please check your junk or spam folder.  If you still do not receive an email within an hour, you can <a href=\"%5$s\">reset your password</a></p>."
+msgstr "A weboldal <a href=\"%1$s\">%2$s</a> címen aktív. Beléphez a választott felhasználónével „%3$s”. Jelszavát elküldtük emailben %4$s címre. Ha nem kapta meg, kérjük, nézze meg a spam mappában is. Ha így se kapja meg az emailt egy órán belül, akkor <a href=\"%5$s\">módosíthatja jelszavát</a></p>."
+
+#: ../cimy_uef_email_handler.php:237
+msgid "An error occurred during the activation"
+msgstr "Hiba történt az aktiváció során."
+
+#: ../cimy_uef_email_handler.php:243
+#: ../cimy_uef_db.php:215
+#: ../cimy_uef_db.php:365
+#, php-format
+msgid "Password: %s"
+msgstr "Jelszó: %s"
+
+#: ../cimy_uef_email_handler.php:257
+msgid "Invalid activation key."
+msgstr "Érvénytelen aktivációs kulcs."
+
+#: ../cimy_uef_email_handler.php:260
+msgid "The site is already active."
+msgstr "Ez az oldal már aktív."
+
+#: ../cimy_uef_email_handler.php:283
+msgid "Could not create user"
+msgstr "Nem sikerült a felhasználó létrehozása"
+
+#: ../cimy_uef_email_handler.php:295
+msgid "That username is already activated."
+msgstr "Ez a felhasználónév már aktív."
+
+#: ../cimy_uef_email_handler.php:315
+msgid "That username is currently reserved but may be available in a couple of days."
+msgstr "Ez a felhasználónév jelenleg foglalt, de pár nap múlva elérhető lehet."
+
+#: ../cimy_uef_email_handler.php:318
+msgid "username and email used"
+msgstr "felhasználónév és email használva"
+
+#: ../cimy_uef_email_handler.php:328
+msgid "That email address has already been used. Please check your inbox for an activation email. It will become available in a couple of days if you do nothing."
+msgstr "Ez az emailcím már foglalt. Kérem, nézze meg a bejövő levelei közt az aktivációs emailt. pár nap múlva szabaddá válik, ha nem csinál semmit."
+
+#: ../cimy_uef_profile.php:138
+msgid "(required)"
+msgstr "(szükséges)"
+
+#: ../cimy_uef_profile.php:445
+msgid "Delete the file"
+msgstr "Fájl törlése"
+
+#: ../cimy_uef_profile.php:446
+msgid "Update the file"
+msgstr "Fájl feltöltése"
+
+#: ../cimy_uef_profile.php:449
+#: ../cimy_uef_options.php:545
+msgid "Delete the picture"
+msgstr "Kép törlése"
+
+#: ../cimy_uef_profile.php:450
+msgid "Update the picture"
+msgstr "Kép feltöltése"
+
+#: ../cimy_uef_profile.php:470
+msgid "Picture URL:"
+msgstr "Kép URL:"
+
+#: ../cimy_uef_profile.php:723
+#, php-format
+msgid "%s previous value: %s new value: %s"
+msgstr "%s előző értéke: „%s”, új értéke: „%s”"
+
+#: ../cimy_uef_profile.php:738
+#, php-format
+msgid "%s (%s) has changed one or more fields"
+msgstr "%s (%s) módosított egy vagy több mező értékén"
+
+#: ../cimy_uef_init.php:21
+#: ../cimy_uef_options.php:364
+#: ../cimy_uef_options.php:559
+msgid "Options"
+msgstr "Beállítások"
+
+#: ../cimy_uef_options.php:52
+msgid "WordPress Fields table emptied"
+msgstr "WordPress mezők tábla kiürítve"
+
+#: ../cimy_uef_options.php:57
+msgid "WordPress Fields table deleted"
+msgstr "WordPress mezők tábla törölve"
+
+#: ../cimy_uef_options.php:66
+msgid "Extra Fields table emptied"
+msgstr "Extra mezők tábla kiürítve"
+
+#: ../cimy_uef_options.php:71
+msgid "Extra Fields table deleted"
+msgstr "Extra mezők tábla törölve"
+
+#: ../cimy_uef_options.php:80
+msgid "Users Data table emptied"
+msgstr "Felhasználók adat tábla kiürítve"
+
+#: ../cimy_uef_options.php:85
+msgid "Users Data table deleted"
+msgstr "Felhasználók adat tábla törölve"
+
+#: ../cimy_uef_options.php:96
+msgid "Options set to default values"
+msgstr "Opciók visszaállítva alapra"
+
+#: ../cimy_uef_options.php:102
+msgid "Options deleted"
+msgstr "Opciók törölve"
+
+#: ../cimy_uef_options.php:256
+msgid "Options changed"
+msgstr "Opciók módosítva"
+
+#: ../cimy_uef_options.php:355
+msgid "This operation will create/update all missing tables/options, do you want to proceed?"
+msgstr "Ez a művelet létrehozza/frissíti az összes hiányzó táblát/opciót, folytatja?"
+
+#: ../cimy_uef_options.php:373
+msgid "Support the Cimy Project"
+msgstr "Támogassa a Cimy projektet"
+
+#: ../cimy_uef_options.php:381
+msgid "This plug-in is the results of hours of development to add new features, support new WordPress versions and fix bugs, please donate money if saved you from spending all these hours!"
+msgstr "Ez a bővítmény sok órányi fejlesztés eredménye. Új képességek, WordPress verziókövetés, hibajavítások. Ha megspóroltam Önnek némi időt, akkor kérem támogasson!"
+
+#: ../cimy_uef_options.php:405
+#: ../cimy_uef_options.php:799
+msgid "Save Changes"
+msgstr "Módosítások mentése"
+
+#: ../cimy_uef_options.php:406
+msgid "General"
+msgstr "Általános"
+
+#: ../cimy_uef_options.php:414
+msgid "installed is"
+msgstr "telepítve:"
+
+#: ../cimy_uef_options.php:418
+msgid "OPTIONS DELETED!"
+msgstr "OPCIÓK TÖRÖLVE!"
+
+#: ../cimy_uef_options.php:421
+#: ../cimy_uef_options.php:426
+msgid "Fix the problem"
+msgstr "Probléma javítása"
+
+#: ../cimy_uef_options.php:424
+msgid "VERSIONS MISMATCH! This because you haven't de-activated and re-activated the plug-in after the update! This could give problems..."
+msgstr "VERZIÓK ELTÉRNEK! Ez azért van, mert frissítés után nem lett ki- és bekapcsolva a bővítmény. Ez problémákat okozhat..."
+
+#: ../cimy_uef_options.php:432
+msgid "Picture/Avatar upload"
+msgstr "Kép/avatár feltöltés"
+
+#: ../cimy_uef_options.php:436
+msgid "is created and writable"
+msgstr "létezik és írható"
+
+#: ../cimy_uef_options.php:438
+msgid "is NOT created or webserver does NOT have permission to write on it"
+msgstr "NEM létezik vagy NEM írható"
+
+#: ../cimy_uef_options.php:445
+msgid "Show all fields in the welcome email"
+msgstr "Minden mező legyen benn az üdvözlő emailben"
+
+#: ../cimy_uef_options.php:449
+msgid "the email sent to the admin and to the user upon registration will have all fields"
+msgstr "Az adminisztrátornak és a felhasználónak regisztrációkor küldött levél tartalmazza az összes mezőt."
+
+#: ../cimy_uef_options.php:457
+msgid "Enable email confirmation"
+msgstr "Emailcím megerősítése"
+
+#: ../cimy_uef_options.php:461
+msgid "user that registers should confirm its email address via a link click"
+msgstr "A regisztráló felhasználóknak meg kell erősíteniük a címüket, az emailben kiküldött linkre kattintva."
+
+#: ../cimy_uef_options.php:463
+msgid "<strong>note:</strong> this option turned on will automatically disable (only during the registration) all upload fields: file, picture, avatar"
+msgstr "<strong>Megjegyzés:</strong> ezen opció használata esetén a regisztrációs űrlapon le lesznek tiltva a feltöltő mezők: fájl, kép, avatár."
+
+#: ../cimy_uef_options.php:470
+msgid "Enable form confirmation"
+msgstr "Űrlap elküldésének megerősítése"
+
+#: ../cimy_uef_options.php:474
+msgid "a summary of the registration form will be presented to the user"
+msgstr "A regisztrációs űrlap elküldése előtt a felhasználó átnézheti a megadott adatokat."
+
+#: ../cimy_uef_options.php:480
+msgid "Customize welcome email sent to the new user"
+msgstr "Regisztrációs üdvözlő levél testreszabása"
+
+#: ../cimy_uef_options.php:484
+msgid "if you change or remove the placeholders then the email won't have the correct information"
+msgstr "Ha módosítja vagy eltávolítja a helyörzőket (USERNAME, PASSWORD, LOGINLINK), akkor ezek az adatok nem lesznek benne az emailben."
+
+#: ../cimy_uef_options.php:490
+msgid "Redirect to the source"
+msgstr "Átirányítás a kiindulási helyre"
+
+#: ../cimy_uef_options.php:494
+msgid "after the registration or confirmation the user will be redirected to the address where was exactly before clicking on the registration link"
+msgstr "A regisztráció (vagy megerősítés) után a felhasználó átirányításra kerül a regisztrációs linket kartalmazó oldalra."
+
+#: ../cimy_uef_options.php:502
+msgid "No captcha"
+msgstr "Nem kell captcha"
+
+#: ../cimy_uef_options.php:510
+msgid "Enable <a href=\"http://www.google.com/recaptcha\" target=\"_blank\">reCAPTCHA</a>"
+msgstr "Legyen <a href=\"http://www.google.com/recaptcha\" target=\"_blank\">reCAPTCHA</a>"
+
+#: ../cimy_uef_options.php:514
+msgid "Public KEY"
+msgstr "Nyilvános kulcs"
+
+#: ../cimy_uef_options.php:518
+msgid "Private KEY"
+msgstr "Titkos kulcs"
+
+#: ../cimy_uef_options.php:526
+msgid "Enable <a href=\"http://www.phpcaptcha.org/\" target=\"_blank\">Securimage Captcha</a>"
+msgstr "Legyen <a href=\"http://www.phpcaptcha.org/\" target=\"_blank\">Securimage Captcha</a>"
+
+#: ../cimy_uef_options.php:529
+msgid "This captcha is probably weaker, but is easier for users"
+msgstr "Ezt könnyebb kitalálni a robotoknak, de az embereknek is."
+
+#: ../cimy_uef_options.php:533
+#, php-format
+msgid "<strong>WARNING: to activate this captcha download <a href=\"http://www.phpcaptcha.org/latest.zip\" target=\"_blank\">this package</a> and unpack it under %s</strong>"
+msgstr "<strong>FIGYELEM: ehhez captcha-hoz töltse le <a href=\"http://www.phpcaptcha.org/latest.zip\" target=\"_blank\">ezt a csomagot</a> és csomagolja ki ide: %s</strong>"
+
+#: ../cimy_uef_options.php:540
+msgid "Change login/registration page logo"
+msgstr "Belépés/regisztrációs oldali logó cseréje"
+
+#: ../cimy_uef_options.php:548
+msgid "Maximum recommended logo width is 328px, but any height should work."
+msgstr "A maximális ajánlott szélesség 328px, a magasság nem számít."
+
+#: ../cimy_uef_options.php:554
+msgid "Database"
+msgstr "Adatbázis"
+
+#: ../cimy_uef_options.php:566
+#: ../cimy_uef_options.php:586
+#: ../cimy_uef_options.php:606
+#: ../cimy_uef_options.php:626
+msgid "select action"
+msgstr "válasszon műveletet"
+
+#: ../cimy_uef_options.php:567
+msgid "Default values"
+msgstr "Alapértékek"
+
+#: ../cimy_uef_options.php:568
+#: ../cimy_uef_options.php:588
+#: ../cimy_uef_options.php:608
+#: ../cimy_uef_options.php:628
+msgid "Delete"
+msgstr "Törlés"
+
+#: ../cimy_uef_options.php:572
+#: ../cimy_uef_options.php:592
+#: ../cimy_uef_options.php:612
+#: ../cimy_uef_options.php:633
+msgid "NOT PRESENT"
+msgstr "NEM LÉTEZIK"
+
+#: ../cimy_uef_options.php:579
+msgid "WordPress Fields table"
+msgstr "WordPress mezők tábla"
+
+#: ../cimy_uef_options.php:587
+#: ../cimy_uef_options.php:607
+#: ../cimy_uef_options.php:627
+msgid "Empty"
+msgstr "Kiürít"
+
+#: ../cimy_uef_options.php:599
+msgid "Extra Fields table"
+msgstr "Extra mezők tábla"
+
+#: ../cimy_uef_options.php:619
+msgid "Users Data table"
+msgstr "Felhasználói adatok tábla"
+
+#: ../cimy_uef_options.php:630
+msgid "all data inserted by users in all and only extra fields"
+msgstr "minden felhasználók által felvitt adat az extra mezőknél"
+
+#: ../cimy_uef_options.php:640
+msgid "Force tables creation"
+msgstr "Tábla létrehozás mindenképpen"
+
+#: ../cimy_uef_options.php:644
+msgid "equivalent to de-activate and activate the plug-in; no other operation will be performed"
+msgstr "Azonos a bővítmény ki- és bekapcsolásával. Semilyen más művelet nem lesz végrehajtva."
+
+#: ../cimy_uef_options.php:650
+msgid "User Profile"
+msgstr "Felhasználói profil"
+
+#: ../cimy_uef_options.php:653
+msgid "Extra Fields section title"
+msgstr "Extra mezők rész címe"
+
+#: ../cimy_uef_options.php:657
+msgid "Fieldset's titles, separates with comma"
+msgstr "Mezőcsoport címek, vesszővel elválasztva"
+
+#: ../cimy_uef_options.php:657
+msgid "example: title1,title2,title3"
+msgstr "Példa: cím 1, cím 2, cím 3"
+
+#: ../cimy_uef_options.php:658
+msgid "<strong>note:</strong> if you change order or remove fieldsets you may need to set all extra fields' fieldset assigment again"
+msgstr "<strong>Megjegyzés:</strong> sorrend módosításkor és mezőcsoport törléskor, esetleg újra be kell sorolni az extra mezőket a mezőcsoportokba."
+
+#: ../cimy_uef_options.php:663
+msgid "Authors &amp; Users Extended"
+msgstr "Szerzők és felhasználók kiegészítése"
+
+#: ../cimy_uef_options.php:668
+msgid "Hide username field"
+msgstr "Felhasználónév mező elrejtése"
+
+#: ../cimy_uef_options.php:675
+msgid "Hide name field"
+msgstr "Név mező elrejtése"
+
+#: ../cimy_uef_options.php:682
+msgid "Hide email field"
+msgstr "Email mező elrejtése"
+
+#: ../cimy_uef_options.php:689
+msgid "Hide role field"
+msgstr "Szerepkör mező elrejtése"
+
+#: ../cimy_uef_options.php:696
+msgid "Hide website field"
+msgstr "Weboldal mező elrejtése"
+
+#: ../cimy_uef_options.php:703
+msgid "Hide n. posts field"
+msgstr "n. bejegyzés mező elrejtése"
+
+#: ../cimy_uef_options.php:709
+msgid "WordPress hidden fields"
+msgstr "WordPress rejtett mezők"
+
+#: ../cimy_uef_options.php:715
+msgid "Show username"
+msgstr "Felhasználónév megjelenítése"
+
+#: ../cimy_uef_options.php:717
+msgid "when unchecked the email address will be used as username"
+msgstr "Ha nincs bejelölve, akkor az emailcím lesz felhasználónévnek használva."
+
+#: ../cimy_uef_options.php:723
+msgid "Show password"
+msgstr "Jelszó megjelenítése"
+
+#: ../cimy_uef_options.php:730
+msgid "Show confirmation password"
+msgstr "Jelszó mégegyszer megjelenítése"
+
+#: ../cimy_uef_options.php:737
+msgid "Show password strength meter"
+msgstr "Jelszó erősség mérő megjelenítése"
+
+#: ../cimy_uef_options.php:744
+msgid "Show first name"
+msgstr "Keresztnév megjelenítése"
+
+#: ../cimy_uef_options.php:751
+msgid "Show last name"
+msgstr "Családnév megjelenítése"
+
+#: ../cimy_uef_options.php:758
+msgid "Show nickname"
+msgstr "Becenév megjelenítése"
+
+#: ../cimy_uef_options.php:765
+msgid "Show website"
+msgstr "Weboldal megjelenítése"
+
+#: ../cimy_uef_options.php:772
+msgid "Show AIM"
+msgstr "AIM megjelenítése"
+
+#: ../cimy_uef_options.php:779
+msgid "Show Yahoo IM"
+msgstr "Yahoo IM megjelenítése"
+
+#: ../cimy_uef_options.php:786
+msgid "Show Jabber / Google Talk"
+msgstr "Jabber / Google Talk megjelenítése"
+
+#: ../cimy_uef_options.php:793
+msgid "Show Biographical Info"
+msgstr "Életrajz megjelenítése"
+
+#: ../cimy_uef_missing_functions.php:16
+#, php-format
+msgid "File '%s' doesn't exist?"
+msgstr "A fájl '%s' nem létezik?"
+
+#: ../cimy_uef_missing_functions.php:19
+msgid "The GD image library is not installed."
+msgstr "A GD kép könyvtár nincs telepítve."
+
+#: ../cimy_uef_missing_functions.php:26
+#, php-format
+msgid "File '%s' is not an image."
+msgstr "A fájl '%s' nem kép."
+
+#: ../cimy_uef_db.php:207
+msgid "<strong>Note:</strong> this website let you personalize your password; after the registration you will receive an e-mail with another password, do not care about that!"
+msgstr "<strong>Megjegyzés:</strong> ez a weboldal engedi a jelszó módosítását; a regisztráció után kap egy e-mailt egy másik jelszóval, ne is törődjön vele!"
+
+#: ../cimy_user_extra_fields.php:218
+msgid "Password"
+msgstr "Jelszó"
+
+#: ../cimy_user_extra_fields.php:240
+msgid "Password confirmation"
+msgstr "Jelszó még egyszer"
+
+#: ../cimy_user_extra_fields.php:262
+msgid "First name"
+msgstr "Utónév"
+
+#: ../cimy_user_extra_fields.php:284
+msgid "Last name"
+msgstr "Vezetéknév"
+
+#: ../cimy_user_extra_fields.php:306
+msgid "Nickname"
+msgstr "Becenév"
+
+#: ../cimy_user_extra_fields.php:350
+msgid "AIM"
+msgstr "AIM"
+
+#: ../cimy_user_extra_fields.php:372
+msgid "Yahoo IM"
+msgstr "Yahoo IM"
+
+#: ../cimy_user_extra_fields.php:394
+msgid "Jabber / Google Talk"
+msgstr "Jabber / Google Talk"
+
+#: ../cimy_user_extra_fields.php:416
+msgid "Biographical Info"
+msgstr "Életrajzi infó"
+
+#: ../cimy_uef_functions.php:429
+msgid "no fieldset"
+msgstr "nincs mezőcsoport"
+
+#: ../cimy_uef_functions.php:433
+msgid "All"
+msgstr "Mind"
+
+#: ../cimy_uef_functions.php:1033
+msgid "Done"
+msgstr "Kész"
+
+#: ../cimy_uef_functions.php:1034
+msgid "&laquo; Previous"
+msgstr "&laquo; előző"
+
+#: ../cimy_uef_functions.php:1035
+msgid "Next &raquo;"
+msgstr "következő &raquo;"
+
+#: ../cimy_uef_functions.php:1036
+msgid "Today"
+msgstr "Ma"
+
+#: ../cimy_uef_functions.php:1039
+msgid "Select Month"
+msgstr "Hónap választása"
+

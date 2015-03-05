@@ -1,0 +1,1249 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cimy User Extra Fields\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-28 06:19-0800\n"
+"PO-Revision-Date: 2013-09-28 06:19-0800\n"
+"Last-Translator: Marco Cimmino <cimmino.marco@gmail.com>\n"
+"Language-Team:  <pik256@gmail.com>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
+"X-Poedit-SearchPath-0: /var/www/wp-content/plugins/cimy-user-extra-fields\n"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:479
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:483
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:497
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:517
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:529
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:542
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:553
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:563
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:568
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:579
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:584
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:595
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:600
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:641
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:649
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1112
+msgid "ERROR"
+msgstr "CHYBA"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:479
+msgid "does not match."
+msgstr "nesouhlasí."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:483
+msgid "hasn&#8217;t a correct email syntax."
+msgstr "e-mail namá správný formát"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:497
+msgid "couldn&#8217;t be empty."
+msgstr "nemůže být prázdný"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:516
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:525
+msgid "isn&#8217;t correct"
+msgstr "není správný"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:522
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1026
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1029
+msgid "YES"
+msgstr "ANO"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:522
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1026
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1029
+msgid "NO"
+msgstr "NE"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:527
+msgid "should be"
+msgstr "by měl být"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:542
+msgid "should be an image."
+msgstr "by měl být obrázek."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:553
+msgid "does not accept this file type."
+msgstr "tento typ souboru není akceptován."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:563
+msgid "couldn&#8217;t have size less than"
+msgstr "nemůže být menší něž"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:568
+msgid "couldn&#8217;t have length less than"
+msgstr "nemůže být menší než"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:579
+msgid "couldn&#8217;t have size different than"
+msgstr "nemůže mít rozměr jiný než"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:584
+msgid "couldn&#8217;t have length different than"
+msgstr "nemůže mít délku jinou než"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:595
+msgid "couldn&#8217;t have size more than"
+msgstr "nemůže mít velikost více než"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:600
+msgid "couldn&#8217;t have length more than"
+msgstr "nemůže mít délku více než"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:641
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:649
+msgid "Typed code is not correct."
+msgstr "Nespávně napsaný kód."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:719
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1534
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1535
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:196
+msgid "Username"
+msgstr "Uživatelské jméno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:746
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1544
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1545
+msgid "E-mail"
+msgstr "E-mail"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1000
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_profile.php:310
+msgid "Please upload a file with one of the following extensions"
+msgstr "Prosím nahrajte soubor typu daného jednou z následující koncovek"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1006
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_profile.php:316
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:282
+msgid "Please upload an image with one of the following extensions"
+msgstr "Prosím nahrajte obrázek typu daného jednou z následující koncovek"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1185
+msgid "Strength indicator"
+msgstr "Indikátor síly"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1186
+msgid "Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr "Nápověda: Heslo by mělo být alespoň sedm znaků dlouhé. Pro jeho posílení použijte velká a malá písmena, čísla a speciální symboly jako ! \" ? $ % ^ &amp; )."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1225
+msgid "Change image"
+msgstr "Změnit obrázek"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1228
+msgid "Insert the code:"
+msgstr "Zadejte kód:"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1300
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1302
+msgid "Confirm your registration"
+msgstr "Potvrďte svoji registraci"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1308
+msgid "A password will be e-mailed to you."
+msgstr "Heslo Vám bude odesláno e-mailem."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_register.php:1316
+msgid "&larr; Back"
+msgstr "&larr; Zpět"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:17
+msgid "Add field"
+msgstr "Přidat pole"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:18
+msgid "Update field"
+msgstr "Aktualizuj pole"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:19
+msgid "Delete field"
+msgstr "Smazat pole"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:20
+msgid "Delete selected fields"
+msgstr "Smazat vybrané položky"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:21
+msgid "Change order"
+msgstr "Změnit pořadí"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:30
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:916
+msgid "Min length"
+msgstr "Minimální délka"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:31
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:917
+msgid "Exact length"
+msgstr "Přesná délka"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:32
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:918
+msgid "Max length"
+msgstr "Maximální délka"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:33
+msgid "Exact or Max length"
+msgstr "Přesná nebo Maximální délka"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:133
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_init.php:22
+msgid "Fields"
+msgstr "Pole"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:133
+msgid "changed to"
+msgstr "změnit na"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:136
+msgid "You cannot give an order that misses some numbers"
+msgstr "Nemůžete zadat pořadí vynechávající některá čísla"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:139
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:214
+msgid "Nothing selected"
+msgstr "Nic není vybráno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:211
+msgid "Field(s)"
+msgstr "Pole"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:211
+msgid "deleted correctly"
+msgstr "úspěšně smazáno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:245
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:898
+msgid "Min size"
+msgstr "Minimální rozměr"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:246
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:899
+msgid "Exact size"
+msgstr "Přesný rozměr"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:247
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:900
+msgid "Max size"
+msgstr "Maximální rozměr"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:249
+msgid "Exact or Max size"
+msgstr "Přesný nebo Maximální rozměr"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:252
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:907
+#, fuzzy
+msgid "Min date"
+msgstr "Minimální rozměr"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:253
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:908
+#, fuzzy
+msgid "Exact date"
+msgstr "Přesný rozměr"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:254
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:909
+#, fuzzy
+msgid "Max date"
+msgstr "Maximální rozměr"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:315
+msgid "Name not specified"
+msgstr "Jmeno není specifikováno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:317
+msgid "Name cannot contains spaces"
+msgstr "Jméno nemůže obsahovat mezery"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:320
+msgid "Label not specified"
+msgstr "Popisek neni specifikován"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:325
+msgid "not selected (with this type is necessary)"
+msgstr "není vybráno (nezbytné s tímto typem)"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:331
+msgid "If you select"
+msgstr "Pokud jste vybrali"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:331
+msgid "you cannot select Min or Max"
+msgstr "nemůžete vybrat Min nebo Max"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:337
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:342
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:347
+msgid "should be in the range of"
+msgstr "by měl být v rozsahu "
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:358
+msgid "Equal TO not specified"
+msgstr "Rovný (=) není specifikován"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:361
+msgid "With checkbox type Equal TO can only be"
+msgstr "Pouze společně s checkboxem Rovný (=)"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:364
+msgid "With radio type Equal TO can only be"
+msgstr "Pouze společně s radio button Rovný (=)"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:380
+msgid "With checkbox type Value can only be"
+msgstr "Pouze společně s checkboxem Hodnota"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:383
+msgid "With radio type Value can only be"
+msgstr "Pouze společne s radio buttonem Hodnota"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:439
+msgid "Field inserted correctly"
+msgstr "Pole bylo správně vloženo"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:441
+msgid "Field #"
+msgstr "Pole #"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:441
+msgid "updated correctly"
+msgstr "správně aktualizováno "
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:453
+msgid "Name inserted is just in the database, change to another one"
+msgstr "Zadané jméno je již v databázi, zvolte prosím jiné"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:468
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:367
+msgid "Add a new Field"
+msgstr "Přidat nové pole"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:586
+msgid "To add a new field you have to choose a name, type and label; optional are value and description. Rules are applied during user registration."
+msgstr "Pro přidání nového pole musíte vybrat jméno, typ a označení. Volitelně zadejte hodnotu a popis. Pravidla jsou použita během registrace uživatele."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:588
+msgid "With <strong>radio</strong> and <strong>checkbox</strong>: <em>Value</em> and <em>equal TO</em> can only be 'Yes' or 'No' that means 'selected' or 'not selected'"
+msgstr "Pro <strong>radio button</strong> a <strong>checkbox</strong>: <em>Hodnota</em> a <em>Rovný</em> může být pouze 'Yes' nebo 'No', což znamená 'vybráno' nebo 'nevybráno'"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:589
+msgid "With <strong>drop-down</strong>: you have to add all options into label for example: label/item1,item2,item3"
+msgstr "Pro <strong>seznam (drop-down)</strong>: musíte přidat všechny možnosti do označení, například: položka1,položka2,položka3"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:590
+msgid "With <strong>picture</strong>: you can preload a default image putting url in <em>Value</em>; 'min,exact,max size' are in KB; <em>equal TO</em> means max pixel size (width or height) for thumbnail"
+msgstr "Pro <strong>obrázky</strong>: můžete nahrát výchozí obrázek zadáním URL do <em>Hodnota</em>; 'Min,Přesná,Max rozměr' jsou v KB; <em>Rovný</em> vyjadřuje maximální rozměr v pixelech (šířka nebo výška) pro náhled"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:591
+msgid "With <strong>picture-url</strong>: you can preload a default image putting url in <em>Value</em>; <em>equal TO</em> means max width pixel size (height will be proportional)"
+msgstr "Pro <strong>url-obrázku</strong>: můžete nahrát výchozí obrázek zadáním URL do <em>Hodnota</em>; <em>Rovný</em> vyjadřuje maximální šířku v pixelech (výška bude proporcionální)"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:592
+msgid "With <strong>registration-date</strong>: <em>equal TO</em> means date and time format"
+msgstr "Pro <strong>datum registrace</strong>: <em>Rovné</em> vyjadřuje formát data a času"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:593
+msgid "With <strong>avatar</strong>: you can preload a default image putting url in <em>Value</em>; 'min,exact,max size' are in KB; <em>equal TO</em> is automatically set to 512 pixels"
+msgstr "Pro <strong>avatara</strong>: můžete nahrát výchozí obrázek zadáním url do <em>Hodnota</em>; 'Min,Přesný,Max rozměr' jsou v KB; <em>Rovný</em> je automaticky nastaven na 512 pixelů."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:594
+msgid "With <strong>file</strong>: you can preload a default file putting url in <em>Value</em>; 'min,exact,max size' are in KB; under <em>equal TO</em> can be specified allowed extensions separated by comma, example: zip,pdf,doc"
+msgstr "Pro <strong>soubor</strong>: můžete nahrát výchozí soubor zadáním url do <em>Hodnota</em>; 'Min,Přesný,Max rozměr' jsou v KB; pod <em>Rovný</em> může být specifikovány povolené koncovky například: zip,pdf,doc"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:595
+#, fuzzy
+msgid "With <strong>date</strong>: you can preload a default date in <em>Value</em>; 'min date' can be relative: -1d, -1m, -1y or a specific date; 'max date' can be relative: +1d, +1m, +1y or a specific date; <em>equal TO</em> can be a specific date"
+msgstr "Pro <strong>avatara</strong>: můžete nahrát výchozí obrázek zadáním url do <em>Hodnota</em>; 'Min,Přesný,Max rozměr' jsou v KB; <em>Rovný</em> je automaticky nastaven na 512 pixelů."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:602
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:612
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:834
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:942
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1539
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1540
+msgid "Name"
+msgstr "Název"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:602
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:613
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:834
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:945
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1850
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1855
+msgid "Value"
+msgstr "Hodnota"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:603
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:616
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:834
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:948
+msgid "Type"
+msgstr "Typ"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:604
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:632
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:835
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:965
+msgid "Label"
+msgstr "Označení"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:604
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:633
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:835
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:968
+msgid "Description"
+msgstr "Popis"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:605
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:836
+msgid "Rules"
+msgstr "Pravidla"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:606
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:837
+msgid "Actions"
+msgstr "Akce"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:627
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:959
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1285
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1376
+msgid "Fieldset"
+msgstr "Skupina polí"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:649
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:986
+msgid "Can be empty"
+msgstr "Může být prázdné"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:651
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:988
+msgid "Check for E-mail syntax"
+msgstr "Zkontrolovat formát e-mailu"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:654
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:991
+msgid "Can be modified"
+msgstr "Může být upraveno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:655
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:992
+msgid "Can be modified only if empty"
+msgstr "Může být upraven pouze pokud je prázdný"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:656
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:993
+msgid "Can be modified only by admin"
+msgstr "Může být upraven pouze administrátorem"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:657
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:994
+msgid "Can be modified only by admin or if empty"
+msgstr "Může být upraven pouze administrátorem nebou pokud je prázdný"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:658
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:995
+msgid "Cannot be modified"
+msgstr "Nelze upravit"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:663
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1001
+msgid "Should be equal TO"
+msgstr "Mělo by být rovné "
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:666
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1004
+msgid "Case sensitive"
+msgstr "Rozlišovat velikost písmen"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:670
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1007
+msgid "Regular Expression"
+msgstr "Regulární výraz"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:674
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1013
+msgid "Show the field in the registration"
+msgstr "Zobrazit pole při registraci"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:678
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1017
+msgid "Show the field in User's profile"
+msgstr "Zobrazit pole v uživatelském profilu"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:682
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1027
+msgid "Show the field in Users Extended section"
+msgstr "Zobrazit pole v sekci Uživatelská rozšíření"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:686
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1031
+msgid "Show the field in the search engine"
+msgstr "Zobrazit pole ve vyhledávání"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:690
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1035
+msgid "Show the field in the blog"
+msgstr "Zobrazit pole na blogu"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:693
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1038
+msgid "Show the field if the role is at least:"
+msgstr "Zobrazit pole v případě, že je role alespoň:"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:695
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1040
+msgid "Anonymous"
+msgstr "Anonym"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:701
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1046
+msgid "User has 'view_cimy_extra_fields' capability"
+msgstr "Uživatel má schopnost 'view_cimy_extra_fields'"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:707
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1055
+msgid "Send an email to the admin if the user changes its value"
+msgstr "Odeslat e-mail aministrátorovi v případě, že uživatel změní jeho hodnotu"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:709
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1060
+msgid "Advanced options"
+msgstr "Rozšířené možnosti"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:714
+msgid "Clear"
+msgstr "Smazat"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:798
+msgid "Invert selection"
+msgstr "Invertovat výběr"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:799
+msgid "Are you sure you want to delete field(s) and all data inserted into by users?"
+msgstr "Jste si jistý, že chcete smazat pole a všechna data vložená uživateli?"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:805
+msgid "WordPress Fields"
+msgstr "Wordpress pole"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:807
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1850
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1855
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:367
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_db.php:115
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_db.php:369
+msgid "Extra Fields"
+msgstr "Extra pole"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:818
+msgid "None!"
+msgstr "Žádný!"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:833
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:930
+msgid "Order"
+msgstr "Pořadí"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1064
+msgid "Reset"
+msgstr "Reset"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1130
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:391
+msgid "SUCCESSFUL"
+msgstr "ÚSPĚŠNÉ"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1149
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1877
+msgid "select"
+msgstr "vybrat"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1289
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1380
+msgid "Users per page"
+msgstr "Uživatelů na stránku"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1291
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1382
+msgid "Apply"
+msgstr "Použij"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1456
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_init.php:23
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_init.php:31
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_init.php:36
+msgid "Users Extended"
+msgstr "Uživatelská rozšíření"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1464
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Výsledek vyhledávání pro &#8220;%s&#8221;"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1502
+#, php-format
+msgid "%1$s <span class=\"count\">(%2$s)</span>"
+msgstr "%1$s <span class=\"count\">(%2$s)</span>"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1511
+msgid "Search Users"
+msgstr "Hledat uživatele"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1549
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1550
+msgid "Role"
+msgstr "Role"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1554
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1555
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:328
+msgid "Website"
+msgstr "Webová stránka"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1559
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1560
+msgid "Posts"
+msgstr "Příspěvky"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1683
+msgid "View posts by this author"
+msgstr "Zobrazit příspěvky tohoto autora"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1708
+msgid "Super Admin"
+msgstr "Super Admin"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1719
+#, php-format
+msgid "e-mail: %s"
+msgstr "e-mail: %s"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1830
+msgid "Change"
+msgstr "Změnit"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1846
+msgid "Update selected users"
+msgstr "Aktualizovat označeného uživatele"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1867
+msgid "Update"
+msgstr "Aktualizovat"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1882
+msgid "OK"
+msgstr "OK"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_admin.php:1883
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:45
+#, php-format
+msgid "New user registration on your site %s:"
+msgstr "Nově registrovaný uživatel na webu %s:"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:46
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:243
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_db.php:214
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_db.php:364
+#, php-format
+msgid "Username: %s"
+msgstr "Uživatelské jméno: %s"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:47
+#, php-format
+msgid "E-mail: %s"
+msgstr "E-mail: %s"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:52
+#, php-format
+msgid "[%s] New User Registration"
+msgstr "[%s] Nová uživatelská registrace"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:64
+#, php-format
+msgid "[%s] Your username and password"
+msgstr "[%s] Vaše jméno a heslo"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:105
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:118
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:131
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:137
+#, php-format
+msgid "%s: %s"
+msgstr "%s: %s"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:211
+#, php-format
+msgid ""
+"To activate your user, please click the following link:\n"
+"\n"
+"%s\n"
+"\n"
+"After you activate, you will receive *another email* with your login.\n"
+"\n"
+msgstr ""
+"Pro aktivaci Vašeho účtu prosím klikněte na následující odkaz:\n"
+"\n"
+"%s\n"
+"\n"
+"Po aktivaci obdržíte další e-mail s Vašimi přístupovými údaji\n"
+"\n"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:215
+#, php-format
+msgid "[%1$s] Activate %2$s"
+msgstr "[%1$s] Aktivujte účet %2$s"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:234
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:243
+msgid "Your account is now active!"
+msgstr "Váš účet je nýní aktivován!"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:235
+#, php-format
+msgid "Your site at <a href=\"%1$s\">%2$s</a> is active. You may now log in to your site using your chosen username of &#8220;%3$s&#8221;.  Please check your email inbox at %4$s for your password and login instructions.  If you do not receive an email, please check your junk or spam folder.  If you still do not receive an email within an hour, you can <a href=\"%5$s\">reset your password</a></p>."
+msgstr "Váš účet na <a href=\"%1$s\">%2$s</a> je aktivní. Nyní se můžete přihlásit na web za použití Vašeho uživatelského jména &#8220;%3$s&#8221;.  Prosím zkontrolujte Váš e-mailovou schránku na adrese %4$s. Pokud jste neobdrželi e-mail prosím zkontrolujte adresář s nevyžádanou poštou (spamem). Pokud jste i přesto žádný e-mail neobdrželi <a href=\"%5$s\">restartujte své heslo</a></p>."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:237
+msgid "An error occurred during the activation"
+msgstr "Běheme aktivace došlo k chybě"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:243
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_db.php:215
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_db.php:365
+#, php-format
+msgid "Password: %s"
+msgstr "Heslo: %s"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:257
+msgid "Invalid activation key."
+msgstr "Aktivační klíč není validní."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:260
+msgid "The site is already active."
+msgstr "Tento účet byl již aktivován."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:280
+msgid "Could not create user"
+msgstr "Není možné vytvořit uživatele"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:292
+msgid "That username is already activated."
+msgstr "Toto uživatelské jméno již bylo aktivováno."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:312
+msgid "That username is currently reserved but may be available in a couple of days."
+msgstr "Toto uživatelské jméno je momentálně rezervováno, ale je možné, že bude během několika dní k dispozici."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:315
+msgid "username and email used"
+msgstr "uživatelské jméno a e-mail je používán"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_email_handler.php:325
+msgid "That email address has already been used. Please check your inbox for an activation email. It will become available in a couple of days if you do nothing."
+msgstr "Tato e-mailová adresa je již používána. Prosím zkontrolujte Vaši schránku kvůli aktivačnímu e-mailu. Pokud nic neprovedete bude dostupná během několika dní."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_profile.php:144
+msgid "(required)"
+msgstr "(vyžadováno)"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_profile.php:454
+msgid "Delete the file"
+msgstr "Smazat soubor"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_profile.php:455
+msgid "Update the file"
+msgstr "Aktualizovat soubor"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_profile.php:458
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:545
+msgid "Delete the picture"
+msgstr "Smazat obrázek"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_profile.php:459
+msgid "Update the picture"
+msgstr "Aktulizovat obrázek"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_profile.php:479
+msgid "Picture URL:"
+msgstr "URL obrázku:"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_profile.php:735
+#, php-format
+msgid "%s previous value: %s new value: %s"
+msgstr "%s předchozí hodnota: %s nová hodnota: %s"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_profile.php:750
+#, php-format
+msgid "%s (%s) has changed one or more fields"
+msgstr "%s (%s) změnil jedno nebo více polí"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_init.php:21
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:364
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:559
+msgid "Options"
+msgstr "Možnosti"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:52
+msgid "WordPress Fields table emptied"
+msgstr "WordPress tabulka polí byla vyprázdněna"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:57
+msgid "WordPress Fields table deleted"
+msgstr "WordPress tabulka polí byla smazána"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:66
+msgid "Extra Fields table emptied"
+msgstr "Tabulka Extra polí byla vyprázdněna"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:71
+msgid "Extra Fields table deleted"
+msgstr "Tabulka Extra polí byla smazána"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:80
+msgid "Users Data table emptied"
+msgstr "Tabulka uživatelských dat byla vyprázdněna"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:85
+msgid "Users Data table deleted"
+msgstr "Tabulka uživateslkých dat byla smazána"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:96
+msgid "Options set to default values"
+msgstr "Nastavení změny do výchozích hodnot"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:102
+msgid "Options deleted"
+msgstr "Nastavení smazáno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:256
+msgid "Options changed"
+msgstr "Nastavení změneno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:355
+msgid "This operation will create/update all missing tables/options, do you want to proceed?"
+msgstr "Tato oprace vytvoří/aktualizuje všechný chybějící tabulky/možnosti. Chcete pokračovat?"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:373
+msgid "Support the Cimy Project"
+msgstr "Podpořte Cimy Project"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:381
+msgid "This plug-in is the results of hours of development to add new features, support new WordPress versions and fix bugs, please donate money if saved you from spending all these hours!"
+msgstr "Tento plug-in je výsledkem mnoha hodin vývojářské práce s cílem přidání nových funkcí, podpory nových verzí WordPressu a opravy chyb. Prosím podpořte finančně tento projekt, pokud Vám ušetřil čas!"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:405
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:799
+msgid "Save Changes"
+msgstr "Uložit změny"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:406
+msgid "General"
+msgstr "Obecné"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:414
+msgid "installed is"
+msgstr "je instalován"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:418
+msgid "OPTIONS DELETED!"
+msgstr "MOŽNOSTI SMAZÁNY!"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:421
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:426
+msgid "Fix the problem"
+msgstr "Opravit problém"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:424
+msgid "VERSIONS MISMATCH! This because you haven't de-activated and re-activated the plug-in after the update! This could give problems..."
+msgstr "VERZE NEJSOU SHODNÉ! Je to způsobené tím, že jste nedeaktivoval a nereaktivoval plug-in po aktualizaci! To může způsobovat problémy..."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:432
+msgid "Picture/Avatar upload"
+msgstr "Nahrání obrázku/avatara"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:436
+msgid "is created and writable"
+msgstr "je vytvořen a je zapisovatelný"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:438
+msgid "is NOT created or webserver does NOT have permission to write on it"
+msgstr "NEBYL vytvořen nebo webový server nemá oprávnění k zápisu"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:445
+msgid "Show all fields in the welcome email"
+msgstr "Zobrazit všechna pole v uvítacím e-mailu"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:449
+msgid "the email sent to the admin and to the user upon registration will have all fields"
+msgstr "e-mail odeslaný administrátorovi a uživateli během registrace bude obsahovat všechna tato pole"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:457
+msgid "Enable email confirmation"
+msgstr "Povolit potvrzení e-mailem"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:461
+msgid "user that registers should confirm its email address via a link click"
+msgstr "uživatel, jež se registruje, by měl potvrdit svoji e-mailovou adresu přes kliknutí na odkaz"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:463
+msgid "<strong>note:</strong> this option turned on will automatically disable (only during the registration) all upload fields: file, picture, avatar"
+msgstr "<strong>poznámka:</strong> zapnutím této volby budou automaticky zakázána (pouze během registrace) všechna nahrávací pole: soubor, obrázek, avatar"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:470
+msgid "Enable form confirmation"
+msgstr "Povolit potvrzení formuláře"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:474
+msgid "a summary of the registration form will be presented to the user"
+msgstr "souhrn registračního formuláře bude prezentován uživateli"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:480
+msgid "Customize welcome email sent to the new user"
+msgstr "Upravit uvítací e-mail zaslaný novému uživateli"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:484
+msgid "if you change or remove the placeholders then the email won't have the correct information"
+msgstr "pokud změníte nebo odstraníte všechny zástupné symboly, pak Váš e-mail nemusí obsahovat správné informace"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:490
+msgid "Redirect to the source"
+msgstr "Přesměrovat ke zdroji"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:494
+msgid "after the registration or confirmation the user will be redirected to the address where was exactly before clicking on the registration link"
+msgstr "po registraci nebo potvrzení bude uživatel přesměrován na adresu, kde byl přesně před kliknutím na registrační odkaz"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:502
+msgid "No captcha"
+msgstr "Bez captcha"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:510
+msgid "Enable <a href=\"http://www.google.com/recaptcha\" target=\"_blank\">reCAPTCHA</a>"
+msgstr "Povolit <a href=\"http://www.google.com/recaptcha\" target=\"_blank\">reCAPTCHA</a>"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:514
+msgid "Public KEY"
+msgstr "Veřejný klíč"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:518
+msgid "Private KEY"
+msgstr "Privátní klíč"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:526
+msgid "Enable <a href=\"http://www.phpcaptcha.org/\" target=\"_blank\">Securimage Captcha</a>"
+msgstr "Povolit <a href=\"http://www.phpcaptcha.org/\" target=\"_blank\">Securimage Captcha</a>"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:529
+msgid "This captcha is probably weaker, but is easier for users"
+msgstr "Tato captcha je pravděpodobně slabší, ale pro uživatele jednodušší"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:533
+#, php-format
+msgid "<strong>WARNING: to activate this captcha download <a href=\"http://www.phpcaptcha.org/latest.zip\" target=\"_blank\">this package</a> and unpack it under %s</strong>"
+msgstr "<strong>Varování: pro aktivaci této captcha stáhněte <a href=\"http://www.phpcaptcha.org/latest.zip\" target=\"_blank\">tento balíček</a> a rozbalte jej pod %s</strong>"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:540
+msgid "Change login/registration page logo"
+msgstr "Změnit logo na přihlašovací/registrační stránce"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:548
+msgid "Maximum recommended logo width is 328px, but any height should work."
+msgstr "Doporučená maximální šířka loga je 328px, měla by fungovat libovolná šířka."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:554
+msgid "Database"
+msgstr "Databáze"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:566
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:586
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:606
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:626
+msgid "select action"
+msgstr "vybrat akci"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:567
+msgid "Default values"
+msgstr "Výchozí hodnoty"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:568
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:588
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:608
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:628
+msgid "Delete"
+msgstr "Smazat"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:572
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:592
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:612
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:633
+msgid "NOT PRESENT"
+msgstr "NENÍ K DISPOZICI"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:579
+msgid "WordPress Fields table"
+msgstr "WordPress tabulka polí"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:587
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:607
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:627
+msgid "Empty"
+msgstr "Vyprázdnit"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:599
+msgid "Extra Fields table"
+msgstr "Tabulka extra polí"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:619
+msgid "Users Data table"
+msgstr "Tabulka uživatelských dat"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:630
+msgid "all data inserted by users in all and only extra fields"
+msgstr "všechna data vložena uživateli do všech výhradně extra polí"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:640
+msgid "Force tables creation"
+msgstr "Vynutit vytvoření tabulek"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:644
+msgid "equivalent to de-activate and activate the plug-in; no other operation will be performed"
+msgstr "ekvivalentní deaktivaci a aktivaci plug-inu; žádné další operace nebudou provedeny"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:650
+msgid "User Profile"
+msgstr "Profil uživatele"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:653
+msgid "Extra Fields section title"
+msgstr "Titulek sekce Extra pole "
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:657
+msgid "Fieldset's titles, separates with comma"
+msgstr "Názvy skupin polí, oddělte čárkami"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:657
+msgid "example: title1,title2,title3"
+msgstr "Příklad: název1,název2,název3"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:658
+msgid "<strong>note:</strong> if you change order or remove fieldsets you may need to set all extra fields' fieldset assigment again"
+msgstr "<strong>poznámka:</strong> pokud změníte pořadí nebo odstraníte skupiny polí je možné, že budete muset znovu nastavit přiřazení všech extra polí do jejich skupin"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:663
+msgid "Authors &amp; Users Extended"
+msgstr "Autoři &amp; Uživatelská rozšíření"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:668
+msgid "Hide username field"
+msgstr "Skrýt pole s uživatelským jménem"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:675
+msgid "Hide name field"
+msgstr "Skrýt pole jméno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:682
+msgid "Hide email field"
+msgstr "Skrýt pole e-mail"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:689
+msgid "Hide role field"
+msgstr "Skrýt pole role"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:696
+msgid "Hide website field"
+msgstr "Skrýt pole webová stránka"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:703
+msgid "Hide n. posts field"
+msgstr "Skrýt n-té pole příspěvku"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:709
+msgid "WordPress hidden fields"
+msgstr "WordPress skrytá pole"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:715
+msgid "Show username"
+msgstr "Zobrazit uživatelské jméno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:717
+msgid "when unchecked the email address will be used as username"
+msgstr "pokud není zaškrtnuto bude jako uživatelské jméno použita e-mailová adresa"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:723
+msgid "Show password"
+msgstr "Zobrazit heslo"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:730
+msgid "Show confirmation password"
+msgstr "Zobrazit potvrzení hesla"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:737
+msgid "Show password strength meter"
+msgstr "Zobrazit indikaci síly hesla"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:744
+msgid "Show first name"
+msgstr "Zobrazit první jméno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:751
+msgid "Show last name"
+msgstr "Zobrazit příjmení"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:758
+msgid "Show nickname"
+msgstr "Zobrazit přezdívku"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:765
+msgid "Show website"
+msgstr "Zobrazit webovou stránku"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:772
+msgid "Show AIM"
+msgstr "Zobrazit \"AIM\""
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:779
+msgid "Show Yahoo IM"
+msgstr "Zobrazit \"Yahoo IM\""
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:786
+msgid "Show Jabber / Google Talk"
+msgstr "Zobrazit \"Jabber / Google Talk\""
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_options.php:793
+msgid "Show Biographical Info"
+msgstr "Zobrazit bibliografické informace"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_missing_functions.php:16
+#, php-format
+msgid "File '%s' doesn't exist?"
+msgstr "Existuje soubor '%s'?"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_missing_functions.php:19
+msgid "The GD image library is not installed."
+msgstr "Knihovna obrázků GD není nainstalována"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_missing_functions.php:26
+#, php-format
+msgid "File '%s' is not an image."
+msgstr "Soubor '%s' není obrázek."
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_db.php:207
+msgid "<strong>Note:</strong> this website let you personalize your password; after the registration you will receive an e-mail with another password, do not care about that!"
+msgstr "<strong>Poznámka:</strong> tento web umožňuje přizpůsobit heslo. Po registraci obdržíte e-mail s jiným heslem, nestrarejte se o to!"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:218
+msgid "Password"
+msgstr "Heslo"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:240
+msgid "Password confirmation"
+msgstr "Potvrzení hesla"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:262
+msgid "First name"
+msgstr "První jméno"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:284
+msgid "Last name"
+msgstr "Příjmení"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:306
+msgid "Nickname"
+msgstr "Přezdívka"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:350
+msgid "AIM"
+msgstr "AIM"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:372
+msgid "Yahoo IM"
+msgstr "Yahoo IM"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:394
+msgid "Jabber / Google Talk"
+msgstr "Jabber / Google Talk"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_user_extra_fields.php:416
+msgid "Biographical Info"
+msgstr "Bibliografické informace"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_functions.php:429
+msgid "no fieldset"
+msgstr "žádná skupina polí"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_functions.php:433
+msgid "All"
+msgstr "Vše"
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_functions.php:1018
+msgid "Done"
+msgstr ""
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_functions.php:1019
+msgid "&laquo; Previous"
+msgstr ""
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_functions.php:1020
+msgid "Next &raquo;"
+msgstr ""
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_functions.php:1021
+msgid "Today"
+msgstr ""
+
+#: /var/www/wp-content/plugins/cimy-user-extra-fields/cimy_uef_functions.php:1024
+#, fuzzy
+msgid "Select Month"
+msgstr "vybrat akci"
+
+#~ msgid "&laquo; Back to All Users"
+#~ msgstr "&laquo; Powrót do wszystkich"
+
+#~ msgid "A&amp;U Extended"
+#~ msgstr "Rozszerzenia"
+
+#~ msgid "Users Matching \"%s\""
+#~ msgstr "Użytkownicy pasujący do wzorca \"%s\""
+
+#~ msgid "Users Extended List"
+#~ msgstr "Rozszerzona lista użytkowników"
+
+#~ msgid "Authors &amp; Users Extended List"
+#~ msgstr "Rozszerzona lista użytkowników i autorów"
+
+#, fuzzy
+#~ msgid "Username:"
+#~ msgstr "Nazwa użytkownika"
+
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr "Hasło"
+
+#, fuzzy
+#~ msgid ""
+#~ "<strong>Note:</strong> this website let you personalize your password; "
+#~ "after activating the user/blog will be displayed another password, do not "
+#~ "care about that!"
+#~ msgstr ""
+#~ "<strong>Anm.:</strong> Diese Webseite lässt Sie Ihr Passwort frei wählen. "
+#~ "Nach der Registrierung erhalten Sie eine E-Mail mit einem anderen "
+#~ "Passwort. Bitte löschen Sie diese ungesehen."
