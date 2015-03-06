@@ -3,6 +3,12 @@
   <small>Fields marked with an asterisk (*) are mandatory</small>
 </div>
 
+<div class="alert alert-warning" role="alert">
+  Attention! Since we are using Basic Authentication for development, be sure to be logged out of WP Admin when sending data from front-end!<hr/>
+  Tähelepanu! Kuna arendustsüklis on hetkel kasutusel Basic Authentication, ei saa salvestada infot olles samal ajal sisse loginud WP Admin'i paneeli! Logi sealt kindlasti enne välja.
+
+</div>
+
 <form class="form-horizontal">
   <form-input-text id="title" label="Title" model="formData.title" req="true"></form-input-text>
 
@@ -43,7 +49,12 @@
 
 </form>
 
-<div class="alert alert-success" role="alert" ng-show="added == true"> Activity added!</div>
+<div class="alert alert-success" role="alert" ng-show="state == 1"> Activity added!</div>
 
-<p>FormData model liveview (for debugging only):</p>
-{{ formData }}
+<div class="alert alert-danger" role="alert" ng-show="state == 2"> Error! Are you logged out from WP-Admin?</div>
+
+<div class="well">
+  <p>FormData model <strong>LiveView</strong> (for debugging only):</p>
+  {{ formData }}
+</div>
+

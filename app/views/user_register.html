@@ -1,49 +1,39 @@
 <div class="page-header center">
-    <h1>Add new inquiry activity</h1>
-    <small>Fields marked with an asterisk (*) are mandatory</small>
+    <h1>Sign up for your account</h1>
+    <small>You are able to change entered information later</small>
 </div>
 
 <form class="form-horizontal">
-    <form-input-text id="title" label="Title" model="formData.title" req="true"></form-input-text>
+    <form-input-text id="full_name" label="Full Name" model="userData.extra.full_name" req="true"></form-input-text>
 
-    <form-textarea id="description" label="Activity Description" rows="10" model="formData.description" req="true"></form-textarea>
+    <form-input-text id="email" label="Email" model="userData.email" req="true"></form-input-text>
 
-    <form-select-multiple label="Domain" options="formOptions.domains" model="formData.extra.domains" req="true"></form-select-multiple>
+    <form-input-text id="birth_date" label="Date of Birth" model="userData.extra.date_of_birth"></form-input-text>
 
-    <form-input-text id="topic" label="Topic" model="formData.extra.topic"></form-input-text>
+    <form-input-text id="city" label="City of Residence" model="userData.extra.city_of_residence"></form-input-text>
 
-    <form-select-multiple label="Language" options="formOptions.languages" model="formData.extra.languages" req="true"></form-select-multiple>
+    <form-select id="user_type" label="Type of User" options="formOptions.roles" model="userData.extra.user_type" ></form-select>
 
-    <form-select id="level" label="Proficiency level" options="formOptions.levels" model="formData.extra.proficiency_level" req="true"></form-select>
+    <form-select id="preferred_language" label="Preferred Language" options="formOptions.languages" model="userData.extra.preferred_language" ></form-select>
 
-    <form-select-multiple label="Covered phases" options="formOptions.coveredPhases" model="formData.extra.covered_phases" req="true"></form-select-multiple>
+    <form-select-multiple label="Additional Languages" options="formOptions.languages" model="userData.extra.additional_languages" ></form-select-multiple>
 
-    <form-select-multiple label="Phases Departing From the Proficiency Level" options="formOptions.departingPhases" model="formData.extra.departing_phases" req="true"></form-select-multiple>
 
-    <form-range-slider label="Typical Age Range" id="range" model-from="formData.extra.age_range_from" model-to="formData.extra.age_range_to" min="7" max="18"></form-range-slider>
-
-    <form-input-text id="learning_time" label="Typical Learning Time" model="formData.extra.learning_time"></form-input-text>
-
-    <form-textarea id="materials_needed" label="Materials needed for the Activity" rows="5" model="formData.extra.materials_needed" req="true"></form-textarea>
-
-    <form-select-multiple label="Evidence On the Success of the Activity" options="formOptions.successEvidence" model="formData.extra.success_evidence" req="true"></form-select-multiple>
-
-    <form-textarea id="evidence_description" label="Evidence Description" rows="7" model="formData.extra.evidence_description" req="true"></form-textarea>
-
-    <form-input-radio name="rights_restriction" label="Copyright or Other Restrictions" model="formData.extra.rights_restriction" options="formOptions.rightsRestriction"></form-input-radio>
-
-    <form-textarea id="rights_description" label="Rights Description" rows="5" model="formData.extra.rights_description" ng-show="formData.extra.rights_restriction == 1"></form-textarea>
 
     <div class="form-group">
         <div class="col-sm-4"></div>
         <div class="col-sm-8">
-            <input class="btn btn-success" type="submit" ng-click="saveActivity(activity)" value="Add activity" />
+            <input class="btn btn-success" type="submit" ng-click="registerUser(user)" value="Register User" />
         </div>
     </div>
 
 </form>
 
-<div class="alert alert-success" role="alert" ng-show="added == true"> Activity added!</div>
+<div class="alert alert-success" role="alert" ng-show="state == 1"> User Registered! You can't log in with it yet, though, sorry.</div>
 
-<p>FormData model liveview (for debugging only):</p>
-{{ formData }}
+<div class="alert alert-danger" role="alert" ng-show="state == 2"> Error! Are you logged out from WP-Admin?</div>
+
+<div class="well">
+    <p>UserData model <strong>LiveView</strong> (for debugging only):</p>
+    {{ userData }}
+</div>

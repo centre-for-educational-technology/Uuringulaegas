@@ -57,7 +57,7 @@ angular.module('arkofinquiryApp')
       }
     };
 
-    $scope.added = false;
+
 
     $scope.formData = {
       title: '',
@@ -84,6 +84,8 @@ angular.module('arkofinquiryApp')
       $scope.activity = new InquiryActivityService();
 
 
+      $scope.state = 0;
+
       $scope.saveActivity = function(activity){
         activity.post_title = $scope.formData.title;
         activity.post_content = $scope.formData.description;
@@ -95,11 +97,42 @@ angular.module('arkofinquiryApp')
         $scope.errors = null;
         $scope.updating = true;
 
-        activity.$save(activity)
+        activity.$save(activity, function() {
+          console.log("OK");
+          $scope.updating = false;
+          $scope.state = 1;
+          $scope.formData = {
+            title: '',
+            description: '',
+            extra: {
+              domains: [''],
+              topic: '',
+              languages: [''],
+              proficiency_level: [''],
+              covered_phases: [''],
+              departing_phases: [''],
+              age_range_from: 7,
+              age_range_to: 18,
+              learning_time: '',
+              materials_needed: '',
+              success_evidence: [''],
+              evidence_description: '',
+              rights_restriction: 0,
+              rights_description: ''
+            }
+          }
+        }, function(activity){
+            $scope.state = 2;
+            console.log("ERROR");
+          });
+
+
+        /*activity.$save(activity)
             .then(function(activity){
               console.log('LISATUD, uus id: ' + activity.data.success)
             }).catch(function(activity) {
               $scope.errors = [activity.data.error];
+              console.log($scope.errors);
             }).finally(function() {
               $scope.updating = false;
               $scope.added = true;
@@ -123,7 +156,7 @@ angular.module('arkofinquiryApp')
                   rights_description: ''
                 }
               };
-            });
+            });*/
       };
 
 

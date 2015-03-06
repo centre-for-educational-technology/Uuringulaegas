@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name arkofinquiryApp.controller:InquiryActivitiesCtrl
+ * @name arkofinquiryApp.controller:UserCtrl
  * @description
- * # InquiryActivitiesCtrl
+ * # UserCtrl
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
@@ -15,7 +15,8 @@ angular.module('arkofinquiryApp')
         'Estonian',
         'English',
         'Finnish',
-        'Russian'
+        'Russian',
+        'German'
       ],
       roles: [
           'Learner',
@@ -23,73 +24,54 @@ angular.module('arkofinquiryApp')
       ]
     };
 
-    $scope.added = false;
-
-    $scope.formData = {
-      title: '',
-      description: '',
+    $scope.userData = {
+      email: '',
       extra: {
-        domains: [''],
-        topic: '',
-        languages: [''],
-        proficiency_level: [''],
-        covered_phases: [''],
-        departing_phases: [''],
-        age_range_from: 7,
-        age_range_to: 18,
-        learning_time: '',
-        materials_needed: '',
-        success_evidence: [''],
-        evidence_description: '',
-        rights_restriction: 0,
-        rights_description: ''
+        full_name: '',
+        date_of_birth: '1995-03-16',
+        city_of_residence: '',
+        user_type: 'Learner',
+        preferred_language: '',
+        additional_languages: ['']
       }
     };
 
 
-      $scope.activity = new InquiryActivityService();
 
+      $scope.state = 0;
 
-      $scope.saveActivity = function(activity){
-        activity.post_title = $scope.formData.title;
-        activity.post_content = $scope.formData.description;
-        activity.post_status = 'publish';
-        activity.post_type = 'inq_activity';
+      $scope.user = new UserService();
 
-        _.extend(activity, $scope.formData.extra);
+      $scope.registerUser = function(user){
+        user.user_email = $scope.userData.email;
+        user.user_login = $scope.userData.email;
+        user.display_name = $scope.userData.extra.full_name;
+        user.user_nicename = $scope.userData.extra.full_name;
+
+        _.extend(user, $scope.userData.extra); // add elements from userData extra to userservice object
 
         $scope.errors = null;
         $scope.updating = true;
 
-        activity.$save(activity)
-            .then(function(activity){
-              console.log('LISATUD, uus id: ' + activity.data.success)
-            }).catch(function(activity) {
-              $scope.errors = [activity.data.error];
-            }).finally(function() {
-              $scope.updating = false;
-              $scope.added = true;
-              $scope.formData = {
-                title: '',
-                description: '',
-                extra: {
-                  domains: [''],
-                  topic: '',
-                  languages: [''],
-                  proficiency_level: [''],
-                  covered_phases: [''],
-                  departing_phases: [''],
-                  age_range_from: 7,
-                  age_range_to: 18,
-                  learning_time: '',
-                  materials_needed: '',
-                  success_evidence: [''],
-                  evidence_description: '',
-                  rights_restriction: 0,
-                  rights_description: ''
-                }
-              };
-            });
+        user.$save(user, function() {
+          console.log("OK");
+          $scope.updating = false;
+          $scope.state = 1;
+          $scope.userData = {
+            email: '',
+            extra: {
+              full_name: '',
+              date_of_birth: '1995-03-16',
+              city_of_residence: '',
+              user_type: 'Learner',
+              preferred_language: '',
+              additional_languages: ['']
+            }
+          };
+        }, function(user){
+          $scope.state = 2;
+          console.log("ERROR");
+        });
       };
 
 
