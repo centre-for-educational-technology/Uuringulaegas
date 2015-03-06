@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label for="form_{{ id }}" class="col-sm-4 control-label">{{ label }} <span ng-show="req">*</span></label>
+    <div class="col-sm-8">
+        <div class="input-group">
+            <input id="form_{{ id }}" type="text" class="form-control" datepicker-popup="yyyy-MM-dd" datepicker-mode="mode" ng-model="model" is-open="isOpen" max-date="maxDate" datepicker-options="options" ng-required="req" close-text="Close" ng-focus="doit()"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="doit()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </div>
+    </div>
+</div>š

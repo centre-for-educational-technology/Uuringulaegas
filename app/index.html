@@ -2,14 +2,14 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Ark of Inquiry</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css">
+    <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -30,13 +30,13 @@
           <li><a ng-href="/#/add_inq_act">Add Inquiry Activity</a></li>
           <li><a ng-href="/#/register">Register User</a></li>
         </ul>
-        <h3 class="text-muted">arkofinquiry</h3>
+        <h3 class="text-muted">Ark of Inquiry</h3>
       </div>
 
       <div ng-view=""></div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p><span class="glyphicon glyphicon-heart"></span> from the HTK team</p>
       </div>
     </div>
 
@@ -72,6 +72,7 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -80,16 +81,17 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/inquiry_activities.js"></script>
         <script src="scripts/controllers/user_register.js"></script>
-        <script src="scripts/directives/add_inquiry_activity_form_input_text.js"></script>
-        <script src="scripts/directives/add_inquiry_activity_form_select_multiple.js"></script>
-        <script src="scripts/directives/add_inquiry_activity_form_select.js"></script>
-        <script src="scripts/directives/add_inquiry_activity_form_range_slider.js"></script>
-        <script src="scripts/directives/add_inquiry_activity_form_textarea.js"></script>
-        <script src="scripts/directives/add_inquiry_activity_form_input_radio.js"></script>
+        <script src="scripts/directives/form/input_text.js"></script>
+        <script src="scripts/directives/form/select_multiple.js"></script>
+        <script src="scripts/directives/form/select.js"></script>
+        <script src="scripts/directives/form/range_slider.js"></script>
+        <script src="scripts/directives/form/textarea.js"></script>
+        <script src="scripts/directives/form/input_radio.js"></script>
+        <script src="scripts/directives/form/date_picker.js"></script>
         <script src="scripts/services/inquiry_activity_service.js"></script>
         <script src="scripts/services/user_service.js"></script>
-
-        <script src="http://underscorejs.org/underscore-min.js"></script>
         <!-- endbuild -->
+
+    <script src="http://underscorejs.org/underscore-min.js"></script>
 </body>
 </html>

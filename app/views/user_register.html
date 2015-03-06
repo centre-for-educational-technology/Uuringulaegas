@@ -8,7 +8,19 @@
 
     <form-input-text id="email" label="Email" model="userData.email" req="true"></form-input-text>
 
-    <form-input-text id="birth_date" label="Date of Birth" model="userData.extra.date_of_birth"></form-input-text>
+    <div class="form-group">
+        <label for="date_of_birth" class="col-sm-4 control-label">Date of Birth</label>
+        <div class="col-sm-8">
+            <div class="input-group">
+                <input id="date_of_birth" type="text" class="form-control" datepicker-popup="yyyy-MM-dd" datepicker-mode="datePickerMode" ng-model="userData.extra.date_of_birth" is-open="datePickerOpened" max-date="todayDate" datepicker-options="datePickerOptions" ng-required="true" close-text="Close" ng-focus="openDatePicker($event)"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="openDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </div>
+        </div>
+    </div>
+
+    <!--<form-date-picker id="birth_date" label="Date of Birth" model="userData.extra.date_of_birth" mode="datePickerMode" is-open="datePickerOpened" options="datePickerOptions" max-date="todayDate" open="openDatePicker($event)" req="true"></form-date-picker>-->
 
     <form-input-text id="city" label="City of Residence" model="userData.extra.city_of_residence"></form-input-text>
 

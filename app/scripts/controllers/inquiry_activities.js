@@ -10,6 +10,7 @@
 angular.module('arkofinquiryApp')
   .controller('InquiryActivitiesCtrl', function ($scope, $http, InquiryActivityService) {
 
+    // Set up form options
     $scope.formOptions = {
       domains: [
         'Chemistry',
@@ -32,7 +33,7 @@ angular.module('arkofinquiryApp')
       ],
       coveredPhases: [
         'Orientation',
-        'Conseptualisation',
+        'Conceptualisation',
         'Investigation',
         'Conclusion',
         'Discussion'
@@ -40,7 +41,7 @@ angular.module('arkofinquiryApp')
       departingPhases: [
         '',
         'Orientation',
-        'Conseptualisation',
+        'Conceptualisation',
         'Investigation',
         'Conclusion',
         'Discussion'
@@ -51,128 +52,82 @@ angular.module('arkofinquiryApp')
         'Theoretical evidence',
         'Ecological evidence'
       ],
-      rightsRestriction: {
+      rightsRestrictions: {
         0: 'No',
         1: 'Yes'
       }
     };
 
 
+    // Set up empty formData object
+    resetForm();
 
-    $scope.formData = {
-      title: '',
-      description: '',
-      extra: {
-        domains: [''],
-        topic: '',
-        languages: [''],
-        proficiency_level: [''],
-        covered_phases: [''],
-        departing_phases: [''],
-        age_range_from: 7,
-        age_range_to: 18,
-        learning_time: '',
-        materials_needed: '',
-        success_evidence: [''],
-        evidence_description: '',
-        rights_restriction: 0,
-        rights_description: ''
-      }
+    // Create new Activity Service
+    $scope.activity = new InquiryActivityService();
+
+
+    /*
+      postingState variable:
+      0 - Not yet posted
+      1 - Success
+      2 - Error
+     */
+    $scope.postingState = 0; // Not posted
+
+    // Save new Inquiry Activity
+    $scope.saveActivity = function(activity){
+      $scope.errors = null;
+      $scope.updating = true;
+
+      // Set post data that has different keys from form extra data
+      activity.post_title = $scope.formData.title;
+      activity.post_content = $scope.formData.description;
+      activity.post_status = 'publish';
+      activity.post_type = 'inq_activity';
+
+      // append form data object to activity object (same keys)
+      _.extend(activity, $scope.formData.extra);
+
+      // POST to WP
+      activity.$save(activity, function() {
+        // success
+        $scope.postingState = 1; // OK
+        $scope.updating = false;
+        console.log("OK");  // -------------------------------------- REMOVE after debugging
+
+        resetForm();
+      }, function(activity){
+        // error
+        $scope.postingState = 2; // Error
+        $scope.updating = false;
+        console.log("ERROR"); // -------------------------------------- REMOVE after debugging
+      });
     };
 
 
-      $scope.activity = new InquiryActivityService();
-
-
-      $scope.state = 0;
-
-      $scope.saveActivity = function(activity){
-        activity.post_title = $scope.formData.title;
-        activity.post_content = $scope.formData.description;
-        activity.post_status = 'publish';
-        activity.post_type = 'inq_activity';
-
-        _.extend(activity, $scope.formData.extra);
-
-        $scope.errors = null;
-        $scope.updating = true;
-
-        activity.$save(activity, function() {
-          console.log("OK");
-          $scope.updating = false;
-          $scope.state = 1;
-          $scope.formData = {
-            title: '',
-            description: '',
-            extra: {
-              domains: [''],
-              topic: '',
-              languages: [''],
-              proficiency_level: [''],
-              covered_phases: [''],
-              departing_phases: [''],
-              age_range_from: 7,
-              age_range_to: 18,
-              learning_time: '',
-              materials_needed: '',
-              success_evidence: [''],
-              evidence_description: '',
-              rights_restriction: 0,
-              rights_description: ''
-            }
-          }
-        }, function(activity){
-            $scope.state = 2;
-            console.log("ERROR");
-          });
-
-
-        /*activity.$save(activity)
-            .then(function(activity){
-              console.log('LISATUD, uus id: ' + activity.data.success)
-            }).catch(function(activity) {
-              $scope.errors = [activity.data.error];
-              console.log($scope.errors);
-            }).finally(function() {
-              $scope.updating = false;
-              $scope.added = true;
-              $scope.formData = {
-                title: '',
-                description: '',
-                extra: {
-                  domains: [''],
-                  topic: '',
-                  languages: [''],
-                  proficiency_level: [''],
-                  covered_phases: [''],
-                  departing_phases: [''],
-                  age_range_from: 7,
-                  age_range_to: 18,
-                  learning_time: '',
-                  materials_needed: '',
-                  success_evidence: [''],
-                  evidence_description: '',
-                  rights_restriction: 0,
-                  rights_description: ''
-                }
-              };
-            });*/
+    // Function for resetting/emptying form fields
+    function resetForm(){
+      $scope.formData = {
+        title: '',
+        description: '',
+        extra: {
+          domains: [''],
+          topic: '',
+          languages: [''],
+          proficiency_level: [''],
+          covered_phases: [''],
+          departing_phases: [''],
+          age_range_from: 7,
+          age_range_to: 18,
+          learning_time: '',
+          materials_needed: '',
+          success_evidence: [''],
+          evidence_description: '',
+          rights_restrictions: 0,
+          rights_description: ''
+        }
       };
-
-
-
-
-
-
-   /* $http.get('/api/wp-json/posts?type[]=inquiry_activities')
-      .success(function(data, status, headers, config){
-        $scope.data = data;
-        //window.alert("Success! " + status);
-      })
-      .error(function(data, status, headers, config){
-        console.log('BIG Error getting JSON data from WP ' + status);
-      });*/
-
+    };
   });
 
 
