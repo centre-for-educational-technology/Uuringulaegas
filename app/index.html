@@ -10,6 +10,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
+    <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -74,12 +75,13 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="ng/app.js"></script>
-        <script src="ng/main/controllers/main.js"></script>
+        <script src="ng/components/main/controllers/main.js"></script>
         <script src="ng/common/form/directives/input_text.js"></script>
         <script src="ng/common/form/directives/select_multiple.js"></script>
         <script src="ng/common/form/directives/select.js"></script>
@@ -87,10 +89,12 @@
         <script src="ng/common/form/directives/textarea.js"></script>
         <script src="ng/common/form/directives/input_radio.js"></script>
         <script src="ng/common/form/directives/date_picker.js"></script>
-        <script src="ng/inq_act/controllers/inquiry_activities.js"></script>
-        <script src="ng/inq_act/services/inquiry_activity_service.js"></script>
-        <script src="ng/user/controllers/user_register.js"></script>
-        <script src="ng/user/services/user_service.js"></script>
+        <script src="ng/components/inq_act/controllers/inquiry_activities.js"></script>
+        <script src="ng/components/inq_act/services/inquiry_activity_service.js"></script>
+        <script src="ng/components/user/controllers/user_register.js"></script>
+        <script src="ng/components/user/services/user_service.js"></script>
+        <script src="ng/components/group/controllers/add_group_controller.js"></script>
+        <script src="ng/components/group/services/group_service.js"></script>
         <!-- endbuild -->
 
     <script src="http://underscorejs.org/underscore-min.js"></script>

@@ -3,3 +3,5 @@ node_modules
 test/tmp
 app/api/wp-config.php
 .idea
+
+.idea/workspace.xml

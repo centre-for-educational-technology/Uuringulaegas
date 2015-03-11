@@ -18,24 +18,25 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui-rangeSlider',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngTagsInput'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'main/views/main.html',
+        templateUrl: 'ng/components/main/views/main.html',
         controller: 'MainCtrl'
       })
       .when('/inq_act/new', {
-        templateUrl: 'inq_act/views/add_inquiry_activity_form.html',
+        templateUrl: 'ng/components/inq_act/views/add_inquiry_activity_form.html',
         controller: 'InquiryActivitiesCtrl'
       })
       .when('/groups/new', {
-        templateUrl: 'inq_act/views/add_inquiry_activity_form.html',
-        controller: 'InquiryActivitiesCtrl'
+        templateUrl: 'ng/components/group/views/add_group.html',
+        controller: 'AddGroupCtrl'
       })
       .when('/register', {
-        templateUrl: 'user/views/user_register.html',
+        templateUrl: 'ng/components/user/views/user_register.html',
         controller: 'UserRegisterCtrl'
       })
       .otherwise({
