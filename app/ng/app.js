@@ -23,15 +23,19 @@ angular
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'main/views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/add_inq_act', {
-        templateUrl: '../views/add_inquiry_activity_form.html',
+      .when('/inq_act/new', {
+        templateUrl: 'inq_act/views/add_inquiry_activity_form.html',
+        controller: 'InquiryActivitiesCtrl'
+      })
+      .when('/groups/new', {
+        templateUrl: 'inq_act/views/add_inquiry_activity_form.html',
         controller: 'InquiryActivitiesCtrl'
       })
       .when('/register', {
-        templateUrl: '../views/user_register.html',
+        templateUrl: 'user/views/user_register.html',
         controller: 'UserRegisterCtrl'
       })
       .otherwise({

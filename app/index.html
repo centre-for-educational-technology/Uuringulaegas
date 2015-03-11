@@ -27,7 +27,8 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a ng-href="/#/">Home</a></li>
-          <li><a ng-href="/#/add_inq_act">Add Inquiry Activity</a></li>
+          <li><a ng-href="/#/inq_act/new">Add Inquiry Activity</a></li>
+          <li><a ng-href="/#/groups/new">Add group</a></li>
           <li><a ng-href="/#/register">Register User</a></li>
         </ul>
         <h3 class="text-muted">Ark of Inquiry</h3>
@@ -77,19 +78,19 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/inquiry_activities.js"></script>
-        <script src="scripts/controllers/user_register.js"></script>
-        <script src="scripts/directives/form/input_text.js"></script>
-        <script src="scripts/directives/form/select_multiple.js"></script>
-        <script src="scripts/directives/form/select.js"></script>
-        <script src="scripts/directives/form/range_slider.js"></script>
-        <script src="scripts/directives/form/textarea.js"></script>
-        <script src="scripts/directives/form/input_radio.js"></script>
-        <script src="scripts/directives/form/date_picker.js"></script>
-        <script src="scripts/services/inquiry_activity_service.js"></script>
-        <script src="scripts/services/user_service.js"></script>
+        <script src="ng/app.js"></script>
+        <script src="ng/main/controllers/main.js"></script>
+        <script src="ng/common/form/directives/input_text.js"></script>
+        <script src="ng/common/form/directives/select_multiple.js"></script>
+        <script src="ng/common/form/directives/select.js"></script>
+        <script src="ng/common/form/directives/range_slider.js"></script>
+        <script src="ng/common/form/directives/textarea.js"></script>
+        <script src="ng/common/form/directives/input_radio.js"></script>
+        <script src="ng/common/form/directives/date_picker.js"></script>
+        <script src="ng/inq_act/controllers/inquiry_activities.js"></script>
+        <script src="ng/inq_act/services/inquiry_activity_service.js"></script>
+        <script src="ng/user/controllers/user_register.js"></script>
+        <script src="ng/user/services/user_service.js"></script>
         <!-- endbuild -->
 
     <script src="http://underscorejs.org/underscore-min.js"></script>

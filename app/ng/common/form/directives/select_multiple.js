@@ -7,7 +7,7 @@ angular.module('arkofinquiryApp')
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/views/directives/form/select_multiple.html',
+            templateUrl: '/ng/common/form/views/select_multiple.html',
             scope: {
                 label: '@',
                 model: '=',

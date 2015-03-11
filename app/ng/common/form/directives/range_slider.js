@@ -3,15 +3,18 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formInputText', function(){
+.directive('formRangeSlider', function(){
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/views/directives/form/input_text.html',
+            templateUrl: '/ng/common/form/views/range_slider.html',
             scope: {
                 id: '@',
                 label: '@',
-                model: '=',
+                min: '=',
+                max: '=',
+                modelFrom: '=',
+                modelTo: '=',
                 req: '@'
             }
         }

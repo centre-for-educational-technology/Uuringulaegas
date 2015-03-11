@@ -3,15 +3,14 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formTextarea', function(){
+.directive('formInputText', function(){
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/views/directives/form/textarea.html',
+            templateUrl: '/ng/common/form/views/input_text.html',
             scope: {
                 id: '@',
                 label: '@',
-                rows: '=',
                 model: '=',
                 req: '@'
             }

@@ -3,21 +3,16 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formDatePicker', function(){
+.directive('formSelect', function(){
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/views/directives/form/date_picker.html',
+            templateUrl: '/ng/common/form/views/select.html',
             scope: {
                 id: '@',
                 label: '@',
                 model: '=',
-                mode: '=',
-                isOpen: '=',
                 options: '=',
-                maxDate: '=',
-                minDate: '=',
-                open: '&',
                 req: '@'
             }
         }
