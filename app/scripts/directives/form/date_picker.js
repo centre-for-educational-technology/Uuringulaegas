@@ -19,13 +19,6 @@ angular.module('arkofinquiryApp')
                 minDate: '=',
                 open: '&',
                 req: '@'
-            },
-            require: "^UserRegisterCtrl",
-            link: function(scope, element, attrs, UserRegisterCtrl) {
-                scope.doit = function(){
-                    UserRegisterCtrl.openDatePicker();
-                }
             }
-
         }
     });

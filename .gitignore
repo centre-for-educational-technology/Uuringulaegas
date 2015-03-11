@@ -2,3 +2,4 @@
 node_modules
 test/tmp
 app/api/wp-config.php
+.idea

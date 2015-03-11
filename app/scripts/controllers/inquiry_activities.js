@@ -88,12 +88,12 @@ angular.module('arkofinquiryApp')
       // append form data object to activity object (same keys)
       _.extend(activity, $scope.formData.extra);
 
-      // POST to WP
+      // POST to DP
       activity.$save(activity, function() {
         // success
         $scope.postingState = 1; // OK
         $scope.updating = false;
-        console.log("OK");  // -------------------------------------- REMOVE after debugging
+        console.log("OK"); // -------------------------------------- REMOVE after debugging
 
         resetForm();
       }, function(activity){
@@ -127,7 +127,7 @@ angular.module('arkofinquiryApp')
           rights_description: ''
         }
       };
-    };
+    }
   });
 
 
