@@ -65,7 +65,6 @@ angular.module('arkofinquiryApp')
     // Create new Activity Service
     $scope.activity = new InquiryActivityService();
 
-
     /*
       postingState variable:
       0 - Not yet posted

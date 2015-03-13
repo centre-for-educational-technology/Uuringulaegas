@@ -9,7 +9,7 @@
     <div class="form-group">
         <label class="col-sm-4 control-label">Learners</label>
         <div class="col-sm-8">
-            <tags-input ng-model="group.learners" display-property="name">
+            <tags-input ng-model="group.learners" display-property="full_name" placeholder="Add learner" add-from-autocomplete-only="true" replace-spaces-with-dashes="false">
                 <auto-complete source="loadLearners($query)"></auto-complete>
             </tags-input>
         </div>
@@ -32,6 +32,9 @@
 <div class="well">
     <p>GroupData model <strong>LiveView</strong> (for debugging only):</p>
     {{ group }}
+</div>
 
-
+<div class="well">
+    <p>User JSON dump (for debugging only):</p>
+    {{ learnerList | json}}
 </div>

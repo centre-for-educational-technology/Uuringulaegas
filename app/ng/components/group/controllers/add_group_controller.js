@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('AddGroupCtrl', function ($scope, $resource, GroupService, UserService) {
+  .controller('AddGroupCtrl', function ($scope, $resource, GroupService, UserService, $filter) {
 
     // Set up empty userData object
     resetForm();
@@ -19,23 +19,30 @@ angular.module('arkofinquiryApp')
 
     $scope.group = {
       name: '',
-      learners: [
-        {
-          id: 7,
-          name: 'Jaanus Murumäe'
-        }
-      ],
+      learners: [],
       teachers: []
     };
 
     // Create new User Service
     var users = new UserService();
     $scope.loadLearners = function(query) {
-      //return users.query().$promise;
-      return [{id: 999, name: 'Toomas'}]; // For prettier commit, not working
+      return UserService.query({/*filter: 'Mobiilne'*/}, function(data){
+        console.log(query);
+        console.log(data);
+        console.log($filter('filter')(data, query));
+        return $filter('filter')(data, "11111111111");
+      }).$promise;
     };
 
-    /*
+      // For User JSON dump
+      test();
+      function test(query) {
+        return UserService.query({}, function(data){
+          $scope.learnerList = data;
+        }).$promise;
+      }
+
+     /*
      postingState variable:
      0 - Not yet posted
      1 - Success

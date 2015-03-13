@@ -404,6 +404,7 @@ tagsInput.directive('autoComplete', ["$document","$timeout","$sce","$q","tagsInp
         var self = {}, getDifference, lastPromise;
 
         getDifference = function(array1, array2) {
+            console.log(array1, array2);
             return array1.filter(function(item) {
                 return !tiUtil.findInObjectArray(array2, item, options.tagsInput.displayProperty);
             });
