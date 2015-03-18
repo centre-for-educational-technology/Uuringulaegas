@@ -7,19 +7,19 @@ angular.module("arkofinquiryApp")
         $http.defaults.headers.common['Authorization'] = 'Basic YWRtaW46YWRtaW4=';
         return $resource('/api/wp-json/pods/user/:id', {}, {
                 query: {
-                        method: "GET",
+                        method: 'GET',
                         isArray: true,
                         transformResponse: [angular.fromJson, function(data, headers){
-                        return _.values(data);
+                        return _.values(data); // Removes keys from response
                         }]
                 },
-                filter: {
-                        url: "/api/wp-json/pods/user/find?where=full_name%3D:filter",
-                        filter: '@filter',
+                queryLearnersByName: {
+                        url: 'http://localhost:8888/api/wp-json/pods/user?data[where]=full_name.meta_value%20LIKE%20%22%25:searchName%25%22%20AND%20user_type.meta_value%3D%22Learner%22',
+                        searchName: '@searchName',
                         method: "GET",
                         isArray: true,
                         transformResponse: [angular.fromJson, function(data, headers){
-                                return _.values(data);
+                                return _.values(data); // Removes keys from response
                         }]
                 }
         });

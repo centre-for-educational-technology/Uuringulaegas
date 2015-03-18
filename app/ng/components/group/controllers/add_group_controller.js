@@ -26,11 +26,11 @@ angular.module('arkofinquiryApp')
     // Create new User Service
     var users = new UserService();
     $scope.loadLearners = function(query) {
-      return UserService.query({/*filter: 'Mobiilne'*/}, function(data){
+      return UserService.queryLearnersByName({searchName: query}, function(data){
         console.log(query);
-        console.log(data);
-        console.log($filter('filter')(data, query));
-        return $filter('filter')(data, "11111111111");
+        //console.log(data);
+        //console.log($filter('filter')(data, query));
+        return data;
       }).$promise;
     };
 
