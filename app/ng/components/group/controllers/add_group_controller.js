@@ -8,39 +8,17 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('AddGroupCtrl', function ($scope, $resource, GroupService, UserService, $filter) {
+  .controller('AddGroupCtrl', function ($scope, $resource, GroupService, UserService) {
 
     // Set up empty userData object
     resetForm();
 
-
-
-    $scope.group = new GroupService();
-
-    $scope.group = {
-      name: '',
-      learners: [],
-      teachers: []
-    };
-
     // Create new User Service
-    var users = new UserService();
     $scope.loadLearners = function(query) {
       return UserService.queryLearnersByName({searchName: query}, function(data){
-        console.log(query);
-        //console.log(data);
-        //console.log($filter('filter')(data, query));
         return data;
       }).$promise;
     };
-
-      // For User JSON dump
-      test();
-      function test(query) {
-        return UserService.query({}, function(data){
-          $scope.learnerList = data;
-        }).$promise;
-      }
 
      /*
      postingState variable:
@@ -50,23 +28,31 @@ angular.module('arkofinquiryApp')
      */
     $scope.postingState = 0;
 
+    $scope.newGroup = new GroupService();
+
     // Save new Group
-    $scope.addGroup = function(group){
+    $scope.addGroup = function(newGroup){
       $scope.errors = null;
       $scope.updating = true;
 
-      // append from data 'extra' object to groupData object (same keys)
-      //_.extend(group, $scope.groupData.extra);
+      // Copy data from groupForm object to GroupService
+      newGroup.name = $scope.groupForm.name;
+      newGroup.learners = [];
+
+      // Push only ID's from groupForm to GroupService.learners array
+      for(var i = 0; i < $scope.groupForm.learners.length; i++){
+        newGroup.learners.push($scope.groupForm.learners[i].id);
+      };
 
       // POST to DB
-      group.$save(group, function() {
+      newGroup.$save(newGroup, function() {
         // success
         $scope.postingState = 1; // OK
         $scope.updating = false;
         console.log("OK"); // -------------------------------------- REMOVE after debugging
 
         resetForm();
-      }, function(group){
+      }, function(newGroup){
         // error
         $scope.postingState = 2; // Error
         $scope.updating = false;
@@ -76,14 +62,9 @@ angular.module('arkofinquiryApp')
 
 
     function resetForm() {
-      $scope.groupData = {
+      $scope.groupForm = {
         name: '',
-        learners: [
-          {
-            id: '7',
-            name: 'Onu toomas'
-          }
-        ],
+        learners: [],
         teachers: []
       };
     }

@@ -12,6 +12,10 @@ angular.module('arkofinquiryApp')
 
     // Set up form options
     $scope.formOptions = {
+      location: {
+        0: 'Web-based',
+        1: 'Physical location'
+      },
       domains: [
         'Chemistry',
         'Engineering',
@@ -110,6 +114,10 @@ angular.module('arkofinquiryApp')
         title: '',
         description: '',
         extra: {
+          location: [],
+          location_web: '',
+          location_city: '',
+          location_address: '',
           domains: [''],
           topic: '',
           languages: [''],

@@ -13,7 +13,15 @@
   <form-input-text id="title" label="Title" model="formData.title" req="true"></form-input-text>
 
   <form-textarea id="description" label="Activity Description" rows="10" model="formData.description" req="true"></form-textarea>
-  
+
+  <!--<form-input-checkbox name="location" label="Location" model="formData.extra.location" options="formOptions.location"></form-input-checkbox>
+
+  <form-input-text id="location_web" label="Webpage" model="formData.extra.location_web" ng-show="_.contains(formData.extra.location, 0)"></form-input-text>
+
+  <form-input-text id="location_city" label="City" model="formData.extra.location_city" ng-show="_.contains(formData.extra.location, 1)"></form-input-text>
+
+  <form-input-text id="location_address" label="Address" model="formData.extra.location_address" ng-show="_.contains(formData.extra.location, 1)"></form-input-text>-->
+
   <form-select-multiple label="Domain" options="formOptions.domains" model="formData.extra.domains" req="true"></form-select-multiple>
 
   <form-input-text id="topic" label="Topic" model="formData.extra.topic"></form-input-text>

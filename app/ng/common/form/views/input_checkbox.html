@@ -1,0 +1,10 @@
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{ label }} <span ng-show="req">*</span></label>
+    <div class="col-sm-8">
+      <div class="checkbox" ng-repeat="(key, value) in options">
+        <label>
+            <input type="checkbox" ng-value="key" ng-model="$parent.model"> {{ value }}
+        </label>
+      </div>
+    </div>
+</div>

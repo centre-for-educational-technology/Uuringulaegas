@@ -4,13 +4,13 @@
 </div>
 
 <form class="form-horizontal">
-    <form-input-text id="full_name" label="Group Name" model="group.name" req="true"></form-input-text>
+    <form-input-text id="full_name" label="Group Name" model="groupForm.name" req="true"></form-input-text>
 
     <div class="form-group">
         <label class="col-sm-4 control-label">Learners</label>
         <div class="col-sm-8">
-            <tags-input ng-model="group.learners" display-property="full_name" placeholder="Add learner" add-from-autocomplete-only="true" replace-spaces-with-dashes="false">
-                <auto-complete source="loadLearners($query)" min-length="1"></auto-complete>
+            <tags-input ng-model="groupForm.learners" display-property="full_name" placeholder="Add learner" add-from-autocomplete-only="true" replace-spaces-with-dashes="false">
+                <auto-complete source="loadLearners($query)" min-length="2"></auto-complete>
             </tags-input>
         </div>
     </div>
@@ -19,7 +19,7 @@
     <div class="form-group">
         <div class="col-sm-4"></div>
         <div class="col-sm-8">
-            <input class="btn btn-success" type="submit" ng-click="addGroup(group)" ng-disabled="updating" value="Create Group" />
+            <input class="btn btn-success" type="submit" ng-click="addGroup(newGroup)" ng-disabled="updating" value="Create Group" />
         </div>
     </div>
 
@@ -31,10 +31,5 @@
 
 <div class="well">
     <p>GroupData model <strong>LiveView</strong> (for debugging only):</p>
-    {{ group | json}}
-</div>
-
-<div class="well">
-    <p>User JSON dump (for debugging only):</p>
-    {{ learnerList | json}}
+    {{ groupForm | json}}
 </div>
