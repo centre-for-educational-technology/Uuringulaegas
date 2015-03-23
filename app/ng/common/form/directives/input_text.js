@@ -3,11 +3,11 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formInputText', function(){
+.directive('formInputText', function(appConfig){
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/ng/common/form/views/input_text.html',
+            templateUrl: appConfig.baseUrl + 'ng/common/form/views/input_text.html',
             scope: {
                 id: '@',
                 label: '@',

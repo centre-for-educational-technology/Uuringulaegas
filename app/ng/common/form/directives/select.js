@@ -3,11 +3,11 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formSelect', function(){
+.directive('formSelect', function(appConfig){
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/ng/common/form/views/select.html',
+            templateUrl: appConfig.baseUrl + 'ng/common/form/views/select.html',
             scope: {
                 id: '@',
                 label: '@',

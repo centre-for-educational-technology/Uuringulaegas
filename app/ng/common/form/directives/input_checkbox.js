@@ -3,11 +3,11 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formInputCheckbox', function(){
+.directive('formInputCheckbox', function(appConfig){
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/ng/common/form/views/input_checkbox.html',
+            templateUrl: appConfig.baseUrl + 'ng/common/form/views/input_checkbox.html',
             scope: {
                 label: '@',
                 name: '=',

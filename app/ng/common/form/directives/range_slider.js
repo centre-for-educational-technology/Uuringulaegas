@@ -3,11 +3,11 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formRangeSlider', function(){
+.directive('formRangeSlider', function(appConfig){
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/ng/common/form/views/range_slider.html',
+            templateUrl: appConfig.baseUrl + 'ng/common/form/views/range_slider.html',
             scope: {
                 id: '@',
                 label: '@',

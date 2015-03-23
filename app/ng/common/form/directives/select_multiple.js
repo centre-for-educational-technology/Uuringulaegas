@@ -3,11 +3,11 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formSelectMultiple', function($compile){
+.directive('formSelectMultiple', function(appConfig, $compile){
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/ng/common/form/views/select_multiple.html',
+            templateUrl: appConfig.baseUrl + 'ng/common/form/views/select_multiple.html',
             scope: {
                 label: '@',
                 model: '=',

@@ -3,11 +3,11 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formInputRadio', function(){
+.directive('formInputRadio', function(appConfig){
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/ng/common/form/views/input_radio.html',
+            templateUrl: appConfig.baseUrl + 'ng/common/form/views/input_radio.html',
             scope: {
                 label: '@',
                 name: '=',

@@ -3,11 +3,11 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formDatePicker', function(){
+.directive('formDatePicker', function(appConfig){
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: '/ng/common/form/views/date_picker.html',
+            templateUrl: appConfig.baseUrl + 'ng/common/form/views/date_picker.html',
             scope: {
                 id: '@',
                 label: '@',
