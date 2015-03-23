@@ -7,12 +7,22 @@ Uurimislaegas on veebiportaal, mis koosneb kuuest omavahel integreeritud mooduli
 
 Paigaldusjuhend
 ---------------
-PHP 5.3+
-Wordpress (v 4.1.1)
-AngularJS
-Twitter Bootstrap
+* PHP 5.3+
+* Wordpress (v 4.1.1)
+* Twitter Bootstrap
+* jQuery
+* Underscore.js
+* AngularJS (v1.3.12)
+  * ngRoute
+  * ngResource
+  * ngAria
 
-Vajalikud moodulid Wordpressile-
+#####Lisamoodulid AngularJS'ile:
+  * AngularUI UI-Bootstrap
+  * ngTagsInput
+  * angular-rangeslider (?)
+
+#####Vajalikud moodulid Wordpressile:
   - JSON REST API, v1.1.1
   - JSON Basic Authentication, v0.1 (ajutiselt arenduse jaoks, hiljem asendub see mõne teise autentimisviisiga)
   - Pods - Custom Content Types and Fields - v2.5.1.2
