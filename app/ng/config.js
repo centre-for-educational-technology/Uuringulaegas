@@ -10,5 +10,6 @@
  */
 angular.module('arkofinquiryApp.config', [])
   .constant('appConfig', {
-    baseUrl: '/' // Always end with a slash, ex. '/dir/subdir/'
+    appBase: '/', // Always end with a slash, ex. '/dir/subdir/'
+    apiUrl: '/api/' // Location of Wordpress install
   });

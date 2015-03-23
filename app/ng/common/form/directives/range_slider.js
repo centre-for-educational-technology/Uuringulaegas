@@ -7,7 +7,7 @@ angular.module('arkofinquiryApp')
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: appConfig.baseUrl + 'ng/common/form/views/range_slider.html',
+            templateUrl: appConfig.appBase + 'ng/common/form/views/range_slider.html',
             scope: {
                 id: '@',
                 label: '@',

@@ -7,7 +7,7 @@ angular.module('arkofinquiryApp')
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: appConfig.baseUrl + 'ng/common/form/views/input_checkbox.html',
+            templateUrl: appConfig.appBase + 'ng/common/form/views/input_checkbox.html',
             scope: {
                 label: '@',
                 name: '=',

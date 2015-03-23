@@ -5,6 +5,6 @@
 angular.module("arkofinquiryApp")
 .factory("GroupService", function GroupFactory($resource, $http, appConfig){
         $http.defaults.headers.common['Authorization'] = 'Basic YWRtaW46YWRtaW4=';
-        return $resource(appConfig.baseUrl + 'api/wp-json/pods/group/:id', {}, {});
+        return $resource(appConfig.apiUrl + 'wp-json/pods/group/:id', {}, {});
 
 });

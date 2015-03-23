@@ -5,6 +5,6 @@
 angular.module("arkofinquiryApp")
 .factory("InquiryActivityService", function InquiryActivityFactory($resource, $http, appConfig){
         $http.defaults.headers.common['Authorization'] = 'Basic YWRtaW46YWRtaW4=';
-        return $resource(appConfig.baseUrl + 'api/wp-json/pods/inq_activity/:id', {}, {});
+        return $resource(appConfig.apiUrl + 'wp-json/pods/inq_activity/:id', {}, {});
 
 });

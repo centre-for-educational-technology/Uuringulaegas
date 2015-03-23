@@ -7,7 +7,7 @@ angular.module('arkofinquiryApp')
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: appConfig.baseUrl + 'ng/common/form/views/input_text.html',
+            templateUrl: appConfig.appBase + 'ng/common/form/views/input_text.html',
             scope: {
                 id: '@',
                 label: '@',

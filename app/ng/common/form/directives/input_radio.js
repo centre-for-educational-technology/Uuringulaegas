@@ -7,7 +7,7 @@ angular.module('arkofinquiryApp')
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: appConfig.baseUrl + 'ng/common/form/views/input_radio.html',
+            templateUrl: appConfig.appBase + 'ng/common/form/views/input_radio.html',
             scope: {
                 label: '@',
                 name: '=',

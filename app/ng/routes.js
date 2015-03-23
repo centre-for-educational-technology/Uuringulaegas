@@ -10,7 +10,7 @@
  */
 angular.module('arkofinquiryApp')
   .config(function ($routeProvider, appConfig, $locationProvider) {
-    var base = appConfig.baseUrl;
+    var base = appConfig.appBase;
     $routeProvider
       .when('/', {
         templateUrl: base + 'ng/components/main/views/main.html',
