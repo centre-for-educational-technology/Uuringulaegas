@@ -23,13 +23,13 @@ Vajalikud moodulid Wordpressile-
 1. Laadida alla pakendatud rakendus (git kloon)
 2. Pakkida lahti 'app' kaust soovitud asukohta serveris
 3. Installeerida Wordpress eraldi alamkausta serveris (näiteks /api/ või /wp/)
-  1 Seadistada permalingid kujule 'Post-name' (Settings -> Permalinks)
-  2 Lisada WP pluginad
-    1 Pods pluginal lülitada sisse järgnevad komponendid (Pods Admin -> Components):
+  1. Seadistada permalingid kujule 'Post-name' (Settings -> Permalinks)
+  2. Lisada WP pluginad
+    1. Pods pluginal lülitada sisse järgnevad komponendid (Pods Admin -> Components):
       * Advanced Content Types
       * Migrate Packages
       * Roles and Capabilities
       * Table Storage
-    2 Pods pluginale importida sätted pakendatud rakendusega kaasas olnud failist pods_settings.txt (Pods Admin -> Migrate Packages -> Import)
-    3 Anda WP Administraatorkasutajale kõik uued lisaõigused (Pods Admin -> Roles & Capabilities -> Administrator -> Toggle All Capabilities on -> Save)
+    2. Pods pluginale importida sätted pakendatud rakendusega kaasas olnud failist pods_settings.txt (Pods Admin -> Migrate Packages -> Import)
+    3. Anda WP Administraatorkasutajale kõik uued lisaõigused (Pods Admin -> Roles & Capabilities -> Administrator -> Toggle All Capabilities on -> Save)
 4. Rakenduse failis ng/config.js muuta 'appBase' ja 'apiUrl' väärtused vastavusse serveriga
