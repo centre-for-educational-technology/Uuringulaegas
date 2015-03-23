@@ -114,7 +114,7 @@ angular.module('arkofinquiryApp')
         title: '',
         description: '',
         extra: {
-          location: [],
+          location: [0,1],
           location_web: '',
           location_city: '',
           location_address: '',

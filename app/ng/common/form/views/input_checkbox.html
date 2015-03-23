@@ -3,7 +3,7 @@
     <div class="col-sm-8">
       <div class="checkbox" ng-repeat="(key, value) in options">
         <label>
-            <input type="checkbox" ng-value="key" ng-model="$parent.model"> {{ value }}
+            <input type="checkbox" id="{{ key }}" ng-value="key" ng-model="$parent.model[key]" ng-true-value="{{ key }}" ng-false-value="null"> {{ value }}
         </label>
       </div>
     </div>

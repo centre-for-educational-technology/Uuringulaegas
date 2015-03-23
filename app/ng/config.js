@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc config
- * @name arkofinquiryApp
+ * @name arkofinquiryApp.config
  * @description
- * # arkofinquiryApp
+ * # arkofinquiryApp.config
  *
- * Config for the main app
+ * Config module for the main app
  */
 angular.module('arkofinquiryApp.config', [])
   .constant('appConfig', {

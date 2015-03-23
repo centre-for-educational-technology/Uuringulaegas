@@ -15,5 +15,10 @@ angular.module('arkofinquiryApp')
                 model: '=',
                 req: '@'
             }
+            /*link: function(scope){
+              for(var i = 0; i < scope.options.length; i++){
+                scope.model[i] = false;
+              }
+            }*/
         }
     });
