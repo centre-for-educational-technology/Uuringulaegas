@@ -22,7 +22,11 @@ angular.module('arkofinquiryApp')
       roles: [
           'Learner',
           'Teacher'
-      ]
+      ],
+      sex: {
+        1: 'Male',
+        2: 'Female'
+      }
     };
 
     // Set up DatePicker options and declare methods for it
@@ -92,8 +96,9 @@ angular.module('arkofinquiryApp')
         extra: {
           full_name: '',
           date_of_birth: '',
+          sex: '',
           city_of_residence: '',
-          user_type: 'Learner',
+          user_type: '0',
           preferred_language: '',
           additional_languages: ['']
         }
