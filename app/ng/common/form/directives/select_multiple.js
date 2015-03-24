@@ -3,7 +3,7 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formSelectMultiple', function(appConfig, $compile){
+.directive('formSelectMultiple', function(appConfig, $compile, $timeout){
         return {
             replace: true,
             restrict: 'E',
@@ -23,6 +23,11 @@ angular.module('arkofinquiryApp')
                 scope.removeChoice = function(el){
                     scope.model.splice(el, 1);
                 };
+
+                // Wait 500ms for DOM to load before applying animation class
+                $timeout(function(){
+                  scope.loaded = true;
+                }, 500);
             }
         }
     });

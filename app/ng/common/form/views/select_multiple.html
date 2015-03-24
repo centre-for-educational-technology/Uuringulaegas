@@ -1,7 +1,7 @@
 <div class="form-group">
     <label class="col-sm-4 control-label">{{ label }} <span ng-show="req">*</span></label>
     <div class="col-sm-8">
-        <div class="row" ng-repeat="choice in model track by $index">
+        <div class="row" ng-class="{'appear-in' : loaded}" ng-repeat="choice in model track by $index">
             <div class="col-xs-11 no-padding-right">
                 <select class="form-control margin-bottom" ng-model="model[$index]" ng-required="req" >
                     <option ng-repeat="option in options">{{ ::option }}</option>

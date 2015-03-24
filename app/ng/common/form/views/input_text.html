@@ -1,6 +1,8 @@
-<div class="form-group">
-    <label for="act_{{ id }}" class="col-sm-4 control-label">{{ label }} <span ng-show="req">*</span></label>
-    <div class="col-sm-8">
-        <input type="text" class="form-control col-sm-7" id="act_{{ id }}" name="act_{{ id }}" ng-model="model" ng-required="req">
+<div> <!-- separate in sub-div for correct UI-Bootstrap collapse animation -->
+    <div class="form-group">
+        <label for="act_{{ id }}" class="control-label" ng-class="indent ? 'col-sm-5' : 'col-sm-4'">{{ label }} <span ng-show="req">*</span></label>
+        <div class="" ng-class="indent ? 'col-sm-7' : 'col-sm-8'">
+            <input type="text" class="form-control" id="act_{{ id }}" name="act_{{ id }}" ng-model="model" ng-required="req">
+        </div>
     </div>
 </div>

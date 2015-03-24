@@ -9,18 +9,18 @@
 
 </div>
 
-<form class="form-horizontal">
+<form class="form-horizontal" novalidate>
   <form-input-text id="title" label="Title" model="formData.title" req="true"></form-input-text>
 
   <form-textarea id="description" label="Activity Description" rows="10" model="formData.description" req="true"></form-textarea>
 
   <form-input-checkbox name="location" label="Location" model="formData.extra.location" options="formOptions.location"></form-input-checkbox>
 
-  <form-input-text id="location_web" label="Webpage" model="formData.extra.location_web" ng-show="_.contains(formData.extra.location, 0)"></form-input-text>
+  <form-input-text indent="true" id="location_web" label="Webpage" model="formData.extra.location_web" collapse="!_.contains(formData.extra.location, 0)"></form-input-text>
 
-  <form-input-text id="location_city" label="City" model="formData.extra.location_city" ng-show="_.contains(formData.extra.location, 1)"></form-input-text>
+  <form-input-text indent="true" id="location_city" label="City" model="formData.extra.location_city" collapse="!_.contains(formData.extra.location, 1)"></form-input-text>
 
-  <form-input-text id="location_address" label="Address" model="formData.extra.location_address" ng-show="_.contains(formData.extra.location, 1)"></form-input-text>
+  <form-input-text indent="true" id="location_address" label="Address" model="formData.extra.location_address" collapse="!_.contains(formData.extra.location, 1)"></form-input-text>
 
   <form-select-multiple label="Domain" options="formOptions.domains" model="formData.extra.domains" req="true"></form-select-multiple>
 
@@ -46,7 +46,7 @@
 
   <form-input-radio name="rights_restriction" label="Copyright or Other Restrictions" model="formData.extra.rights_restrictions" options="formOptions.rightsRestrictions"></form-input-radio>
 
-  <form-textarea id="rights_description" label="Rights Description" rows="5" model="formData.extra.rights_description" ng-show="formData.extra.rights_restrictions == 1"></form-textarea>
+  <form-textarea id="rights_description" label="Rights Description" rows="5" model="formData.extra.rights_description" collapse="formData.extra.rights_restrictions == 0"></form-textarea>
 
   <div class="form-group">
     <div class="col-sm-4"></div>

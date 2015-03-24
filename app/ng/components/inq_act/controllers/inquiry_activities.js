@@ -62,6 +62,9 @@ angular.module('arkofinquiryApp')
       }
     };
 
+    // Expose Underscore.js to scope
+    $scope._ = _;
+
 
     // Set up empty formData object
     resetForm();
@@ -114,7 +117,7 @@ angular.module('arkofinquiryApp')
         title: '',
         description: '',
         extra: {
-          location: [0,1],
+          location: [],
           location_web: '',
           location_city: '',
           location_address: '',
