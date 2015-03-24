@@ -14,7 +14,7 @@ angular.module("arkofinquiryApp")
                         }]
                 },
                 queryLearnersByName: {
-                        url: appConfig.apiUrl + 'wp-json/pods/user?data[where]=full_name.meta_value%20LIKE%20%22%25:searchName%25%22%20AND%20user_type.meta_value%3D%22Learner%22',
+                        url: appConfig.apiUrl + 'wp-json/pods/user?data[where]=full_name.meta_value%20LIKE%20%22%25:searchName%25%22%20AND%20user_type.meta_value%3D0',
                         searchName: '@searchName',
                         method: "GET",
                         isArray: true,

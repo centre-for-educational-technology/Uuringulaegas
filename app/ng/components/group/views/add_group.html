@@ -1,27 +1,19 @@
 <div class="page-header center">
-    <h1>Create New Group</h1>
-    <small>You are able to change entered information later</small>
+  <h1>Create New Group</h1>
+  <small>You are able to change entered information later</small>
 </div>
 
 <form class="form-horizontal">
-    <form-input-text id="full_name" label="Group Name" model="groupForm.name" req="true"></form-input-text>
+  <form-input-text id="full_name" label="Group Name" model="groupForm.name" req="true"></form-input-text>
 
-    <div class="form-group">
-        <label class="col-sm-4 control-label">Learners</label>
-        <div class="col-sm-8">
-            <tags-input ng-model="groupForm.learners" display-property="full_name" placeholder="Add learner" add-from-autocomplete-only="true" replace-spaces-with-dashes="false">
-                <auto-complete source="loadLearners($query)" min-length="2"></auto-complete>
-            </tags-input>
-        </div>
+  <form-tags-input-autocomplete label="Learners (directive)" model="groupForm.learners" display-property="full_name" placeholder="Add learner" autocomplete-source="loadLearners(q)"></form-tags-input-autocomplete>
+
+  <div class="form-group">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-8">
+      <input class="btn btn-success" type="submit" ng-click="addGroup(newGroup)" ng-disabled="updating" value="Create Group" />
     </div>
-
-
-    <div class="form-group">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-8">
-            <input class="btn btn-success" type="submit" ng-click="addGroup(newGroup)" ng-disabled="updating" value="Create Group" />
-        </div>
-    </div>
+  </div>
 
 </form>
 
@@ -30,6 +22,6 @@
 <div class="alert alert-danger" role="alert" ng-show="postingState == 2"> Error! Are you logged out from WP-Admin?</div>
 
 <div class="well">
-    <p>GroupData model <strong>LiveView</strong> (for debugging only):</p>
-    {{ groupForm | json}}
+  <p>GroupData model <strong>LiveView</strong> (for debugging only):</p>
+  {{ groupForm | json}}
 </div>

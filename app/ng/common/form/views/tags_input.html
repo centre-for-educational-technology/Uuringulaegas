@@ -1,0 +1,8 @@
+<div class="form-group">
+  <label class="col-sm-4 control-label">{{ label }}</label>
+  <div class="col-sm-8">
+    <tags-input ng-model="model" display-property="{{ displayProperty }}" placeholder="{{ placeholder }}" add-from-autocomplete-only="true" replace-spaces-with-dashes="false">
+      <auto-complete source="autocompleteSource({q: $query})" min-length="2"></auto-complete>
+    </tags-input>
+  </div>
+</div>
