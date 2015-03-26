@@ -3,7 +3,7 @@
  */
 
 angular.module('arkofinquiryApp')
-.directive('formTagsInputAutocomplete', function(appConfig){
+.directive('formTagsInput', function(appConfig){
         return {
             replace: true,
             restrict: 'E',
@@ -13,6 +13,7 @@ angular.module('arkofinquiryApp')
                 model: '=',
                 placeholder: '@',
                 displayProperty: '@',
+                autocompleteOnly: '@',
                 autocompleteSource: '&'
             }
         }

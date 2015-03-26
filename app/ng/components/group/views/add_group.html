@@ -3,10 +3,10 @@
   <small>You are able to change entered information later</small>
 </div>
 
-<form class="form-horizontal">
+<form class="form-horizontal" novalidate>
   <form-input-text id="full_name" label="Group Name" model="groupForm.name" req="true"></form-input-text>
 
-  <form-tags-input-autocomplete label="Learners (directive)" model="groupForm.learners" display-property="full_name" placeholder="Add learner" autocomplete-source="loadLearners(q)"></form-tags-input-autocomplete>
+  <form-tags-input label="Learners (directive)" model="groupForm.learners" display-property="full_name" placeholder="Add learner" autocomplete-source="loadLearners(q)" autocomplete-only="true"></form-tags-input>
 
   <div class="form-group">
     <div class="col-sm-4"></div>

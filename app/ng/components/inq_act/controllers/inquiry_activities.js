@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name arkofinquiryApp.controller:InquiryActivitiesCtrl
+ * @name arkofinquiryApp.controller:AddInquiryActivityCtrl
  * @description
- * # InquiryActivitiesCtrl
+ * # AddInquiryActivityCtrl
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivitiesCtrl', function ($scope, $http, InquiryActivityService) {
+  .controller('AddInquiryActivityCtrl', function ($scope, $http, InquiryActivityService, InquiryActivityKeywordService) {
 
     // Set up form options
     $scope.formOptions = {
@@ -30,11 +30,11 @@ angular.module('arkofinquiryApp')
         'Finnish',
         'Russian'
       ],
-      levels: [
-        'Basic',
-        'Advanced',
-        'Expert'
-      ],
+      levels: {
+        0: 'Basic',
+        1: 'Advanced',
+        2: 'Expert'
+      },
       coveredPhases: [
         'Orientation',
         'Conceptualisation',
@@ -69,6 +69,13 @@ angular.module('arkofinquiryApp')
     // Set up empty formData object
     resetForm();
 
+    // Create new User Service
+    $scope.loadKeywords = function(query) {
+      return InquiryActivityKeywordService.queryKeywordsByName({searchName: query}, function(data){
+        return data;
+      }).$promise;
+    };
+
     // Create new Activity Service
     $scope.activity = new InquiryActivityService();
 
@@ -90,6 +97,15 @@ angular.module('arkofinquiryApp')
       activity.post_content = $scope.formData.description;
       activity.post_status = 'publish';
       activity.post_type = 'inq_activity';
+      activity.inq_keywords = [];
+
+      for(var i = 0; i < $scope.formData.keywords.length; i++){
+        if ($scope.formData.keywords[i].term_id){
+          activity.inq_keywords.push($scope.formData.keywords[i].term_id)
+        } else {
+          activity.inq_keywords.push($scope.formData.keywords[i].name)
+        }
+      }
 
       // append form data object to activity object (same keys)
       _.extend(activity, $scope.formData.extra);
@@ -116,6 +132,7 @@ angular.module('arkofinquiryApp')
       $scope.formData = {
         title: '',
         description: '',
+        keywords: [],
         extra: {
           location: [],
           location_web: '',
