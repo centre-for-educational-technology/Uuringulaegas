@@ -16,6 +16,10 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/main/views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/inq_act', {
+        templateUrl: base + 'ng/components/inq_act/views/inquiry_activity_list.html',
+        controller: 'InquiryActivityListCtrl'
+      })
       .when('/inq_act/new', {
         templateUrl: base + 'ng/components/inq_act/views/add_inquiry_activity_form.html',
         controller: 'AddInquiryActivityCtrl'

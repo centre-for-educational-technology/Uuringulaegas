@@ -10,7 +10,7 @@ angular.module("arkofinquiryApp")
                         method: 'GET',
                         isArray: true,
                         transformResponse: [angular.fromJson, function(data, headers){
-                        return _.values(data); // Removes keys from response
+                          return _.values(data); // Removes keys from response
                         }]
                 },
                 queryLearnersByName: {

@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h3 class="modal-title">{{ activity.post_title }}</h3>
+</div>
+<div class="modal-body">
+  <dl ng-repeat="(key, value) in activity">
+    <dt>{{ key }}</dt>
+    <dd>{{ value }}</dd>
+  </dl>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="accept()">Start this activity</button>
+  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

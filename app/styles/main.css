@@ -78,6 +78,8 @@ body {
   }
 }
 
+/* Multiple select directive fixes */
+
 .margin-bottom {
   margin-bottom: 10px;
 }
@@ -88,4 +90,17 @@ body {
 
 .no-padding-left {
   padding-left: 0px;
+}
+
+/* UI-Bootstrap Modal backdrop fix (until compatible with bootstrap 3.3.2) */
+.modal-backdrop {
+  bottom: 0;
+  position: fixed;
+}
+
+/* ng-click cursor pointer */
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+  cursor: pointer;
 }
