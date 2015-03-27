@@ -2,6 +2,8 @@
 node_modules
 test/tmp
 app/api/wp-config.php
+app/api/.htaccess
+app/.htaccess
 .idea
 
 .idea/workspace.xml

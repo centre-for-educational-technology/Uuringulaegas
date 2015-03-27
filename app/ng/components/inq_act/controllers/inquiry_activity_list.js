@@ -10,6 +10,9 @@
 angular.module('arkofinquiryApp')
   .controller('InquiryActivityListCtrl', function ($scope, $http, appConfig, InquiryActivityService, $modal) {
 
+    // Expose Underscore.js to scope
+    $scope._ = _;
+
     $scope.inqActList = InquiryActivityService.query();
 
     $scope.openDetails = function (act) {
