@@ -104,3 +104,7 @@ body {
 [x-ng-click] {
   cursor: pointer;
 }
+
+.temp-height {
+  height: 60px;
+}

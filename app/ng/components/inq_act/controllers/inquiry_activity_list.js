@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name arkofinquiryApp.controller:AddInquiryActivityCtrl
+ * @name arkofinquiryApp.controller:InquiryActivityListCtrl
  * @description
- * # AddInquiryActivityCtrl
+ * # InquiryActivityListCtrl
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')

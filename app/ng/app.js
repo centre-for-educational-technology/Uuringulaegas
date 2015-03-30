@@ -20,5 +20,6 @@ angular
     'ngTouch',
     'ui-rangeSlider',
     'ui.bootstrap',
-    'ngTagsInput'
+    'ngTagsInput',
+    'Gravatar'
   ]);

@@ -1,0 +1,11 @@
+<div class="page-header center">
+  <h1>Groups</h1>
+  <small>Click on Group to see details</small>
+</div>
+
+<div class="list-group">
+  <a class="list-group-item" ng-repeat="group in groupList | orderBy:'id':true" ng-click="openDetails(group)">
+    <h4 class="list-group-item-heading">{{ group.name }}</h4>
+    <p class="list-group-item-text">{{ group.created }}</p>
+  </a>
+</div>
