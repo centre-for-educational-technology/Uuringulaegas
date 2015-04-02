@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('AddInquiryActivityCtrl', function ($scope, $http, InquiryActivityService, InquiryActivityKeywordService) {
+  .controller('AddInquiryActivityCtrl', function ($scope, $http, $document, InquiryActivityService, InquiryActivityKeywordService) {
 
     // Set up form options
     $scope.formOptions = {
@@ -113,16 +113,21 @@ angular.module('arkofinquiryApp')
       // POST to DP
       activity.$save(activity, function() {
         // success
-        $scope.postingState = 1; // OK
         $scope.updating = false;
         console.log("OK"); // -------------------------------------- REMOVE after debugging
 
         resetForm();
+        $document.scrollTopAnimated(0).then(function(){
+          $scope.postingState = 1; // OK
+        });
       }, function(activity){
         // error
-        $scope.postingState = 2; // Error
         $scope.updating = false;
         console.log("ERROR"); // -------------------------------------- REMOVE after debugging
+        $document.scrollTopAnimated(0).then(function(){
+          $scope.postingState = 2; // Error
+        });
+
       });
     };
 

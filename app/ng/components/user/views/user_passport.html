@@ -14,7 +14,7 @@
     <h4>User info</h4>
     <dl class="dl-horizontal">
       <dt>Date of Birth</dt>
-      <dd>{{ user.date_of_birth }}</dd>
+      <dd>{{ user.date_of_birth | date : 'dd.MM.yyyy' }}</dd>
       <dt>Email</dt>
       <dd>{{ user.user_email }}</dd>
       <dt>Preferred Language</dt>
@@ -32,7 +32,7 @@
       </div>
       <div class="col-xs-10">
         <span class="lead">Joined Ark of Inquiry</span>
-        <footer class="text-muted">- {{ user.user_registered }}</footer>
+        <footer class="text-muted">- {{ user.user_registered | date : 'medium'}}</footer>
       </div>
     </div>
   </div>

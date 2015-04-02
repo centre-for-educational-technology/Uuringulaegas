@@ -8,7 +8,9 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('AddGroupCtrl', function ($scope, $resource, GroupService, UserService) {
+  .controller('AddGroupCtrl', function ($scope, $resource, $document, GroupService, UserService) {
+
+    var mapDOM = angular.element(document.getElementById('map-canvas'));
 
     // Set up empty userData object
     resetForm();
@@ -47,16 +49,20 @@ angular.module('arkofinquiryApp')
       // POST to DB
       newGroup.$save(newGroup, function() {
         // success
-        $scope.postingState = 1; // OK
         $scope.updating = false;
         console.log("OK"); // -------------------------------------- REMOVE after debugging
 
         resetForm();
+        $document.scrollTopAnimated(0).then(function(){
+          $scope.postingState = 1; // OK
+        });
       }, function(newGroup){
         // error
-        $scope.postingState = 2; // Error
         $scope.updating = false;
         console.log("ERROR"); // -------------------------------------- REMOVE after debugging
+        $document.scrollTopAnimated(0).then(function(){
+          $scope.postingState = 2; // Error
+        });
       });
     };
 

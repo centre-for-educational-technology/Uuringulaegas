@@ -9,6 +9,10 @@
 
 </div>
 
+<div id="successAlert" class="alert alert-success" role="alert" collapse="postingState != 1"> Activity added!</div>
+
+<div id="errorAlert" class="alert alert-danger" role="alert" collapse="postingState != 2"> Error! Are you logged out from WP-Admin?</div>
+
 <form class="form-horizontal" novalidate>
   <form-input-text id="title" label="Title" model="formData.title" req="true"></form-input-text>
 
@@ -58,10 +62,6 @@
   </div>
 
 </form>
-
-<div class="alert alert-success" role="alert" ng-show="postingState == 1"> Activity added!</div>
-
-<div class="alert alert-danger" role="alert" ng-show="postingState == 2"> Error! Are you logged out from WP-Admin?</div>
 
 <div class="well">
   <p>FormData model <strong>LiveView</strong> (for debugging only):</p>

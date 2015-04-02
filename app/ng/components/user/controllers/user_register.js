@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('UserRegisterCtrl', function ($scope, $http, UserService) {
+  .controller('UserRegisterCtrl', function ($scope, $http, $document, UserService) {
 
     // Set up form options
     $scope.formOptions = {
@@ -76,16 +76,20 @@ angular.module('arkofinquiryApp')
       // POST to DB
       user.$save(user, function() {
         // success
-        $scope.postingState = 1; // OK
         $scope.updating = false;
         console.log("OK"); // -------------------------------------- REMOVE after debugging
 
         resetForm();
+        $document.scrollTopAnimated(0).then(function(){
+          $scope.postingState = 1; // OK
+        });
       }, function(user){
         // error
-        $scope.postingState = 2; // Error
         $scope.updating = false;
         console.log("ERROR"); // -------------------------------------- REMOVE after debugging
+        $document.scrollTopAnimated(0).then(function(){
+          $scope.postingState = 2; // Error
+        });
       });
     };
 

@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
     <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
-    <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!-- endbuild -->
   </head>
@@ -29,36 +29,36 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#/">Home</a></li>
-          <li role="presentation" class="dropdown">
+        <ul class="nav nav-pills pull-right" ng-controller="NavCtrl">
+          <li ng-class="setActiveIfPath('/')"><a ng-href="#/">Home</a></li>
+          <li ng-class="setActiveIfPath('/inq_act')" role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
               Inquiry Activities <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li><a ng-href="#/inq_act">List</a></li>
-              <li><a ng-href="#/inq_act/new">Add new</a></li>
+              <li ng-class="setActiveIfPath('/inq_act/list')"><a ng-href="#/inq_act/list">List</a></li>
+              <li ng-class="setActiveIfPath('/inq_act/new')"><a ng-href="#/inq_act/new">Add new</a></li>
               <li class="disabled"><a ng-href="#/inq_act/search">Search</a></li>
             </ul>
           </li>
 
-          <li role="presentation" class="dropdown">
+          <li ng-class="setActiveIfPath('/groups')" role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
               Groups <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li><a ng-href="#/groups">List</a></li>
-              <li><a ng-href="#/groups/new">Add new</a></li>
+              <li ng-class="setActiveIfPath('/groups/list')"><a ng-href="#/groups/list">List</a></li>
+              <li ng-class="setActiveIfPath('/groups/new')"><a ng-href="#/groups/new">Add new</a></li>
             </ul>
           </li>
 
-          <li role="presentation" class="dropdown">
+          <li ng-class="setActiveIfPath('/user')" role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
               Users <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li><a ng-href="#/users">List</a></li>
-              <li><a ng-href="#/register">Register</a></li>
+              <li ng-class="setActiveIfPath('/user/list')"><a ng-href="#/user/list">List</a></li>
+              <li ng-class="setActiveIfPath('/user/register')"><a ng-href="#/user/register">Register</a></li>
               <li class="disabled"><a>Log In</a></li>
             </ul>
           </li>
@@ -107,6 +107,7 @@
     <script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -115,6 +116,7 @@
         <script src="ng/routes.js"></script>
         <script src="ng/config.js"></script>
         <script src="ng/components/main/controllers/main.js"></script>
+        <script src="ng/common/nav/controllers/nav_ctrl.js"></script>
         <script src="ng/common/form/directives/input_text.js"></script>
         <script src="ng/common/form/directives/select_multiple.js"></script>
         <script src="ng/common/form/directives/select.js"></script>

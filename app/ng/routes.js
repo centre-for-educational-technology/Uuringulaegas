@@ -17,7 +17,7 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/main/views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/inq_act', {
+      .when('/inq_act/list', {
         templateUrl: base + 'ng/components/inq_act/views/inquiry_activity_list.html',
         controller: 'InquiryActivityListCtrl'
       })
@@ -25,25 +25,25 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/inq_act/views/add_inquiry_activity_form.html',
         controller: 'AddInquiryActivityCtrl'
       })
-      .when('/users', {
+      .when('/user/list', {
         templateUrl: base + 'ng/components/user/views/user_list.html',
         controller: 'UserListCtrl'
+      })
+      .when('/user/register', {
+        templateUrl: base + 'ng/components/user/views/user_register.html',
+        controller: 'UserRegisterCtrl'
       })
       .when('/user/:id', {
         templateUrl: base + 'ng/components/user/views/user_passport.html',
         controller: 'UserPassportCtrl'
       })
-      .when('/groups', {
+      .when('/groups/list', {
         templateUrl: base + 'ng/components/group/views/group_list.html',
         controller: 'GroupListCtrl'
       })
       .when('/groups/new', {
         templateUrl: base + 'ng/components/group/views/add_group.html',
         controller: 'AddGroupCtrl'
-      })
-      .when('/register', {
-        templateUrl: base + 'ng/components/user/views/user_register.html',
-        controller: 'UserRegisterCtrl'
       })
       .otherwise({
         redirectTo: base

@@ -21,6 +21,7 @@ Paigaldusjuhend
   * AngularUI UI-Bootstrap
   * ngTagsInput
   * angular-rangeslider (?)
+  * angular-scroll
 
 #####Vajalikud moodulid Wordpressile:
   - JSON REST API, v1.1.1

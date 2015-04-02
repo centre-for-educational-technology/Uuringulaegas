@@ -3,6 +3,10 @@
     <small>You are able to change entered information later</small>
 </div>
 
+<div class="alert alert-success" role="alert" collapse="postingState != 1"> User Registered! You can't log in with it yet, though, sorry.</div>
+
+<div class="alert alert-danger" role="alert" collapse="postingState != 2"> Error! Are you logged out from WP-Admin?</div>
+
 <form class="form-horizontal" novalidate>
     <form-input-text id="full_name" label="Full Name" model="userData.extra.full_name" req="true"></form-input-text>
 
@@ -30,10 +34,6 @@
     </div>
 
 </form>
-
-<div class="alert alert-success" role="alert" ng-show="postingState == 1"> User Registered! You can't log in with it yet, though, sorry.</div>
-
-<div class="alert alert-danger" role="alert" ng-show="postingState == 2"> Error! Are you logged out from WP-Admin?</div>
 
 <div class="well">
     <p>UserData model <strong>LiveView</strong> (for debugging only):</p>
