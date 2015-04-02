@@ -22,8 +22,10 @@ angular
     'ui.bootstrap',
     'ngTagsInput',
     'Gravatar',
-    'duScroll'
+    'duScroll',
+    'angular-jqcloud'
   ])
+  // Default values for angular-scroll module
   .value('duScrollDuration', 1000)
   .value('duScrollOffset', 30)
 ;

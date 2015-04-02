@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
     <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
+    <link rel="stylesheet" href="bower_components/jqcloud2/dist/jqcloud.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -38,7 +39,7 @@
             <ul class="dropdown-menu" role="menu">
               <li ng-class="setActiveIfPath('/inq_act/list')"><a ng-href="#/inq_act/list">List</a></li>
               <li ng-class="setActiveIfPath('/inq_act/new')"><a ng-href="#/inq_act/new">Add new</a></li>
-              <li class="disabled"><a ng-href="#/inq_act/search">Search</a></li>
+              <li ng-class="setActiveIfPath('/inq_act/search')"><a ng-href="#/inq_act/search/tags">Search</a></li>
             </ul>
           </li>
 
@@ -108,6 +109,8 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
     <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+    <script src="bower_components/jqcloud2/dist/jqcloud.js"></script>
+    <script src="bower_components/angular-jqcloud/angular-jqcloud.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -129,6 +132,7 @@
         <script src="ng/components/inq_act/controllers/add_inquiry_activity.js"></script>
         <script src="ng/components/inq_act/controllers/inquiry_activity_list.js"></script>
         <script src="ng/components/inq_act/controllers/modal/inq_act_details_modal_ctrl.js"></script>
+        <script src="ng/components/inq_act/controllers/inq_act_tag_cloud.js"></script>
         <script src="ng/components/inq_act/services/inquiry_activity_service.js"></script>
         <script src="ng/components/inq_act/services/inq_act_keyword_service.js"></script>
         <script src="ng/components/user/controllers/user_register.js"></script>

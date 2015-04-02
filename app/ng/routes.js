@@ -17,6 +17,10 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/main/views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/inq_act/search/tags', {
+        templateUrl: base + 'ng/components/inq_act/views/inq_act_tag_cloud.html',
+        controller: 'InquiryActivityTagCloudCtrl'
+      })
       .when('/inq_act/list', {
         templateUrl: base + 'ng/components/inq_act/views/inquiry_activity_list.html',
         controller: 'InquiryActivityListCtrl'
