@@ -11,6 +11,15 @@ angular.module("arkofinquiryApp")
             transformResponse: [angular.fromJson, function(data, headers){
               return _.values(data); // Removes keys from response
             }]
+          },
+          searchByKeyword: {
+            url: appConfig.apiUrl + 'wp-json/posts?type=inq_activity&filter[inq_keywords]=:keyword',
+            keyword: '@keyword',
+            methord: 'GET',
+            isArray: true,
+            transformResponse: [angular.fromJson, function(data, headers){
+              return _.values(data); // Removes keys from response
+            }]
           }
         });
 

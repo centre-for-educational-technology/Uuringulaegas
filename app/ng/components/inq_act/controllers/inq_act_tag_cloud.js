@@ -8,9 +8,9 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivityTagCloudCtrl', function ($scope, $http, InquiryActivityKeywordService) {
+  .controller('InquiryActivityTagCloudCtrl', function ($scope, $http, InquiryActivityKeywordService, $location) {
 
-   $scope.words = [];
+    $scope.words = [];
 
     InquiryActivityKeywordService.query('', function(data){
       // Wait for callback, then populate words array with right parameters
@@ -28,7 +28,8 @@ angular.module('arkofinquiryApp')
 
             // Handle click callback
             return function() {
-              alert("You selected keyword " + text + " with ID: " + id);
+              // alert("You selected keyword " + text + " with ID: " + id);
+              searchKeyword(text);
             }
           }()
         };
@@ -37,6 +38,11 @@ angular.module('arkofinquiryApp')
       }
       console.log($scope.words);
     });
+
+    function searchKeyword(keywordText){
+      $location.path('/inq_act/list').search('keyword', keywordText);
+      $scope.$apply(); // Needed (just in case) for Angular to recognize change in path
+  }
 
 
     // http://localhost:8888/api/wp-json/posts?type=inq_activity&filter[inq_keywords]=Chemistry

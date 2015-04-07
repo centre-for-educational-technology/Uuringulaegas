@@ -8,12 +8,20 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivityListCtrl', function ($scope, $http, appConfig, InquiryActivityService, $modal) {
+  .controller('InquiryActivityListCtrl', function ($scope, $http, appConfig, InquiryActivityService, $modal, $location) {
 
     // Expose Underscore.js to scope
     $scope._ = _;
 
-    $scope.inqActList = InquiryActivityService.query();
+    if(_.isEmpty($location.search())){
+      $scope.inqActList = InquiryActivityService.query();
+    } else {
+      $scope.inqActList = InquiryActivityService.searchByKeyword({keyword: $location.search().keyword});
+    }
+
+    console.log($location.search().keyword);
+
+
 
     $scope.openDetails = function (act) {
 

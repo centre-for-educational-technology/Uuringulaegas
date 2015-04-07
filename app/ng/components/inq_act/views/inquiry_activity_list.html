@@ -5,12 +5,12 @@
 
 <div class="list-group">
   <a class="list-group-item" ng-repeat="act in inqActList | orderBy:'id':true" ng-click="openDetails(act)">
-    <h4 class="list-group-item-heading">{{ act.post_title }}
+    <h4 class="list-group-item-heading">{{ act.post_title }}{{ act.title }}
       <small> <!-- double 'small' element for extra small -->
         <small class="fa fa-map-marker pull-right" ng-if="_.contains(act.location, '1')" aria-hidden="true" tooltip="Physical location"></small>
         <small class="fa fa-globe pull-right" ng-if="_.contains(act.location, '0')" aria-hidden="true" tooltip="Online activity"></small>
       </small>
     </h4>
-    <p class="list-group-item-text">{{ act.post_content }}</p>
+    <p class="list-group-item-text">{{ act.post_content }}{{ act.content }}</p>
   </a>
 </div>
