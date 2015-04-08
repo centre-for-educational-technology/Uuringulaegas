@@ -20,6 +20,7 @@ angular
     'ngTouch',
     'ui-rangeSlider',
     'ui.bootstrap',
+    'ui.select',
     'ngTagsInput',
     'Gravatar',
     'duScroll',

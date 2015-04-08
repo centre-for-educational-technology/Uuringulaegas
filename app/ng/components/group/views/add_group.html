@@ -11,12 +11,30 @@
 <form class="form-horizontal" novalidate>
   <form-input-text id="full_name" label="Group Name" model="groupForm.name" req="true"></form-input-text>
 
-  <form-tags-input label="Learners (directive)" model="groupForm.learners" display-property="full_name" placeholder="Add learner" autocomplete-source="loadLearners(q)" autocomplete-only="true"></form-tags-input>
+  <!--<form-tags-input label="Learners" model="groupForm.learners" display-property="full_name" placeholder="Add learner" autocomplete-source="loadLearners(q)" autocomplete-only="true"></form-tags-input>-->
+
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Learners (NEW)</label>
+    <div class="col-sm-8">
+      <ui-select multiple ng-model="groupForm.learners" theme="bootstrap" ng-disabled="disabled">
+        <ui-select-match placeholder="Add learner...">{{$item.full_name}} &lt;{{$item.user_email}}&gt;</ui-select-match>
+        <ui-select-choices repeat="learner.id as learner in searchedLearners | orFilter: {full_name: $select.search, user_email: $select.search} | notInArray: groupForm.learners: 'id'" refresh="loadLearners($select.search)" refresh-delay="0">
+          <div ng-bind-html="learner.full_name | highlight: $select.search"></div>
+          <small>
+            Email: <span ng-bind-html="'' + learner.user_email | highlight: $select.search"></span>
+            | ID: {{ learner.id }}
+          </small>
+        </ui-select-choices>
+      </ui-select>
+      <small class="help-block">Type above to search learners by Name or Email</small>
+    </div>
+  </div>
+
 
   <div class="form-group">
     <div class="col-sm-4"></div>
     <div class="col-sm-8">
-      <input class="btn btn-success" type="submit" ng-click="addGroup(newGroup)" ng-disabled="updating" value="Create Group" />
+      <input class="btn btn-success" type="button" ng-click="addGroup(newGroup)" ng-disabled="updating" value="Create Group" />
     </div>
   </div>
 
@@ -25,4 +43,9 @@
 <div class="well">
   <p>GroupData model <strong>LiveView</strong> (for debugging only):</p>
   {{ groupForm | json}}
+</div>
+
+<div class="well">
+  <p>searchedLearners <strong>LiveView</strong> (for debugging only):</p>
+  {{ searchedLearners | json}}
 </div>

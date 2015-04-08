@@ -15,10 +15,13 @@ angular.module('arkofinquiryApp')
     // Set up empty userData object
     resetForm();
 
+    $scope.searchedLearners = [];
+
     // Create new User Service
     $scope.loadLearners = function(query) {
       return UserService.queryLearnersByName({searchName: query}, function(data){
-        return data;
+        $scope.searchedLearners = data;
+        //return data;
       }).$promise;
     };
 
@@ -39,12 +42,14 @@ angular.module('arkofinquiryApp')
 
       // Copy data from groupForm object to GroupService
       newGroup.name = $scope.groupForm.name;
-      newGroup.learners = [];
+      newGroup.learners = $scope.groupForm.learners;
 
-      // Push only ID's from groupForm to GroupService.learners array
-      for(var i = 0; i < $scope.groupForm.learners.length; i++){
-        newGroup.learners.push($scope.groupForm.learners[i].id);
-      };
+      //// Push only ID's from groupForm to GroupService.learners array
+      //// NEEDED ONLY for ng-tags-input, not needed for ui.select module
+      //
+      //for(var i = 0; i < $scope.groupForm.learners.length; i++){
+      //  newGroup.learners.push($scope.groupForm.learners[i].id);
+      //}
 
       // POST to DB
       newGroup.$save(newGroup, function() {
@@ -70,11 +75,8 @@ angular.module('arkofinquiryApp')
     function resetForm() {
       $scope.groupForm = {
         name: '',
-        learners: [],
-        teachers: []
+        learners: []
       };
     }
 
   });
-
-

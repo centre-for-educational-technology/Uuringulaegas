@@ -105,6 +105,11 @@ body {
   cursor: pointer;
 }
 
-.temp-height {
+.temp-badge-block-height {
   height: 60px;
+}
+
+/* Give all child span elements of jqcloud a pointer cursor */
+.jqcloud > span {
+  cursor: pointer;
 }
