@@ -3,7 +3,7 @@ Contributors: rmccue, rachelbaker
 Tags: json, rest, api, rest-api
 Requires at least: 3.9
 Tested up to: 4.1
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,14 @@ Drop this directory in and activate it. You need to be using pretty permalinks
 to use the plugin, as it uses custom rewrite rules to power the API.
 
 == Changelog ==
+
+= 1.2.1 =
+
+* Fix information disclosure security vulnerability.
+
+  Unauthenticated users could access revisions of published and unpublished posts. Revisions are now only accessible to authenticated users with permission to edit the revision's post.
+
+  Reported by @chredd on 2015-04-09.
 
 = 1.2 =
 

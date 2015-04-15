@@ -10,7 +10,16 @@
 angular.module('arkofinquiryApp')
   .controller('AddGroupCtrl', function ($scope, $resource, $document, GroupService, UserService) {
 
-    var mapDOM = angular.element(document.getElementById('map-canvas'));
+    $scope.formOptions = {
+      domains: [
+        'Chemistry',
+        'Engineering',
+        'Biology',
+        'Physics',
+        'Mathematics',
+        'Electricity'
+      ]
+    }
 
     // Set up empty userData object
     resetForm();
@@ -75,6 +84,8 @@ angular.module('arkofinquiryApp')
     function resetForm() {
       $scope.groupForm = {
         name: '',
+        description: '',
+        domains: [''],
         learners: []
       };
     }

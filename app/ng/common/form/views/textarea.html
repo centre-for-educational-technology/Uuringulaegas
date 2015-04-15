@@ -1,6 +1,8 @@
-<div class="form-group">
-    <label for="act_{{ id }}" class="col-sm-4 control-label">{{ label }} <span ng-show="req">*</span></label>
-    <div class="col-sm-8">
-        <textarea rows="{{ rows }}" class="form-control col-sm-7" id="act_{{ id }}" name="act_{{ id }}" ng-model="model" ng-required="req"></textarea>
-    </div>
+<div> <!-- separate in sub-div for correct UI-Bootstrap collapse animation -->
+  <div class="form-group">
+      <label for="act_{{ id }}" class="col-sm-4 control-label">{{ label }} <span ng-show="req">*</span></label>
+      <div class="col-sm-8">
+          <textarea rows="{{ rows }}" class="form-control col-sm-7" id="act_{{ id }}" name="act_{{ id }}" ng-model="model" ng-required="req" placeholder="{{ placeholder }}"></textarea>
+      </div>
+  </div>
 </div>

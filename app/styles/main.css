@@ -113,3 +113,49 @@ body {
 .jqcloud > span {
   cursor: pointer;
 }
+
+/* Customize login container */
+@media (min-width: 768px) {
+  .login-container {
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.login-separator {
+  position: relative;
+  display: block;
+  margin: 0 0 20px 0;
+  text-align: center;
+  color: #666;
+}
+
+.login-separator:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 43%;
+  border-bottom: 1px solid #cccccc;
+}
+
+.login-separator:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 43%;
+  border-bottom: 1px solid #cccccc;
+}

@@ -13,7 +13,9 @@ angular.module('arkofinquiryApp')
                 label: '@',
                 model: '=',
                 req: '@',
-                indent: '@'
+                indent: '@',
+                placeholder: '@',
+                helpText: '@'
             }
         }
     });

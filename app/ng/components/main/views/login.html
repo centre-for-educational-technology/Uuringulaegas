@@ -1,0 +1,33 @@
+<div class="login-container center-block">
+  <div class="page-header center">
+    <h1>Sign in</h1>
+  </div>
+
+  <button class="btn btn-lg btn-primary btn-block disabled" type="submit"><i class="fa fa-facebook fa-lg"></i> Sign in with Facebook</button>
+  <button class="btn btn-lg btn-danger btn-block disabled" type="submit"><i class="fa fa-google fa-lg"></i> Sign in with Google</button>
+  <br/>
+
+  <p class="login-separator"> or </p>
+
+  <form class="form-signin">
+    <label for="username" class="sr-only">Email address</label>
+    <input type="email" id="username" class="form-control input-lg" placeholder="Email address" required autofocus>
+
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" class="form-control input-lg" placeholder="Password" required>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember"> Remember me
+      </label>
+    </div>
+
+    <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+
+  </form>
+
+  <hr/>
+
+  <p class="text-center">Don't have an account? <a ng-href="#/user/register">Register here</a></p>
+  <p class="text-center"><a ng-href="" class="disabled text-muted">Forgot your password?</a></p>
+</div>
