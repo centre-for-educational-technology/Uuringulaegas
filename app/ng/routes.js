@@ -14,8 +14,8 @@ angular.module('arkofinquiryApp')
     var base = appConfig.appBase;
     $routeProvider
       .when('/', {
-        templateUrl: base + 'ng/components/main/views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: base + 'ng/components/main/views/titlepage.html',
+        controller: 'TitlePageCtrl'
       })
       .when('/login', {
         templateUrl: base + 'ng/components/main/views/login.html',

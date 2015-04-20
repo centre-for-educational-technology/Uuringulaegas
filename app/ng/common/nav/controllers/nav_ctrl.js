@@ -3,7 +3,7 @@
  */
 
 angular.module("arkofinquiryApp")
-.controller('NavCtrl', function ($scope, $location) {
+.controller('NavCtrl', function ($scope, $location, LoginService, $rootScope) {
 
   $scope.setActiveIfPath = function (path) {
     if ($location.path().substr(0, path.length) == path) {
@@ -17,4 +17,11 @@ angular.module("arkofinquiryApp")
       return ""
     }
   }
+
+  $scope.logout = function(){
+    LoginService.logout();
+    $rootScope.loggedIn = false;
+    $location.path('/');
+  }
+
 });

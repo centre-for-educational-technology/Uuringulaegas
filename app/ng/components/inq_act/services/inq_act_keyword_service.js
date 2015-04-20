@@ -3,8 +3,8 @@
  */
 
 angular.module("arkofinquiryApp")
-.factory("InquiryActivityKeywordService", function InquiryActivityKeywordFactory($resource, $http, appConfig){
-        $http.defaults.headers.common['Authorization'] = 'Basic YWRtaW46YWRtaW4=';
+.factory("InquiryActivityKeywordService", function InquiryActivityKeywordFactory($resource, $http, appConfig, $rootScope){
+        $http.defaults.headers.common['X-WP-Nonce'] = $rootScope.currentUserData.nonce;
         return $resource(appConfig.apiUrl + 'wp-json/pods/inq_keywords/:id', {}, {
                 query: {
                         method: 'GET',

@@ -8,9 +8,33 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('LoginCtrl', function ($scope) {
+  .controller('LoginCtrl', function ($scope, $rootScope, LoginService, $location) {
 
-    $scope.loginData = [];
+    $scope.loginData = {
+      remember: false,
+      action: 'log_in'
+    };
+
+    $scope.login = function(){
+      console.log($scope.loginData);
+      $scope.updating = true;
+      LoginService.login($scope.loginData, function(){
+        // Success
+        $scope.updating = false;
+        showTitlePage();
+      },
+      function(error){
+        $scope.updating = false;
+        $scope.errors = error;
+      })
+    };
+
+    function showTitlePage(){
+      $location.path('/');
+      // $scope.$apply(); // Needed (just in case) for Angular to recognize change in path
+    }
+
+
 
   });
 

@@ -6,6 +6,14 @@
     <title>Ark of Inquiry</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+
+    <!-- Style rule to hide elements with ng-cloak property even before anything loads -->
+    <style type="text/css">
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+      }
+    </style>
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -29,9 +37,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="container" ng-controller="MainCtrl">
       <div class="header">
-        <ul class="nav nav-pills pull-right" ng-controller="NavCtrl">
+        <ul class="nav nav-pills pull-right" ng-controller="NavCtrl" ng-if="loggedIn" ng-cloak>
           <li ng-class="setActiveIfPath('/')"><a ng-href="#/">Home</a></li>
           <li ng-class="setActiveIfPath('/inq_act')" role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -56,15 +64,14 @@
 
           <li ng-class="setActiveIfPath('/user')" role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              Users <span class="caret"></span>
+              {{ currentUserData.userDisplayName }} <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li ng-class="setActiveIfPath('/user/list')"><a ng-href="#/user/list">List</a></li>
-              <li ng-class="setActiveIfPath('/user/register')"><a ng-href="#/user/register">Register</a></li>
-              <li class="disabled"><a>Log In</a></li>
+              <li><a ng-click="logout()">Logout</a></li>
             </ul>
           </li>
         </ul>
+        <a class="btn btn-success pull-right" ng-href="#/login" role="button" ng-if="loggedIn === false" ng-cloak>Log In</a>
         <h3 class="text-muted">Ark of Inquiry</h3>
       </div>
 
@@ -120,8 +127,10 @@
         <script src="ng/app.js"></script>
         <script src="ng/routes.js"></script>
         <script src="ng/config.js"></script>
-        <script src="ng/components/main/controllers/main.js"></script>
+        <script src="ng/components/main/controllers/main_controller.js"></script>
+        <script src="ng/components/main/controllers/titlepage_ctrl.js"></script>
         <script src="ng/components/main/controllers/login_controller.js"></script>
+        <script src="ng/components/main/services/login_service.js"></script>
         <script src="ng/common/nav/controllers/nav_ctrl.js"></script>
         <script src="ng/common/form/directives/input_text.js"></script>
         <script src="ng/common/form/directives/select_multiple.js"></script>
