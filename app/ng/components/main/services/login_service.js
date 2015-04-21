@@ -9,23 +9,22 @@ angular.module("arkofinquiryApp")
     var currentUser;
 
     return $resource(appConfig.apiUrl + 'wp-admin/admin-ajax.php', {}, {
-      currentUser: function(){
-        return currentUser;
-      },
       getLoggedInUser: {
         method: 'GET',
         params: {
           action: 'get_logged_in_user'
         },
         interceptor: {
-          response: function (data) {
+          response: function (response) {
             isLoggedIn = true;
-            currentUser = data;
-            console.log('response in interceptor', data);
+            currentUser = response.data;
+            console.log('response in interceptor', response.data);
+            return response.data;
           },
-          responseError: function (data) {
+          responseError: function (response) {
             isLoggedIn = false;
-            console.log('error in interceptor', data);
+            console.log('error in interceptor', response);
+            return response.data;
           }
         }
       },

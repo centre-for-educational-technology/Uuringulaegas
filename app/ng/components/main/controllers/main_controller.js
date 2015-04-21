@@ -10,10 +10,10 @@
 angular.module('arkofinquiryApp')
   .controller('MainCtrl', function ($rootScope, LoginService, $route, $scope) {
 
-    getLoggedInUser(); // First page load
+    //getLoggedInUser(); // First page load
 
     $scope.$on('$locationChangeStart', function(event) {
-      getLoggedInUser()
+      getLoggedInUser();
     });
 
     function getLoggedInUser(){
