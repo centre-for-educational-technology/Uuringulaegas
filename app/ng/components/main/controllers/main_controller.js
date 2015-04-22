@@ -12,6 +12,8 @@ angular.module('arkofinquiryApp')
 
     //getLoggedInUser(); // First page load
 
+    $scope.userLoaded = false;
+
     $scope.$on('$locationChangeStart', function(event) {
       getLoggedInUser();
     });
@@ -21,9 +23,11 @@ angular.module('arkofinquiryApp')
         // Success
         $rootScope.loggedIn = true;
         $rootScope.currentUserData = data;
+        $scope.userLoaded = true;
       }, function(error){
         // Error (not logged in)
         $rootScope.loggedIn = false;
+        $scope.userLoaded = true;
       });
     }
 

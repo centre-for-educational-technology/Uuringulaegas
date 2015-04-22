@@ -34,8 +34,6 @@ angular.module('arkofinquiryApp')
       });
     };
 
-    console.log($scope.groupList)
-
   });
 
 

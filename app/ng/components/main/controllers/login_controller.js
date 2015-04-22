@@ -21,6 +21,7 @@ angular.module('arkofinquiryApp')
       LoginService.login($scope.loginData, function(){
         // Success
         $scope.updating = false;
+        $scope.$parent.userLoaded = false;
         showTitlePage();
       },
       function(error){

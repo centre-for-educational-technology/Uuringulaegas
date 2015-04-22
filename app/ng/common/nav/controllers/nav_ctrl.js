@@ -16,12 +16,16 @@ angular.module("arkofinquiryApp")
     } else {
       return ""
     }
-  }
+  };
 
   $scope.logout = function(){
-    LoginService.logout();
-    $rootScope.loggedIn = false;
-    $location.path('/');
+    LoginService.logout('', function(){
+      // success
+      $rootScope.loggedIn = false;
+      $rootScope.currentUserData = {};
+      $location.path('/');
+    });
+
   }
 
 });

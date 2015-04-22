@@ -7,6 +7,43 @@
  * License: GPL2
  */
 
+// Custom filter to allow learners read group info but not edit
+add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $pod ) {
+  if ( $pod == 'inq_activity' && current_user_can('read_inq_activity')) {
+    $access = true;
+  } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
+    $access = true;
+  } else if ( $pod == 'inq_keywords' && current_user_can( 'read_inq_keyword' ) ) {
+     $access = true;
+  } else if ( $pod == 'user' && current_user_can( 'list_users' ) ) {
+     $access = true;
+  } else {
+     $access = false;
+  }
+
+ return $access;
+}, 10, 3 );
+
+// Custom filter to allow learners to view single users
+add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $pod ) {
+  if ( $pod == 'user' && current_user_can( 'read_user' ) ) {
+     $access = true;
+  } else {
+     $access = false;
+  }
+
+ return $access;
+}, 10, 3 );
+
+// Filter to let everyone register a new user
+add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $pod ) {
+    if ( $pod == 'user' ){
+        $access = true;
+    }
+
+    return $access;
+ }, 10, 3 );
+
 add_action('init', 'create_nonce');
 
 add_action('wp_ajax_get_logged_in_user', 'return_logged_in_user');
@@ -34,7 +71,7 @@ function return_logged_in_user(){
     global $nonce;
     $user = wp_get_current_user();
 
-    echo json_encode(array('nonce' => $nonce, 'userID' => $user->ID, 'userDisplayName' => $user->display_name));
+    echo json_encode(array('nonce' => $nonce, 'userID' => $user->ID, 'userDisplayName' => $user->display_name, 'userRole' => $user->roles[0]));
     die();
 }
 

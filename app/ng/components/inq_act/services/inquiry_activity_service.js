@@ -3,9 +3,9 @@
  */
 
 angular.module("arkofinquiryApp")
-.factory("InquiryActivityService", function InquiryActivityFactory($resource, $http, appConfig, AuthStorageService){
+.factory("InquiryActivityService", function InquiryActivityFactory($resource, $http, appConfig, $rootScope){
 
-        $http.defaults.headers.common['X-WP-Nonce'] = AuthStorageService.user.nonce;
+        $http.defaults.headers.common['X-WP-Nonce'] = $rootScope.currentUserData.nonce;
         return $resource(appConfig.apiUrl + 'wp-json/pods/inq_activity/:id', {}, {
           query: {
             isArray: true,

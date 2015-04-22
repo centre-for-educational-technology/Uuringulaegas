@@ -19,7 +19,7 @@ angular.module('arkofinquiryApp')
       $scope.inqActList = InquiryActivityService.searchByKeyword({keyword: $location.search().keyword});
     }
 
-    console.log($location.search().keyword);
+    //console.log($location.search().keyword);
 
 
 
@@ -41,8 +41,6 @@ angular.module('arkofinquiryApp')
         //$log.info('Modal dismissed at: ' + new Date());
       });
     };
-
-    console.log($scope.inqActList)
 
   });
 

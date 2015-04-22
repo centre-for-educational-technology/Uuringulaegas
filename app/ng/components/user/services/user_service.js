@@ -4,7 +4,7 @@
 
 angular.module("arkofinquiryApp")
 .factory("UserService", function UserFactory($resource, $http, appConfig, $rootScope){
-        //$http.defaults.headers.common['X-WP-Nonce'] = $rootScope.currentUserData.nonce;
+        $http.defaults.headers.common['X-WP-Nonce'] = $rootScope.currentUserData.nonce;
         return $resource(appConfig.apiUrl + 'wp-json/pods/user/:id', {}, {
                 query: {
                         method: 'GET',

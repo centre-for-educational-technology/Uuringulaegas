@@ -47,7 +47,7 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li ng-class="setActiveIfPath('/inq_act/list')"><a ng-href="#/inq_act/list">List</a></li>
-              <li ng-class="setActiveIfPath('/inq_act/new')"><a ng-href="#/inq_act/new">Add new</a></li>
+              <li ng-if="currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/inq_act/new')"><a ng-href="#/inq_act/new">Add new</a></li>
               <li ng-class="setActiveIfPath('/inq_act/search')"><a ng-href="#/inq_act/search/tags">Search</a></li>
             </ul>
           </li>
@@ -58,7 +58,7 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li ng-class="setActiveIfPath('/groups/list')"><a ng-href="#/groups/list">List</a></li>
-              <li ng-class="setActiveIfPath('/groups/new')"><a ng-href="#/groups/new">Add new</a></li>
+              <li ng-if="currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/groups/new')"><a ng-href="#/groups/new">Add new</a></li>
             </ul>
           </li>
 
@@ -71,11 +71,18 @@
             </ul>
           </li>
         </ul>
-        <a class="btn btn-success pull-right" ng-href="#/login" role="button" ng-if="loggedIn === false" ng-cloak>Log In</a>
+        <a class="btn btn-success pull-right" ng-href="#/login" role="button" ng-if="loggedIn === false && userLoaded" ng-cloak>Log In</a>
         <h3 class="text-muted">Ark of Inquiry</h3>
       </div>
 
-      <div ng-view=""></div>
+      <div class="loading-spinner text-center" ng-if="!userLoaded">
+        <h3 class="text-muted">Loading...</h3>
+        <img src="images/loading_flower_grey.gif" alt="Loading spinner"/>
+      </div>
+
+      <div ng-if="userLoaded">
+        <div ng-view=""></div>
+      </div>
 
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> from the HTK team</p>
@@ -131,9 +138,9 @@
         <script src="ng/components/main/controllers/titlepage_ctrl.js"></script>
         <script src="ng/components/main/controllers/login_controller.js"></script>
         <script src="ng/components/main/services/login_service.js"></script>
-        <script src="ng/components/main/services/auth_storage_service.js"></script>
         <script src="ng/common/nav/controllers/nav_ctrl.js"></script>
         <script src="ng/common/form/directives/input_text.js"></script>
+        <script src="ng/common/form/directives/input_password.js"></script>
         <script src="ng/common/form/directives/select_multiple.js"></script>
         <script src="ng/common/form/directives/select.js"></script>
         <script src="ng/common/form/directives/range_slider.js"></script>
@@ -152,6 +159,7 @@
         <script src="ng/components/user/controllers/user_passport.js"></script>
         <script src="ng/components/user/controllers/user_list.js"></script>
         <script src="ng/components/user/services/user_service.js"></script>
+        <script src="ng/components/user/services/user_register_service.js"></script>
         <script src="ng/components/user/services/gravatar.js"></script>
         <script src="ng/components/group/controllers/add_group_controller.js"></script>
         <script src="ng/components/group/controllers/group_list.js"></script>

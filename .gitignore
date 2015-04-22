@@ -4,6 +4,8 @@ test/tmp
 .tmp
 app/api/wp-config.php
 app/api/.htaccess
+app/api/wp-admin
+app/api/wp-includes
 app/.htaccess
 .idea
 

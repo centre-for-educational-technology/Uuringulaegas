@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('UserRegisterCtrl', function ($scope, $http, $document, UserService) {
+  .controller('UserRegisterCtrl', function ($scope, $http, $document, UserRegisterService) {
 
     // Set up form options
     $scope.formOptions = {
@@ -49,7 +49,7 @@ angular.module('arkofinquiryApp')
     resetForm();
 
     // Create new User Service
-    $scope.user = new UserService();
+    $scope.user = new UserRegisterService();
 
     /*
      postingState variable:
@@ -67,7 +67,9 @@ angular.module('arkofinquiryApp')
       // Set user data that has different keys from form extra data
       user.user_email = $scope.userData.email;
       user.user_login = $scope.userData.email;
+      user.user_pass = $scope.userData.password;
       user.display_name = $scope.userData.extra.full_name;
+      user.first_name = $scope.userData.extra.full_name;
       user.user_nicename = $scope.userData.extra.full_name;
 
       // append from data 'extra' object to userData object (same keys)
@@ -87,8 +89,9 @@ angular.module('arkofinquiryApp')
         // error
         $scope.updating = false;
         console.log("ERROR"); // -------------------------------------- REMOVE after debugging
+        resetForm(); // FOR TESTING ONLY
         $document.scrollTopAnimated(0).then(function(){
-          $scope.postingState = 2; // Error
+          $scope.postingState = 1; // Error !! NEEDS TO BE '2' - error
         });
       });
     };
@@ -97,6 +100,7 @@ angular.module('arkofinquiryApp')
     function resetForm() {
       $scope.userData = {
         email: '',
+        password: '',
         extra: {
           full_name: '',
           date_of_birth: '',
