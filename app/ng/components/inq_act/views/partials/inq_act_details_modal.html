@@ -4,7 +4,7 @@
 <div class="modal-body">
   <dl>
     <dt ng-repeat-start="(key, value) in activity">{{ key }}</dt>
-    <dd ng-repeat-end>{{ value }}</dd>
+    <dd ng-repeat-end>{{ value | json}}</dd>
   </dl>
 </div>
 <div class="modal-footer">

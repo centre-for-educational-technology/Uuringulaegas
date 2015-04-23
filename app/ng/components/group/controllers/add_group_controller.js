@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('AddGroupCtrl', function ($scope, $resource, $document, GroupService, UserService) {
+  .controller('AddGroupCtrl', function ($scope, $resource, $document, GroupService, UserService, InquiryActivityService) {
 
     $scope.formOptions = {
       domains: [
@@ -18,8 +18,13 @@ angular.module('arkofinquiryApp')
         'Physics',
         'Mathematics',
         'Electricity'
-      ]
-    }
+      ],
+      levels: {
+      0: 'Basic',
+      1: 'Advanced',
+      2: 'Expert'
+      }
+    };
 
     // Set up empty userData object
     resetForm();
@@ -30,7 +35,15 @@ angular.module('arkofinquiryApp')
     $scope.loadLearners = function(query) {
       return UserService.queryLearnersByName({searchName: query}, function(data){
         $scope.searchedLearners = data;
-        //return data;
+      }).$promise;
+    };
+
+    $scope.searchedActivities = [];
+
+    // Create new User Service
+    $scope.loadActivities = function(query) {
+      return InquiryActivityService.searchByName({searchName: query}, function(data){
+        $scope.searchedActivities = data;
       }).$promise;
     };
 
@@ -49,9 +62,8 @@ angular.module('arkofinquiryApp')
       $scope.errors = null;
       $scope.updating = true;
 
-      // Copy data from groupForm object to GroupService
-      newGroup.name = $scope.groupForm.name;
-      newGroup.learners = $scope.groupForm.learners;
+      // append form data object to group object (same keys)
+      _.extend(newGroup, $scope.groupForm);
 
       //// Push only ID's from groupForm to GroupService.learners array
       //// NEEDED ONLY for ng-tags-input, not needed for ui.select module
@@ -86,7 +98,8 @@ angular.module('arkofinquiryApp')
         name: '',
         description: '',
         domains: [''],
-        learners: []
+        learners: [],
+        inq_activities: []
       };
     }
 

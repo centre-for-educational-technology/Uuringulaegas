@@ -25,7 +25,10 @@ angular.module("arkofinquiryApp")
       $rootScope.currentUserData = {};
       $location.path('/');
     });
-
   }
+
+    $scope.showProfile = function(id){
+      $location.path('user/' + id)
+    }
 
 });

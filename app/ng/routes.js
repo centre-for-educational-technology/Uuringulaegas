@@ -53,6 +53,10 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/group/views/add_group.html',
         controller: 'AddGroupCtrl'
       })
+      .when('/groups/:id', {
+        templateUrl: base + 'ng/components/group/views/group_page.html',
+        controller: 'GroupPageCtrl'
+      })
       .otherwise({
         redirectTo: base
       });

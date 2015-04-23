@@ -28,6 +28,10 @@ add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $
 add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $pod ) {
   if ( $pod == 'user' && current_user_can( 'read_user' ) ) {
      $access = true;
+  } else if ( $pod == 'inq_activity' && current_user_can( 'read_inq_activity' ) ) {
+     $access = true;
+  } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
+     $access = true;
   } else {
      $access = false;
   }

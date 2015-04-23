@@ -34,7 +34,7 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 900px;
   }
 }
 .container-narrow > hr {
@@ -114,10 +114,14 @@ body {
   cursor: pointer;
 }
 
-/* Customize login container */
+/* Customize login and register containers */
 @media (min-width: 768px) {
   .login-container {
     max-width: 350px;
+    margin-bottom: 20px;
+  }
+  .register-container {
+    max-width: 600px;
     margin-bottom: 20px;
   }
 }
@@ -158,4 +162,27 @@ body {
   right: 0;
   width: 43%;
   border-bottom: 1px solid #cccccc;
+}
+
+.tab-content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Group user grid display */
+.group-user-grid-pic {
+  float: left;
+  max-width: 50px;
+}
+.group-teacher-profile-pic {
+  max-width: 100px;
+}
+.group-teacher-profile-link:hover {
+  text-decoration: underline;
+}
+
+/* Fix label wrapping and spacing when repeating labels with ngRepeat */
+.label-spaced {
+  margin-right:5px;
+  display:inline-block;
 }

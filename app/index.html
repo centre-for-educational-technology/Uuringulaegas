@@ -47,7 +47,7 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li ng-class="setActiveIfPath('/inq_act/list')"><a ng-href="#/inq_act/list">List</a></li>
-              <li ng-if="currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/inq_act/new')"><a ng-href="#/inq_act/new">Add new</a></li>
+              <li ng-if="$root.currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/inq_act/new')"><a ng-href="#/inq_act/new">Add new</a></li>
               <li ng-class="setActiveIfPath('/inq_act/search')"><a ng-href="#/inq_act/search/tags">Search</a></li>
             </ul>
           </li>
@@ -58,15 +58,16 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li ng-class="setActiveIfPath('/groups/list')"><a ng-href="#/groups/list">List</a></li>
-              <li ng-if="currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/groups/new')"><a ng-href="#/groups/new">Add new</a></li>
+              <li ng-if="$root.currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/groups/new')"><a ng-href="#/groups/new">Add new</a></li>
             </ul>
           </li>
 
           <li ng-class="setActiveIfPath('/user')" role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              {{ currentUserData.userDisplayName }} <span class="caret"></span>
+              {{ $root.currentUserData.userDisplayName }} <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
+              <li><a ng-click="showProfile($root.currentUserData.userID)">Show profile</a></li>
               <li><a ng-click="logout()">Logout</a></li>
             </ul>
           </li>
@@ -141,6 +142,7 @@
         <script src="ng/common/nav/controllers/nav_ctrl.js"></script>
         <script src="ng/common/form/directives/input_text.js"></script>
         <script src="ng/common/form/directives/input_password.js"></script>
+        <script src="ng/common/form/directives/input_email.js"></script>
         <script src="ng/common/form/directives/select_multiple.js"></script>
         <script src="ng/common/form/directives/select.js"></script>
         <script src="ng/common/form/directives/range_slider.js"></script>
@@ -163,6 +165,7 @@
         <script src="ng/components/user/services/gravatar.js"></script>
         <script src="ng/components/group/controllers/add_group_controller.js"></script>
         <script src="ng/components/group/controllers/group_list.js"></script>
+        <script src="ng/components/group/controllers/group_page.js"></script>
         <script src="ng/components/group/controllers/modal/group_details_modal_ctrl.js"></script>
         <script src="ng/components/group/services/group_service.js"></script>
         <script src="ng/components/group/filters/not_in_array_filter.js"></script>

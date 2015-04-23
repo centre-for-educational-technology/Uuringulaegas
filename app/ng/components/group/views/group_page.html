@@ -1,0 +1,50 @@
+<tabset>
+  <tab heading="Group info">
+    <div class="row">
+      <div class="col-sm-3">
+        <img src="images/yeoman.png" alt="Group cover picture" class="img-responsive center-block">
+        <h3 class="text-center">{{ group.name }}</h3>
+        <p class="text-muted">{{ group.description }}</p>
+        <div>
+          <p><strong>Domains: </strong>
+          <span class="label label-primary label-spaced" ng-repeat="domain in group.domains">{{ domain }}</span></p>
+        </div>
+        <hr/>
+      </div>
+      <div class="col-sm-6">
+        <h4>Group Activity</h4>
+        Activity feed comes here
+      </div>
+      <div class="col-sm-3">
+        <h4>Teacher</h4>
+        <div class="group-teacher-profile-link" ng-click="showTeacherProfile(group.author.ID)">
+          <img ng-show="group.author" ng-src="{{ group.author.gravatarUrl }}" alt="User profile picture" class="img-responsive img-circle center-block group-teacher-profile-pic">
+          <h5 class="text-center">{{ group.author.display_name }}</h5>
+        </div>
+        <hr/>
+        <h4>Learners <small ng-if="$root.currentUserData.userRole == 'teacher'"><a ng-click="function()">Manage</a></small></h4>
+        <div class="group-user-grid-pic" ng-repeat="learner in group.learners">
+          <img ng-src='{{ learner.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle" tooltip="{{ learner.display_name }}">
+        </div>
+      </div>
+    </div>
+  </tab>
+
+  <tab heading="Settings" ng-if="currentUserData.userRole == 'teacher'">
+    <h4>Some settings will come here soon. Until then enjoy this JSON dump of 'group':</h4>
+    <pre>{{ group | json }}</pre>
+  </tab>
+
+  <tab heading="Recommended Activities">
+    <div class="list-group">
+      <a class="list-group-item" ng-repeat="act in group.inq_activities | orderBy:'id':true" ng-click="openDetails(act)">
+        <h4 class="list-group-item-heading">{{ act.post_title }}{{ act.title }}
+          <small class="glyphicon glyphicon-map-marker pull-right" ng-if="_.contains(act.location, '1')" aria-hidden="true" tooltip="Physical location"></small>
+          <small class="glyphicon glyphicon-globe pull-right" ng-if="_.contains(act.location, '0')" aria-hidden="true" tooltip="Online activity"></small>
+        </h4>
+        <p class="list-group-item-text">{{ act.post_content }}{{ act.content }}</p>
+      </a>
+    </div>
+
+  </tab>
+</tabset>

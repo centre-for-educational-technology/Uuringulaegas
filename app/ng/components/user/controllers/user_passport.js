@@ -14,9 +14,8 @@ angular.module('arkofinquiryApp')
     console.log($scope.user);
 
     $scope.gravatarUrl = function(user) {
-      console.log(user.user_email);
       return $gravatar.generate(user.user_email);
-    }
+    };
 
     $scope.badgeRows = new Array(3);
 

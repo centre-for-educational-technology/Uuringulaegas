@@ -8,13 +8,18 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('GroupListCtrl', function ($scope, $http, appConfig, GroupService, $modal) {
+  .controller('GroupListCtrl', function ($scope, $http, appConfig, GroupService, $modal, $location) {
 
     // Expose Underscore.js to scope
     $scope._ = _;
 
     $scope.groupList = GroupService.query();
 
+    $scope.showGroupPage = function(group){
+      $location.path('groups/' + group.id)
+    };
+
+    // Opens modal with group info, only used in development/testing
     $scope.openDetails = function (group) {
 
       var modalInstance = $modal.open({

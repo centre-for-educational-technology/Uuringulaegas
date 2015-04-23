@@ -4,8 +4,8 @@
 </div>
 
 <div class="list-group">
-  <a class="list-group-item" ng-repeat="group in groupList | orderBy:'id':true" ng-click="openDetails(group)">
+  <a class="list-group-item" ng-repeat="group in groupList | orderBy:'id':true" ng-click="showGroupPage(group)">
     <h4 class="list-group-item-heading">{{ group.name }}</h4>
-    <p class="list-group-item-text">{{ group.created }}</p>
+    <p class="list-group-item-text">Teacher: {{ group.author.display_name }}</p>
   </a>
 </div>
