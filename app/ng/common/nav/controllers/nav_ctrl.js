@@ -3,7 +3,7 @@
  */
 
 angular.module("arkofinquiryApp")
-.controller('NavCtrl', function ($scope, $location, LoginService, $rootScope) {
+.controller('NavCtrl', function ($scope, $location, LoginService, $rootScope, appConfig) {
 
   $scope.setActiveIfPath = function (path) {
     if ($location.path().substr(0, path.length) == path) {
@@ -23,9 +23,9 @@ angular.module("arkofinquiryApp")
       // success
       $rootScope.loggedIn = false;
       $rootScope.currentUserData = {};
-      $location.path('/');
+      window.location.href = appConfig.appBase;
     });
-  }
+  };
 
     $scope.showProfile = function(id){
       $location.path('user/' + id)

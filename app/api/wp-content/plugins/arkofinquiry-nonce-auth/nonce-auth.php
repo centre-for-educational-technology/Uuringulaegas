@@ -2,10 +2,12 @@
 /**
  * Plugin Name: Ark of Inquiry Nonce Authentication
  * Description: This plugin generates nonces to authenticate users in the Ark of Inquiry app
- * Version: 0.5.0
+ * Version: 0.6.0
  * Author: Sander Aido
  * License: GPL2
  */
+
+ $arkPodsUserRegisterHack = false;
 
 // Custom filter to allow learners read group info but not edit
 add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $pod ) {
@@ -17,6 +19,8 @@ add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $
      $access = true;
   } else if ( $pod == 'user' && current_user_can( 'list_users' ) ) {
      $access = true;
+  } else if ( $pod == 'completed_activity' && is_user_logged_in() ) {
+     $access = true;
   } else {
      $access = false;
   }
@@ -26,7 +30,10 @@ add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $
 
 // Custom filter to allow learners to view single users
 add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $pod ) {
+  global $arkPodsUserRegisterHack;
   if ( $pod == 'user' && current_user_can( 'read_user' ) ) {
+     $access = true;
+  } else if ($pod == 'user' && $arkPodsUserRegisterHack === true){
      $access = true;
   } else if ( $pod == 'inq_activity' && current_user_can( 'read_inq_activity' ) ) {
      $access = true;
@@ -41,12 +48,26 @@ add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $p
 
 // Filter to let everyone register a new user
 add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $pod ) {
+    global $arkPodsUserRegisterHack;
     if ( $pod == 'user' ){
+        $arkPodsUserRegisterHack = true;
         $access = true;
+    } else if ( $pod == 'inq_activity' && current_user_can( 'publish_inq_activitys' ) ) {
+       $access = true;
     }
 
     return $access;
  }, 10, 3 );
+
+ // Filter to let everyone register a new user
+ /* add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $pod ) {
+     if ( $pod == 'completed_activity' && current_user_can( 'confirm_completed_activity' )) {
+          error_log(print_r($_REQUEST, true));
+         $access = true;
+     }
+
+     return $access;
+  }, 10, 3 ); */
 
 add_action('init', 'create_nonce');
 

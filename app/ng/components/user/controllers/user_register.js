@@ -85,13 +85,13 @@ angular.module('arkofinquiryApp')
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 1; // OK
         });
-      }, function(user){
+      }, function(response){
         // error
         $scope.updating = false;
+        $scope.errors = response;
         console.log("ERROR"); // -------------------------------------- REMOVE after debugging
-        resetForm(); // FOR TESTING ONLY
         $document.scrollTopAnimated(0).then(function(){
-          $scope.postingState = 1; // Error !! NEEDS TO BE '2' - error
+          $scope.postingState = 2; // Error
         });
       });
     };

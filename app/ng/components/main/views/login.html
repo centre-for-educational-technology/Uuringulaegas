@@ -33,7 +33,7 @@
   <p class="text-center">Don't have an account? <a ng-href="#/user/register">Register here</a></p>
   <p class="text-center"><a ng-href="" class="disabled text-muted">Forgot your password?</a></p>
 
-  <div class="well">
+  <div class="well" ng-if="$root.developerView">
     {{ $root.currentUserData | json}}
   </div>
 </div>

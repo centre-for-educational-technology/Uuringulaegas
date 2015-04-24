@@ -3,12 +3,6 @@
   <small>Fields marked with an asterisk (*) are mandatory</small>
 </div>
 
-<div class="alert alert-warning" role="alert">
-  Attention! Since we are using Basic Authentication for development, be sure to be logged out of WP Admin when sending data from front-end!<hr/>
-  Tähelepanu! Kuna arendustsüklis on hetkel kasutusel Basic Authentication, ei saa salvestada infot olles samal ajal sisse loginud WP Admin'i paneeli! Logi sealt kindlasti enne välja.
-
-</div>
-
 <div id="successAlert" class="alert alert-success" role="alert" collapse="postingState != 1"> Activity added!</div>
 
 <div id="errorAlert" class="alert alert-danger" role="alert" collapse="postingState != 2"> Error! Are you logged out from WP-Admin?</div>
@@ -63,7 +57,7 @@
 
 </form>
 
-<div class="well">
+<div class="well" ng-if="$root.developerView">
   <p>FormData model <strong>LiveView</strong> (for debugging only):</p>
   <pre>{{ formData | json}}</pre>
 </div>
