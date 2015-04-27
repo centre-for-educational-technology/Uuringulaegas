@@ -8,3 +8,5 @@ app/.htaccess
 .idea
 
 .idea/workspace.xml
+
+*.DS_Store
