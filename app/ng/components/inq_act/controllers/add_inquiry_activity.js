@@ -31,9 +31,9 @@ angular.module('arkofinquiryApp')
         'Russian'
       ],
       levels: {
-        0: 'Basic',
-        1: 'Advanced',
-        2: 'Expert'
+        1: 'Basic',
+        2: 'Advanced',
+        3: 'Expert'
       },
       coveredPhases: [
         'Orientation',
