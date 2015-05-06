@@ -55,7 +55,7 @@ class Pods_JSON_API_Pods {
 			$params = $data;
 
 			// Force limited $params if not admin
-			if ( ! $this->check_access( false ) ) {
+			if ( ! $this->check_access( true ) ) {
 				$safe_params = array();
 
 				if ( isset( $params[ 'limit' ] ) ) {

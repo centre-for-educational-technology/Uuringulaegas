@@ -13,7 +13,7 @@
 add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $pod ) {
   if ( $pod == 'inq_activity' && current_user_can('read_inq')) {
     $access = true;
-  } else if ( $pod == 'inq_log' && current_user_can( 'read_inq' ) ) {
+  } else if ( $pod == 'inq_log' && current_user_can( 'read_inq_log' ) ) {
     $access = true;
   } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
     $access = true;
@@ -41,7 +41,7 @@ add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $p
      $access = true;
   } else if ( $pod == 'inq_keywords' && current_user_can( 'read_inq' ) ) {
         $access = true;
-  } else if ( $pod == 'inq_log' && current_user_can( 'read_inq' ) ) {
+  } else if ( $pod == 'inq_log' && current_user_can( 'read_inq_log' ) ) {
      $access = true;
   } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
      $access = true;
