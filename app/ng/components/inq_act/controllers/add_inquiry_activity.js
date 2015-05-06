@@ -16,46 +16,46 @@ angular.module('arkofinquiryApp')
         0: 'Web-based',
         1: 'Physical location'
       },
-      domains: [
-        'Chemistry',
-        'Engineering',
-        'Biology',
-        'Physics',
-        'Mathematics',
-        'Electricity'
-      ],
-      languages: [
-        'Estonian',
-        'English',
-        'Finnish',
-        'Russian'
-      ],
+      domains: {
+        chemistry: 'Chemistry',
+        engineering: 'Engineering',
+        biology: 'Biology',
+        physics: 'Physics',
+        mathematics: 'Mathematics',
+        electricity: 'Electricity'
+        },
+      languages: {
+        est: 'Estonian',
+        eng: 'English',
+        fin: 'Finnish',
+        rus: 'Russian'
+      },
       levels: {
         1: 'Basic',
         2: 'Advanced',
         3: 'Expert'
       },
-      coveredPhases: [
-        'Orientation',
-        'Conceptualisation',
-        'Investigation',
-        'Conclusion',
-        'Discussion'
-      ],
-      departingPhases: [
-        '',
-        'Orientation',
-        'Conceptualisation',
-        'Investigation',
-        'Conclusion',
-        'Discussion'
-      ],
-      successEvidence: [
-        'Direct empirical evidence',
-        'Indirect empirical evidence',
-        'Theoretical evidence',
-        'Ecological evidence'
-      ],
+      coveredPhases: {
+        orientation: 'Orientation',
+        conceptualisation: 'Conceptualisation',
+        investigation: 'Investigation',
+        conclusion: 'Conclusion',
+        discussion: 'Discussion'
+      },
+      departingPhases: {
+        none: 'None',
+        orientation: 'Orientation',
+        conceptualisation: 'Conceptualisation',
+        investigation: 'Investigation',
+        conclusion: 'Conclusion',
+        discussion: 'Discussion'
+      },
+      successEvidence: {
+        direct: 'Direct empirical evidence',
+        indirect: 'Indirect empirical evidence',
+        theoretical: 'Theoretical evidence',
+        ecological: 'Ecological evidence'
+      },
       rightsRestrictions: {
         0: 'No',
         1: 'Yes'
@@ -120,10 +120,11 @@ angular.module('arkofinquiryApp')
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 1; // OK
         });
-      }, function(activity){
+      }, function(error){
         // error
         $scope.updating = false;
-        console.log("ERROR"); // -------------------------------------- REMOVE after debugging
+        $scope.errors = error;
+        console.log("ERROR " + error); // -------------------------------------- REMOVE after debugging
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 2; // Error
         });

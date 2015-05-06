@@ -2,16 +2,12 @@
   <label class="col-sm-4 control-label">{{ label }} <span ng-show="req">*</span></label>
   <div class="col-sm-8">
     <div class="row" ng-class="{'appear-in' : loaded}" ng-repeat="choice in model track by $index">
-      <div class="col-sm-12" ng-if="$index == 0">
-        <select class="form-control margin-bottom" ng-model="model[$index]" ng-required="req" >
-          <option ng-repeat="option in options">{{ ::option }}</option>
-        </select>
+      <div ng-if="$index == 0" class="col-sm-12">
+        <select class="form-control margin-bottom" ng-model="model[$index]" ng-required="req" ng-options="key as value for (key, value) in options"></select>
       </div>
       <div ng-if="$index > 0">
         <div class="col-xs-11 no-padding-right">
-          <select class="form-control margin-bottom" ng-model="model[$index]" ng-required="req" >
-            <option ng-repeat="option in options">{{ ::option }}</option>
-          </select>
+          <select class="form-control margin-bottom" ng-model="model[$index]" ng-required="req" ng-options="key as value for (key, value) in options"></select>
         </div>
         <div class="col-xs-1 no-padding-left">
           <a class="btn btn-link" ng-hide="$first" ng-click="removeChoice($index)">

@@ -9,12 +9,24 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivityDetailsModalCtrl', function ($scope, $modalInstance, activity) {
+  .controller('InquiryActivityDetailsModalCtrl', function ($scope, $modalInstance, activity, InquiryActivityLogService, $rootScope) {
 
     $scope.activity = activity;
 
+    var service = new InquiryActivityLogService();
+
     $scope.accept = function () {
-      $modalInstance.close($scope.activity.id);
+      service.learner = $rootScope.currentUserData.userID;
+      service.inq_activity = $scope.activity.id;
+      service.status = 4; // Started the activity
+
+      service.$save(service, function(success){
+        $modalInstance.close($scope.activity.id, success);
+      }, function(error){
+        console.log(error);
+      });
+
+
     };
 
     $scope.cancel = function () {

@@ -11,11 +11,13 @@
 
 // Custom filter to allow learners read group info but not edit
 add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $pod ) {
-  if ( $pod == 'inq_activity' && current_user_can('read_inq_activity')) {
+  if ( $pod == 'inq_activity' && current_user_can('read_inq')) {
+    $access = true;
+  } else if ( $pod == 'inq_log' && current_user_can( 'read_inq' ) ) {
     $access = true;
   } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
     $access = true;
-  } else if ( $pod == 'inq_keywords' && current_user_can( 'read_inq_keyword' ) ) {
+  } else if ( $pod == 'inq_keywords' && current_user_can( 'read_inq' ) ) {
      $access = true;
   } else if ( $pod == 'user' && current_user_can( 'list_users' ) ) {
      $access = true;
@@ -35,7 +37,11 @@ add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $p
      $access = true;
   } else if ($pod == 'user' && $arkPodsUserRegisterHack === true){
      $access = true;
-  } else if ( $pod == 'inq_activity' && current_user_can( 'read_inq_activity' ) ) {
+  } else if ( $pod == 'inq_activity' && current_user_can( 'read_inq' ) ) {
+     $access = true;
+  } else if ( $pod == 'inq_keywords' && current_user_can( 'read_inq' ) ) {
+        $access = true;
+  } else if ( $pod == 'inq_log' && current_user_can( 'read_inq' ) ) {
      $access = true;
   } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
      $access = true;
@@ -54,20 +60,33 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
         $access = true;
     } else if ( $pod == 'inq_activity' && current_user_can( 'publish_inq_activitys' ) ) {
        $access = true;
+    } else if ( $pod == 'inq_keywords' && current_user_can( 'publish_inq_activitys' ) ) {
+        $access = true;
+    } else if ( $pod == 'inq_log' && current_user_can( 'pods_add_inq_log' ) ) {
+       $access = true;
     }
+    error_log(print_r($_REQUEST, true));
 
     return $access;
  }, 10, 3 );
 
- // Filter to let everyone register a new user
- /* add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $pod ) {
+add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $pod ) {
      if ( $pod == 'completed_activity' && current_user_can( 'confirm_completed_activity' )) {
           error_log(print_r($_REQUEST, true));
+         $access = true;
+     } else if ( $pod == 'inq_keywords' && current_user_can( 'publish_inq_activitys' ) ) {
          $access = true;
      }
 
      return $access;
-  }, 10, 3 ); */
+  }, 10, 3 );
+
+/*
+ *
+ *
+ *
+ *
+ */
 
 add_action('init', 'create_nonce');
 

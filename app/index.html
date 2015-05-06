@@ -64,7 +64,7 @@
 
           <li ng-class="setActiveIfPath('/user')" role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              {{ $root.currentUserData.userDisplayName }} <span class="caret"></span>
+              {{ $root.currentUserData.userDisplayName }}<span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
               <li><a ng-click="showProfile($root.currentUserData.userID)">Show profile</a></li>
@@ -157,6 +157,7 @@
         <script src="ng/components/inq_act/controllers/inq_act_tag_cloud.js"></script>
         <script src="ng/components/inq_act/services/inquiry_activity_service.js"></script>
         <script src="ng/components/inq_act/services/inq_act_keyword_service.js"></script>
+        <script src="ng/components/inq_act/services/inq_activity_log_service.js"></script>
         <script src="ng/components/user/controllers/user_register.js"></script>
         <script src="ng/components/user/controllers/user_passport.js"></script>
         <script src="ng/components/user/controllers/user_list.js"></script>

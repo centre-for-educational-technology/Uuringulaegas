@@ -5,7 +5,7 @@
 
 <div id="successAlert" class="alert alert-success" role="alert" collapse="postingState != 1"> Activity added!</div>
 
-<div id="errorAlert" class="alert alert-danger" role="alert" collapse="postingState != 2"> Error! Are you logged out from WP-Admin?</div>
+<div id="errorAlert" class="alert alert-danger" role="alert" collapse="postingState != 2"> Error! Reason: {{ errors }}</div>
 
 <form class="form-horizontal" novalidate>
   <form-input-text id="title" label="Title" model="formData.title" req="true"></form-input-text>
