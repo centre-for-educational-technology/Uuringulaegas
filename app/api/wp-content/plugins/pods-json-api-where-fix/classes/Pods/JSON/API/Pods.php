@@ -55,7 +55,7 @@ class Pods_JSON_API_Pods {
 			$params = $data;
 
 			// Force limited $params if not admin
-			if ( ! $this->check_access( true ) ) {
+			if ( ! $this->check_access( 'get_items', $pod) ) {
 				$safe_params = array();
 
 				if ( isset( $params[ 'limit' ] ) ) {
@@ -330,6 +330,8 @@ class Pods_JSON_API_Pods {
 	 */
 	protected function check_access( $method, $pod = null, $item = 0 ) {
 
+		// error_log(print_r("method: " . $method . " pod: " . $pod, true));
+
 		$access_caps = array(
 			'pods'
 		);
@@ -347,6 +349,10 @@ class Pods_JSON_API_Pods {
 			}
 			elseif ( 'delete_item' == $method ) {
 				$access_caps[] = 'pods_delete_' . $pod;
+			}
+			// Added by sander, needs security check
+			elseif ( 'get_items' == $method ) {
+				$access_caps[] = 'read_' . $pod;
 			}
 		}
 
