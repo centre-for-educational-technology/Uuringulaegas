@@ -31,4 +31,20 @@ angular.module('arkofinquiryApp')
       });
     }
 
+    $rootScope.langStrings = {
+      inqLog: {
+        passportStatus: {
+          1: 'recommended activity',
+          2: 'requested activity',
+          3: 'accepted activity',
+          4: 'Started activity',
+          5: 'Completed activity',
+          6: 'reviewed evidence for',
+          7: 'graded activity',
+          8: 'Received a badge for',
+          9: 'Advanced to level'
+        }
+      }
+    }
+
   });

@@ -10,22 +10,38 @@
 angular.module('arkofinquiryApp')
   .controller('UserPassportCtrl', function ($scope, $http, $routeParams, UserService, $gravatar, InquiryActivityLogService) {
 
-    $scope.user = UserService.get({id: $routeParams.id});
+    // Expose Underscore.js to scope
+    $scope._ = _;
+
+    $scope.user = UserService.get({id: $routeParams.id}, function(){
+      // Get gravatarURL for current profile and append it to user data
+      $scope.user.gravatarUrl = getGravatarUrl($scope.user.user_email)
+    });
+
     console.log($scope.user);
 
-    $scope.inqLog = InquiryActivityLogService.searchByLearnerID({learnerID: 8}, function(data){
-      console.log(data);
-      return data;
-    }).$promise;
+    $scope.inqLog = InquiryActivityLogService.searchByLearnerID({learnerID: $routeParams.id}, function(success){
+      for(var i = 0; i < $scope.inqLog.length; i++){
+        // Convert Date strings to Date objects
+        $scope.inqLog[i].created = new Date($scope.inqLog[i].created);
+        // Convert inq_activity object to array (remove id key)
+        $scope.inqLog[i].inq_activity = _.values($scope.inqLog[i].inq_activity);
+      }
+    });
 
-    console.log($scope.inqLog);
-
+    // Get gravatarUrl
     $scope.gravatarUrl = function(user) {
       return $gravatar.generate(user.user_email);
     };
 
+    // Temporary badge placeholder array
     $scope.badgeRows = new Array(3);
 
+
+    // Get gravatarUrl by email
+    function getGravatarUrl(email) {
+      return $gravatar.generate(email);
+    }
 
   });
 

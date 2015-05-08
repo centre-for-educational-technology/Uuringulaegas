@@ -181,6 +181,11 @@ body {
   text-decoration: underline;
 }
 
+/* User profile update log profile picture */
+.user-profile-log-avatar {
+  max-width: 60px;
+}
+
 /* Fix label wrapping and spacing when repeating labels with ngRepeat */
 .label-spaced {
   margin-right:5px;
