@@ -43,6 +43,27 @@ angular.module('arkofinquiryApp')
           7: 'graded activity',
           8: 'Received a badge for',
           9: 'Advanced to level'
+        },
+        groupPageStatus: {
+          1: 'recommended activity',
+          2: 'requested activity',
+          3: 'accepted activity',
+          4: 'started activity',
+          5: 'completed activity',
+          6: 'reviewed evidence for',
+          7: 'graded activity',
+          8: 'received a badge for',
+          9: 'Advanced to level'
+        }
+      },
+      inqAct: {
+        domains: {
+          chemistry: 'Chemistry',
+          engineering: 'Engineering',
+          biology: 'Biology',
+          physics: 'Physics',
+          mathematics: 'Mathematics',
+          electricity: 'Electricity'
         }
       }
     }

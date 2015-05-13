@@ -7,13 +7,46 @@
         <p class="text-muted">{{ group.description }}</p>
         <div>
           <p><strong>Domains: </strong>
-          <span class="label label-primary label-spaced" ng-repeat="domain in group.domains">{{ domain }}</span></p>
+          <span class="label label-primary label-spaced" ng-repeat="domain in group.domains">{{ $root.langStrings.inqAct.domains[domain] }}</span></p>
         </div>
         <hr/>
       </div>
       <div class="col-sm-6">
         <h4>Group Activity</h4>
-        Activity feed comes here
+        <div class="row activity-log-row" ng-repeat="log in inqLog | orderBy:'created':true">
+          <!-- User own actions -->
+          <div ng-if="_.contains(['4','5','8'], log.status)">
+            <div class="col-xs-2">
+              <img ng-src='{{ gravatarUrl(log.learner) }}' alt="User profile picture" class="img-responsive img-circle user-profile-log-avatar">
+            </div>
+            <div class="col-xs-10">
+              <span>{{ log.learner.display_name }} {{ $root.langStrings.inqLog.groupPageStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small></span>
+              <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
+            </div>
+          </div>
+
+          <!-- Teacher actions for learner -->
+          <div ng-if="_.contains(['1','3','7'], log.status)">
+            <div class="col-xs-10">
+              <span>{{ log.teacher.display_name }} {{ $root.langStrings.inqLog.groupPageStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small> for {{ log.learner.display_name }}</span>
+              <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
+            </div>
+            <div class="col-xs-2">
+              <img ng-src='{{ gravatarUrl(log.teacher) }}' alt="User profile picture" class="img-responsive img-circle user-profile-log-avatar">
+            </div>
+          </div>
+
+          <!-- Peer actions for learner -->
+          <div ng-if="log.status == 6">
+            <div class="col-xs-10">
+              <span>{{ log.peer.display_name }} {{ $root.langStrings.inqLog.groupPageStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small> for {{ log.learner.display_name }}</span>
+              <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
+            </div>
+            <div class="col-xs-2">
+              <img ng-src='{{ gravatarUrl(log.peer) }}' alt="User profile picture" class="img-responsive img-circle user-profile-log-avatar">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-sm-3">
         <h4>Teacher</h4>

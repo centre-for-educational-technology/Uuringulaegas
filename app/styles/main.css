@@ -183,11 +183,19 @@ body {
 
 /* User profile update log profile picture */
 .user-profile-log-avatar {
-  max-width: 60px;
+  max-width: 50px;
 }
 
 /* Fix label wrapping and spacing when repeating labels with ngRepeat */
 .label-spaced {
   margin-right:5px;
   display:inline-block;
+}
+
+.activity-log-row {
+  margin-bottom: 5px;
+}
+
+.activity-log-row:hover {
+  background-color: #eeeeee;
 }
