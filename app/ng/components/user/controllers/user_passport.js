@@ -8,26 +8,39 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('UserPassportCtrl', function ($scope, $http, $routeParams, UserService, $gravatar, InquiryActivityLogService) {
+  .controller('UserPassportCtrl', function ($scope, $http, $routeParams, UserService, $gravatar, InquiryActivityLogService, $rootScope) {
 
     // Expose Underscore.js to scope
     $scope._ = _;
 
     $scope.user = UserService.get({id: $routeParams.id}, function(){
       // Get gravatarURL for current profile and append it to user data
-      $scope.user.gravatarUrl = getGravatarUrl($scope.user.user_email)
+      $scope.user.gravatarUrl = getGravatarUrl($scope.user.user_email);
+
+      if($scope.user.roles[0] == 'learner'){
+        $scope.inqLog = InquiryActivityLogService.searchByLearnerID({learnerID: $routeParams.id}, function(success){
+          for(var i = 0; i < $scope.inqLog.length; i++){
+            // Convert Date strings to Date objects
+            $scope.inqLog[i].created = new Date($scope.inqLog[i].created);
+            // Convert inq_activity object to array (remove id key)
+            $scope.inqLog[i].inq_activity = _.values($scope.inqLog[i].inq_activity);
+          }
+        });
+      } else if ($scope.user.roles[0] == 'teacher'){
+        $scope.inqLog = InquiryActivityLogService.searchByTeacherID({teacherID: $routeParams.id}, function(success){
+          for(var i = 0; i < $scope.inqLog.length; i++){
+            // Convert Date strings to Date objects
+            $scope.inqLog[i].created = new Date($scope.inqLog[i].created);
+            // Convert inq_activity object to array (remove id key)
+            $scope.inqLog[i].inq_activity = _.values($scope.inqLog[i].inq_activity);
+          }
+        });
+      }
     });
 
     console.log($scope.user);
 
-    $scope.inqLog = InquiryActivityLogService.searchByLearnerID({learnerID: $routeParams.id}, function(success){
-      for(var i = 0; i < $scope.inqLog.length; i++){
-        // Convert Date strings to Date objects
-        $scope.inqLog[i].created = new Date($scope.inqLog[i].created);
-        // Convert inq_activity object to array (remove id key)
-        $scope.inqLog[i].inq_activity = _.values($scope.inqLog[i].inq_activity);
-      }
-    });
+
 
     // Get gravatarUrl
     $scope.gravatarUrl = function(user) {

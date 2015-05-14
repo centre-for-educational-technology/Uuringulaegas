@@ -13,8 +13,11 @@ angular.module('arkofinquiryApp')
     $scope.inqLog = [];
     var inqLogServicePromises = [];
 
+    var activityListString = '';
+
     $scope.group = GroupService.get({id: $routeParams.id}, function(success){
       // Success
+      createActivityListString();
       $scope.group.author.gravatarUrl = getGravatarUrl($scope.group.author.user_email);
       for(var i = 0; i < $scope.group.learners.length; i++){
         $scope.group.learners[i].gravatarUrl = getGravatarUrl($scope.group.learners[i].user_email);
@@ -39,11 +42,19 @@ angular.module('arkofinquiryApp')
       //
     });
 
-
+    function createActivityListString() {
+      var activityListKeys = _.keys($scope.group.inq_activities);
+      for(var i = 0; i < activityListKeys.length; i++){
+        activityListString += activityListKeys[i];
+        if(i + 1 < activityListKeys.length){
+          activityListString += ','
+        }
+      }
+    }
 
     function getUserLog(user){
-      var log = InquiryActivityLogService.searchByLearnerID({learnerID: user.ID}, function(success){
-      });
+      //var log = InquiryActivityLogService.searchByLearnerID({learnerID: user.ID});
+      var log = InquiryActivityLogService.searchByLearnerWithActivities({learnerID: user.ID, activityList: activityListString});
       inqLogServicePromises.push(log.$promise);
       return log;
     }

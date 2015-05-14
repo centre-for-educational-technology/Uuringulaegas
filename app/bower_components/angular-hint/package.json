@@ -1,0 +1,45 @@
+{
+  "name": "angular-hint",
+  "version": "0.1.0",
+  "description": "run-time hinting for AngularJS applications",
+  "main": "hint.js",
+  "scripts": {
+    "test": "gulp",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angular/angular-hint.git"
+  },
+  "keywords": [
+    "angular",
+    "hint",
+    "lint",
+    "tool",
+    "quality"
+  ],
+  "author": "Brian Ford <btford@umich.edu>",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/angular/angular-hint/issues"
+  },
+  "homepage": "https://github.com/angular/angular-hint",
+  "dependencies": {
+    "angular-hint-controllers": "0.4.0",
+    "angular-hint-directives": "0.1.0",
+    "angular-hint-dom": "0.4.0",
+    "angular-hint-events": "^0.2.0",
+    "angular-hint-interpolation": "^0.2.0",
+    "angular-hint-log": "0.3.0",
+    "angular-hint-modules": "0.3.0"
+  },
+  "devDependencies": {
+    "browserify": "^4.2.0",
+    "gulp": "^3.8.5",
+    "http-server": "^0.6.1",
+    "protractor": "^1.0.0-rc4",
+    "routes-router": "^3.3.0",
+    "st": "^0.5.1",
+    "vinyl-source-stream": "^0.1.1"
+  }
+}

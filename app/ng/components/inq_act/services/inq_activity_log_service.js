@@ -21,6 +21,25 @@ angular.module("arkofinquiryApp")
             transformResponse: [angular.fromJson, function(data, headers){
               return _.values(data); // Removes keys from response
             }]
+          },
+          searchByTeacherID: {
+            url: appConfig.apiUrl + 'wp-json/pods/inq_log?data[where]=teacher.ID%3D:teacherID',
+            teacherID: '@teacherID',
+            method: 'GET',
+            isArray: true,
+            transformResponse: [angular.fromJson, function(data, headers){
+              return _.values(data); // Removes keys from response
+            }]
+          },
+          searchByLearnerWithActivities: {
+            url: appConfig.apiUrl + 'wp-json/pods/inq_log?data[where]=learner.ID%3D:learnerID%20AND%20inq_activity.ID%20IN%20%28:activityList%29',
+            learnerID: '@learnerID',
+            activityList: '@activityList',
+            method: 'GET',
+            isArray: true,
+            transformResponse: [angular.fromJson, function(data, headers){
+              return _.values(data); // Removes keys from response
+            }]
           }
         });
 
