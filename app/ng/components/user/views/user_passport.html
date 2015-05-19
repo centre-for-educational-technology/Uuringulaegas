@@ -27,39 +27,35 @@
 
     <h4>Latest updates</h4>
 
-    <div class="row" ng-repeat="log in inqLog | orderBy:'created':true track by log.id">
+    <div class="activity-feed-row" ng-repeat="log in inqLog | orderBy:'created':true track by log.id">
       <!-- User own actions -->
       <div ng-if="_.contains(['4','5','8'], log.status)">
-        <div class="col-xs-2">
-          <img ng-src='{{ user.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle user-profile-log-avatar">
-        </div>
-        <div class="col-xs-10">
-          <span class="lead">{{ $root.langStrings.inqLog.passportStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small></span>
-          <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
-        </div>
+        <img ng-src='{{ user.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
+        <span class="lead">{{ $root.langStrings.inqLog.passportStatus[log.status] }}
+          <small class="text-muted">
+            <small>{{ log.inq_activity[0].post_title }}</small> <!-- double small -->
+          </small>
+        </span>
+        <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
       </div>
 
       <!-- Teacher actions for learner -->
-      <div ng-if="_.contains(['1','3','7'], log.status)">
-        <div class="col-xs-10">
-          <span class="lead">{{ log.teacher.display_name }} {{ $root.langStrings.inqLog.passportStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small></span>
-          <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
-        </div>
-        <div class="col-xs-2">
-          <img ng-src='{{ gravatarUrl(log.teacher) }}' alt="User profile picture" class="img-responsive img-circle user-profile-log-avatar">
-        </div>
+      <div ng-if="_.contains(['1','3','7'], log.status)" class="text-right">
+        <img ng-src='{{ gravatarUrl(log.teacher) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
+        <span class="lead">{{ log.teacher.display_name }} {{ $root.langStrings.inqLog.passportStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small></span>
+        <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
       </div>
 
       <!-- Peer actions for learner -->
-      <div ng-if="log.status == 6">
-        <div class="col-xs-10">
-          <span class="lead">{{ log.peer.display_name }} {{ $root.langStrings.inqLog.passportStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small></span>
-          <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
-        </div>
-        <div class="col-xs-2">
-          <img ng-src='{{ gravatarUrl(log.teacher) }}' alt="User profile picture" class="img-responsive img-circle user-profile-log-avatar">
-        </div>
+      <div ng-if="log.status == 6" class="text-right">
+        <img ng-src='{{ gravatarUrl(log.teacher) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
+        <span class="lead">{{ log.peer.display_name }} {{ $root.langStrings.inqLog.passportStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small></span>
+        <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
       </div>
+
+      <!-- Clear the float after every row -->
+      <div class="clearfix"></div>
+
     </div>
     <!--
     <div class="row" ng-show="user.$resolved">
