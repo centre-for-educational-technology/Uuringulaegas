@@ -36,25 +36,24 @@ angular.module('arkofinquiryApp')
         3: 'Expert'
       },
       coveredPhases: {
-        orientation: 'Orientation',
-        conceptualisation: 'Conceptualisation',
-        investigation: 'Investigation',
-        conclusion: 'Conclusion',
-        discussion: 'Discussion'
+        1: 'Orientation',
+        2: 'Conceptualisation',
+        3: 'Investigation',
+        4: 'Conclusion',
+        5: 'Discussion'
       },
       departingPhases: {
-        none: 'None',
-        orientation: 'Orientation',
-        conceptualisation: 'Conceptualisation',
-        investigation: 'Investigation',
-        conclusion: 'Conclusion',
-        discussion: 'Discussion'
+        1: 'Orientation',
+        2: 'Conceptualisation',
+        3: 'Investigation',
+        4: 'Conclusion',
+        5: 'Discussion'
       },
       successEvidence: {
-        direct: 'Direct empirical evidence',
-        indirect: 'Indirect empirical evidence',
-        theoretical: 'Theoretical evidence',
-        ecological: 'Ecological evidence'
+        1: 'Direct empirical evidence',
+        2: 'Indirect empirical evidence',
+        3: 'Theoretical evidence',
+        4: 'Ecological evidence'
       },
       rightsRestrictions: {
         0: 'No',

@@ -11,18 +11,18 @@ angular.module('arkofinquiryApp')
   .controller('AddGroupCtrl', function ($scope, $resource, $document, GroupService, UserService, InquiryActivityService) {
 
     $scope.formOptions = {
-      domains: [
-        'Chemistry',
-        'Engineering',
-        'Biology',
-        'Physics',
-        'Mathematics',
-        'Electricity'
-      ],
+      domains: {
+        chemistry: 'Chemistry',
+        engineering: 'Engineering',
+        biology: 'Biology',
+        physics: 'Physics',
+        mathematics: 'Mathematics',
+        electricity: 'Electricity'
+      },
       levels: {
-      0: 'Basic',
-      1: 'Advanced',
-      2: 'Expert'
+      1: 'Basic',
+      2: 'Advanced',
+      3: 'Expert'
       }
     };
 
