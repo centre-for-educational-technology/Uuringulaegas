@@ -48,7 +48,7 @@
 
       <!-- Peer actions for learner -->
       <div ng-if="log.status == 6" class="text-right">
-        <img ng-src='{{ gravatarUrl(log.teacher) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
+        <img ng-src='{{ gravatarUrl(log.peer) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
         <span class="lead">{{ log.peer.display_name }} {{ $root.langStrings.inqLog.passportStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small></span>
         <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
       </div>
