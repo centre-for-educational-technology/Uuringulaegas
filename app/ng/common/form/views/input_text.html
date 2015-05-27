@@ -1,7 +1,7 @@
 <div> <!-- separate in sub-div for correct UI-Bootstrap collapse animation -->
   <div class="form-group">
     <label for="{{ id }}" class="control-label" ng-class="indent ? 'col-sm-5' : 'col-sm-4'">{{ label }} <span ng-show="req">*</span></label>
-    <div class="" ng-class="indent ? 'col-sm-7' : 'col-sm-8'">
+    <div ng-class="indent ? 'col-sm-7' : 'col-sm-8'">
       <input type="text" class="form-control" id="{{ id }}" name="{{ id }}" ng-model="model" ng-required="req" placeholder="{{ placeholder }}">
       <small ng-if="helpText" class="text-muted">{{ helpText }}</small>
     </div>

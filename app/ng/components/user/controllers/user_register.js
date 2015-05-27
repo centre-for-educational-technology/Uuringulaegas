@@ -12,13 +12,13 @@ angular.module('arkofinquiryApp')
 
     // Set up form options
     $scope.formOptions = {
-      languages: [
-        'Estonian',
-        'English',
-        'Finnish',
-        'Russian',
-        'German'
-      ],
+      languages: {
+        est: 'Estonian',
+        eng: 'English',
+        fin: 'Finnish',
+        rus: 'Russian',
+        ger: 'German'
+      },
       roles: [
           'Learner',
           'Teacher'
