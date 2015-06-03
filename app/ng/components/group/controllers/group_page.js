@@ -10,6 +10,8 @@
 angular.module('arkofinquiryApp')
   .controller('GroupPageCtrl', function ($scope, $http, $routeParams, UserService, $gravatar, GroupService, appConfig, $modal, $location, InquiryActivityLogService, $q) {
 
+    var timeFormat = 'YYYY-MM-DD HH:mm:ss';
+    
     $scope.inqLog = [];
     var inqLogServicePromises = [];
 
@@ -31,7 +33,7 @@ angular.module('arkofinquiryApp')
         response = _.flatten(response);
         for(var i = 0; i < response.length; i++){
           // Convert Date strings to Date objects
-          response[i].created = new Date(response[i].created);
+          response[i].created = new Date(moment(response[i].created, timeFormat));
           // Convert inq_activity object to array (remove id key)
           response[i].inq_activity = _.values(response[i].inq_activity);
         }

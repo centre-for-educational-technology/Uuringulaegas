@@ -10,6 +10,8 @@
 angular.module('arkofinquiryApp')
   .controller('UserPassportCtrl', function ($scope, $http, $routeParams, UserService, $gravatar, InquiryActivityLogService, $rootScope) {
 
+    var timeFormat = 'YYYY-MM-DD HH:mm:ss';
+
     // Expose Underscore.js to scope
     $scope._ = _;
 
@@ -21,7 +23,8 @@ angular.module('arkofinquiryApp')
         $scope.inqLog = InquiryActivityLogService.searchByLearnerID({learnerID: $routeParams.id}, function(success){
           for(var i = 0; i < $scope.inqLog.length; i++){
             // Convert Date strings to Date objects
-            $scope.inqLog[i].created = new Date($scope.inqLog[i].created);
+            //$scope.inqLog[i].created = new Date($scope.inqLog[i].created);
+            $scope.inqLog[i].created = new Date(moment($scope.inqLog[i].created, timeFormat));
             // Convert inq_activity object to array (remove id key)
             $scope.inqLog[i].inq_activity = _.values($scope.inqLog[i].inq_activity);
           }
@@ -30,7 +33,7 @@ angular.module('arkofinquiryApp')
         $scope.inqLog = InquiryActivityLogService.searchByTeacherID({teacherID: $routeParams.id}, function(success){
           for(var i = 0; i < $scope.inqLog.length; i++){
             // Convert Date strings to Date objects
-            $scope.inqLog[i].created = new Date($scope.inqLog[i].created);
+            $scope.inqLog[i].created = new Date(moment($scope.inqLog[i].created, timeFormat));
             // Convert inq_activity object to array (remove id key)
             $scope.inqLog[i].inq_activity = _.values($scope.inqLog[i].inq_activity);
           }

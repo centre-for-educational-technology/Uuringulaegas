@@ -13,4 +13,7 @@ angular.module('arkofinquiryApp.config', [])
     appBase: '/', // Always end with a slash, ex. '/dir/subdir/'
     apiUrl: '/api/' // Location of Wordpress install
   })
+  .run(function(amMoment) {
+    amMoment.changeLocale('et');
+  })
 ;

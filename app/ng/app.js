@@ -24,7 +24,8 @@ angular
     'ngTagsInput',
     'Gravatar',
     'duScroll',
-    'angular-jqcloud'
+    'angular-jqcloud',
+    'angularMoment'
   ])
   // Default values for angular-scroll module
   .value('duScrollDuration', 1000)
