@@ -11,7 +11,7 @@ angular.module('arkofinquiryApp')
   .controller('GroupPageCtrl', function ($scope, $http, $routeParams, UserService, $gravatar, GroupService, appConfig, $modal, $location, InquiryActivityLogService, $q) {
 
     var timeFormat = 'YYYY-MM-DD HH:mm:ss';
-    
+
     $scope.inqLog = [];
     var inqLogServicePromises = [];
 

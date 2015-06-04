@@ -15,19 +15,19 @@
 
     <form-input-password id="password" label="Password" model="userData.password" req="true"></form-input-password>
 
-    <form-select id="user_type" label="Type of User" options="formOptions.roles" model="userData.extra.user_type" ></form-select>
+    <form-select id="user_type" label="Type of User" options="formOptions.roles" model="userData.extra.user_type" req="true"></form-select>
 
     <hr/>
 
     <form-date-picker id="birth_date" label="Date of Birth" model="userData.extra.date_of_birth" mode="datePickerMode" is-open="datePickerOpened" options="datePickerOptions" max-date="todayDate" open="openDatePicker(ev)" req="true"></form-date-picker>
 
-    <form-select id="sex" label="Sex" options="formOptions.sex" model="userData.extra.sex" ></form-select>
+    <form-select id="sex" label="Sex" options="formOptions.sex" model="userData.extra.sex" req="true"></form-select>
 
-    <form-input-text id="city" label="City of Residence" model="userData.extra.city_of_residence"></form-input-text>
+    <form-input-text id="city" label="City of Residence" model="userData.extra.city_of_residence" req="true"></form-input-text>
 
-    <form-select id="preferred_language" label="Preferred Language" options="formOptions.languages" model="userData.extra.preferred_language" ></form-select>
+    <form-select id="preferred_language" label="Preferred Language" options="formOptions.languages" model="userData.extra.preferred_language" req="true"></form-select>
 
-    <form-select-multiple label="Additional Languages" options="formOptions.languages" model="userData.extra.additional_languages" ></form-select-multiple>
+    <form-select-multiple label="Additional Languages" options="formOptions.languages" model="userData.extra.additional_languages"></form-select-multiple>
 
 
 
