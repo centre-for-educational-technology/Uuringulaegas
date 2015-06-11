@@ -10,3 +10,5 @@ app/.htaccess
 .idea/workspace.xml
 
 *.DS_Store
+
+dist/

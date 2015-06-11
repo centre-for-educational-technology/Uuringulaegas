@@ -4,7 +4,7 @@
 </div>
 
 <div class="list-group">
-    <a class="list-group-item" ng-repeat="act in inqActList | orderBy:'id':true" ng-click="openDetails(act)">
+    <a class="list-group-item" ng-repeat="act in inqActList | orderBy:'id':true" ng-click="showDetailPage(act)">
         <h4 class="list-group-item-heading">{{ act.post_title }}{{ act.title }}
             <small class="glyphicon glyphicon-map-marker pull-right" ng-if="_.contains(act.location, '1')" aria-hidden="true" tooltip="Physical location"></small>
             <small class="glyphicon glyphicon-globe pull-right" ng-if="_.contains(act.location, '0')" aria-hidden="true" tooltip="Online activity"></small>

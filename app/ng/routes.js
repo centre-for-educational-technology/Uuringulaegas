@@ -33,6 +33,10 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/inq_act/views/add_inquiry_activity_form.html',
         controller: 'AddInquiryActivityCtrl'
       })
+      .when('/inq_act/:id', {
+        templateUrl: base + 'ng/components/inq_act/views/inq_act_detail_page.html',
+        controller: 'InquiryActivityDetailPageCtrl'
+      })
       .when('/user/list', {
         templateUrl: base + 'ng/components/user/views/user_list.html',
         controller: 'UserListCtrl'

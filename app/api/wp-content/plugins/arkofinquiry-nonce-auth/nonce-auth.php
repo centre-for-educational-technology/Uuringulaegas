@@ -15,6 +15,8 @@ add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $
     $access = true;
   } else if ( $pod == 'inq_log' && current_user_can( 'read_inq_log' ) ) {
     $access = true;
+  } else if ( $pod == 'inq_status' && current_user_can( 'read_inq_status' ) ) {
+      $access = true;
   } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
     $access = true;
   } else if ( $pod == 'inq_keywords' && current_user_can( 'read_inq' ) ) {

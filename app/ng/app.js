@@ -25,7 +25,8 @@ angular
     'Gravatar',
     'duScroll',
     'angular-jqcloud',
-    'angularMoment'
+    'angularMoment',
+    'ui.validate'
   ])
   // Default values for angular-scroll module
   .value('duScrollDuration', 1000)
