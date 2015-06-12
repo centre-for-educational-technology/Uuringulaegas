@@ -9,11 +9,18 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivityDetailPageCtrl', function ($scope, $routeParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, $rootScope) {
+  .controller('InquiryActivityDetailPageCtrl', function ($scope, $routeParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, $rootScope, $window) {
+
+    $scope._ = _;
 
     $scope.activity = InquiryActivityService.get({id: $routeParams.id});
 
     var logService = new InquiryActivityLogService();
+
+    $scope.goToExternalLink = function (url){
+      console.log('uuno');
+      window.window.location.href = url;
+    };
 
 
     $scope.accept = function () {

@@ -214,3 +214,7 @@ body {
   margin-right:5px;
   display:inline-block;
 }
+
+.multi-line-text {
+  white-space: pre-line;
+}

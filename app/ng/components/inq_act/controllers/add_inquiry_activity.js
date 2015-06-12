@@ -43,6 +43,7 @@ angular.module('arkofinquiryApp')
         5: 'Discussion'
       },
       departingPhases: {
+        0: '',
         1: 'Orientation',
         2: 'Conceptualisation',
         3: 'Investigation',

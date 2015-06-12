@@ -57,6 +57,10 @@ angular.module('arkofinquiryApp')
         }
       },
       inqAct: {
+        location: {
+          0: 'Web-based',
+          1: 'Physical location'
+        },
         domains: {
           chemistry: 'Chemistry',
           engineering: 'Engineering',
@@ -64,6 +68,41 @@ angular.module('arkofinquiryApp')
           physics: 'Physics',
           mathematics: 'Mathematics',
           electricity: 'Electricity'
+        },
+        languages: {
+          est: 'Estonian',
+          eng: 'English',
+          fin: 'Finnish',
+          rus: 'Russian'
+        },
+        levels: {
+          1: 'Basic',
+          2: 'Advanced',
+          3: 'Expert'
+        },
+        coveredPhases: {
+          1: 'Orientation',
+          2: 'Conceptualisation',
+          3: 'Investigation',
+          4: 'Conclusion',
+          5: 'Discussion'
+        },
+        departingPhases: {
+          1: 'Orientation',
+          2: 'Conceptualisation',
+          3: 'Investigation',
+          4: 'Conclusion',
+          5: 'Discussion'
+        },
+        successEvidence: {
+          1: 'Direct empirical evidence',
+          2: 'Indirect empirical evidence',
+          3: 'Theoretical evidence',
+          4: 'Ecological evidence'
+        },
+        rightsRestrictions: {
+          0: 'No',
+          1: 'Yes'
         }
       }
     }

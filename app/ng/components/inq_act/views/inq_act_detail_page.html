@@ -1,8 +1,67 @@
 <div class="page-header center">
     <h1>{{ activity.post_title }}</h1>
-    <small>wtf</small>
+    <small>Proficiency level:</small>
+    <span class="label label-spaced" ng-class="{ 'label-success': activity.proficiency_level == 1, 'label-warning': activity.proficiency_level == 2, 'label-danger': activity.proficiency_level == 3 }">{{ $root.langStrings.inqAct.levels[activity.proficiency_level] }}</span>
+
 </div>
 
-<div class="well">
+<div class="row">
+    <dl class="dl-horizontal">
+        <dt>Description</dt>
+        <dd class="multi-line-text">{{ activity.post_content }}</dd>
+        <dt>Domains</dt>
+        <dd class="multi-line-text"><span class="label label-primary label-spaced" ng-repeat="domain in activity.domains">{{ $root.langStrings.inqAct.domains[domain] }}</span>
+        </dd>
+        <div ng-if="!_.isEmpty(activity.topic)">
+            <dt>Topics</dt>
+            <dd>{{ activity.topic }}</dd>
+        </div>
+        <dt>Languages</dt>
+        <dd ng-repeat="language in activity.languages">{{ $root.langStrings.inqAct.languages[language] }}</dd>
+        <dt>Covered Phases</dt>
+        <dd ng-repeat="phase in activity.covered_phases">{{ $root.langStrings.inqAct.coveredPhases[phase] }}</dd>
+
+        <div ng-if="!_.isEmpty(activity.departing_phases)">
+            <dt>Phases Departing from the Proficiency Level</dt>
+            <dd ng-repeat="phase in activity.departing_phases">{{ $root.langStrings.inqAct.coveredPhases[phase] }}</dd>
+        </div>
+        <dt>Age</dt>
+        <dd>From {{ activity.age_range_from }} to {{ activity.age_range_to }}</dd>
+        <div ng-if="!_.isEmpty(activity.departing_phases)">
+            <dt>Typical learning time</dt>
+            <dd>{{ activity.learning_time }}</dd>
+        </div>
+        <dt>Materials needed</dt>
+        <dd class="multi-line-text">{{ activity.materials_needed }}</dd>
+
+        <dt>Evidence on success</dt>
+        <dd ng-repeat="evidence in activity.success_evidence">{{ $root.langStrings.inqAct.successEvidence[evidence] }}</dd>
+        <dt>Evidence Description</dt>
+        <dd class="multi-line-text">{{ activity.evidence_description }}</dd>
+
+        <div ng-if="activity.rights_restrictions == 1">
+            <dt>Rights Restrictions</dt>
+            <dd><span class="label label-warning">Yes</span></dd>
+            <dt>Rights Description</dt>
+            <dd>{{ activity.rights_description }}</dd>
+        </div>
+
+        <hr/>
+        <div ng-if="_.contains(activity.location, '0')">
+            <dt>Webpage</dt>
+            <dd><a href="{{ activity.location_web }}" target="_blank">{{ activity.location_web }}</a></dd>
+        </div>
+        <div ng-if="_.contains(activity.location, '1')">
+            <dt>City</dt>
+            <dd>{{ activity.location_city }}</dd>
+            <dt>Address</dt>
+            <dd>{{ activity.location_address }}</dd>
+        </div>
+
+    </dl>
+
+</div>
+
+<div class="well" ng-if="$root.developerView">
     <pre>{{ activity | json }}</pre>
 </div>
