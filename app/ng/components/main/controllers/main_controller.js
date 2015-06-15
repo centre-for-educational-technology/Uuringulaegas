@@ -10,7 +10,7 @@
 angular.module('arkofinquiryApp')
   .controller('MainCtrl', function ($rootScope, LoginService, $route, $scope) {
 
-    $rootScope.developerView = true; // Set to 'true' to see hidden raw data
+    $rootScope.developerView = false; // Set to 'true' to see hidden raw data
 
     $scope.userLoaded = false;
 
