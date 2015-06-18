@@ -45,6 +45,8 @@ add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $p
         $access = true;
   } else if ( $pod == 'inq_log' && current_user_can( 'read_inq_log' ) ) {
      $access = true;
+  } else if ( $pod == 'inq_status' && current_user_can( 'read_inq_status' ) ) {
+      $access = true;
   } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
      $access = true;
   } else {
@@ -66,6 +68,8 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
         $access = true;
     } else if ( $pod == 'inq_log' && current_user_can( 'pods_add_inq_log' ) ) {
        $access = true;
+    } else if ( $pod == 'inq_status' && current_user_can( 'pods_add_inq_status' ) ) {
+        $access = true;
     }
     error_log(print_r($_REQUEST, true));
 
@@ -77,6 +81,8 @@ add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $
           error_log(print_r($_REQUEST, true));
          $access = true;
      } else if ( $pod == 'inq_keywords' && current_user_can( 'publish_inq_activitys' ) ) {
+         $access = true;
+     } else if ( $pod == 'inq_status' && current_user_can( 'pods_add_inq_status' ) ) {
          $access = true;
      }
 

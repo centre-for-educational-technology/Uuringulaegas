@@ -6,7 +6,7 @@ angular.module("arkofinquiryApp")
 .factory("InquiryActivityStatusService", function InquiryActivityStatusFactory($resource, $http, appConfig, $rootScope){
 
         $http.defaults.headers.common['X-WP-Nonce'] = $rootScope.currentUserData.nonce;
-        return $resource(appConfig.apiUrl + 'wp-json/pods/inq_status/:id', {}, {
+        return $resource(appConfig.apiUrl + 'wp-json/pods/inq_status/:id', {id: '@id'}, {
           query: {
             isArray: true,
             transformResponse: [angular.fromJson, function(data, headers){
@@ -31,7 +31,7 @@ angular.module("arkofinquiryApp")
               return _.values(data); // Removes keys from response
             }]
           },
-          searchIfExists: {
+          searchCurrentStatus: {
             url: appConfig.apiUrl + 'wp-json/pods/inq_status?data[where]=learner.ID%3D:learnerID%20AND%20inq_activity.ID%3D:inqActID',
             learnerID: '@learnerID',
             inqActId: '@inqActID',
@@ -40,6 +40,9 @@ angular.module("arkofinquiryApp")
             transformResponse: [angular.fromJson, function(data, headers){
               return _.values(data); // Removes keys from response
             }]
+          },
+          update: {
+            method: 'PUT'
           }
         });
 

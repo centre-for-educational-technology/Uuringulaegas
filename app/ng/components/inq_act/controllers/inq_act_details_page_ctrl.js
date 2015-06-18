@@ -9,44 +9,112 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivityDetailPageCtrl', function ($scope, $routeParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, $rootScope, $window) {
+  .controller('InquiryActivityDetailPageCtrl', function ($scope, $routeParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, UserService, $rootScope, $window, $q) {
 
-    $scope._ = _;
-
-    $scope.activity = InquiryActivityService.get({id: $routeParams.id});
-
-    var logService = new InquiryActivityLogService();
-
-    $scope.goToExternalLink = function (url){
-      console.log('uuno');
-      window.window.location.href = url;
+    $scope.activityStatus = {
+      exists: false,
+      started: true
     };
 
+    var currentActivityID = $routeParams.id;
+    var servicePromises = [];
+    var postData = {
+      learner: $rootScope.currentUserData.userID,
+      inq_activity: currentActivityID
+    };
 
-    $scope.accept = function () {
-      InquiryActivityStatusService.searchIfExists({learnerID: $rootScope.currentUserData.userID, inqActID: $scope.activity.id}, function(success){
-        console.log(_.isEmpty(success));
+    // Expose Underscore.js to scope
+    $scope._ = _;
 
-        logService.$save(logService, function(success){
-          // success
+    $scope.activity = InquiryActivityService.get({id: currentActivityID}, function(response){
+      $scope.activity.teacher = UserService.get({id: response.post_author});
+    });
+
+    getCurrentStatus().then(function(success){
+      console.log(success);
+
+      if(_.isEmpty(success)){
+        console.log('tühi');
+        $scope.activityStatus.exists = false;
+        $scope.activityStatus.started = false;
+      } else if (success[0].status < 4){
+        $scope.activityStatus.status = success[0].status;
+        console.log('olemas, pole alustatud');
+        $scope.activityStatus.exists = true;
+        $scope.activityStatus.started = false;
+      } else {
+        $scope.activityStatus.status = success[0].status;
+        console.log('juba alustatud');
+        $scope.activityStatus.exists = true;
+        $scope.activityStatus.started = true;
+      }
+
+    });
+
+    $scope.startActivity = function () {
+      $scope.updating= true;
+      postData.status = 4; // Started the activity
+
+      var logService = new InquiryActivityLogService(postData);
+      var statusService = new InquiryActivityStatusService(postData);
+
+      getCurrentStatus().then(function(success){
+        if(_.isEmpty(success)){
+          // If status doesn't exist, create it
+          createNewStatus().then(function(){
+            $scope.activityStatus.started = true;
+            console.log('tegin uue staatuse');
+          })
+        } else {
+          // If status exists, update it
+          success[0].status = postData.status;
+          updateExistingStatus(success[0]).then(function(){
+            $scope.activityStatus.started = true;
+            console.log('muutsin olemasolevat');
+          });
+        }
+
+        // Save log for feeds
+        createNewLog().then(function(success){
+          console.log('log saved');
         }, function(error){
           console.log(error);
         });
 
+        // Wait for all services to finish
+        $q.all(servicePromises).then(function(){
+          $scope.updating = false;
+        });
       });
 
-      /*if(_.isEmpty(existingEntry)){
-        console.log('tee uus');
-      } else {
-        console.log('muuda olemasolevat');
-      }*/
+    };
 
-      // todo - check if returned object is empty or not and decide to POST or PUT
+    function createNewLog(){
+      var service = new InquiryActivityLogService(postData).$save(postData);
+      servicePromises.push(service);
+      return service;
+    }
 
-      logService.learner = $rootScope.currentUserData.userID;
-      logService.inq_activity = $scope.activity.id;
-      logService.status = 4; // Started the activity
+    function updateExistingStatus(status){
+      status.inq_activity = _.keys(status.inq_activity)[0]; // Only send the key (id)
+      var service = status.$update();
+      servicePromises.push(service);
+      return service;
+    }
+
+    function createNewStatus(){
+      var service = new InquiryActivityStatusService(postData).$save(postData);
+      servicePromises.push(service);
+      return service;
+    }
+
+    function getCurrentStatus(){
+      return InquiryActivityStatusService.searchCurrentStatus({learnerID: $rootScope.currentUserData.userID, inqActID: currentActivityID}).$promise;
+    }
 
 
+    $scope.goToExternalLink = function (url){
+      console.log('uuno');
+      window.window.location.href = url;
     };
   });
