@@ -73,25 +73,6 @@ angular.module('arkofinquiryApp')
       $location.path('user/' + id);
     };
 
-    $scope.openDetails = function (act) {
-
-      var modalInstance = $modal.open({
-        templateUrl: appConfig.appBase + 'ng/components/inq_act/views/partials/inq_act_details_modal.html',
-        controller: 'InquiryActivityDetailsModalCtrl',
-        resolve: {
-          activity: function () {
-            return act;
-          }
-        }
-      });
-
-      modalInstance.result.then(function (acceptedID) {
-        console.log('Accepted activity with ID: ' + acceptedID)
-      }, function () {
-        //$log.info('Modal dismissed at: ' + new Date());
-      });
-    };
-
     // Get gravatarUrl by email
     function getGravatarUrl(email) {
       return $gravatar.generate(email);

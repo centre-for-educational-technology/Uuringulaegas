@@ -31,7 +31,17 @@ angular.module("arkofinquiryApp")
               return _.values(data); // Removes keys from response
             }]
           },
-          searchCurrentStatus: {
+          searchByStatus: {
+            url: appConfig.apiUrl + 'wp-json/pods/inq_status?data[where]=learner.ID%3D:learnerID%20AND%20status%3D:status',
+            learnerID: '@learnerID',
+            status: '@status',
+            method: 'GET',
+            isArray: true,
+            transformResponse: [angular.fromJson, function(data, headers){
+              return _.values(data); // Removes keys from response
+            }]
+          },
+          getCurrentStatus: {
             url: appConfig.apiUrl + 'wp-json/pods/inq_status?data[where]=learner.ID%3D:learnerID%20AND%20inq_activity.ID%3D:inqActID',
             learnerID: '@learnerID',
             inqActId: '@inqActID',

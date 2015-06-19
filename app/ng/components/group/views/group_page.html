@@ -22,7 +22,7 @@
                 <small>{{ log.inq_activity[0].post_title }}</small>
               </small>
             </span>
-            <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
+            <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
           </div>
 
           <!-- Teacher actions for learner -->
@@ -33,14 +33,14 @@
                 <small>{{ log.inq_activity[0].post_title }}</small>
               </small> for {{ log.learner.display_name }}
             </span>
-            <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
+            <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
           </div>
 
           <!-- Peer actions for learner -->
           <div ng-if="log.status == 6" class="text-right">
             <img ng-src='{{ gravatarUrl(log.peer) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
             <span>{{ log.peer.display_name }} {{ $root.langStrings.inqLog.groupPageStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small> for {{ log.learner.display_name }}</span>
-            <footer class="text-muted">- {{ log.created | date : 'dd.MM.yy HH:mm'}}</footer>
+            <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
 
           </div>
 
@@ -49,6 +49,8 @@
 
         </div>
       </div>
+
+
       <div class="col-sm-3">
         <h4>Teacher</h4>
         <div class="group-teacher-profile-link" ng-click="showTeacherProfile(group.author.ID)">

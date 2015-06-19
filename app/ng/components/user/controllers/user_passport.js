@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('UserPassportCtrl', function ($scope, $http, $routeParams, UserService, $gravatar, InquiryActivityLogService, $rootScope, $filter) {
+  .controller('UserPassportCtrl', function ($scope, $http, $routeParams, UserService, $gravatar, InquiryActivityLogService, $rootScope, $filter, InquiryActivityStatusService, $location) {
 
     // Expose Underscore.js to scope
     $scope._ = _;
@@ -55,6 +55,33 @@ angular.module('arkofinquiryApp')
     function getGravatarUrl(email) {
       return $gravatar.generate(email);
     }
+
+
+    /**
+     *
+     * Getters for tab contents
+     *
+     */
+
+    $scope.recommendedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $routeParams.id, status: 1}, function(){});
+
+    $scope.startedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $routeParams.id, status: 4}, function(response){
+      console.log(_.clone(response));
+      for(var i = 0; i < response.length; i++){
+        response[i].inq_activity = _.values(response[i].inq_activity);
+      }
+
+    });
+
+    $scope.completedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $routeParams.id, status: 5}, function(response){
+      for(var i = 0; i < response.length; i++){
+        response[i].inq_activity = _.values(response[i].inq_activity);
+      }
+    });
+
+    $scope.showInqActivityDetailPage = function(act){
+      $location.path('inq_act/' + act.id)
+    };
 
   });
 

@@ -9,7 +9,7 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivityDetailPageCtrl', function ($scope, $routeParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, UserService, $rootScope, $window, $q) {
+  .controller('InquiryActivityDetailPageCtrl', function ($scope, $routeParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, UserService, $rootScope, appConfig, $window, $q, $modal) {
 
     $scope.activityStatus = {
       exists: false,
@@ -62,14 +62,12 @@ angular.module('arkofinquiryApp')
         if(_.isEmpty(success)){
           // If status doesn't exist, create it
           createNewStatus().then(function(){
-            $scope.activityStatus.started = true;
             console.log('tegin uue staatuse');
           })
         } else {
           // If status exists, update it
           success[0].status = postData.status;
           updateExistingStatus(success[0]).then(function(){
-            $scope.activityStatus.started = true;
             console.log('muutsin olemasolevat');
           });
         }
@@ -84,9 +82,29 @@ angular.module('arkofinquiryApp')
         // Wait for all services to finish
         $q.all(servicePromises).then(function(){
           $scope.updating = false;
+          $scope.activityStatus.started = true;
+          $scope.activityStatus.status = postData.status;
         });
       });
 
+    };
+
+    $scope.openEvidenceModal = function (activity) {
+
+      var modalInstance = $modal.open({
+        templateUrl: appConfig.appBase + 'ng/components/inq_act/views/partials/inq_evidence_submit_modal.html',
+        controller: 'EvidenceSubmitModalCtrl',
+        resolve: {
+          activity: function () {
+            return activity;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (status) {
+        $scope.activityStatus.status = status;
+        console.log('Modal returned status: ' + status)
+      });
     };
 
     function createNewLog(){
@@ -109,7 +127,7 @@ angular.module('arkofinquiryApp')
     }
 
     function getCurrentStatus(){
-      return InquiryActivityStatusService.searchCurrentStatus({learnerID: $rootScope.currentUserData.userID, inqActID: currentActivityID}).$promise;
+      return InquiryActivityStatusService.getCurrentStatus({learnerID: $rootScope.currentUserData.userID, inqActID: currentActivityID}).$promise;
     }
 
 
