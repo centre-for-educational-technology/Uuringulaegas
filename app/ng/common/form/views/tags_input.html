@@ -1,7 +1,7 @@
 <div class="form-group">
   <label class="col-sm-4 control-label">{{ label }}</label>
   <div class="col-sm-8">
-    <tags-input ng-model="model" display-property="{{ displayProperty }}" placeholder="{{ placeholder }}" add-from-autocomplete-only="{{ autocompleteOnly }}" replace-spaces-with-dashes="false">
+    <tags-input ng-model="model" display-property="{{ displayProperty }}" placeholder="{{ placeholder }}" add-from-autocomplete-only="{{ autocompleteOnly }}" replace-spaces-with-dashes="false" ng-paste="pasteTags($event)">
       <auto-complete source="autocompleteSource({q: $query})" min-length="2"></auto-complete>
     </tags-input>
   </div>
