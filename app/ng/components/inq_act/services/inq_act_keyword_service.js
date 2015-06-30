@@ -7,6 +7,7 @@ angular.module("arkofinquiryApp")
         $http.defaults.headers.common['X-WP-Nonce'] = $rootScope.currentUserData.nonce;
         return $resource(appConfig.apiUrl + 'wp-json/pods/inq_keywords/:id', {}, {
                 query: {
+                        url: appConfig.apiUrl + 'wp-json/pods/inq_keywords?data[limit]=-1',
                         method: 'GET',
                         isArray: true,
                         transformResponse: [angular.fromJson, function(data, headers){
