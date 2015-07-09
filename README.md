@@ -45,3 +45,8 @@ Paigaldusjuhend
     2. Pods pluginale importida sätted pakendatud rakendusega kaasas olnud failist pods_settings.txt (Pods Admin -> Migrate Packages -> Import)
     3. Anda WP Administraatorkasutajale kõik uued lisaõigused (Pods Admin -> Roles & Capabilities -> Administrator -> Toggle All Capabilities on -> Save)
 4. Rakenduse failis ng/config.js muuta 'appBase' ja 'apiUrl' väärtused vastavusse serveriga
+
+Veebilehitsejate tugi
+---------------------
+
+Safari, Chrome, Firefox, Opera 15, IE9 ja mobiililehitsejad (Android, Chrome Mobile, iOS Safari)
