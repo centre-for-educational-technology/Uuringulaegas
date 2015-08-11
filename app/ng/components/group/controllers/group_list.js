@@ -16,7 +16,7 @@ angular.module('arkofinquiryApp')
     $scope.groupList = GroupService.query();
 
     $scope.showGroupPage = function(group){
-      $location.path('groups/' + group.id)
+      $location.path('group/' + group.id)
     };
 
 

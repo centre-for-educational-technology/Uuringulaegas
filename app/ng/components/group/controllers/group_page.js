@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('GroupPageCtrl', function ($scope, $http, $routeParams, UserService, $gravatar, GroupService, appConfig, $modal, $location, InquiryActivityLogService, $q) {
+  .controller('GroupPageCtrl', function ($scope, $http, $stateParams, UserService, $gravatar, GroupService, appConfig, $modal, $location, InquiryActivityLogService, $q) {
 
     var timeFormat = 'YYYY-MM-DD HH:mm:ss';
 
@@ -17,7 +17,7 @@ angular.module('arkofinquiryApp')
 
     var activityListString = '';
 
-    $scope.group = GroupService.get({id: $routeParams.id}, function(success){
+    $scope.group = GroupService.get({id: $stateParams.id}, function(success){
       // Success
       createActivityListString();
       $scope.group.author.gravatarUrl = getGravatarUrl($scope.group.author.user_email);

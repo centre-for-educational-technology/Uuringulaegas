@@ -14,6 +14,9 @@ angular.module("arkofinquiryApp")
       transformResponse: [angular.fromJson, function(data, headers){
         return _.values(data); // Removes keys from response
       }]
+    },
+    update: {
+      method: 'PUT'
     }
   });
 

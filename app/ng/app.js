@@ -21,12 +21,12 @@ angular
     'ui-rangeSlider',
     'ui.bootstrap',
     'ui.select',
+    'ui.router',
     'ngTagsInput',
     'Gravatar',
     'duScroll',
     'angular-jqcloud',
-    'angularMoment',
-    'ui.validate'
+    'angularMoment'
   ])
   // Default values for angular-scroll module
   .value('duScrollDuration', 1000)

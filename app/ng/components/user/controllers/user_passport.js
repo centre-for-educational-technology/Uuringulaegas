@@ -8,17 +8,17 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('UserPassportCtrl', function ($scope, $http, $routeParams, UserService, $gravatar, InquiryActivityLogService, $rootScope, $filter, InquiryActivityStatusService, $location) {
+  .controller('UserPassportCtrl', function ($scope, $http, $stateParams, UserService, $gravatar, InquiryActivityLogService, $rootScope, $filter, InquiryActivityStatusService, $location) {
 
     // Expose Underscore.js to scope
     $scope._ = _;
 
-    $scope.user = UserService.get({id: $routeParams.id}, function(){
+    $scope.user = UserService.get({id: $stateParams.id}, function(){
       // Get gravatarURL for current profile and append it to user data
       $scope.user.gravatarUrl = getGravatarUrl($scope.user.user_email);
 
       if($scope.user.roles[0] == 'learner'){
-        $scope.inqLog = InquiryActivityLogService.searchByLearnerID({learnerID: $routeParams.id}, function(success){
+        $scope.inqLog = InquiryActivityLogService.searchByLearnerID({learnerID: $stateParams.id}, function(success){
           for(var i = 0; i < $scope.inqLog.length; i++){
             // Convert Date strings to Date objects
             $scope.inqLog[i].created = $filter('stringToDate')($scope.inqLog[i].created);
@@ -27,7 +27,7 @@ angular.module('arkofinquiryApp')
           }
         });
       } else if ($scope.user.roles[0] == 'teacher'){
-        $scope.inqLog = InquiryActivityLogService.searchByTeacherID({teacherID: $routeParams.id}, function(success){
+        $scope.inqLog = InquiryActivityLogService.searchByTeacherID({teacherID: $stateParams.id}, function(success){
           for(var i = 0; i < $scope.inqLog.length; i++){
             // Convert Date strings to Date objects
             $scope.inqLog[i].created = $filter('stringToDate')($scope.inqLog[i].created);
@@ -63,9 +63,9 @@ angular.module('arkofinquiryApp')
      *
      */
 
-    $scope.recommendedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $routeParams.id, status: 1}, function(){});
+    $scope.recommendedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $stateParams.id, status: 1}, function(){});
 
-    $scope.startedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $routeParams.id, status: 4}, function(response){
+    $scope.startedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $stateParams.id, status: 4}, function(response){
       console.log(_.clone(response));
       for(var i = 0; i < response.length; i++){
         response[i].inq_activity = _.values(response[i].inq_activity);
@@ -73,7 +73,7 @@ angular.module('arkofinquiryApp')
 
     });
 
-    $scope.completedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $routeParams.id, status: 5}, function(response){
+    $scope.completedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $stateParams.id, status: 5}, function(response){
       for(var i = 0; i < response.length; i++){
         response[i].inq_activity = _.values(response[i].inq_activity);
       }

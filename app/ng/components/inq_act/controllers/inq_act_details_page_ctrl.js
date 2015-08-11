@@ -9,14 +9,14 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivityDetailPageCtrl', function ($scope, $routeParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, UserService, $rootScope, appConfig, $window, $q, $modal) {
+  .controller('InquiryActivityDetailPageCtrl', function ($scope, $stateParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, UserService, $rootScope, appConfig, $window, $q, $modal) {
 
     $scope.activityStatus = {
       exists: false,
       started: true
     };
 
-    var currentActivityID = $routeParams.id;
+    var currentActivityID = $stateParams.id;
     var servicePromises = [];
     var postData = {
       learner: $rootScope.currentUserData.userID,
