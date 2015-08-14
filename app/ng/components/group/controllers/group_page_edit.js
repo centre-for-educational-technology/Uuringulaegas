@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('AddGroupCtrl', function ($scope, $resource, $document, GroupService, UserService, InquiryActivityService) {
+  .controller('EditGroupCtrl', function ($scope, $stateParams, $resource, $document, GroupService, UserService, InquiryActivityService) {
 
     $scope.formOptions = {
       domains: {
@@ -55,15 +55,20 @@ angular.module('arkofinquiryApp')
      */
     $scope.postingState = 0;
 
+    $scope.groupForm = GroupService.get({id: $stateParams.id}, function(success){
+      for(var i = 0; i < $scope.groupForm.learners.length; i++){
+        $scope.groupForm.learners[i] =  parseInt(success.learners[i].ID);
+      }
+      // TODO: paranda ära
+    });
+
     $scope.newGroup = new GroupService();
 
     // Save new Group
-    $scope.addGroup = function(newGroup){
+    $scope.updateGroup = function(groupForm){
       $scope.errors = null;
       $scope.updating = true;
 
-      // append form data object to group object (same keys)
-      _.extend(newGroup, $scope.groupForm);
 
       //// Push only ID's from groupForm to GroupService.learners array
       //// NEEDED ONLY for ng-tags-input, not needed for ui.select module
@@ -73,7 +78,7 @@ angular.module('arkofinquiryApp')
       //}
 
       // POST to DB
-      newGroup.$save(newGroup, function() {
+      newGroup.$update(groupForm, function() {
         // success
         $scope.updating = false;
         console.log("OK"); // -------------------------------------- REMOVE after debugging
@@ -82,7 +87,7 @@ angular.module('arkofinquiryApp')
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 1; // OK
         });
-      }, function(newGroup){
+      }, function(groupForm){
         // error
         $scope.updating = false;
         console.log("ERROR"); // -------------------------------------- REMOVE after debugging

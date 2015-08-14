@@ -1,6 +1,6 @@
 <div class="page-header center">
-  <h1>Add new inquiry activity</h1>
-  <small>Fields marked with an asterisk (*) are mandatory</small>
+    <h1>Add new inquiry activity</h1>
+    <small>Fields marked with an asterisk (*) are mandatory</small>
 </div>
 
 <div id="successAlert" class="alert alert-success" role="alert" collapse="postingState != 1"> Activity added!</div>
@@ -8,57 +8,80 @@
 <div id="errorAlert" class="alert alert-danger" role="alert" collapse="postingState != 2"> Error! Reason: {{ errors }}</div>
 
 <form class="form-horizontal" novalidate>
-  <form-input-text id="title" label="Title" model="formData.title" req="true"></form-input-text>
+    <form-input-text id="title" label="Title" model="formData.title" req="true"></form-input-text>
 
-  <form-textarea id="description" label="Activity Description" rows="10" model="formData.description" req="true"></form-textarea>
+    <form-textarea id="description" label="Activity Description" rows="10" model="formData.description" req="true"></form-textarea>
 
-  <form-input-checkbox name="location" label="Location" model="formData.extra.location" options="formOptions.location"></form-input-checkbox>
+    <form-input-checkbox name="location" label="Location" model="formData.extra.location" options="formOptions.location"></form-input-checkbox>
 
-  <form-input-text indent="true" id="location_web" label="Webpage" model="formData.extra.location_web" collapse="!_.contains(formData.extra.location, 0)"></form-input-text>
+    <form-input-text indent="true" id="location_web" label="Webpage" model="formData.extra.location_web" collapse="!_.contains(formData.extra.location, 0)"></form-input-text>
 
-  <form-input-text indent="true" id="location_city" label="City" model="formData.extra.location_city" collapse="!_.contains(formData.extra.location, 1)"></form-input-text>
+    <form-input-text indent="true" id="location_city" label="City" model="formData.extra.location_city" collapse="!_.contains(formData.extra.location, 1)"></form-input-text>
 
-  <form-input-text indent="true" id="location_address" label="Address" model="formData.extra.location_address" collapse="!_.contains(formData.extra.location, 1)"></form-input-text>
+    <form-input-text indent="true" id="location_address" label="Address" model="formData.extra.location_address" collapse="!_.contains(formData.extra.location, 1)"></form-input-text>
 
-  <form-select-multiple label="Domain" options="formOptions.domains" model="formData.extra.domains" req="true"></form-select-multiple>
+    <form-select-multiple label="Domain" options="formOptions.domains" model="formData.extra.domains" req="true"></form-select-multiple>
 
-  <form-input-text id="topic" label="Topic" model="formData.extra.topic"></form-input-text>
+    <form-input-text id="topic" label="Topic" model="formData.extra.topic"></form-input-text>
 
-  <form-select-multiple label="Language" options="formOptions.languages" model="formData.extra.languages" req="true"></form-select-multiple>
+    <form-select-multiple label="Language" options="formOptions.languages" model="formData.extra.languages" req="true"></form-select-multiple>
 
-  <form-select id="level" label="Proficiency level" options="formOptions.levels" model="formData.extra.proficiency_level" req="true"></form-select>
+    <form-select id="level" label="Overall proficiency level" options="formOptions.levels" model="formData.extra.proficiency_level" req="true"></form-select>
 
-  <form-select-multiple label="Covered phases" options="formOptions.coveredPhases" model="formData.extra.covered_phases" req="true"></form-select-multiple>
+    <div class="form-group">
+        <div class="col-sm-4">Proficiency level for inquiry phases</div>
+        <div class="col-sm-8">
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th>Phase</th>
+                    <th>Level A (basic)</th>
+                    <th>Level B (advanced)</th>
+                    <th>Level C (expert)</th>
+                </tr>
+                <tr ng-repeat="(key, value) in formOptions.coveredPhases">
+                    <td><input type="checkbox" ng-model="phaseCheckboxes[key]"/></td>
+                    <td ng-class="{'text-muted': !phaseCheckboxes[key]}">{{ value }}</td>
+                    <td><input ng-model="formData.phaseLevels[key]" type="radio" value="1" ng-disabled="!phaseCheckboxes[key]" /></td>
+                    <td><input ng-model="formData.phaseLevels[key]" type="radio" value="2" ng-disabled="!phaseCheckboxes[key]" /></td>
+                    <td><input ng-model="formData.phaseLevels[key]" type="radio" value="3" ng-disabled="!phaseCheckboxes[key]" /></td>
+                </tr>
+            </table>
 
-  <form-select-multiple label="Phases Departing From the Proficiency Level" options="formOptions.departingPhases" model="formData.extra.departing_phases"></form-select-multiple>
-
-  <form-range-slider label="Typical Age Range" id="range" model-from="formData.extra.age_range_from" model-to="formData.extra.age_range_to" min="6" max="20"></form-range-slider>
-
-  <form-input-text id="learning_time" label="Typical Learning Time" model="formData.extra.learning_time"></form-input-text>
-
-  <form-textarea id="materials_needed" label="Materials needed for the Activity" rows="5" model="formData.extra.materials_needed" req="true"></form-textarea>
-
-  <form-select-multiple label="Evidence On the Success of the Activity" options="formOptions.successEvidence" model="formData.extra.success_evidence" req="true"></form-select-multiple>
-
-  <form-textarea id="evidence_description" label="Evidence Description" rows="7" model="formData.extra.evidence_description" req="true"></form-textarea>
-
-  <form-input-radio name="rights_restriction" label="Copyright or Other Restrictions" model="formData.extra.rights_restrictions" options="formOptions.rightsRestrictions"></form-input-radio>
-
-  <form-textarea id="rights_description" label="Rights Description" rows="5" model="formData.extra.rights_description" collapse="formData.extra.rights_restrictions == 0"></form-textarea>
-
-  <form-tags-input label="Keywords" model="formData.keywords" display-property="name" placeholder="Add keywords" autocomplete-source="loadKeywords(q)" autocomplete-only="false"></form-tags-input>
-
-  <div class="form-group">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-8">
-      <button class="btn btn-success" type="submit" ng-click="saveActivity(activity)" ng-disabled="updating">Add activity</button>
+        </div>
     </div>
-  </div>
+
+    <form-range-slider label="Typical Age Range" id="range" model-from="formData.extra.age_range_from" model-to="formData.extra.age_range_to" min="6" max="20"></form-range-slider>
+
+    <form-input-text id="learning_time" label="Typical Learning Time" model="formData.extra.learning_time"></form-input-text>
+
+    <form-textarea id="materials_needed" label="Materials needed for the Activity" rows="5" model="formData.extra.materials_needed" req="true"></form-textarea>
+
+    <form-select-multiple label="Evidence On the Success of the Activity" options="formOptions.successEvidence" model="formData.extra.success_evidence" req="true"></form-select-multiple>
+
+    <form-textarea id="evidence_description" label="Evidence Description" rows="7" model="formData.extra.evidence_description" req="true"></form-textarea>
+
+    <form-input-radio name="rri_component" label="Strong RRI component" model="formData.extra.rri_component" options="formOptions.booleanValues"></form-input-radio>
+
+    <form-textarea id="rri_description" label="RRI Description" rows="5" model="formData.extra.rri_description" collapse="formData.extra.rri_component == 0"></form-textarea>
+
+    <form-input-radio name="rights_restriction" label="Copyright or Other Restrictions" model="formData.extra.rights_restrictions" options="formOptions.booleanValues"></form-input-radio>
+
+    <form-textarea id="rights_description" label="Rights Description" rows="5" model="formData.extra.rights_description" collapse="formData.extra.rights_restrictions == 0"></form-textarea>
+
+    <form-tags-input label="Keywords" model="formData.keywords" display-property="name" placeholder="Add keywords" autocomplete-source="loadKeywords(q)" autocomplete-only="false"></form-tags-input>
+
+    <div class="form-group">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-8">
+            <button class="btn btn-success" type="submit" ng-click="saveActivity(activity)" ng-disabled="updating">Add activity</button>
+        </div>
+    </div>
 
 </form>
 
 <div class="well" ng-if="$root.developerView">
-  <p>FormData model <strong>LiveView</strong> (for debugging only):</p>
-  <pre>{{ formData | json}}</pre>
+    <p>FormData model <strong>LiveView</strong> (for debugging only):</p>
+    <pre>{{ formData | json}}</pre>
 </div>
 

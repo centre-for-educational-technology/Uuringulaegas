@@ -56,11 +56,25 @@ angular.module('arkofinquiryApp')
         3: 'Theoretical evidence',
         4: 'Ecological evidence'
       },
-      rightsRestrictions: {
+      booleanValues: {
         0: 'No',
         1: 'Yes'
       }
     };
+
+    $scope.phaseCheckboxes = {};
+
+    $scope.$watch('phaseCheckboxes', function() {
+      console.log('changed');
+      console.log($scope.phaseCheckboxes.size);
+      for(var i = 0; i < _.size($scope.phaseCheckboxes); i++){
+        if($scope.phaseCheckboxes[i] == false){
+          console.log('false ' + i);
+          $scope.formData.phaseLevels[i] = '0';
+        }
+      }
+    }, true);
+
 
     // Expose Underscore.js to scope
     $scope._ = _;
@@ -139,6 +153,7 @@ angular.module('arkofinquiryApp')
         title: '',
         description: '',
         keywords: [],
+        phaseLevels: {},
         extra: {
           location: [],
           location_web: '',
@@ -148,14 +163,14 @@ angular.module('arkofinquiryApp')
           topic: '',
           languages: [''],
           proficiency_level: [''],
-          covered_phases: [''],
-          departing_phases: [''],
           age_range_from: 7,
           age_range_to: 18,
           learning_time: '',
           materials_needed: '',
           success_evidence: [''],
           evidence_description: '',
+          rri_component: 0,
+          rri_description: '',
           rights_restrictions: 0,
           rights_description: ''
         }
