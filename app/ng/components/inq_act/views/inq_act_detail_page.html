@@ -19,13 +19,6 @@
         </div>
         <dt>Languages</dt>
         <dd ng-repeat="language in activity.languages">{{ $root.langStrings.inqAct.languages[language] }}</dd>
-        <dt>Covered Phases</dt>
-        <dd ng-repeat="phase in activity.covered_phases">{{ $root.langStrings.inqAct.coveredPhases[phase] }}</dd>
-
-        <div ng-if="!_.isEmpty(activity.departing_phases)">
-            <dt>Phases Departing from the Proficiency Level</dt>
-            <dd ng-repeat="phase in activity.departing_phases">{{ $root.langStrings.inqAct.coveredPhases[phase] }}</dd>
-        </div>
         <dt>Age</dt>
         <dd>From {{ activity.age_range_from }} to {{ activity.age_range_to }}</dd>
         <div ng-if="!_.isEmpty(activity.departing_phases)">

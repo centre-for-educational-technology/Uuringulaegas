@@ -66,8 +66,7 @@ angular.module('arkofinquiryApp')
 
     $scope.$watch('phaseCheckboxes', function() {
       console.log('changed');
-      console.log($scope.phaseCheckboxes.size);
-      for(var i = 0; i < _.size($scope.phaseCheckboxes); i++){
+      for(var i = 1; i <= _.size($scope.phaseCheckboxes); i++){
         if($scope.phaseCheckboxes[i] == false){
           console.log('false ' + i);
           $scope.formData.phaseLevels[i] = '0';
@@ -111,8 +110,8 @@ angular.module('arkofinquiryApp')
       activity.post_content = $scope.formData.description;
       activity.post_status = 'publish';
       activity.post_type = 'inq_activity';
-      activity.inq_keywords = [];
 
+      activity.inq_keywords = [];
       for(var i = 0; i < $scope.formData.keywords.length; i++){
         if ($scope.formData.keywords[i].term_id){
           activity.inq_keywords.push($scope.formData.keywords[i].term_id)
@@ -120,6 +119,13 @@ angular.module('arkofinquiryApp')
           activity.inq_keywords.push($scope.formData.keywords[i].name)
         }
       }
+
+      // Adds phase levels to post
+      for(var j = 1; j <= 5; j++){
+        activity['phase_' + j + '_level'] = parseInt($scope.formData.phaseLevels[j]);
+      }
+
+
 
       // append form data object to activity object (same keys)
       _.extend(activity, $scope.formData.extra);
@@ -153,7 +159,13 @@ angular.module('arkofinquiryApp')
         title: '',
         description: '',
         keywords: [],
-        phaseLevels: {},
+        phaseLevels: {
+          '1': '0',
+          '2': '0',
+          '3': '0',
+          '4': '0',
+          '5': '0'
+        },
         extra: {
           location: [],
           location_web: '',

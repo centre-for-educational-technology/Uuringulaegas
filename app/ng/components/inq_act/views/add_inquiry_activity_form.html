@@ -29,7 +29,7 @@
     <form-select id="level" label="Overall proficiency level" options="formOptions.levels" model="formData.extra.proficiency_level" req="true"></form-select>
 
     <div class="form-group">
-        <div class="col-sm-4">Proficiency level for inquiry phases</div>
+        <label class="col-sm-4 control-label">Proficiency level for inquiry phases <span ng-show="req">*</span></label>
         <div class="col-sm-8">
             <table class="table">
                 <tr>
@@ -53,7 +53,13 @@
 
     <form-range-slider label="Typical Age Range" id="range" model-from="formData.extra.age_range_from" model-to="formData.extra.age_range_to" min="6" max="20"></form-range-slider>
 
-    <form-input-text id="learning_time" label="Typical Learning Time" model="formData.extra.learning_time"></form-input-text>
+    <div class="form-group">
+        <label for="learning_time" class="col-sm-4 control-label" >Typical Learning Time <span ng-show="req">*</span></label>
+        <div class="col-sm-8">
+            <input type="number" class="form-control" id="learning_time" name="learning_time" ng-model="formData.extra.learning_time" required placeholder="Academic hours">
+            <small class="text-muted">Enter the amount in academic hours (1h = 45min)</small>
+        </div>
+    </div>
 
     <form-textarea id="materials_needed" label="Materials needed for the Activity" rows="5" model="formData.extra.materials_needed" req="true"></form-textarea>
 
