@@ -11,14 +11,6 @@ angular.module('arkofinquiryApp')
   .controller('EditGroupCtrl', function ($scope, $stateParams, $resource, $document, GroupService, UserService, InquiryActivityService) {
 
     $scope.formOptions = {
-      domains: {
-        chemistry: 'Chemistry',
-        engineering: 'Engineering',
-        biology: 'Biology',
-        physics: 'Physics',
-        mathematics: 'Mathematics',
-        electricity: 'Electricity'
-      },
       levels: {
         1: 'Basic',
         2: 'Advanced',
@@ -57,18 +49,31 @@ angular.module('arkofinquiryApp')
 
     $scope.groupForm = GroupService.get({id: $stateParams.id}, function(success){
       for(var i = 0; i < $scope.groupForm.learners.length; i++){
-        $scope.groupForm.learners[i] =  parseInt(success.learners[i].ID);
+        $scope.groupForm.learners[i].id =  parseInt(success.learners[i].ID);
       }
-      // TODO: paranda ära
+      success.inq_activities = _.values(success.inq_activities);
     });
 
-    $scope.newGroup = new GroupService();
+    $scope.editGroup = new GroupService();
 
     // Save new Group
-    $scope.updateGroup = function(groupForm){
+    $scope.updateGroup = function(editGroup){
       $scope.errors = null;
       $scope.updating = true;
 
+      for(var i = 0; i < $scope.groupForm.learners.length; i++){
+        $scope.groupForm.learners[i] = $scope.groupForm.learners[i].id;
+      }
+
+      for(var j = 0; j < $scope.groupForm.inq_activities.length; j++){
+        $scope.groupForm.inq_activities[j] = $scope.groupForm.inq_activities[j].id;
+      }
+
+      console.log($scope.groupForm.learners);
+      console.log($scope.groupForm.inq_activities);
+
+      // append form data object to group object (same keys)
+      _.extend(editGroup, $scope.groupForm);
 
       //// Push only ID's from groupForm to GroupService.learners array
       //// NEEDED ONLY for ng-tags-input, not needed for ui.select module
@@ -78,7 +83,7 @@ angular.module('arkofinquiryApp')
       //}
 
       // POST to DB
-      newGroup.$update(groupForm, function() {
+      editGroup.$update(editGroup, function() {
         // success
         $scope.updating = false;
         console.log("OK"); // -------------------------------------- REMOVE after debugging

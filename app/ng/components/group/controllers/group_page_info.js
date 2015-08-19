@@ -17,6 +17,11 @@ angular.module('arkofinquiryApp')
 
     var activityListString = '';
 
+    $scope.showActivityDetailPage = function(activity){
+      $location.path('inq_act/' + activity.id)
+    };
+
+
     $scope.group = GroupService.get({id: $stateParams.id}, function(success){
       // Success
       createActivityListString();

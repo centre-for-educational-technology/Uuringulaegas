@@ -105,6 +105,7 @@ angular.module('arkofinquiryApp')
           full_name: '',
           date_of_birth: '',
           sex: '',
+          country_of_residence: '',
           city_of_residence: '',
           user_type: '0',
           preferred_language: '',

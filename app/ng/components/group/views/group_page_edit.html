@@ -13,7 +13,7 @@
 
     <form-textarea id="group_description" label="Description" rows="5" model="groupForm.description" req="true" placeholder="A short description about this group"></form-textarea>
 
-    <form-select-multiple label="Domains" options="formOptions.domains" model="groupForm.domains" req="true"></form-select-multiple>
+    <form-select-multiple label="Domains" options="$root.langStrings.inqAct.domains" model="groupForm.domains" req="true"></form-select-multiple>
 
     <form-input-text id="group_topics" label="Topics" model="groupForm.topics" placeholder="Comma separated"></form-input-text>
 
@@ -22,7 +22,7 @@
         <div class="col-sm-8">
             <ui-select multiple ng-model="groupForm.inq_activities" theme="bootstrap">
                 <ui-select-match placeholder="Add activity...">{{$item.post_title}}</ui-select-match>
-                <ui-select-choices repeat="activity.id as activity in searchedActivities | filter: {post_title: $select.search} | notInArray: groupForm.inq_activities: 'id'" refresh="loadActivities($select.search)" refresh-delay="0">
+                <ui-select-choices repeat="activity in searchedActivities | filter: {post_title: $select.search} | objectNotInArray: groupForm.inq_activities" refresh="loadActivities($select.search)" refresh-delay="0">
                     <div ng-bind-html="activity.post_title | highlight: $select.search"></div>
                     <small>
                         Level: <span ng-bind-html="'' + formOptions.levels[activity.proficiency_level]"></span>
@@ -42,8 +42,8 @@
         <label class="col-sm-4 control-label">Learners</label>
         <div class="col-sm-8">
             <ui-select multiple ng-model="groupForm.learners" theme="bootstrap">
-                <ui-select-match placeholder="Add learner...">{{$item.full_name}} &lt;{{$item.user_email}}&gt;</ui-select-match>
-                <ui-select-choices repeat="learner.id as learner in searchedLearners | orFilter: {full_name: $select.search, user_email: $select.search} | notInArray: groupForm.learners: 'id'" refresh="loadLearners($select.search)" refresh-delay="0">
+                <ui-select-match placeholder="Add learner...">{{$item.display_name}} &lt;{{$item.user_email}}&gt;</ui-select-match>
+                <ui-select-choices repeat="learner in searchedLearners | orFilter: {full_name: $select.search, user_email: $select.search} | objectNotInArray: groupForm.learners" refresh="loadLearners($select.search)" refresh-delay="0">
                     <div ng-bind-html="learner.full_name | highlight: $select.search"></div>
                     <small>
                         Email: <span ng-bind-html="'' + learner.user_email | highlight: $select.search"></span>
@@ -58,7 +58,7 @@
     <div class="form-group">
         <div class="col-sm-4"></div>
         <div class="col-sm-8">
-            <input class="btn btn-success" type="button" ng-click="addGroup(newGroup)" ng-disabled="updating" value="Update info" />
+            <input class="btn btn-success" type="button" ng-click="updateGroup(editGroup)" ng-disabled="updating" value="Update info" />
         </div>
     </div>
 

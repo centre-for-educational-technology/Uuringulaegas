@@ -15,7 +15,7 @@
     </style>
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
+    <!-- build:css(app) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
+    <!-- build:css(.tmp,app) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/animations.css">
     <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css" />
@@ -102,14 +102,14 @@
        ga('send', 'pageview');
     </script>
 
-    <!-- build:js(.) scripts/oldieshim.js -->
+    <!-- build:js(app) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <![endif]-->
     <!-- endbuild -->
 
-    <!-- build:js(.) scripts/vendor.js -->
+    <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -134,10 +134,10 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <script src="ng/config.js"></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="ng/app.js"></script>
         <script src="ng/states.js"></script>
-        <script src="ng/config.js"></script>
         <script src="ng/components/main/controllers/main_controller.js"></script>
         <script src="ng/components/main/controllers/titlepage_ctrl.js"></script>
         <script src="ng/components/main/controllers/login_controller.js"></script>
@@ -181,10 +181,11 @@
         <script src="ng/components/group/services/group_service.js"></script>
         <script src="ng/common/filters/not_in_array_filter.js"></script>
         <script src="ng/components/group/filters/or_filter.js"></script>
+        <script src="ng/common/filters/object_not_in_array_filter.js"></script>
         <!-- endbuild -->
 
     <script src="http://underscorejs.org/underscore-min.js"></script>
     <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
-    <script src="bower_components/moment/locale/et.js"></script>
+
 </body>
 </html>
