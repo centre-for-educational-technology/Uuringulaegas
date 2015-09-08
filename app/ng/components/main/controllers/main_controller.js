@@ -62,7 +62,6 @@ angular.module('arkofinquiryApp')
           1: 'Physical location'
         },
         domains: {
-          electricity: 'Electricity',
           astronomy: 'Astronomy',
           biology: 'Biology',
           chemistry: 'Chemistry',
