@@ -62,6 +62,11 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/inq_act/views/inq_act_tag_cloud.html',
         controller: 'InquiryActivityTagCloudCtrl'
       })
+      .state('inq_act.search.search', {
+        url: "/search",
+        templateUrl: base + 'ng/components/inq_act/views/inq_act_search_form.html',
+        controller: 'InquiryActivitySearchCtrl'
+      })
 
 
       .state('user', {

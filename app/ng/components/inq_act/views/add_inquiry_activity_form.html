@@ -12,7 +12,7 @@
 
     <form-textarea id="description" label="Activity Description" rows="10" model="formData.description" req="true"></form-textarea>
 
-    <form-input-checkbox name="location" label="Location" model="formData.extra.location" options="formOptions.location"></form-input-checkbox>
+    <form-input-checkbox name="location" label="Location" model="formData.extra.location" options="$root.langStrings.inqAct.location"></form-input-checkbox>
 
     <form-input-text indent="true" id="location_web" label="Webpage" model="formData.extra.location_web" collapse="!_.contains(formData.extra.location, 0)"></form-input-text>
 
@@ -24,9 +24,9 @@
 
     <form-input-text id="topic" label="Topic" model="formData.extra.topic"></form-input-text>
 
-    <form-select-multiple label="Language" options="formOptions.languages" model="formData.extra.languages" req="true"></form-select-multiple>
+    <form-select-multiple label="Language" options="$root.langStrings.inqAct.languages" model="formData.extra.languages" req="true"></form-select-multiple>
 
-    <form-select id="level" label="Overall proficiency level" options="formOptions.levels" model="formData.extra.proficiency_level" req="true"></form-select>
+    <form-select id="level" label="Overall proficiency level" options="$root.langStrings.inqAct.levels" model="formData.extra.proficiency_level" req="true"></form-select>
 
     <div class="form-group">
         <label class="col-sm-4 control-label">Proficiency level for inquiry phases <span ng-show="req">*</span></label>
@@ -39,7 +39,7 @@
                     <th>Level B (advanced)</th>
                     <th>Level C (expert)</th>
                 </tr>
-                <tr ng-repeat="(key, value) in formOptions.coveredPhases">
+                <tr ng-repeat="(key, value) in $root.langStrings.inqAct.coveredPhases">
                     <td><input type="checkbox" ng-model="phaseCheckboxes[key]"/></td>
                     <td ng-class="{'text-muted': !phaseCheckboxes[key]}">{{ value }}</td>
                     <td><input ng-model="formData.phaseLevels[key]" type="radio" value="1" ng-disabled="!phaseCheckboxes[key]" /></td>
@@ -63,15 +63,15 @@
 
     <form-textarea id="materials_needed" label="Materials needed for the Activity" rows="5" model="formData.extra.materials_needed" req="true"></form-textarea>
 
-    <form-select-multiple label="Evidence On the Success of the Activity" options="formOptions.successEvidence" model="formData.extra.success_evidence" req="true"></form-select-multiple>
+    <form-select-multiple label="Evidence On the Success of the Activity" options="$root.langStrings.inqAct.successEvidence" model="formData.extra.success_evidence" req="true"></form-select-multiple>
 
     <form-textarea id="evidence_description" label="Evidence Description" rows="7" model="formData.extra.evidence_description" req="true"></form-textarea>
 
-    <form-input-radio name="rri_component" label="Strong RRI component" model="formData.extra.rri_component" options="formOptions.booleanValues"></form-input-radio>
+    <form-input-radio name="rri_component" label="Strong RRI component" model="formData.extra.rri_component" options="$root.langStrings.inqAct.booleanValues"></form-input-radio>
 
     <form-textarea id="rri_description" label="RRI Description" rows="5" model="formData.extra.rri_description" collapse="formData.extra.rri_component == 0"></form-textarea>
 
-    <form-input-radio name="rights_restriction" label="Copyright or Other Restrictions" model="formData.extra.rights_restrictions" options="formOptions.booleanValues"></form-input-radio>
+    <form-input-radio name="rights_restriction" label="Copyright or Other Restrictions" model="formData.extra.rights_restrictions" options="$root.langStrings.inqAct.booleanValues"></form-input-radio>
 
     <form-textarea id="rights_description" label="Rights Description" rows="5" model="formData.extra.rights_description" collapse="formData.extra.rights_restrictions == 0"></form-textarea>
 

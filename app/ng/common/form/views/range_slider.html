@@ -1,6 +1,6 @@
 <div class="form-group">
-    <label for="act_{{ id }}" class="col-sm-4 control-label">{{ label }} <span ng-show="req">*</span></label>
-    <div class="col-sm-8">
+    <label for="act_{{ id }}" class="control-label" ng-class="indent ? 'col-sm-5' : 'col-sm-4'">{{ label }} <span ng-show="req">*</span></label>
+    <div ng-class="indent ? 'col-sm-7' : 'col-sm-8'">
         <div range-slider id="act_{{ id }}" min="min" max="max" model-min="modelFrom" model-max="modelTo" step="1" prevent-equal-min-max="true" show-values="true"></div>
     </div>
 </div>

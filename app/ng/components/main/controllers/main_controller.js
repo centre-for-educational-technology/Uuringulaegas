@@ -120,9 +120,16 @@ angular.module('arkofinquiryApp')
           3: 'Theoretical evidence',
           4: 'Ecological evidence'
         },
-        rightsRestrictions: {
+        booleanValues: {
           0: 'No',
           1: 'Yes'
+        },
+        search: {
+          otherFilters: {
+            0: 'Age Range',
+            1: 'Learning time',
+            2: 'Has strong RRI component?'
+          }
         }
       },
       user: {
