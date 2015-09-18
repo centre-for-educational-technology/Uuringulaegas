@@ -2,6 +2,10 @@
     <h1>Search Inquiry Activities</h1>
 </div>
 
+<div class="alert alert-warning" role="alert">
+    Partial functionality, will fix by sunday (20.09)
+</div>
+
 <form class="form-horizontal" novalidate>
     <form-input-text id="phrase" label="Search phrase" model="formData.phrase"></form-input-text>
 
@@ -40,11 +44,11 @@
 
     <form-input-checkbox name="location" label="Other filters" model="formData.other" options="$root.langStrings.inqAct.search.otherFilters"></form-input-checkbox>
 
-    <form-range-slider indent="true" label="Age Range" id="range" model-from="formData.age_range.from" model-to="formData.age_range.to" min="6" max="20" collapse="!_.contains(formData.other.age, 0)"></form-range-slider>
+    <form-range-slider indent="true" label="Age Range" id="range" model-from="formData.age_range.from" model-to="formData.age_range.to" min="6" max="20" collapse="!_.contains(formData.other, 0)"></form-range-slider>
 
-    <form-input-text indent="true" id="learning_time_from" label="Learning Time From" model="formData.learning_time.from" collapse="!_.contains(formData.other.time, 1)"></form-input-text>
+    <form-input-text indent="true" id="learning_time_from" label="Learning Time From" model="formData.learning_time.from" collapse="!_.contains(formData.other, 1)"></form-input-text>
 
-    <form-input-text indent="true" id="learning_time_from" label="Learning Time To" model="formData.learning_time.to" collapse="!_.contains(formData.other.time, 1)"></form-input-text>
+    <form-input-text indent="true" id="learning_time_from" label="Learning Time To" model="formData.learning_time.to" collapse="!_.contains(formData.other, 1)"></form-input-text>
 
     <div class="form-group">
         <div class="col-sm-4"></div>

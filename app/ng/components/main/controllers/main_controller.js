@@ -125,6 +125,7 @@ angular.module('arkofinquiryApp')
           1: 'Yes'
         },
         search: {
+          anyString: '-Any-',
           otherFilters: {
             0: 'Age Range',
             1: 'Learning time',

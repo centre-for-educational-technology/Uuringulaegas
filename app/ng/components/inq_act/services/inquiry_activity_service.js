@@ -56,6 +56,15 @@ angular.module("arkofinquiryApp")
         transformResponse: [angular.fromJson, function(data, headers){
           return _.values(data); // Removes keys from response
         }]
+      },
+      fullSearch: {
+        url: appConfig.apiUrl + 'wp-json/pods/inq_activity?data[where]=(:query)',
+        query: '@query',
+        method: 'GET',
+        isArray: true,
+        transformResponse: [angular.fromJson, function(data, headers){
+          return _.values(data); // Removes keys from response
+        }]
       }
     });
 
