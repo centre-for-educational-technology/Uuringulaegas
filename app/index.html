@@ -48,7 +48,8 @@
             <ul class="dropdown-menu" role="menu">
               <li ng-class="setActiveIfPath('/inq_act/list')"><a ui-sref="inq_act.list">List</a></li>
               <li ng-if="$root.currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/inq_act/new')"><a ui-sref="inq_act.new">Add new</a></li>
-              <li ng-class="setActiveIfPath('/inq_act/search')"><a ui-sref="inq_act.search.tags">Search</a></li>
+              <li ng-class="setActiveIfPath('/inq_act/search')"><a ui-sref="inq_act.search.search">Search</a></li>
+                <li ng-class="setActiveIfPath('/inq_act/search')"><a ui-sref="inq_act.search.tags">Tag cloud</a></li>
             </ul>
           </li>
 
