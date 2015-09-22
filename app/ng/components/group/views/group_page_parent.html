@@ -3,7 +3,7 @@
         <li role="presentation" ui-sref-active="active">
             <a ui-sref=".view" aria-controls="info">Group info</a>
         </li>
-        <li role="presentation" ui-sref-active="active">
+        <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher'">
             <a ui-sref=".edit" aria-controls="settings">Settings</a>
         </li>
         <li role="presentation" ui-sref-active="active">

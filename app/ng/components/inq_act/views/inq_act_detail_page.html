@@ -8,51 +8,74 @@
 <div class="row">
     <div class="col-md-9">
         <dl class="dl-horizontal">
-        <dt>Description</dt>
-        <dd class="multi-line-text">{{ activity.post_content }}</dd>
-        <dt>Domains</dt>
-        <dd class="multi-line-text"><span class="label label-primary label-spaced" ng-repeat="domain in activity.domains">{{ $root.langStrings.inqAct.domains[domain] }}</span>
-        </dd>
-        <div ng-if="!_.isEmpty(activity.topic)">
-            <dt>Topics</dt>
-            <dd>{{ activity.topic }}</dd>
-        </div>
-        <dt>Languages</dt>
-        <dd ng-repeat="language in activity.languages">{{ $root.langStrings.inqAct.languages[language] }}</dd>
-        <dt>Age</dt>
-        <dd>From {{ activity.age_range_from }} to {{ activity.age_range_to }}</dd>
-        <div ng-if="!_.isEmpty(activity.departing_phases)">
-            <dt>Typical learning time</dt>
-            <dd>{{ activity.learning_time }}</dd>
-        </div>
-        <dt>Materials needed</dt>
-        <dd class="multi-line-text">{{ activity.materials_needed }}</dd>
+            <dt>Description</dt>
+            <dd class="multi-line-text">{{ activity.post_content }}</dd>
+            <dt>Domains</dt>
+            <dd class="multi-line-text"><span class="label label-primary label-spaced" ng-repeat="domain in activity.domains">{{ $root.langStrings.inqAct.domains[domain] }}</span>
+            </dd>
+            <!-- todo - clean up this boilerplate with phase levels -->
+            <div ng-if="activity.phase_1_level != 0">
+                <dt>{{ $root.langStrings.inqAct.coveredPhases[1] }} level</dt>
+                <dd>{{ $root.langStrings.inqAct.levels[activity.phase_1_level] }}</dd>
+            </div>
+            <div ng-if="activity.phase_2_level != 0">
+                <dt>{{ $root.langStrings.inqAct.coveredPhases[2] }} level</dt>
+                <dd>{{ $root.langStrings.inqAct.levels[activity.phase_2_level] }}</dd>
+            </div>
+            <div ng-if="activity.phase_3_level != 0">
+                <dt>{{ $root.langStrings.inqAct.coveredPhases[3] }} level</dt>
+                <dd>{{ $root.langStrings.inqAct.levels[activity.phase_3_level] }}</dd>
+            </div>
+            <div ng-if="activity.phase_4_level != 0">
+                <dt>{{ $root.langStrings.inqAct.coveredPhases[4] }} level</dt>
+                <dd>{{ $root.langStrings.inqAct.levels[activity.phase_4_level] }}</dd>
+            </div>
+            <div ng-if="activity.phase_5_level != 0">
+                <dt>{{ $root.langStrings.inqAct.coveredPhases[5] }} level</dt>
+                <dd>{{ $root.langStrings.inqAct.levels[activity.phase_5_level] }}</dd>
+            </div>
+            <hr/>
 
-        <dt>Evidence on success</dt>
-        <dd ng-repeat="evidence in activity.success_evidence">{{ $root.langStrings.inqAct.successEvidence[evidence] }}</dd>
-        <dt>Evidence Description</dt>
-        <dd class="multi-line-text">{{ activity.evidence_description }}</dd>
+            <div ng-if="!_.isEmpty(activity.topic)">
+                <dt>Topics</dt>
+                <dd>{{ activity.topic }}</dd>
+            </div>
+            <dt>Languages</dt>
+            <dd ng-repeat="language in activity.languages">{{ $root.langStrings.inqAct.languages[language] }}</dd>
+            <dt>Age</dt>
+            <dd>From {{ activity.age_range_from }} to {{ activity.age_range_to }}</dd>
+            <div ng-if="!_.isEmpty(activity.learning_time)">
+                <dt>Typical learning time</dt>
+                <dd>{{ activity.learning_time }}</dd>
+            </div>
+            <dt>Materials needed</dt>
+            <dd class="multi-line-text">{{ activity.materials_needed }}</dd>
 
-        <div ng-if="activity.rights_restrictions == 1">
-            <dt>Rights Restrictions</dt>
-            <dd><span class="label label-warning">Yes</span></dd>
-            <dt>Rights Description</dt>
-            <dd>{{ activity.rights_description }}</dd>
-        </div>
+            <dt>Evidence on success</dt>
+            <dd ng-repeat="evidence in activity.success_evidence">{{ $root.langStrings.inqAct.successEvidence[evidence] }}</dd>
+            <dt>Evidence Description</dt>
+            <dd class="multi-line-text">{{ activity.evidence_description }}</dd>
 
-        <hr/>
-        <div ng-if="_.contains(activity.location, '0')">
-            <dt>Webpage</dt>
-            <dd><a href="{{ activity.location_web }}" target="_blank">{{ activity.location_web }}</a></dd>
-        </div>
-        <div ng-if="_.contains(activity.location, '1')">
-            <dt>City</dt>
-            <dd>{{ activity.location_city }}</dd>
-            <dt>Address</dt>
-            <dd>{{ activity.location_address }}</dd>
-        </div>
+            <div ng-if="activity.rights_restrictions == 1">
+                <dt>Rights Restrictions</dt>
+                <dd><span class="label label-warning">Yes</span></dd>
+                <dt>Rights Description</dt>
+                <dd>{{ activity.rights_description }}</dd>
+            </div>
 
-    </dl>
+            <hr/>
+            <div ng-if="_.contains(activity.location, '0')">
+                <dt>Webpage</dt>
+                <dd><a href="{{ activity.location_web }}" target="_blank">{{ activity.location_web }}</a></dd>
+            </div>
+            <div ng-if="_.contains(activity.location, '1')">
+                <dt>City</dt>
+                <dd>{{ activity.location_city }}</dd>
+                <dt>Address</dt>
+                <dd>{{ activity.location_address }}</dd>
+            </div>
+
+        </dl>
     </div>
     <div class="col-md-3">
         <div class="panel panel-default">
