@@ -3,10 +3,10 @@
  */
 
 angular.module("arkofinquiryApp")
-.factory("EvidenceService", function EvidenceFactory($resource, $http, appConfig, $rootScope){
+.factory("PeerReviewService", function PeerReviewFactory($resource, $http, appConfig, $rootScope){
 
         $http.defaults.headers.common['X-WP-Nonce'] = $rootScope.currentUserData.nonce;
-        return $resource(appConfig.apiUrl + 'wp-json/pods/inq_evidence/:id', {}, {
+        return $resource(appConfig.apiUrl + 'wp-json/pods/peer_review/:id', {}, {
           query: {
             isArray: true,
             transformResponse: [angular.fromJson, function(data, headers){
@@ -14,7 +14,7 @@ angular.module("arkofinquiryApp")
             }]
           },
           searchByLearnerID: {
-            url: appConfig.apiUrl + 'wp-json/pods/inq_evidence?data[where]=learner.ID%3D:learnerID',
+            url: appConfig.apiUrl + 'wp-json/pods/peer_review?data[where]=learner.ID%3D:learnerID',
             learnerID: '@learnerID',
             method: 'GET',
             isArray: true,
@@ -23,7 +23,7 @@ angular.module("arkofinquiryApp")
             }]
           },
           searchByLearnerAndActivity: {
-            url: appConfig.apiUrl + 'wp-json/pods/inq_evidence?data[where]=learner.ID%3D:learnerID%20AND%20inq_activity.ID%3D:activityID',
+            url: appConfig.apiUrl + 'wp-json/pods/peer_review?data[where]=learner.ID%3D:learnerID%20AND%20inq_activity.ID%3D:activityID',
             learnerID: '@learnerID',
             activityID: '@activityID',
             method: 'GET',

@@ -13,13 +13,25 @@
         <h4>Group Activity</h4>
         <div class="activity-feed-row" ng-repeat="log in inqLog | orderBy:'created':true">
             <!-- User own actions -->
-            <div ng-if="_.contains(['4','5','8'], log.status)">
+            <div ng-if="_.contains(['4','8'], log.status)">
                 <img ng-src='{{ gravatarUrl(log.learner) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
                 <span>{{ log.learner.display_name }} {{ $root.langStrings.inqLog.groupPageStatus[log.status] }}
                     <small class="text-muted">
                         <small>{{ log.inq_activity[0].post_title }}</small>
                     </small>
                 </span>
+                <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
+            </div>
+            <!-- User completed activity -->
+            <div ng-if="log.status == 5">
+                <img ng-src='{{ gravatarUrl(log.learner) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
+                <span>{{ log.learner.display_name }} {{ $root.langStrings.inqLog.groupPageStatus[log.status] }}
+                    <small class="text-muted">
+                        <small>{{ log.inq_activity[0].post_title }}</small>
+                    </small>
+                </span>
+                <button ng-if="$root.currentUserData.userRole == 'learner'" class="btn btn-primary btn-xs" type="button" ng-click="openPeerReviewModal(log)">Submit Peer review</button>
+                <button ng-if="$root.currentUserData.userRole == 'teacher'" class="btn btn-primary btn-xs" type="button" ng-click="openReviewModal(log)">Submit Review</button>
                 <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
             </div>
 

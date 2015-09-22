@@ -83,6 +83,24 @@ angular.module('arkofinquiryApp')
       return $gravatar.generate(email);
     }
 
+    $scope.openPeerReviewModal = function (log) {
+
+      var modalInstance = $modal.open({
+        templateUrl: appConfig.appBase + 'ng/components/inq_act/views/partials/peer_review_modal.html',
+        controller: 'PeerReviewModalCtrl',
+        resolve: {
+          log: function () {
+            return log;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (status) {
+        $scope.activityStatus.status = status;
+        console.log('Modal returned status: ' + status)
+      });
+    };
+
   });
 
 
