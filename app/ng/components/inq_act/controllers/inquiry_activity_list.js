@@ -22,7 +22,14 @@ angular.module('arkofinquiryApp')
     //console.log($location.search().keyword);
 
 
+    $scope.showDetailPage = function(activity){
+      if (activity.ID){
+        $location.path('inq_act/' + activity.ID)
+      } else {
+        $location.path('inq_act/' + activity.id)
+      }
 
+    };
 
 
     $scope.openDetails = function (act) {
