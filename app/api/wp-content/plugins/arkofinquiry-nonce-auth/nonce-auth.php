@@ -31,6 +31,8 @@ add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $
       $access = true;
   } else if ( $pod == 'teacher_review' && current_user_can( 'read_teacher_review' ) ) {
       $access = true;
+  } else if ( $pod == 'page' ) {
+      $access = true;
   } else {
      $access = false;
   }
@@ -61,6 +63,8 @@ add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $p
       $access = true;
   } else if ( $pod == 'teacher_review' && current_user_can( 'read_teacher_review' ) ) {
       $access = true;
+  } else if ( $pod == 'page' ) {
+      $access = true;
   } else {
      $access = false;
   }
@@ -83,13 +87,20 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
     } else if ( $pod == 'inq_status' && current_user_can( 'pods_add_inq_status' ) ) {
         $access = true;
     } else if ( $pod == 'inq_evidence' && current_user_can( 'pods_add_inq_evidence' ) ) {
+        $params = array(
+            'where' => 'learner.id = '.$_REQUEST[learner].' AND status >= 5'
+        );
+        $statuses = pods('inq_status', $params);
+
+        error_log(print_r($statuses->total_found()));
+
         $access = true;
     } else if ( $pod == 'peer_review' && current_user_can( 'pods_add_peer_review' ) ) {
         $access = true;
     } else if ( $pod == 'teacher_review' && current_user_can( 'pods_add_teacher_review' ) ) {
         $access = true;
     }
-    error_log(print_r($_REQUEST, true));
+    //error_log(print_r($_REQUEST, true));
 
     return $access;
  }, 10, 3 );

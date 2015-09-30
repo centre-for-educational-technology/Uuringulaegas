@@ -30,6 +30,11 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/main/views/login.html',
         controller: 'LoginCtrl'
       })
+      .state('help', {
+        url: "/help",
+        templateUrl: base + 'ng/components/main/views/help.html',
+        controller: 'HelpPageCtrl'
+      })
 
 
 
