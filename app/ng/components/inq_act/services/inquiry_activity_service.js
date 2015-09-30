@@ -32,6 +32,7 @@ angular.module("arkofinquiryApp")
         }]
       },
       query: {
+        url: appConfig.apiUrl + 'wp-json/pods/inq_activity?data[limit]=-1',
         isArray: true,
         transformResponse: [angular.fromJson, function(data, headers){
           var withoutKeys = _.values(data); // Removes keys from response objects
