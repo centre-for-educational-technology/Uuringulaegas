@@ -101,6 +101,25 @@ angular.module('arkofinquiryApp')
       });
     };
 
+    $scope.openTeacherReviewModal = function (log) {
+
+      var modalInstance = $modal.open({
+        templateUrl: appConfig.appBase + 'ng/components/inq_act/views/partials/teacher_review_modal.html',
+        controller: 'TeacherReviewModalCtrl',
+        size: 'lg',
+        resolve: {
+          log: function () {
+            return log;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (status) {
+        $scope.activityStatus.status = status;
+        console.log('Modal returned status: ' + status)
+      });
+    };
+
   });
 
 

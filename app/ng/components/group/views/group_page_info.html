@@ -31,7 +31,7 @@
                     </small>
                 </span>
                 <button ng-if="$root.currentUserData.userRole == 'learner'" class="btn btn-primary btn-xs" type="button" ng-click="openPeerReviewModal(log)">Submit Peer review</button>
-                <button ng-if="$root.currentUserData.userRole == 'teacher'" class="btn btn-primary btn-xs" type="button" ng-click="openReviewModal(log)">Submit Review</button>
+                <button ng-if="$root.currentUserData.userRole == 'teacher'" class="btn btn-primary btn-xs" type="button" ng-click="openTeacherReviewModal(log)">Submit Review</button>
                 <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
             </div>
 
@@ -43,7 +43,7 @@
                         <small>{{ log.inq_activity[0].post_title }}</small>
                     </small> for {{ log.learner.display_name }}
                 </span>
-                <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
+                <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yyyy HH:mm'}}</small></footer>
             </div>
 
             <!-- Peer actions for learner -->

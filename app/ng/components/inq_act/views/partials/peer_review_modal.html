@@ -20,13 +20,13 @@
             <label for="rating">Rating</label>
             <div id="rating">
                 <label class="radio-inline">
-                    <input type="radio" class="form-control" name="rating" ng-value="1" ng-model="review.rating" required> 1
+                    <input type="radio" name="rating" ng-value="1" ng-model="review.rating" required> 1
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" class="form-control" name="rating" ng-value="2" ng-model="review.rating" required> 2
+                    <input type="radio" name="rating" ng-value="2" ng-model="review.rating" required> 2
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" class="form-control" name="rating" ng-value="3" ng-model="review.rating" required> 3
+                    <input type="radio" name="rating" ng-value="3" ng-model="review.rating" required> 3
                 </label>
             </div>
         </div>
@@ -35,7 +35,6 @@
             <textarea class="form-control" rows="10" id="reviewText" name="reviewText" placeholder="Mingid suunavad küsimsed... (hiljem administraatori poolt muudetavad)" ng-model="review.post_content" required></textarea>
         </div>
     </form>
-    <pre>{{ review | json }}</pre>
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" ng-click="accept()" ng-disabled="form.rating.$invalid || form.reviewText.$invalid || updating">Submit review</button>

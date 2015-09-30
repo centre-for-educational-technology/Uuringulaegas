@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h3 class="modal-title">Peer Review</h3>
+</div>
+<div class="modal-body">
+    <dl class="dl-horizontal">
+        <dt>Activity</dt>
+        <dd>{{ review.inq_activity[0].post_title }}</dd>
+        <dt>Completed by</dt>
+        <dd>{{ review.learner.display_name }}</dd>
+        <dt>Reviewed by</dt>
+        <dd>{{ review.peer.display_name }}</dd>
+        <dt>Review date</dt>
+        <dd>{{ review.post_modified | date : 'dd.MM.yy HH:mm' }}</dd>
+    </dl>
+
+    <hr/>
+
+    <h4>Rating</h4>
+    <p>{{ review.rating }}</p>
+    <h4>Review</h4>
+    <p class="multi-line-text">{{ review.post_content }}</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="accept()">Close</button>
+</div>

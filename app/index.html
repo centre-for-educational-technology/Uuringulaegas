@@ -1,195 +1,198 @@
 <!doctype html>
 <html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <base href="/" />
-    <title>Ark of Inquiry</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <head>
+        <meta charset="utf-8">
+        <base href="/" />
+        <title>Ark of Inquiry</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
 
-    <!-- Style rule to hide elements with ng-cloak property even before anything loads -->
-    <style type="text/css">
-      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-        display: none !important;
-      }
-    </style>
+        <!-- Style rule to hide elements with ng-cloak property even before anything loads -->
+        <style type="text/css">
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(app) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
-    <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
-    <link rel="stylesheet" href="bower_components/jqcloud2/dist/jqcloud.css" />
-    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp,app) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/animations.css">
-    <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="arkofinquiryApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(app) styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
+        <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
+        <link rel="stylesheet" href="bower_components/jqcloud2/dist/jqcloud.css" />
+        <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp,app) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/animations.css">
+        <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <!-- endbuild -->
+    </head>
+    <body ng-app="arkofinquiryApp">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-controller="MainCtrl">
-      <div class="header">
-        <ul class="nav nav-pills pull-right" ng-controller="NavCtrl" ng-if="loggedIn" ng-cloak>
-          <li ng-class="setActiveIfPath('/')"><a ui-sref="home">Home</a></li>
-          <li ng-class="setActiveIfPath('/inq_act')" role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              Inquiry Activities <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li ng-class="setActiveIfPath('/inq_act/list')"><a ui-sref="inq_act.list">List</a></li>
-              <li ng-if="$root.currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/inq_act/new')"><a ui-sref="inq_act.new">Add new</a></li>
-              <li ng-class="setActiveIfPath('/inq_act/search')"><a ui-sref="inq_act.search.search">Search</a></li>
-                <li ng-class="setActiveIfPath('/inq_act/search')"><a ui-sref="inq_act.search.tags">Tag cloud</a></li>
-            </ul>
-          </li>
+        <!-- Add your site or application content here -->
+        <div class="container" ng-controller="MainCtrl">
+            <div class="header">
+                <ul class="nav nav-pills pull-right" ng-controller="NavCtrl" ng-if="loggedIn" ng-cloak>
+                    <li ng-class="setActiveIfPath('/')"><a ui-sref="home">Home</a></li>
+                    <li ng-class="setActiveIfPath('/inq_act')" role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Inquiry Activities <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-class="setActiveIfPath('/inq_act/list')"><a ui-sref="inq_act.list">List</a></li>
+                            <li ng-if="$root.currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/inq_act/new')"><a ui-sref="inq_act.new">Add new</a></li>
+                            <li ng-class="setActiveIfPath('/inq_act/search')"><a ui-sref="inq_act.search.search">Search</a></li>
+                                <li ng-class="setActiveIfPath('/inq_act/search')"><a ui-sref="inq_act.search.tags">Tag cloud</a></li>
+                        </ul>
+                    </li>
 
-          <li ng-class="setActiveIfPath('/group')" role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              Groups <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li ng-class="setActiveIfPath('/group/list')"><a ui-sref="group.list">List</a></li>
-              <li ng-if="$root.currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/groups/new')"><a ui-sref="group.new">Add new</a></li>
-            </ul>
-          </li>
+                    <li ng-class="setActiveIfPath('/group')" role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Groups <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-class="setActiveIfPath('/group/list')"><a ui-sref="group.list">List</a></li>
+                            <li ng-if="$root.currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/groups/new')"><a ui-sref="group.new">Add new</a></li>
+                        </ul>
+                    </li>
 
-          <li ng-class="setActiveIfPath('/user')" role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              {{ $root.currentUserData.userDisplayName }}<span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a ng-click="showProfile($root.currentUserData.userID)">Show profile</a></li>
-              <li><a ng-click="logout()">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-        <a class="btn btn-success pull-right" ui-sref="login" role="button" ng-if="loggedIn === false && userLoaded" ng-cloak>Log In</a>
-          <img src="images/aoi_logo.jpg" alt="Logo" class="img-responsive" id="logo"/>
-      </div>
+                    <li ng-class="setActiveIfPath('/user')" role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ $root.currentUserData.userDisplayName }}<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a ng-click="showProfile($root.currentUserData.userID)">Show profile</a></li>
+                            <li><a ng-click="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="btn btn-success pull-right" ui-sref="login" role="button" ng-if="loggedIn === false && userLoaded" ng-cloak>Log In</a>
+                <a ui-sref="home"><img src="images/aoi_logo.jpg" alt="Logo" class="img-responsive" id="logo"/></a>
+            </div>
 
-      <div class="loading-spinner text-center" ng-if="!userLoaded">
-        <h3 class="text-muted">Loading...</h3>
-        <img src="images/loading_flower_grey.gif" alt="Loading spinner"/>
-      </div>
+            <div class="loading-spinner text-center" ng-if="!userLoaded">
+                <h3 class="text-muted">Loading...</h3>
+                <img src="images/loading_flower_grey.gif" alt="Loading spinner"/>
+            </div>
 
-      <div ng-if="userLoaded">
-        <div ui-view=""></div>
-      </div>
+            <div ng-if="userLoaded">
+                <div ui-view=""></div>
+            </div>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the HTK team</p>
-      </div>
-    </div>
+            <div class="footer">
+                <p><span class="glyphicon glyphicon-heart"></span> from the HTK team</p>
+            </div>
+        </div>
 
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+         <script>
+             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
+             ga('create', 'UA-XXXXX-X');
+             ga('send', 'pageview');
+        </script>
 
-    <!-- build:js(app) scripts/oldieshim.js -->
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <![endif]-->
-    <!-- endbuild -->
-
-    <!-- build:js(app) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
-    <script src="bower_components/angular-scroll/angular-scroll.js"></script>
-    <script src="bower_components/jqcloud2/dist/jqcloud.js"></script>
-    <script src="bower_components/angular-jqcloud/angular-jqcloud.js"></script>
-    <script src="bower_components/angular-ui-select/dist/select.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/angular-moment/angular-moment.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <script src="ng/config.js"></script>
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="ng/app.js"></script>
-        <script src="ng/states.js"></script>
-        <script src="ng/components/main/controllers/main_controller.js"></script>
-        <script src="ng/components/main/controllers/titlepage_ctrl.js"></script>
-        <script src="ng/components/main/controllers/login_controller.js"></script>
-        <script src="ng/components/main/services/login_service.js"></script>
-        <script src="ng/common/nav/controllers/nav_ctrl.js"></script>
-        <script src="ng/common/filters/stringToDateFilter.js"></script>
-        <script src="ng/common/filters/limitParagraphFilter.js"></script>
-        <script src="ng/common/form/directives/input_text.js"></script>
-        <script src="ng/common/form/directives/input_password.js"></script>
-        <script src="ng/common/form/directives/input_email.js"></script>
-        <script src="ng/common/form/directives/select_multiple.js"></script>
-        <script src="ng/common/form/directives/select.js"></script>
-        <script src="ng/common/form/directives/range_slider.js"></script>
-        <script src="ng/common/form/directives/textarea.js"></script>
-        <script src="ng/common/form/directives/input_radio.js"></script>
-        <script src="ng/common/form/directives/input_checkbox.js"></script>
-        <script src="ng/common/form/directives/date_picker.js"></script>
-        <script src="ng/common/form/directives/tags_input.js"></script>
-        <script src="ng/components/inq_act/controllers/add_inquiry_activity.js"></script>
-        <script src="ng/components/inq_act/controllers/inquiry_activity_list.js"></script>
-        <script src="ng/components/inq_act/controllers/inq_act_details_page_ctrl.js"></script>
-        <script src="ng/components/inq_act/controllers/inq_act_tag_cloud.js"></script>
-        <script src="ng/components/inq_act/controllers/inq_act_search_ctrl.js"></script>
-        <script src="ng/components/inq_act/controllers/modal/evidence_submit_modal_ctrl.js"></script>
-        <script src="ng/components/inq_act/controllers/modal/peer_review_modal_ctrl.js"></script>
-        <script src="ng/components/inq_act/services/inquiry_activity_service.js"></script>
-        <script src="ng/components/inq_act/services/inq_act_keyword_service.js"></script>
-        <script src="ng/components/inq_act/services/inq_activity_log_service.js"></script>
-        <script src="ng/components/inq_act/services/inq_activity_status_service.js"></script>
-        <script src="ng/components/inq_act/services/evidence_service.js"></script>
-        <script src="ng/components/inq_act/services/inq_act_peer_review_service.js"></script>
-        <script src="ng/components/user/controllers/user_register.js"></script>
-        <script src="ng/components/user/controllers/user_passport.js"></script>
-        <script src="ng/components/user/controllers/user_list.js"></script>
-        <script src="ng/components/user/services/user_service.js"></script>
-        <script src="ng/components/user/services/user_register_service.js"></script>
-        <script src="ng/components/user/services/gravatar.js"></script>
-        <script src="ng/components/group/controllers/add_group_controller.js"></script>
-        <script src="ng/components/group/controllers/group_list.js"></script>
-        <script src="ng/components/group/controllers/group_page_parent.js"></script>
-        <script src="ng/components/group/controllers/group_page_info.js"></script>
-        <script src="ng/components/group/controllers/group_page_edit.js"></script>
-        <script src="ng/components/group/controllers/modal/group_details_modal_ctrl.js"></script>
-        <script src="ng/components/group/services/group_service.js"></script>
-        <script src="ng/common/filters/not_in_array_filter.js"></script>
-        <script src="ng/components/group/filters/or_filter.js"></script>
-        <script src="ng/common/filters/object_not_in_array_filter.js"></script>
+        <!-- build:js(app) scripts/oldieshim.js -->
+        <!--[if lt IE 9]>
+        <script src="bower_components/es5-shim/es5-shim.js"></script>
+        <script src="bower_components/json3/lib/json3.js"></script>
+        <![endif]-->
         <!-- endbuild -->
 
-    <script src="http://underscorejs.org/underscore-min.js"></script>
-    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+        <!-- build:js(app) scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+        <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+        <script src="bower_components/jqcloud2/dist/jqcloud.js"></script>
+        <script src="bower_components/angular-jqcloud/angular-jqcloud.js"></script>
+        <script src="bower_components/angular-ui-select/dist/select.js"></script>
+        <script src="bower_components/moment/moment.js"></script>
+        <script src="bower_components/angular-moment/angular-moment.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <script src="ng/config.js"></script>
+                <!-- build:js({.tmp,app}) scripts/scripts.js -->
+                <script src="ng/app.js"></script>
+                <script src="ng/states.js"></script>
+                <script src="ng/components/main/controllers/main_controller.js"></script>
+                <script src="ng/components/main/controllers/titlepage_ctrl.js"></script>
+                <script src="ng/components/main/controllers/login_controller.js"></script>
+                <script src="ng/components/main/services/login_service.js"></script>
+                <script src="ng/common/nav/controllers/nav_ctrl.js"></script>
+                <script src="ng/common/filters/stringToDateFilter.js"></script>
+                <script src="ng/common/filters/limitParagraphFilter.js"></script>
+                <script src="ng/common/form/directives/input_text.js"></script>
+                <script src="ng/common/form/directives/input_password.js"></script>
+                <script src="ng/common/form/directives/input_email.js"></script>
+                <script src="ng/common/form/directives/select_multiple.js"></script>
+                <script src="ng/common/form/directives/select.js"></script>
+                <script src="ng/common/form/directives/range_slider.js"></script>
+                <script src="ng/common/form/directives/textarea.js"></script>
+                <script src="ng/common/form/directives/input_radio.js"></script>
+                <script src="ng/common/form/directives/input_checkbox.js"></script>
+                <script src="ng/common/form/directives/date_picker.js"></script>
+                <script src="ng/common/form/directives/tags_input.js"></script>
+                <script src="ng/components/inq_act/controllers/add_inquiry_activity.js"></script>
+                <script src="ng/components/inq_act/controllers/inquiry_activity_list.js"></script>
+                <script src="ng/components/inq_act/controllers/inq_act_details_page_ctrl.js"></script>
+                <script src="ng/components/inq_act/controllers/inq_act_tag_cloud.js"></script>
+                <script src="ng/components/inq_act/controllers/inq_act_search_ctrl.js"></script>
+                <script src="ng/components/inq_act/controllers/modal/evidence_submit_modal_ctrl.js"></script>
+                <script src="ng/components/inq_act/controllers/modal/peer_review_modal_ctrl.js"></script>
+                <script src="ng/components/inq_act/controllers/modal/peer_review_view_modal_ctrl.js"></script>
+                <script src="ng/components/inq_act/controllers/modal/teacher_review_modal_ctrl.js"></script>
+                <script src="ng/components/inq_act/services/inquiry_activity_service.js"></script>
+                <script src="ng/components/inq_act/services/inq_act_keyword_service.js"></script>
+                <script src="ng/components/inq_act/services/inq_activity_log_service.js"></script>
+                <script src="ng/components/inq_act/services/inq_activity_status_service.js"></script>
+                <script src="ng/components/inq_act/services/evidence_service.js"></script>
+                <script src="ng/components/inq_act/services/inq_act_peer_review_service.js"></script>
+                <script src="ng/components/inq_act/services/inq_act_teacher_review_service.js"></script>
+                <script src="ng/components/user/controllers/user_register.js"></script>
+                <script src="ng/components/user/controllers/user_passport.js"></script>
+                <script src="ng/components/user/controllers/user_list.js"></script>
+                <script src="ng/components/user/services/user_service.js"></script>
+                <script src="ng/components/user/services/user_register_service.js"></script>
+                <script src="ng/components/user/services/gravatar.js"></script>
+                <script src="ng/components/group/controllers/add_group_controller.js"></script>
+                <script src="ng/components/group/controllers/group_list.js"></script>
+                <script src="ng/components/group/controllers/group_page_parent.js"></script>
+                <script src="ng/components/group/controllers/group_page_info.js"></script>
+                <script src="ng/components/group/controllers/group_page_edit.js"></script>
+                <script src="ng/components/group/controllers/modal/group_details_modal_ctrl.js"></script>
+                <script src="ng/components/group/services/group_service.js"></script>
+                <script src="ng/common/filters/not_in_array_filter.js"></script>
+                <script src="ng/components/group/filters/or_filter.js"></script>
+                <script src="ng/common/filters/object_not_in_array_filter.js"></script>
+                <!-- endbuild -->
+
+        <script src="http://underscorejs.org/underscore-min.js"></script>
+        <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 
 </body>
 </html>

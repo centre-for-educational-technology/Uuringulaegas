@@ -21,6 +21,7 @@ angular.module('arkofinquiryApp')
     $scope.review.peer = $rootScope.currentUserData.userID;
     $scope.review.learner = log.learner.ID;
     $scope.review.inq_activity = log.inq_activity[0].id;
+    $scope.review.evidence = $scope.evidence[0].id;
 
     var logData = {
       peer: $rootScope.currentUserData.userID,

@@ -222,3 +222,15 @@ body {
 #logo {
     max-height: 50px;
 }
+
+.phaseLevelRadio:before {
+    content: "";
+    display: block;
+    position: relative;
+    top: 3px;
+    left: 3px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #91ff98;
+}
