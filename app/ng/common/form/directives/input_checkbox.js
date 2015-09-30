@@ -13,7 +13,8 @@ angular.module('arkofinquiryApp')
                 name: '=',
                 options: '=',
                 model: '=',
-                req: '@'
+                req: '@',
+              disabled: '@'
             }
             /*link: function(scope){
               for(var i = 0; i < scope.options.length; i++){

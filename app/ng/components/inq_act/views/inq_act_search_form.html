@@ -3,21 +3,21 @@
 </div>
 
 <div class="alert alert-warning" role="alert">
-    Partial functionality
+    Partial functionality, some parameters have been disabled for now. (You can search by phrase, domain and/or proficiency level)
 </div>
 
-<form class="form-horizontal" novalidate>
+<form class="form-horizontal" novalidate collapse="searchFormHide">
     <form-input-text id="phrase" label="Search phrase" model="formData.phrase"></form-input-text>
+<!--
+    <form-tags-input label="Keywords" model="formData.keywords" display-property="name" placeholder="Add keywords" autocomplete-source="loadKeywords(q)" autocomplete-only="true"></form-tags-input>-->
 
-    <form-tags-input label="Keywords" model="formData.keywords" display-property="name" placeholder="Add keywords" autocomplete-source="loadKeywords(q)" autocomplete-only="true"></form-tags-input>
-
-    <form-input-checkbox name="location" label="Location" model="formData.location" options="$root.langStrings.inqAct.location"></form-input-checkbox>
+    <form-input-checkbox name="location" label="Location" model="formData.location" options="$root.langStrings.inqAct.location" disabled="true"></form-input-checkbox>
 
     <form-select-multiple label="Domain" options="$root.langStrings.inqAct.domains" model="formData.domains"></form-select-multiple>
 
-    <form-select-multiple label="Language" options="$root.langStrings.inqAct.languages" model="formData.languages"></form-select-multiple>
+    <form-select-multiple label="Language" options="$root.langStrings.inqAct.languages" model="formData.languages" disabled="true"></form-select-multiple>
 
-    <form-select id="level" label="Overall proficiency level" options="$root.langStrings.inqAct.levels" model="formData.proficiency_level"></form-select>
+    <form-select id="level" label="Overall proficiency level" options="formOptions.proficiencyLevels" model="formData.proficiency_level"></form-select>
 
     <div class="form-group">
         <label class="col-sm-4 control-label">Proficiency level for inquiry phases <span ng-show="req">*</span></label>
@@ -31,7 +31,7 @@
                     <th>Level C (expert)</th>
                 </tr>
                 <tr ng-repeat="(key, value) in $root.langStrings.inqAct.coveredPhases">
-                    <td><input type="checkbox" ng-model="phaseCheckboxes[key]"/></td>
+                    <td><input type="checkbox" ng-model="phaseCheckboxes[key]" disabled/></td>
                     <td ng-class="{'text-muted': !phaseCheckboxes[key]}">{{ value }}</td>
                     <td><input ng-model="formData.phaseLevels[key]" type="radio" value="1" ng-disabled="!phaseCheckboxes[key]" /></td>
                     <td><input ng-model="formData.phaseLevels[key]" type="radio" value="2" ng-disabled="!phaseCheckboxes[key]" /></td>
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <form-input-checkbox name="location" label="Other filters" model="formData.other" options="$root.langStrings.inqAct.search.otherFilters"></form-input-checkbox>
+    <form-input-checkbox name="location" label="Other filters" model="formData.other" options="$root.langStrings.inqAct.search.otherFilters" disabled="true"></form-input-checkbox>
 
     <form-range-slider indent="true" label="Age Range" id="range" model-from="formData.age_range.from" model-to="formData.age_range.to" min="6" max="20" collapse="!_.contains(formData.other, 0)"></form-range-slider>
 
@@ -58,6 +58,24 @@
     </div>
 
 </form>
+
+<button class="btn btn-primary pull-right" ng-click="showSearchForm()" ng-if="searchFormHide">Show search form <span class="glyphicon glyphicon-chevron-down"></span></button>
+<br/>
+<br/>
+
+<div class="alert alert-warning" role="alert" collapse="searchResults.length > 0 || !searchResults">
+    There are no activities matching your search.
+</div>
+
+<div class="list-group">
+    <a class="list-group-item" ng-repeat="act in searchResults | orderBy:'id':true" ng-click="showDetailPage(act)">
+        <h4 class="list-group-item-heading">{{ act.post_title }}{{ act.title }}
+            <small class="glyphicon glyphicon-map-marker pull-right" ng-if="_.contains(act.location, '1')" aria-hidden="true" tooltip="Physical location"></small>
+            <small class="glyphicon glyphicon-globe pull-right" ng-if="_.contains(act.location, '0')" aria-hidden="true" tooltip="Online activity"></small>
+        </h4>
+        <p class="list-group-item-text" ng-bind-html="act.post_content || act.content | limitParagraph"></p>
+    </a>
+</div>
 
 <div class="well" ng-if="$root.developerView">
     <pre>{{ formData | json }}</pre>

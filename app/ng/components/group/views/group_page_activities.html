@@ -5,6 +5,6 @@
       <small class="glyphicon glyphicon-map-marker pull-right" ng-if="_.contains(act.location, '1')" aria-hidden="true" tooltip="Physical location"></small>
       <small class="glyphicon glyphicon-globe pull-right" ng-if="_.contains(act.location, '0')" aria-hidden="true" tooltip="Online activity"></small>
     </h4>
-    <p class="list-group-item-text">{{ act.post_content }}{{ act.content }}</p>
+    <p class="list-group-item-text" ng-bind-html="act.post_content | limitParagraph"></p>
   </a>
 </div>

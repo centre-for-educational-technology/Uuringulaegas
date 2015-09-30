@@ -8,9 +8,14 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivitySearchCtrl', function ($scope, $http, $document, InquiryActivityService, InquiryActivityKeywordService, $rootScope) {
+  .controller('InquiryActivitySearchCtrl', function ($scope, $http, $document, InquiryActivityService, InquiryActivityKeywordService, $rootScope, $location) {
 
     $scope.formOptions = {};
+    $scope.formOptions.domains = $rootScope.langStrings.inqAct.domains;
+    $scope.formOptions.domains.any = $rootScope.langStrings.inqAct.search.anyString;
+    $scope.formOptions.proficiencyLevels = $rootScope.langStrings.inqAct.levels;
+    $scope.formOptions.proficiencyLevels.any = $rootScope.langStrings.inqAct.search.anyString;
+
 
     _.extend($scope.formOptions, $rootScope.langStrings.inqAct.search.anyString);
 
@@ -41,6 +46,14 @@ angular.module('arkofinquiryApp')
       }).$promise;
     };
 
+    $scope.showDetailPage = function(activity){
+      $location.path('inq_act/' + activity.id);
+    };
+
+    $scope.showSearchForm = function(){
+      $scope.searchFormHide = false;
+    };
+
     // Handle search
 
     $scope.searchActivities = function(){
@@ -49,13 +62,13 @@ angular.module('arkofinquiryApp')
 
       function extendQuery(){
         if(query.length > 0){
-          query += '%20AND%20'
+          query += ' AND '
         }
         return query;
       }
 
       if(form.phrase.length > 0){
-        query += 't.post_title%20LIKE%20%22%25' + form.phrase + '%25%22'
+        query += 't.post_title LIKE "%' + form.phrase + '%"'
       }
       if(form.location[0]){
         query = extendQuery;
@@ -63,20 +76,28 @@ angular.module('arkofinquiryApp')
       }
       //TODO location query
 
-      if(!isInArray(form.domains, 'aaa')){
+      if(!isInArray(form.domains, 'any')){
         query = extendQuery();
         query += '(';
         for(var j = 0; j < form.domains.length; j++){
-          query += 'domains.meta_value%3D%22' + form + '%22';
+          query += 'domains.meta_value="' + form.domains[j] + '"';
           if ((form.domains.length - j) > 1){
-            query += '%20OR%20';
+            query += ' OR ';
           }
         }
         query += ')';
       }
 
+      if(form.proficiency_level != 'any'){
+        query = extendQuery();
+        query += 'proficiency_level.meta_value="' + form.proficiency_level + '"';
+      }
+
+      console.log(query);
+
       InquiryActivityService.fullSearch({query: query}, function(response){
         $scope.searchResults = response;
+        $scope.searchFormHide = true;
         console.log(response);
       });
     };
@@ -91,9 +112,9 @@ angular.module('arkofinquiryApp')
         phrase: '',
         keywords: [],
         location: [],
-        domains: [''],
+        domains: ['any'],
         languages: [''],
-        proficiency_level: [''],
+        proficiency_level: 'any',
         phaseLevels: {
           '1': '0',
           '2': '0',

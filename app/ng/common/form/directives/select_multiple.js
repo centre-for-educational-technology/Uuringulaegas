@@ -12,7 +12,8 @@ angular.module('arkofinquiryApp')
                 label: '@',
                 model: '=',
                 options: '=',
-                req: '@'
+                req: '@',
+              disabled: '@'
             },
             link: function(scope, element, attrs, InquiryActivitiesCtrl){
                 scope.addChoice = function() {
