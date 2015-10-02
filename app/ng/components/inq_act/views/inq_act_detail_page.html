@@ -89,8 +89,8 @@
                 </dl>
             </div>
             <div class="panel-footer">
-                <button class="btn btn-primary btn-block" ng-if="!activityStatus.started" ng-disabled="updating" ng-click="startActivity()">Start activity</button>
-                <button class="btn btn-success btn-block" ng-if="activityStatus.status == 4" ng-disabled="updating" ng-click="openEvidenceModal(activity)">Mark as completed</button>
+                <button class="btn btn-primary btn-block" ng-if="!activityStatus.started && $root.currentUserData.userRole == 'learner'" ng-disabled="updating" ng-click="startActivity()">Start activity</button>
+                <button class="btn btn-success btn-block" ng-if="activityStatus.status == 4 && $root.currentUserData.userRole == 'learner'" ng-disabled="updating" ng-click="openEvidenceModal(activity)">Mark as completed</button>
             </div>
         </div>
     </div>
