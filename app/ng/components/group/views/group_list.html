@@ -3,8 +3,18 @@
   <small>Click on Group to see details</small>
 </div>
 
+<div class="row">
+    <div class="col-xs-9 text-right">
+        <label class="control-label">Filter by group or teacher name</label>
+        </div>
+    <div class="col-xs-3">
+        <input type="text" class="form-control" ng-model="groupFilterText"/>
+    </div>
+</div>
+<br/>
+
 <div class="list-group">
-  <a class="list-group-item" ng-repeat="group in groupList | orderBy:'id':true" ng-click="showGroupPage(group)">
+  <a class="list-group-item" ng-repeat="group in groupList | orderBy:'id':true | filter:groupFilterText" ng-click="showGroupPage(group)">
     <h4 class="list-group-item-heading">{{ group.name }}</h4>
     <p class="list-group-item-text">Teacher: {{ group.author.display_name }}</p>
   </a>
