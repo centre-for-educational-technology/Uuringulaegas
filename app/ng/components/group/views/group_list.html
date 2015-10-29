@@ -3,12 +3,10 @@
   <small>Click on Group to see details</small>
 </div>
 
-<div class="row">
-    <div class="col-xs-9 text-right">
-        <label class="control-label">Filter by group or teacher name</label>
-        </div>
-    <div class="col-xs-3">
-        <input type="text" class="form-control" ng-model="groupFilterText"/>
+<div class="form-inline text-right">
+    <div class="form-group">
+        <label for="filterInput">Filter by group or teacher name</label>
+        <input type="text" class="form-control" id="filterInput" placeholder="Teacher or group name" ng-model="groupFilterText">
     </div>
 </div>
 <br/>
