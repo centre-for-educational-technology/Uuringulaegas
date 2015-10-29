@@ -1,0 +1,11 @@
+<div class="modal-header">
+    <h3 class="modal-title">Start Activity <small>{{ ::activity.post_title }}</small></h3>
+</div>
+<div class="modal-body">
+    <p class="lead">Do you want to start the activity?</p>
+</div>
+<div class="modal-footer">
+    <p class="text-warning" ng-if="activity.location_web">Starting this activity will open the associated web link.</p>
+    <button class="btn btn-primary" ng-click="accept()">Start activity</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

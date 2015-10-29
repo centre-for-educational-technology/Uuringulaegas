@@ -107,6 +107,25 @@ angular.module('arkofinquiryApp')
       });
     };
 
+    $scope.openStartActivityModal = function (activity) {
+
+      var startModalInstance = $modal.open({
+        templateUrl: appConfig.appBase + 'ng/components/inq_act/views/partials/inq_act_start_modal.html',
+        controller: 'StartActivityModalCtrl',
+        resolve: {
+          activity: function () {
+            return activity;
+          }
+        }
+      });
+
+      startModalInstance.result.then(function (status) {
+        console.log('Started activity');
+        $scope.startActivity();
+        window.open(activity.location_web, '_blank');
+      });
+    };
+
     function createNewLog(){
       var service = new InquiryActivityLogService(postData).$save(postData);
       servicePromises.push(service);
@@ -132,7 +151,22 @@ angular.module('arkofinquiryApp')
 
 
     $scope.goToExternalLink = function (url){
-      console.log('uuno');
       window.window.location.href = url;
     };
   });
+
+angular.module('arkofinquiryApp')
+  .controller('StartActivityModalCtrl', function ($scope, $modalInstance, activity) {
+
+    $scope.activity = activity;
+
+    $scope.accept = function () {
+      $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
+
+  });
+
