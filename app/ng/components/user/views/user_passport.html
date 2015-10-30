@@ -81,8 +81,19 @@
                     </tab>
                 </tabset>
             </tab>
+            <tab heading="Groups">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="(key, value) in user.groups">
+                        <a href="" ng-click="showGroupPage(key)">{{ value.name }}</a>
+                    </li>
+                </ul>
+            </tab>
         </tabset>
 
     </div>
 </div>
+
+<pre ng-if="$root.developerView">
+    {{ user | json }}
+</pre>
 

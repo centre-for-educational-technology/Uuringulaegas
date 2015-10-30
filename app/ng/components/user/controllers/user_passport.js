@@ -83,6 +83,10 @@ angular.module('arkofinquiryApp')
       $location.path('inq_act/' + act.id)
     };
 
+    $scope.showGroupPage = function(groupID){
+      $location.path('group/' + groupID)
+    };
+
   });
 
 
