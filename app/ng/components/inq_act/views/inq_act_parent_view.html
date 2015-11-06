@@ -1,0 +1,20 @@
+<div class="page-header center">
+    <h1>Inquiry Activities</h1>
+</div>
+<div role="tabpanel">
+    <ul class="nav nav-tabs">
+        <li role="presentation" ui-sref-active="active">
+            <a ui-sref=".list" aria-controls="list">List of activities</a>
+        </li>
+        <li role="presentation" ui-sref-active="active">
+            <a ui-sref=".search.search" aria-controls="search">Search</a>
+        </li>
+        <li role="presentation" ui-sref-active="active">
+            <a ui-sref=".search.tags" aria-controls="tags">Tag cloud</a>
+        </li>
+        <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher'">
+            <a ui-sref=".new" aria-controls="new">Add new</a>
+        </li>
+    </ul>
+    <div ui-view="" class="mt20"></div>
+</div>

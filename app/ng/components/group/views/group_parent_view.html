@@ -1,0 +1,14 @@
+<div class="page-header center">
+    <h1>Groups</h1>
+</div>
+<div role="tabpanel" ng-if="$root.currentUserData.userRole == 'teacher'">
+    <ul class="nav nav-tabs">
+        <li role="presentation" ui-sref-active="active">
+            <a ui-sref=".list" aria-controls="list">List of groups</a>
+        </li>
+        <li role="presentation" ui-sref-active="active">
+            <a ui-sref=".new" aria-controls="new">Add new</a>
+        </li>
+    </ul>
+    <div ui-view=""></div>
+</div>

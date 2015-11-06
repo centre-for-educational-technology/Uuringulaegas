@@ -42,12 +42,15 @@ angular.module('arkofinquiryApp')
         url: '/inq_act',
         templateUrl: base + 'ng/components/main/views/parent_view.html'
       })
-      .state('inq_act.list', {
+      .state('inq_act.main', {
+        templateUrl: base + 'ng/components/inq_act/views/inq_act_parent_view.html'
+      })
+      .state('inq_act.main.list', {
         url: "/list",
         templateUrl: base + 'ng/components/inq_act/views/inquiry_activity_list.html',
         controller: 'InquiryActivityListCtrl'
       })
-      .state('inq_act.new', {
+      .state('inq_act.main.new', {
         url: "/new",
         templateUrl: base + 'ng/components/inq_act/views/add_inquiry_activity_form.html',
         controller: 'AddInquiryActivityCtrl'
@@ -57,17 +60,17 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/inq_act/views/inq_act_detail_page.html',
         controller: 'InquiryActivityDetailPageCtrl'
       })
-      .state('inq_act.search', {
+      .state('inq_act.main.search', {
         url: '/search',
         abstract: true,
         templateUrl: base + 'ng/components/main/views/parent_view.html'
       })
-      .state('inq_act.search.tags', {
+      .state('inq_act.main.search.tags', {
         url: "/tags",
         templateUrl: base + 'ng/components/inq_act/views/inq_act_tag_cloud.html',
         controller: 'InquiryActivityTagCloudCtrl'
       })
-      .state('inq_act.search.search', {
+      .state('inq_act.main.search.search', {
         url: "/search",
         templateUrl: base + 'ng/components/inq_act/views/inq_act_search_form.html',
         controller: 'InquiryActivitySearchCtrl'
@@ -99,12 +102,15 @@ angular.module('arkofinquiryApp')
         url: '/group',
         templateUrl: base + 'ng/components/main/views/parent_view.html'
       })
-      .state('group.list', {
+      .state('group.main', {
+        templateUrl: base + 'ng/components/group/views/group_parent_view.html'
+      })
+      .state('group.main.list', {
         url: '/list',
         templateUrl: base + 'ng/components/group/views/group_list.html',
         controller: 'GroupListCtrl'
       })
-      .state('group.new', {
+      .state('group.main.new', {
         url: '/new',
         templateUrl: base + 'ng/components/group/views/add_group.html',
         controller: 'AddGroupCtrl'
@@ -112,7 +118,7 @@ angular.module('arkofinquiryApp')
       .state('group.detail', {
         url: '/:id',
         abstract: false,
-        templateUrl: base + 'ng/components/group/views/group_page_parent.html',
+        templateUrl: base + 'ng/components/group/views/group_detail_page_parent.html',
         controller: 'GroupParentCtrl'
       })
       .state('group.detail.view', {

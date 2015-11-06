@@ -235,6 +235,7 @@ body {
     background: #91ff98;
 }
 
-.mr10 {
-    margin-right: 10px;
-}
+.mr10 {margin-right: 10px;}
+
+.mt10 {margin-top: 10px;}
+.mt20 {margin-top: 20px;}

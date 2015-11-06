@@ -42,27 +42,9 @@
                 <ul class="nav nav-pills pull-right" ng-controller="NavCtrl" ng-if="loggedIn" ng-cloak>
                     <li ng-class="setActiveIfPath('/')"><a ui-sref="home">Home</a></li>
                     <li ng-class="setActiveIfPath('/help')"><a ui-sref="help">Help</a></li>
-                    <li ng-class="setActiveIfPath('/inq_act')" role="presentation" class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Inquiry Activities <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li ng-class="setActiveIfPath('/inq_act/list')"><a ui-sref="inq_act.list">List</a></li>
-                            <li ng-if="$root.currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/inq_act/new')"><a ui-sref="inq_act.new">Add new</a></li>
-                            <li ng-class="setActiveIfPath('/inq_act/search/search')"><a ui-sref="inq_act.search.search">Search</a></li>
-                                <li ng-class="setActiveIfPath('/inq_act/search/tags')"><a ui-sref="inq_act.search.tags">Tag cloud</a></li>
-                        </ul>
-                    </li>
+                    <li ng-class="setActiveIfPath('/inq_act')"><a ui-sref="inq_act.main.list">Inquiry Activities</a></li>
+                    <li ng-class="setActiveIfPath('/group')"><a ui-sref="group.main.list">Groups</a></li>
 
-                    <li ng-class="setActiveIfPath('/group')" role="presentation" class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Groups <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li ng-class="setActiveIfPath('/group/list')"><a ui-sref="group.list">List</a></li>
-                            <li ng-if="$root.currentUserData.userRole == 'teacher'" ng-class="setActiveIfPath('/groups/new')"><a ui-sref="group.new">Add new</a></li>
-                        </ul>
-                    </li>
                     <li ng-class="setActiveIfPath('/user')" role="presentation" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ $root.currentUserData.userDisplayName }}<span class="caret"></span>
