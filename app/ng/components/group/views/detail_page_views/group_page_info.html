@@ -11,6 +11,8 @@
     </div>
     <div class="col-sm-6">
         <h4>Group Activity</h4>
+        <spinner collapse="!loadingInqLog"></spinner>
+
         <div class="activity-feed-row" ng-repeat="log in inqLog | orderBy:'created':true">
             <!-- User own actions -->
             <div ng-if="_.contains(['4','8'], log.status)">

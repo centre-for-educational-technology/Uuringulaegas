@@ -10,8 +10,6 @@
 angular.module('arkofinquiryApp')
   .controller('GroupCommentsCtrl', function ($scope, $http, appConfig, GroupCommentService, $filter, $gravatar, $stateParams) {
 
-    // Expose Underscore.js to scope
-    $scope._ = _;
 
     var groupID = $stateParams.id;
 

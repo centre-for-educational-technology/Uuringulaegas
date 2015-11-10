@@ -13,6 +13,7 @@ angular.module('arkofinquiryApp')
     var timeFormat = 'YYYY-MM-DD HH:mm:ss';
 
     $scope.inqLog = [];
+    $scope.loadingInqLog = true;
     var inqLogServicePromises = [];
 
     var activityListString = '';
@@ -43,8 +44,8 @@ angular.module('arkofinquiryApp')
           response[i].inq_activity = _.values(response[i].inq_activity);
         }
 
+        $scope.loadingInqLog = false;
         $scope.inqLog = response;
-        console.log($scope.inqLog);
       });
       //
     });
