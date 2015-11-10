@@ -19,6 +19,8 @@ add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $
       $access = true;
   } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
     $access = true;
+  } else if ( $pod == 'group_comment' && current_user_can( 'read_group_comment' ) ) {
+      $access = true;
   } else if ( $pod == 'inq_keywords' && current_user_can( 'read_inq' ) ) {
      $access = true;
   } else if ( $pod == 'user' && current_user_can( 'list_users' ) ) {
@@ -57,6 +59,8 @@ add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $p
       $access = true;
   } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
      $access = true;
+  } else if ( $pod == 'group_comment' && current_user_can( 'read_group_comment' ) ) {
+      $access = true;
   } else if ( $pod == 'inq_evidence' && current_user_can( 'read_inq_evidence' ) ) {
       $access = true;
   } else if ( $pod == 'peer_review' && current_user_can( 'read_peer_review' ) ) {
@@ -87,6 +91,11 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
     } else if ( $pod == 'inq_status' && current_user_can( 'pods_add_inq_status' ) ) {
         $access = true;
     } else if ( $pod == 'inq_evidence' && current_user_can( 'pods_add_inq_evidence' ) ) {
+        $access = true;
+    } else if ( $pod == 'peer_review' && current_user_can( 'pods_add_peer_review' ) ) {
+        $access = true;
+    } else if ( $pod == 'teacher_review' && current_user_can( 'pods_add_teacher_review' ) ) {
+
         $params = array(
             'where' => 'learner.id = '.$_REQUEST[learner].' AND status >= 5'
         );
@@ -94,10 +103,6 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
 
         error_log(print_r($statuses->total_found()));
 
-        $access = true;
-    } else if ( $pod == 'peer_review' && current_user_can( 'pods_add_peer_review' ) ) {
-        $access = true;
-    } else if ( $pod == 'teacher_review' && current_user_can( 'pods_add_teacher_review' ) ) {
         $access = true;
     }
     //error_log(print_r($_REQUEST, true));

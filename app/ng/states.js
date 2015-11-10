@@ -123,17 +123,22 @@ angular.module('arkofinquiryApp')
       })
       .state('group.detail.view', {
         url: '/view',
-        templateUrl: base + 'ng/components/group/views/group_page_info.html',
+        templateUrl: base + 'ng/components/group/views/detail_page_views/group_page_info.html',
         controller: 'GroupPageInfoCtrl'
+      })
+      .state('group.detail.comments', {
+        url: '/comments',
+        templateUrl: base + 'ng/components/group/views/detail_page_views/group_page_comments.html',
+        controller: 'GroupCommentsCtrl'
       })
       .state('group.detail.edit', {
         url: '/edit',
-        templateUrl: base + 'ng/components/group/views/group_page_edit.html',
+        templateUrl: base + 'ng/components/group/views/detail_page_views/group_page_edit.html',
         controller: 'EditGroupCtrl'
       })
       .state('group.detail.act', {
         url: '/activities',
-        templateUrl: base + 'ng/components/group/views/group_page_activities.html',
+        templateUrl: base + 'ng/components/group/views/detail_page_views/group_page_activities.html',
         controller: 'GroupPageInfoCtrl'
       });
 
