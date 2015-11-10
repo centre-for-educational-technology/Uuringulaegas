@@ -1,17 +1,13 @@
-<div class="alert alert-warning" role="alert">
-    Partial functionality, some parameters have been disabled for now. (You can search by phrase, domain and/or proficiency level)
-</div>
-
 <form class="form-horizontal" novalidate collapse="searchFormHide">
     <form-input-text id="phrase" label="Search phrase" model="formData.phrase"></form-input-text>
 <!--
     <form-tags-input label="Keywords" model="formData.keywords" display-property="name" placeholder="Add keywords" autocomplete-source="loadKeywords(q)" autocomplete-only="true"></form-tags-input>-->
 
-    <form-input-checkbox name="location" label="Location" model="formData.location" options="$root.langStrings.inqAct.location" disabled="true"></form-input-checkbox>
+    <form-input-checkbox name="location" label="Location" model="formData.location" options="$root.langStrings.inqAct.location"></form-input-checkbox>
 
     <form-select-multiple label="Domain" options="$root.langStrings.inqAct.domains" model="formData.domains"></form-select-multiple>
 
-    <form-select-multiple label="Language" options="$root.langStrings.inqAct.languages" model="formData.languages" disabled="true"></form-select-multiple>
+    <form-select label="Language" options="formOptions.languages" model="formData.language"></form-select>
 
     <form-select id="level" label="Overall proficiency level" options="formOptions.proficiencyLevels" model="formData.proficiency_level"></form-select>
 
@@ -27,7 +23,7 @@
                     <th>Level C (expert)</th>
                 </tr>
                 <tr ng-repeat="(key, value) in $root.langStrings.inqAct.coveredPhases">
-                    <td><input type="checkbox" ng-model="phaseCheckboxes[key]" disabled/></td>
+                    <td><input type="checkbox" ng-model="phaseCheckboxes[key]"/></td>
                     <td ng-class="{'text-muted': !phaseCheckboxes[key]}">{{ value }}</td>
                     <td><input ng-model="formData.phaseLevels[key]" type="radio" value="1" ng-disabled="!phaseCheckboxes[key]" /></td>
                     <td><input ng-model="formData.phaseLevels[key]" type="radio" value="2" ng-disabled="!phaseCheckboxes[key]" /></td>
@@ -38,7 +34,7 @@
         </div>
     </div>
 
-    <form-input-checkbox name="location" label="Other filters" model="formData.other" options="$root.langStrings.inqAct.search.otherFilters" disabled="true"></form-input-checkbox>
+    <form-input-checkbox name="location" label="Other filters" model="formData.other" options="$root.langStrings.inqAct.search.otherFilters"></form-input-checkbox>
 
     <form-range-slider indent="true" label="Age Range" id="range" model-from="formData.age_range.from" model-to="formData.age_range.to" min="6" max="20" collapse="!_.contains(formData.other, 0)"></form-range-slider>
 

@@ -15,6 +15,8 @@ angular.module('arkofinquiryApp')
     $scope.formOptions.domains.any = $rootScope.langStrings.inqAct.search.anyString;
     $scope.formOptions.proficiencyLevels = $rootScope.langStrings.inqAct.levels;
     $scope.formOptions.proficiencyLevels.any = $rootScope.langStrings.inqAct.search.anyString;
+    $scope.formOptions.languages = $rootScope.langStrings.inqAct.languages;
+    $scope.formOptions.languages.any = $rootScope.langStrings.inqAct.search.anyString;
 
 
     _.extend($scope.formOptions, $rootScope.langStrings.inqAct.search.anyString);
@@ -70,9 +72,15 @@ angular.module('arkofinquiryApp')
       if(form.phrase.length > 0){
         query += 't.post_title LIKE "%' + form.phrase + '%"'
       }
-      if(form.location[0]){
-        query = extendQuery;
-        query += 'location.meta_value = 0'
+
+      if(isInArray(form.location, 0)){
+        query = extendQuery();
+        query += 'location.meta_value=0';
+      }
+
+      if(isInArray(form.location, 1)){
+        query = extendQuery();
+        query += 'location.meta_value=1';
       }
       //TODO location query
 
@@ -88,10 +96,39 @@ angular.module('arkofinquiryApp')
         query += ')';
       }
 
+      if(form.language != 'any'){
+        query = extendQuery();
+        query += 'languages.meta_value="' + form.language + '"';
+      }
+
       if(form.proficiency_level != 'any'){
         query = extendQuery();
         query += 'proficiency_level.meta_value="' + form.proficiency_level + '"';
       }
+
+      for(var i = 1; i < _.size($scope.formData.phaseLevels) + 1; i++){
+        if($scope.formData.phaseLevels[i] > 0){
+          console.log('phase ' + i + ' = ' + $scope.formData.phaseLevels[i]);
+          query = extendQuery();
+          query += 'phase_' + i + '_level.meta_value=' + $scope.formData.phaseLevels[i] + '';
+        }
+      }
+
+      if(isInArray(form.other, 0)){
+        query = extendQuery();
+        query += 'age_range_from.meta_value>=' + form.age_range.from + ' AND age_range_to.meta_value<=' + form.age_range.to;
+      }
+
+      if(isInArray(form.other, 1)){
+        query = extendQuery();
+        query += 'learning_time.meta_value BETWEEN ' + form.learning_time.from + ' AND ' + form.learning_time.to;
+      }
+
+      if(isInArray(form.other, 2)){
+        query = extendQuery();
+        query += 'rri_component.meta_value="1"';
+      }
+
 
       console.log(query);
 
@@ -113,7 +150,7 @@ angular.module('arkofinquiryApp')
         keywords: [],
         location: [],
         domains: ['any'],
-        languages: [''],
+        language: 'any',
         proficiency_level: 'any',
         phaseLevels: {
           '1': '0',
