@@ -83,6 +83,17 @@ add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $p
 // Filter to let everyone register a new user
 add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $pod ) {
     global $arkPodsUserRegisterHack;
+
+    /**
+     * @param $learnerID
+     * @param $badgeKey - key/identifier of the Badge, to find the correct ID
+     */
+    function giveBadgeToLearner($learnerID, $badgeKey)
+    {
+        $badgeID = pods('badge')->first_id(array('where' => 'key.meta_value = "' . $badgeKey . '"'));
+        pods('user', $learnerID)->add_to('badges', $badgeID);
+    }
+
     if ( $pod == 'user' ){
         $arkPodsUserRegisterHack = true;
         $access = true;
@@ -96,25 +107,34 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
         $access = true;
     } else if ( $pod == 'inq_evidence' && current_user_can( 'pods_add_inq_evidence' ) ) {
 
+        $learnerID = $_REQUEST[learner];
+
         $params = array(
-            'where' => 'learner.id = '.$_REQUEST[learner].' AND status >= 5'
+            'where' => 'learner.id = ' . $learnerID . ' AND status >= 5'
         );
         $statuses = pods('inq_status', $params);
 
-        error_log(print_r('total found: ' . $statuses->total_found()));
+        switch ($statuses->total_found()) {
+            case 1:
+                giveBadgeToLearner($learnerID, 'activity_1');
+                error_log(print_r('gave user activity_1 Badge', true));
+                break;
+            case 5:
+                giveBadgeToLearner($learnerID, 'activity_5');
+                error_log(print_r('gave user activity_5 Badge', true));
+                break;
+            case 10:
+                giveBadgeToLearner($learnerID, 'activity_10');
+                break;
+        }
+
+        //error_log(print_r('total found: ' . $statuses->total_found(), true));
+        //error_log(print_r('kala', true));
 
         $access = true;
     } else if ( $pod == 'peer_review' && current_user_can( 'pods_add_peer_review' ) ) {
         $access = true;
     } else if ( $pod == 'teacher_review' && current_user_can( 'pods_add_teacher_review' ) ) {
-
-        $params = array(
-            'where' => 'learner.id = '.$_REQUEST[learner].' AND status >= 5'
-        );
-        $statuses = pods('inq_status', $params);
-
-        error_log(print_r($statuses->total_found()));
-
         $access = true;
     }
     //error_log(print_r($_REQUEST, true));
