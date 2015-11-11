@@ -10,7 +10,7 @@
 
 <spinner class="mt20" collapse="!loadingComments"></spinner>
 
-<div class="mt20" collapse="loadingComments">
+<div class="mt20">
     <div class="activity-feed-row" ng-repeat="comment in comments | orderBy:'created':true">
         <img ng-src='{{ gravatarUrl(comment.author) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
         <p><b>{{ comment.author.display_name }}</b> <small class="text-muted">- {{ comment.created | date : 'dd.MM.yyyy HH:mm'}}</small></p>

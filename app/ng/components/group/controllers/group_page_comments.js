@@ -34,12 +34,10 @@ angular.module('arkofinquiryApp')
         $scope.success = true;
         $scope.comments.push(successCallback);
         $scope.newComment = {};
-        console.log(successCallback);
       }, function(errorCallback){
         $scope.updating = false;
         $scope.error = true;
         $scope.errorReason = errorCallback;
-        console.log(errorCallback);
       });
     };
 

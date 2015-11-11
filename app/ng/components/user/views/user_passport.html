@@ -89,27 +89,29 @@
                 </ul>
             </tab>
             <tab heading="Comments" ng-controller="UserCommentsCtrl">
-                <div id="successAlert" class="alert alert-success" role="alert" collapse="!success">Comment posted!</div>
+                <div>
+                    <div id="successAlert" class="alert alert-success" role="alert" collapse="!success">Comment posted!</div>
 
-                <div id="errorAlert" class="alert alert-danger" role="alert" collapse="!error"> Error! If you see this, please send the following to the developers: <pre>{{ errorReason | json }}</pre></div>
+                    <div id="errorAlert" class="alert alert-danger" role="alert" collapse="!error"> Error! If you see this, please send the following to the developers: <pre>{{ errorReason | json }}</pre></div>
 
-                <div class="form-group">
-                    <label for="commentText">Post comment</label>
-                    <textarea class="form-control" name="commentText" id="commentText" rows="3" ng-model="newComment.text" maxlength="500"></textarea>
-                </div>
-                <button class="btn btn-primary btn-xs" type="button" ng-click="postComment()" ng-disabled="updating || !newComment.text">Post comment</button>
-
-                <spinner class="mt20" collapse="!loadingComments"></spinner>
-
-                <div class="mt20">
-                    <div class="activity-feed-row" ng-repeat="comment in comments | orderBy:'created':true">
-                        <img ng-src='{{ gravatarUrl(comment.author) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
-                        <p><b>{{ comment.author.display_name }}</b> <small class="text-muted">- {{ comment.created | date : 'dd.MM.yyyy HH:mm'}}</small></p>
-                        <p>{{ comment.text }}</p>
+                    <div class="form-group">
+                        <label for="commentText">Post comment</label>
+                        <textarea class="form-control" name="commentText" id="commentText" rows="3" ng-model="newComment.text" maxlength="500"></textarea>
                     </div>
-                </div>
+                    <button class="btn btn-primary btn-xs" type="button" ng-click="postComment()" ng-disabled="updating || !newComment.text">Post comment</button>
 
-                <div id="noCommentsAlert" class="alert alert-info" role="alert" collapse="comments.length > 0 || loadingComments">There are no comments yet</div>
+                    <spinner class="mt20" collapse="!loadingComments"></spinner>
+
+                    <div class="mt20">
+                        <div class="activity-feed-row" ng-repeat="comment in comments | orderBy:'created':true">
+                            <img ng-src='{{ gravatarUrl(comment.author) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
+                            <p><b>{{ comment.author.display_name }}</b> <small class="text-muted">- {{ comment.created | date : 'dd.MM.yyyy HH:mm'}}</small></p>
+                            <p>{{ comment.text }}</p>
+                        </div>
+                    </div>
+
+                    <div id="noCommentsAlert" class="alert alert-info" role="alert" collapse="comments.length > 0 || loadingComments">There are no comments yet</div>
+                </div>
             </tab>
         </tabset>
 
