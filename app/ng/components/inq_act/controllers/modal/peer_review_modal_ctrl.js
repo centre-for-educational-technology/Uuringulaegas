@@ -14,14 +14,19 @@ angular.module('arkofinquiryApp')
     $scope.log = log;
 
     console.log(log);
-    $scope.evidence =  EvidenceService.searchByLearnerAndActivity({learnerID: log.learner.ID, activityID: log.inq_activity[0].id});
-    console.log($scope.evidence);
 
     $scope.review = {};
     $scope.review.peer = $rootScope.currentUserData.userID;
     $scope.review.learner = log.learner.ID;
     $scope.review.inq_activity = log.inq_activity[0].id;
-    $scope.review.evidence = $scope.evidence[0].id;
+    //$scope.review.evidence = $scope.evidence[0].id;
+
+    $scope.evidence =  EvidenceService.searchByLearnerAndActivity({learnerID: log.learner.ID, activityID: log.inq_activity[0].id}, function(success){
+      $scope.review.evidence = $scope.evidence[0].id;
+    });
+    console.log($scope.evidence);
+
+
 
     var logData = {
       peer: $rootScope.currentUserData.userID,
