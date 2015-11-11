@@ -88,8 +88,7 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
      * @param $learnerID
      * @param $badgeKey - key/identifier of the Badge, to find the correct ID
      */
-    function giveBadgeToLearner($learnerID, $badgeKey)
-    {
+    function giveBadgeToLearner($learnerID, $badgeKey){
         $badgeID = pods('badge')->first_id(array('where' => 'key.meta_value = "' . $badgeKey . '"'));
         pods('user', $learnerID)->add_to('badges', $badgeID);
     }
@@ -112,19 +111,27 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
         $params = array(
             'where' => 'learner.id = ' . $learnerID . ' AND status >= 5'
         );
-        $statuses = pods('inq_status', $params);
+        $completedActivities = pods('inq_status', $params);
 
-        switch ($statuses->total_found()) {
+        switch ($completedActivities->total_found()) {
             case 1:
                 giveBadgeToLearner($learnerID, 'activity_1');
-                error_log(print_r('gave user activity_1 Badge', true));
+                //error_log(print_r('gave user activity_1 Badge', true));
                 break;
             case 5:
                 giveBadgeToLearner($learnerID, 'activity_5');
-                error_log(print_r('gave user activity_5 Badge', true));
                 break;
             case 10:
                 giveBadgeToLearner($learnerID, 'activity_10');
+                break;
+            case 25:
+                giveBadgeToLearner($learnerID, 'activity_25');
+                break;
+            case 50:
+                giveBadgeToLearner($learnerID, 'activity_50');
+                break;
+            case 100:
+                giveBadgeToLearner($learnerID, 'activity_100');
                 break;
         }
 
@@ -133,6 +140,31 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
 
         $access = true;
     } else if ( $pod == 'peer_review' && current_user_can( 'pods_add_peer_review' ) ) {
+
+        $peerID = $_REQUEST[peer];
+
+        $peerReviews = pods('peer_review', array(
+            'where' => 'peer.id = ' . $peerID
+        ));
+
+        switch ($peerReviews->total_found() + 1) { // +1 because this check happens before a new review is saved //todo - what if an error happens after this?
+            case 1:
+                giveBadgeToLearner($peerID, 'pr_1');
+                //error_log(print_r('gave user pr_1 Badge', true));
+                break;
+            case 5:
+                giveBadgeToLearner($peerID, 'pr_5');
+                break;
+            case 10:
+                giveBadgeToLearner($peerID, 'pr_10');
+                break;
+            case 50:
+                giveBadgeToLearner($peerID, 'pr_50');
+                break;
+        }
+
+        //error_log(print_r('peer Reviews found: ' . $peerReviews->total_found(), true));
+
         $access = true;
     } else if ( $pod == 'teacher_review' && current_user_can( 'pods_add_teacher_review' ) ) {
         $access = true;
