@@ -27,9 +27,9 @@
 
     <form-input-text id="city" label="City of Residence" model="userData.extra.city_of_residence" req="true"></form-input-text>
 
-    <form-select id="preferred_language" label="Preferred Language" options="formOptions.languages" model="userData.extra.preferred_language" req="true"></form-select>
+    <form-select id="preferred_language" label="Preferred Language" options="$root.langStrings.inqAct.languages" model="userData.extra.preferred_language" req="true"></form-select>
 
-    <form-select-multiple label="Additional Languages" options="formOptions.languages" model="userData.extra.additional_languages"></form-select-multiple>
+    <form-select-multiple label="Additional Languages" options="$root.langStrings.inqAct.languages" model="userData.extra.additional_languages"></form-select-multiple>
 
 
 
