@@ -93,7 +93,16 @@ angular.module('arkofinquiryApp')
           est: 'Estonian',
           eng: 'English',
           fin: 'Finnish',
-          rus: 'Russian'
+          rus: 'Russian',
+          nld: 'Dutch',
+          fra: 'French',
+          ger: 'German',
+          gre: 'Greek',
+          hun: 'Hungarian',
+          ita: 'Italian',
+          spa: 'Spanish',
+          tur: 'Turkish',
+          other: 'Other'
         },
         levels: {
           1: 'Novice',
