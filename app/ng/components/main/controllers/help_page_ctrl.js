@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('HelpPageCtrl', function ($scope, HelpPageService) {
+  .controller('HelpPageCtrl', function ($scope, InfoService) {
 
-    $scope.help = HelpPageService.getHelpPages();
+    $scope.help = InfoService.getHelpPages();
   });
