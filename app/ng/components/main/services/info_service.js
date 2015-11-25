@@ -3,9 +3,7 @@
  */
 
 angular.module("arkofinquiryApp")
-.factory("InfoService", function InfoFactory($resource, $http, appConfig, $rootScope){
-
-    $http.defaults.headers.common['X-WP-Nonce'] = $rootScope.currentUserData.nonce;
+.factory("InfoService", function InfoFactory($resource, $http, appConfig){
 
     return $resource(appConfig.apiUrl + 'wp-json/pods/page/:id', {}, {
       query: {
@@ -25,6 +23,15 @@ angular.module("arkofinquiryApp")
       getAnnouncement: {
         url: appConfig.apiUrl + 'wp-json/pods/page?data[where]=category.slug="announcement"',
         method: 'GET',
+        isArray: true,
+        transformResponse: [angular.fromJson, function(data, headers){
+          return _.values(data); // Removes keys from response
+        }]
+      },
+      getReviewGuide: {
+        url: appConfig.apiUrl + 'wp-json/pods/page?data[where]=category.slug="review-guide"',
+        method: 'GET',
+        cache: true,
         isArray: true,
         transformResponse: [angular.fromJson, function(data, headers){
           return _.values(data); // Removes keys from response

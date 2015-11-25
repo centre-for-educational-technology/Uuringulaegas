@@ -9,7 +9,7 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('TeacherReviewModalCtrl', function ($scope, $modalInstance, $rootScope, $q, InquiryActivityLogService, InquiryActivityStatusService, EvidenceService, PeerReviewService, TeacherReviewService, log, $modal, appConfig) {
+  .controller('TeacherReviewModalCtrl', function ($scope, $modalInstance, $rootScope, $q, InquiryActivityLogService, InquiryActivityStatusService, EvidenceService, PeerReviewService, TeacherReviewService, log, $modal, appConfig, InfoService) {
 
     $scope.log = log;
 
@@ -28,6 +28,10 @@ angular.module('arkofinquiryApp')
         $scope.inqPhases[i] = log.inq_activity[0]['phase_' + i + '_level']
       }
     }
+
+    InfoService.getReviewGuide({}, function(response){
+      $scope.review.post_content = response[0].post_content;
+    });
 
     var logData = {
       teacher: $rootScope.currentUserData.userID,

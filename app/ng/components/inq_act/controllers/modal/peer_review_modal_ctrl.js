@@ -9,7 +9,7 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('PeerReviewModalCtrl', function ($scope, $modalInstance, $rootScope, $q, InquiryActivityLogService, InquiryActivityStatusService, EvidenceService, PeerReviewService, log) {
+  .controller('PeerReviewModalCtrl', function ($scope, $modalInstance, $rootScope, $q, InquiryActivityLogService, InquiryActivityStatusService, EvidenceService, PeerReviewService, log, InfoService) {
 
     $scope.log = log;
 
@@ -26,7 +26,9 @@ angular.module('arkofinquiryApp')
     });
     console.log($scope.evidence);
 
-
+    InfoService.getReviewGuide({}, function(response){
+      $scope.review.post_content = response[0].post_content;
+    });
 
     var logData = {
       peer: $rootScope.currentUserData.userID,
