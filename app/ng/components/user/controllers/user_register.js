@@ -75,6 +75,8 @@ angular.module('arkofinquiryApp')
       // append from data 'extra' object to userData object (same keys)
       _.extend(user, $scope.userData.extra);
 
+      user.date_of_birth = moment(user.date_of_birth).add(12, 'h'); // add 12h to bring date to midday to overcome any timezone differences at 00:00
+
       // POST to DB
       user.$save(user, function() {
         // success
