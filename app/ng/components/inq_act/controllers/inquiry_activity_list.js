@@ -13,11 +13,22 @@ angular.module('arkofinquiryApp')
     // Expose Underscore.js to scope
     $scope._ = _;
 
+    $scope.currentPage = 1;
+
+    $scope.loadPage = function(currentPage){
+      $scope.inqActList = InquiryActivityService.queryByPage({page: currentPage});
+    };
+
+
     if(_.isEmpty($location.search())){
-      $scope.inqActList = InquiryActivityService.query();
+      $scope.inqActList = InquiryActivityService.queryByPage({page: 1});
+      $scope.keywordMode = false;
     } else {
       $scope.inqActList = InquiryActivityService.searchByKeyword({keyword: $location.search().keyword});
+      $scope.keywordMode = true;
     }
+
+    //$scope.totals = InquiryActivityService.getTotals();
 
     //console.log($location.search().keyword);
 

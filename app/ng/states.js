@@ -43,7 +43,8 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/main/views/parent_view.html'
       })
       .state('inq_act.main', {
-        templateUrl: base + 'ng/components/inq_act/views/inq_act_parent_view.html'
+        templateUrl: base + 'ng/components/inq_act/views/inq_act_parent_view.html',
+        controller: 'InquiryActivityParentCtrl'
       })
       .state('inq_act.main.list', {
         url: "/list",

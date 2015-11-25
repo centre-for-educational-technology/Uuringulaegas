@@ -22,6 +22,8 @@ angular.module("arkofinquiryApp")
       'success_evidence'
     ];
 
+    var activitiesPerPage = 15;
+
     $http.defaults.headers.common['X-WP-Nonce'] = $rootScope.currentUserData.nonce;
 
     return $resource(appConfig.apiUrl + 'wp-json/pods/inq_activity/:id', {}, {
@@ -29,6 +31,31 @@ angular.module("arkofinquiryApp")
         transformResponse: [angular.fromJson, function(data, headers){
           enforceArray(data, enforcedKeys);
           return data;
+        }]
+      },
+      getTotals: {
+        url: appConfig.apiUrl + 'wp-admin/admin-ajax.php',
+        method: 'GET',
+        params: {
+          action: 'get_total_activities'
+        },
+        transformResponse: function(data){
+          return {
+            totalActivities: data,
+            activitiesPerPage: activitiesPerPage
+          }
+        }
+      },
+      queryByPage: {
+        url: appConfig.apiUrl + 'wp-json/pods/inq_activity?data[limit]=' + activitiesPerPage + '&data[orderby]=-post_date&data[page]=:page',
+        page: '@page',
+        method: 'GET',
+        isArray: true,
+        cache: true,
+        transformResponse: [angular.fromJson, function(data, headers){
+          var withoutKeys = _.values(data); // Removes keys from response objects
+          enforceArray(withoutKeys, enforcedKeys);
+          return withoutKeys;
         }]
       },
       query: {
@@ -44,7 +71,7 @@ angular.module("arkofinquiryApp")
       searchByKeyword: {
         url: appConfig.apiUrl + 'wp-json/posts?type=inq_activity&filter[inq_keywords]=:keyword',
         keyword: '@keyword',
-        methord: 'GET',
+        method: 'GET',
         isArray: true,
         transformResponse: [angular.fromJson, function(data, headers){
           return _.values(data); // Removes keys from response

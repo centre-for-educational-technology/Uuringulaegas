@@ -188,6 +188,20 @@ add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $
   }, 10, 3 );
 
 /*
+ *  Custom endpoints for REST api
+ *
+ */
+
+add_action('wp_ajax_get_total_activities', 'return_total_activities');
+add_action('wp_ajax_nopriv_get_total_activities', 'not_logged_in_error');
+
+function return_total_activities() {
+    //echo pods('inq_activity')->total_found();
+    echo pods('inq_activity')->find()->total_found();
+    die();
+}
+
+/*
  *
  *
  *
