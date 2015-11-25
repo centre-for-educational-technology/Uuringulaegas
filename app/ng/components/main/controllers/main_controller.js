@@ -137,7 +137,7 @@ angular.module('arkofinquiryApp')
           anyString: '-Any-',
           otherFilters: {
             0: 'Age Range',
-            1: 'Learning time',
+            1: 'Learning time (Academic hours)',
             2: 'Has strong RRI component?'
           }
         }
