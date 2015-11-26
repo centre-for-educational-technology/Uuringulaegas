@@ -201,6 +201,47 @@ function return_total_activities() {
     die();
 }
 
+add_action('wp_ajax_add_to_group_wait_list', 'add_to_group_wait_list');
+add_action('wp_ajax_nopriv_add_to_group_wait_list', 'not_logged_in_error');
+
+function add_to_group_wait_list() {
+    error_log(print_r($_REQUEST, true));
+    $groupID = $_REQUEST[groupID];
+    $learnerID = wp_get_current_user()->ID;
+
+    pods('group', $groupID)->add_to('wait_list', $learnerID);
+    die();
+}
+
+add_action('wp_ajax_accept_from_group_wait_list', 'accept_from_group_wait_list');
+add_action('wp_ajax_nopriv_accept_from_group_wait_list', 'not_logged_in_error');
+
+function accept_from_group_wait_list() {
+    if(current_user_can( 'pods_edit_group' )){
+        $groupID = $_REQUEST[groupID];
+        $learnerID = $_REQUEST[learnerID];
+
+        $group = pods('group', $groupID);
+        $group->add_to('learners', $learnerID);
+        $group->remove_from('wait_list', $learnerID);
+    }
+    die();
+}
+
+add_action('wp_ajax_decline_from_group_wait_list', 'decline_from_group_wait_list');
+add_action('wp_ajax_nopriv_decline_from_group_wait_list', 'not_logged_in_error');
+
+function decline_from_group_wait_list() {
+    if(current_user_can( 'pods_edit_group' )){
+        $groupID = $_REQUEST[groupID];
+        $learnerID = $_REQUEST[learnerID];
+
+        $group = pods('group', $groupID);
+        $group->remove_from('wait_list', $learnerID);
+    }
+    die();
+}
+
 /*
  *
  *

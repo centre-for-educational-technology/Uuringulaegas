@@ -65,14 +65,36 @@
 
     <div class="col-sm-3">
         <h4>Teacher</h4>
-        <div class="group-teacher-profile-link" ng-click="showTeacherProfile(group.author.ID)">
+        <div class="group-profile-link" ng-click="showUserProfile(group.author.ID)">
             <img ng-show="group.author" ng-src="{{ group.author.gravatarUrl }}" alt="User profile picture" class="img-responsive img-circle center-block group-teacher-profile-pic">
             <h5 class="text-center">{{ group.author.display_name }}</h5>
         </div>
         <hr/>
-        <h4>Learners <small ng-if="$root.currentUserData.userRole == 'teacher'"><a ng-click="function()">Manage</a></small></h4>
+
+        <button type="button" class="btn btn-success btn-block" ng-if="$root.currentUserData.userRole == 'learner' && !pending && !loadingLearners && !alreadyJoined" ng-click="joinGroup()" ng-disabled="updating">Join group</button>
+        <alert type="info" ng-if="pending">Your join request is waiting for confirmation by the teacher</alert>
+
+        <h4>Learners</h4>
         <div class="group-user-grid-pic" ng-repeat="learner in group.learners">
-            <img ng-src='{{ learner.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle" tooltip="{{ learner.display_name }}">
+            <img ng-src='{{ learner.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle group-profile-link" tooltip="{{ learner.display_name }}" ng-click="showUserProfile(learner.ID)">
+        </div>
+        <div class="clearfix"></div>
+        <hr/>
+
+        <div ng-if="$root.currentUserData.userRole == 'teacher'">
+            <h4>Wait list</h4>
+            <div ng-repeat="learner in group.wait_list">
+                <a ui-sref="user.details({ id: learner.ID })">
+                    <img ng-src='{{ learner.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle group-user-grid-pic mr10" ng-click="showUserProfile(learner.ID)">
+                    <b style="line-height: 20px" class="group-profile-link">{{ learner.display_name }}</b>
+                </a><p>
+                        <button class="btn btn-success btn-xs" ng-click="acceptWaitList(learner.ID, $index)" ng-disabled="updating">Accept</button>
+                        <button class="btn btn-danger btn-xs" ng-click="declineWaitList(learner.ID, $index)" ng-disabled="updating">Decline</button>
+                    </p>
+
+                <div class="clearfix"></div>
+            </div>
+            <div ng-if="group.wait_list.length == 0">No pending requests</div>
         </div>
     </div>
 </div>

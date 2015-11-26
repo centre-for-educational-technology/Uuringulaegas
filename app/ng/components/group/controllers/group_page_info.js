@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('GroupPageInfoCtrl', function ($scope, $http, $stateParams, UserService, $gravatar, GroupService, appConfig, $modal, $location, InquiryActivityLogService, $q) {
+  .controller('GroupPageInfoCtrl', function ($scope, $http, $stateParams, UserService, $gravatar, GroupService, appConfig, $modal, $location, InquiryActivityLogService, $q, $rootScope) {
 
     var timeFormat = 'YYYY-MM-DD HH:mm:ss';
 
@@ -22,7 +22,7 @@ angular.module('arkofinquiryApp')
       $location.path('inq_act/' + activity.id)
     };
 
-
+    $scope.loadingLearners = true;
     $scope.group = GroupService.get({id: $stateParams.id}, function(success){
       // Success
       createActivityListString();
@@ -30,7 +30,18 @@ angular.module('arkofinquiryApp')
       for(var i = 0; i < $scope.group.learners.length; i++){
         $scope.group.learners[i].gravatarUrl = getGravatarUrl($scope.group.learners[i].user_email);
         getUserLog($scope.group.learners[i]);
+        if($scope.group.learners[i].ID == $rootScope.currentUserData.userID){
+          $scope.alreadyJoined = true;
+        }
       }
+      for(var j = 0; j < $scope.group.wait_list.length; j++){
+        if($scope.group.wait_list[j].ID == $rootScope.currentUserData.userID){
+          $scope.pending = true;
+        }
+        $scope.group.wait_list[j].gravatarUrl = getGravatarUrl($scope.group.wait_list[j].user_email);
+      }
+
+      $scope.loadingLearners = false;
 
       // Wait for all logs to be fetched (promises to resolve)
       $q.all(inqLogServicePromises).then(function(response){
@@ -49,6 +60,48 @@ angular.module('arkofinquiryApp')
       });
       //
     });
+
+    $scope.joinGroup = function(){
+      $scope.updating = true;
+      GroupService.handleWaitList({
+        groupID: $stateParams.id,
+        action: 'add_to_group_wait_list'
+      }, function(success){
+        $scope.updating = false;
+        $scope.pending = true;
+      }, function(error){
+        $scope.updating = false;
+      });
+    };
+
+    $scope.acceptWaitList = function(learnerID, listIndex){
+      $scope.updating = true;
+      GroupService.handleWaitList({
+        learnerID: learnerID,
+        groupID: $stateParams.id,
+        action: 'accept_from_group_wait_list'
+      }, function(success){
+        $scope.updating = false;
+        $scope.group.learners.push($scope.group.wait_list[listIndex]);
+        $scope.group.wait_list.splice(listIndex, 1);
+      }, function(error){
+        $scope.updating = false;
+      });
+    };
+
+    $scope.declineWaitList = function(learnerID, listIndex){
+      $scope.updating = true;
+      GroupService.handleWaitList({
+        learnerID: learnerID,
+        groupID: $stateParams.id,
+        action: 'decline_from_group_wait_list'
+      }, function(success){
+        $scope.updating = false;
+        $scope.group.wait_list.splice(listIndex, 1);
+      }, function(error){
+        $scope.updating = false;
+      });
+    };
 
     function createActivityListString() {
       var activityListKeys = _.keys($scope.group.inq_activities);
@@ -75,7 +128,7 @@ angular.module('arkofinquiryApp')
     // Expose Underscore.js to scope
     $scope._ = _;
 
-    $scope.showTeacherProfile = function(id){
+    $scope.showUserProfile = function(id){
       $location.path('user/' + id);
     };
 

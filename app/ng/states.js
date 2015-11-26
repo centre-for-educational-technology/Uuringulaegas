@@ -15,7 +15,7 @@ angular.module('arkofinquiryApp')
 
     // Default states for states with child states
     $urlRouterProvider.when('/group/{id:[0-9]{1,8}}', 'group/:id/view');
-    $urlRouterProvider.when('/myyk', 'myyk/soidukid');
+    $urlRouterProvider.when('/user/', '/');
 
     $urlRouterProvider.otherwise('/');
 

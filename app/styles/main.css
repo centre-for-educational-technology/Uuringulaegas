@@ -177,7 +177,10 @@ body {
 .group-teacher-profile-pic {
   max-width: 100px;
 }
-.group-teacher-profile-link:hover {
+.group-profile-link {
+    color: #000000;
+}
+.group-profile-link:hover {
   text-decoration: underline;
 }
 
@@ -236,6 +239,8 @@ body {
 }
 
 .mr10 {margin-right: 10px;}
+
+.pl10 {padding-left: 10px;}
 
 .mt10 {margin-top: 10px;}
 .mt20 {margin-top: 20px;}
