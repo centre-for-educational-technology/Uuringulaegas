@@ -64,11 +64,15 @@
 
 
     <div class="col-sm-3">
-        <h4>Teacher</h4>
-        <div class="group-profile-link" ng-click="showUserProfile(group.author.ID)">
-            <img ng-show="group.author" ng-src="{{ group.author.gravatarUrl }}" alt="User profile picture" class="img-responsive img-circle center-block group-teacher-profile-pic">
-            <h5 class="text-center">{{ group.author.display_name }}</h5>
+        <h4>Teachers</h4>
+        <div ng-repeat="teacher in group.teachers">
+            <a ui-sref="user.details({ id: teacher.ID })">
+                <img ng-src='{{ teacher.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle group-user-grid-pic mr10" ng-click="showUserProfile(teacher.ID)">
+                <b style="line-height: 20px" class="group-profile-link">{{ teacher.display_name }}</b>
+            </a>
+            <div class="clearfix"></div>
         </div>
+
         <hr/>
 
         <button type="button" class="btn btn-success btn-block" ng-if="$root.currentUserData.userRole == 'learner' && !pending && !loadingLearners && !alreadyJoined" ng-click="joinGroup()" ng-disabled="updating">Join group</button>

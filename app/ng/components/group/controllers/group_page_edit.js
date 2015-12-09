@@ -22,11 +22,18 @@ angular.module('arkofinquiryApp')
     resetForm();
 
     $scope.searchedLearners = [];
+    $scope.searchedTeachers = [];
 
-    // Create new User Service
+
     $scope.loadLearners = function(query) {
       return UserService.queryLearnersByName({searchName: query}, function(data){
         $scope.searchedLearners = data;
+      }).$promise;
+    };
+
+    $scope.loadTeachers = function(query) {
+      return UserService.queryTeachersByName({searchName: query}, function(data){
+        $scope.searchedTeachers = data;
       }).$promise;
     };
 
@@ -49,7 +56,10 @@ angular.module('arkofinquiryApp')
 
     $scope.groupForm = GroupService.get({id: $stateParams.id}, function(success){
       for(var i = 0; i < $scope.groupForm.learners.length; i++){
-        $scope.groupForm.learners[i].id =  parseInt(success.learners[i].ID);
+        $scope.groupForm.learners[i].id = parseInt(success.learners[i].ID);
+      }
+      for(var t = 0; t < $scope.groupForm.teachers.length; t++){
+        $scope.groupForm.teachers[t].id = parseInt(success.teachers[t].ID);
       }
       success.inq_activities = _.values(success.inq_activities);
     });
@@ -65,12 +75,16 @@ angular.module('arkofinquiryApp')
         $scope.groupForm.learners[i] = $scope.groupForm.learners[i].id;
       }
 
+      for(var t = 0; t < $scope.groupForm.teachers.length; t++){
+        $scope.groupForm.teachers[t] = $scope.groupForm.teachers[t].id;
+      }
+
       for(var j = 0; j < $scope.groupForm.inq_activities.length; j++){
         $scope.groupForm.inq_activities[j] = $scope.groupForm.inq_activities[j].id;
       }
 
-      console.log($scope.groupForm.learners);
-      console.log($scope.groupForm.inq_activities);
+      //console.log($scope.groupForm.learners);
+      //console.log($scope.groupForm.inq_activities);
 
       // append form data object to group object (same keys)
       _.extend(editGroup, $scope.groupForm);
@@ -109,6 +123,7 @@ angular.module('arkofinquiryApp')
         description: '',
         domains: [''],
         learners: [],
+        teachers: [],
         inq_activities: []
       };
     }

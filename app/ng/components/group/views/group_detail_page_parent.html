@@ -9,7 +9,7 @@
         <li role="presentation" ui-sref-active="active">
             <a ui-sref=".act" aria-controls="activities">Recommended activities</a>
         </li>
-        <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher'">
+        <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher' && allowedToEdit">
             <a ui-sref=".edit" aria-controls="settings">Settings</a>
         </li>
     </ul>

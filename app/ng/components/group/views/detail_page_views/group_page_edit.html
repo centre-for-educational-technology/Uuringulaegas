@@ -33,10 +33,23 @@
         </div>
     </div>
 
-    <div class="row">
-        <h3 class="col-sm-4 control-label">Learners</h3>
-    </div>
     <hr/>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Teachers</label>
+        <div class="col-sm-8">
+            <ui-select multiple ng-model="groupForm.teachers" theme="bootstrap">
+                <ui-select-match placeholder="Add teacher...">{{$item.display_name}} &lt;{{$item.user_email}}&gt;</ui-select-match>
+                <ui-select-choices repeat="teacher in searchedTeachers | orFilter: {full_name: $select.search, user_email: $select.search} | objectNotInArray: groupForm.teachers" refresh="loadTeachers($select.search)" refresh-delay="0">
+                    <div ng-bind-html="teacher.full_name | highlight: $select.search"></div>
+                    <small>
+                        Email: <span ng-bind-html="'' + teacher.user_email | highlight: $select.search"></span>
+                    </small>
+                </ui-select-choices>
+            </ui-select>
+            <small class="help-block">Type above to search teachers by Name or Email</small>
+        </div>
+    </div>
 
     <div class="form-group">
         <label class="col-sm-4 control-label">Learners</label>

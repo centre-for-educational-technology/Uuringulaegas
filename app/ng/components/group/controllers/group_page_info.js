@@ -34,6 +34,9 @@ angular.module('arkofinquiryApp')
           $scope.alreadyJoined = true;
         }
       }
+      for(var t = 0; t < $scope.group.teachers.length; t++) {
+        $scope.group.teachers[t].gravatarUrl = getGravatarUrl($scope.group.teachers[t].user_email);
+      }
       for(var j = 0; j < $scope.group.wait_list.length; j++){
         if($scope.group.wait_list[j].ID == $rootScope.currentUserData.userID){
           $scope.pending = true;
