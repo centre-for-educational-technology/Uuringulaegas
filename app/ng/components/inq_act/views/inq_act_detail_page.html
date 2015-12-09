@@ -74,7 +74,6 @@
                 <dt>Address</dt>
                 <dd>{{ activity.location_address }}</dd>
             </div>
-
         </dl>
     </div>
     <div class="col-md-3">
@@ -88,12 +87,23 @@
                     <dd ng-if="activity.post_date">{{ activity.post_date | stringToDate | date: 'dd.MM.yyyy' }}</dd>
                 </dl>
             </div>
-            <div class="panel-footer">
+            <div class="panel-footer text-center">
+                <div ng-if="evidence">
+                    <span class="lead text-success">{{ $root.langStrings.inqAct.finished }}</span>
+                    <br/>
+                    <small>{{ evidence.modified | stringToDate | date: 'dd.MM.yyyy HH:mm' }}</small>
+                    <br/>
+                    <button class="btn btn-link" ng-disabled="updating" ng-click="openEvidenceEditModal(evidence)">View evidence</button>
+                </div>
                 <button class="btn btn-primary btn-block" ng-if="!activityStatus.started && $root.currentUserData.userRole == 'learner'" ng-disabled="updating" ng-click="openStartActivityModal(activity)">Start activity</button>
                 <button class="btn btn-success btn-block" ng-if="activityStatus.status == 4 && $root.currentUserData.userRole == 'learner'" ng-disabled="updating" ng-click="openEvidenceModal(activity)">Mark as completed</button>
             </div>
         </div>
     </div>
+</div>
+
+<div class="well" ng-if="$root.developerView">
+    <pre>{{ evidence | json }}</pre>
 </div>
 
 <div class="well" ng-if="$root.developerView">

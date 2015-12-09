@@ -9,7 +9,7 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivityDetailPageCtrl', function ($scope, $stateParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, UserService, $rootScope, appConfig, $window, $q, $modal) {
+  .controller('InquiryActivityDetailPageCtrl', function ($scope, $stateParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, UserService, $rootScope, appConfig, $window, $q, $modal, EvidenceService) {
 
     $scope.activityStatus = {
       exists: false,
@@ -47,6 +47,12 @@ angular.module('arkofinquiryApp')
         console.log('juba alustatud');
         $scope.activityStatus.exists = true;
         $scope.activityStatus.started = true;
+      }
+
+      if(success[0].status >= 5){
+        EvidenceService.searchByLearnerAndActivity({learnerID: $rootScope.currentUserData.userID, activityID: currentActivityID}, function(success){
+          $scope.evidence = success[0];
+        });
       }
 
     });
@@ -104,6 +110,19 @@ angular.module('arkofinquiryApp')
       modalInstance.result.then(function (status) {
         $scope.activityStatus.status = status;
         console.log('Modal returned status: ' + status)
+      });
+    };
+
+    $scope.openEvidenceEditModal = function (evidence) {
+
+      $modal.open({
+        templateUrl: appConfig.appBase + 'ng/components/inq_act/views/partials/inq_evidence_edit_modal.html',
+        controller: 'EvidenceEditModalCtrl',
+        resolve: {
+          evidence: function () {
+            return evidence;
+          }
+        }
       });
     };
 

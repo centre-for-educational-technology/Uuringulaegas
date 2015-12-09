@@ -182,6 +182,8 @@ add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $
          $access = true;
      } else if ( $pod == 'inq_status' && current_user_can( 'pods_add_inq_status' ) ) {
          $access = true;
+     } else if ( $pod == 'inq_evidence' && current_user_can( 'edit_inq_evidence' ) ) {
+         $access = true;
      }
 
      return $access;

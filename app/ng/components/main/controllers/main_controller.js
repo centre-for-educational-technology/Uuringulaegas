@@ -53,7 +53,8 @@ angular.module('arkofinquiryApp')
           6: 'reviewed evidence for',
           7: 'graded activity',
           8: 'received a badge for',
-          9: 'Advanced to level'
+          9: 'Advanced to level',
+          51: 'edited evidence for'
         }
       },
       inqAct: {
@@ -140,7 +141,8 @@ angular.module('arkofinquiryApp')
             1: 'Learning time (Academic hours)',
             2: 'Has strong RRI component?'
           }
-        }
+        },
+        finished: 'Finished'
       },
       user: {
         roles: {
