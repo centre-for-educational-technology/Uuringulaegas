@@ -144,6 +144,18 @@ angular.module('arkofinquiryApp')
         },
         finished: 'Finished'
       },
+      forms: {
+        userSurvey: {
+          title: 'Who am I?',
+          subtitle: 'Please fill out this form so we can improve your user experience',
+          labels: {
+            interests: 'My interests are',
+            like_research_text: 'I like / dislike research because:',
+            why_ark_text: 'What would I like to do and learn in the Ark of Inquiry'
+          },
+          submit: 'Complete'
+        }
+      },
       user: {
         roles: {
           teacher: 'Teacher',

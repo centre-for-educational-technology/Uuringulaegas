@@ -39,11 +39,6 @@
         <!-- Add your site or application content here -->
         <div class="container" ng-controller="MainCtrl">
 
-            <div ng-if="userLoaded" ng-controller="AnnouncementCtrl">
-                <alert type="info" ng-if="announcement.length > 0" ng-bind-html="announcement[0].post_content"></alert>
-            </div>
-
-
             <div class="header">
                 <ul class="nav nav-pills pull-right" ng-controller="NavCtrl" ng-if="loggedIn" ng-cloak>
                     <li ng-class="setActiveIfPath('/')"><a ui-sref="home">Home</a></li>
@@ -64,6 +59,10 @@
                 <a class="btn btn-success pull-right" ui-sref="login" role="button" ng-if="loggedIn === false && userLoaded" ng-cloak>Log In</a>
                 <a class="btn btn-default pull-right mr10" ui-sref="user.register" role="button" ng-if="loggedIn === false && userLoaded" ng-cloak>Register</a>
                 <a ui-sref="home"><img src="images/aoi_logo.jpg" alt="Logo" class="img-responsive" id="logo"/></a>
+            </div>
+
+            <div ng-controller="AnnouncementCtrl" ng-if="userLoaded">
+                <alert type="info" ng-if="announcement.length > 0" ng-bind-html="announcement[0].post_content" class="multi-line-text"></alert>
             </div>
 
             <div class="loading-spinner text-center" ng-if="!userLoaded">
@@ -171,6 +170,7 @@
                 <script src="ng/components/user/controllers/user_register.js"></script>
                 <script src="ng/components/user/controllers/user_passport.js"></script>
                 <script src="ng/components/user/controllers/user_comments_ctrl.js"></script>
+                <script src="ng/components/user/controllers/user_survey_ctrl.js"></script>
                 <script src="ng/components/user/controllers/user_list.js"></script>
                 <script src="ng/components/user/services/user_service.js"></script>
                 <script src="ng/components/user/services/user_register_service.js"></script>
@@ -192,6 +192,8 @@
 
         <script src="http://underscorejs.org/underscore-min.js"></script>
         <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+
+        <script src="https://backpack.openbadges.org/issuer.js"></script>
 
 </body>
 </html>

@@ -97,6 +97,11 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/user/views/user_passport.html',
         controller: 'UserPassportCtrl'
       })
+      .state('welcome', {
+        url: '/welcome',
+        templateUrl: base + 'ng/components/user/views/user_survey.html',
+        controller: 'UserSurveyCtrl'
+      })
 
 
       .state('group', {

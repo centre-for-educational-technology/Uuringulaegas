@@ -1,0 +1,31 @@
+<div class="register-container center-block">
+    <div class="page-header center">
+        <h1>{{ $root.langStrings.forms.userSurvey.title }}</h1>
+        <small>{{ $root.langStrings.forms.userSurvey.subtitle }}</small>
+    </div>
+
+    <div class="alert alert-success" role="alert" collapse="postingState != 1"> User Registered! Please log in. If you created a Teacher account, please wait for confirmation from the site administrator.</div>
+
+    <div class="alert alert-danger" role="alert" collapse="postingState != 2"> Error! Reason: {{ errors }}</div>
+
+    <form class="form-horizontal" novalidate collapse="postingState == 1">
+        <form-select-multiple label="{{ $root.langStrings.forms.userSurvey.labels.interests }}" options="$root.langStrings.inqAct.domains" model="formData.interests" req="true"></form-select-multiple>
+            
+        <form-textarea id="like_research" label="{{ $root.langStrings.forms.userSurvey.labels.like_research_text }}" rows="7" model="formData.like_research_text"></form-textarea>
+
+        <form-textarea id="evidence_description" label="{{ $root.langStrings.forms.userSurvey.labels.why_ark_text }}" rows="7" model="formData.why_ark_text" req="true"></form-textarea>
+
+        <div class="form-group">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-8">
+                <input class="btn btn-success" type="submit" ng-click="completeSurvey()" ng-disabled="updating" value="{{ $root.langStrings.forms.userSurvey.submit }}" />
+            </div>
+        </div>
+
+    </form>
+
+    <div class="well" ng-if="$root.developerView">
+        <p>UserData model <strong>LiveView</strong> (for debugging only):</p>
+        <pre>{{ userData | json}}</pre>
+    </div>
+</div>
