@@ -174,7 +174,7 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
     return $access;
  }, 10, 3 );
 
-add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $pod ) {
+add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $pod) {
      if ( $pod == 'completed_activity' && current_user_can( 'confirm_completed_activity' )) {
           error_log(print_r($_REQUEST, true));
          $access = true;
@@ -183,6 +183,11 @@ add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $
      } else if ( $pod == 'inq_status' && current_user_can( 'pods_add_inq_status' ) ) {
          $access = true;
      } else if ( $pod == 'inq_evidence' && current_user_can( 'edit_inq_evidence' ) ) {
+         $access = true;
+     } else if ( $pod == 'user' ) {
+         parse_str(file_get_contents("php://input"),$post_vars);
+         error_log(print_r($post_vars, true));
+         error_log(print_r($method, true));
          $access = true;
      }
 
@@ -262,10 +267,8 @@ add_action('wp_ajax_nopriv_log_in', 'log_in');
 add_action('wp_ajax_log_out', 'log_out');
 add_action('wp_ajax_nopriv_log_out', 'not_logged_in_error');
 
-// Deprecated, return_logged_in_user returns nonce as a parameter
-add_action('wp_ajax_get_nonce', 'return_nonce');
-add_action('wp_ajax_nopriv_get_nonce', 'not_logged_in_error');
-
+add_action('wp_ajax_log_in_social', 'already_logged_in_error');
+add_action('wp_ajax_nopriv_log_in_social', 'log_in_social');
 // Declare global nonce variable
 $nonce;
 
@@ -298,6 +301,10 @@ function log_in(){
         echo $user->id;
     }
     die();
+}
+
+function log_in_social() {
+    wsl_process_login();
 }
 
 function log_out(){

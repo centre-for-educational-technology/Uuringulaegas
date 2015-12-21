@@ -25,6 +25,9 @@ angular.module("arkofinquiryApp")
           return str.join("&");
         }
       },
+      login_social: {
+        method: 'POST'
+      },
       logout: {
         method: 'POST',
         params: {

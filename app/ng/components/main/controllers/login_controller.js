@@ -30,6 +30,12 @@ angular.module('arkofinquiryApp')
       })
     };
 
+    $scope.login_fb = function(){
+      LoginService.login_social({action: 'log_in_social'}, function(success){
+        console.log('jei');
+      })
+    };
+
     function showTitlePage(){
       $location.path('/');
       // $scope.$apply(); // Needed (just in case) for Angular to recognize change in path
