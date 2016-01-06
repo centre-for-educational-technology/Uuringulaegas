@@ -304,6 +304,7 @@ function log_in(){
 }
 
 function log_in_social() {
+    error_log(print_r('trying login', true));
     wsl_process_login();
 }
 
@@ -331,3 +332,15 @@ function return_nonce(){
     echo $nonce;
     die();
 }
+
+/*
+ * Main wordpress redirect to app
+ */
+
+function redirect_homepage() {
+    if( is_home() || is_front_page() ) {
+        wp_redirect( site_url( '/..' ), 301 );
+    }
+    exit;
+}
+add_action( 'template_redirect', 'redirect_homepage' );

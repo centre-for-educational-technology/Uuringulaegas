@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-4">
         <img ng-src='{{ gravatarUrl(user) }}' alt="User profile picture" class="img-responsive img-circle center-block">
-        <h3 class="text-center">{{ user.full_name }}</h3>
+        <h3 class="text-center">{{ user.display_name }}</h3>
             <h3 class="text-center"><span class="label" ng-class="{ 'label-primary': user.roles[0] == 'learner', 'label-danger': user.roles[0] == 'teacher' }">{{ $root.langStrings.user.roles[user.roles[0]] }}</span></h3>
         <hr/>
         <h4>Badges</h4>

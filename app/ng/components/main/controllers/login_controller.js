@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('LoginCtrl', function ($scope, $rootScope, LoginService, $location) {
+  .controller('LoginCtrl', function ($scope, $rootScope, LoginService, $location, $window, appConfig) {
 
     $scope.loginData = {
       remember: false,
@@ -31,9 +31,11 @@ angular.module('arkofinquiryApp')
     };
 
     $scope.login_fb = function(){
-      LoginService.login_social({action: 'log_in_social'}, function(success){
-        console.log('jei');
-      })
+      $window.location.href = appConfig.apiUrl + 'wp-login.php?action=wordpress_social_authenticate&mode=login&provider=Facebook';
+    };
+
+    $scope.login_google = function(){
+      $window.location.href = appConfig.apiUrl + 'wp-login.php?action=wordpress_social_authenticate&mode=login&provider=Google';
     };
 
     function showTitlePage(){
