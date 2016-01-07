@@ -1,58 +1,58 @@
 <div class="row">
     <div class="col-sm-3">
-        <img src="../../../../../images/yeoman.png" alt="Group cover picture" class="img-responsive center-block">
+        <img src="images/yeoman.png" alt="Group cover picture" class="img-responsive center-block">
         <h3 class="text-center">{{ group.name }}</h3>
         <p class="text-muted">{{ group.description }}</p>
         <div>
-            <p><strong>Domains: </strong>
+            <p><strong>{{ $root.langStrings.group.infoPage.domains }}: </strong>
             <span class="label label-primary label-spaced" ng-repeat="domain in group.domains">{{ $root.langStrings.inqAct.domains[domain] }}</span></p>
         </div>
         <hr/>
     </div>
     <div class="col-sm-6">
-        <h4>Group Activity</h4>
+        <h4>{{ $root.langStrings.group.infoPage.feed }}</h4>
         <spinner collapse="!loadingInqLog"></spinner>
 
         <div class="activity-feed-row" ng-repeat="log in inqLog | orderBy:'created':true">
             <!-- User own actions -->
             <div ng-if="_.contains(['4','8'], log.status)">
                 <img ng-src='{{ gravatarUrl(log.learner) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
-                <span>{{ log.learner.display_name }} {{ $root.langStrings.inqLog.groupPageStatus[log.status] }}
+                <span>{{ ::log.learner.display_name }} {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
                     <small class="text-muted">
-                        <small>{{ log.inq_activity[0].post_title }}</small>
+                        <small>{{ ::log.inq_activity[0].post_title }}</small>
                     </small>
                 </span>
-                <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
+                <footer class="text-muted"><small>- {{ ::log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
             </div>
             <!-- User completed activity -->
             <div ng-if="log.status == 5">
                 <img ng-src='{{ gravatarUrl(log.learner) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
-                <span>{{ log.learner.display_name }} {{ $root.langStrings.inqLog.groupPageStatus[log.status] }}
+                <span>{{ ::log.learner.display_name }} {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
                     <small class="text-muted">
-                        <small>{{ log.inq_activity[0].post_title }}</small>
+                        <small>{{ ::log.inq_activity[0].post_title }}</small>
                     </small>
                 </span>
-                <button ng-if="$root.currentUserData.userRole == 'learner'" class="btn btn-primary btn-xs" type="button" ng-click="openPeerReviewModal(log)">Submit Peer review</button>
-                <button ng-if="$root.currentUserData.userRole == 'teacher'" class="btn btn-primary btn-xs" type="button" ng-click="openTeacherReviewModal(log)">Submit Review</button>
+                <button ng-if="$root.currentUserData.userRole == 'learner'" class="btn btn-primary btn-xs" type="button" ng-click="openPeerReviewModal(log)">{{ $root.langStrings.group.infoPage.peerReviewButton }}</button>
+                <button ng-if="$root.currentUserData.userRole == 'teacher'" class="btn btn-primary btn-xs" type="button" ng-click="openTeacherReviewModal(log)">{{ $root.langStrings.group.infoPage.reviewButton }}</button>
                 <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
             </div>
 
             <!-- Teacher actions for learner -->
             <div ng-if="_.contains(['1','3','7'], log.status)" class="text-right">
                 <img ng-src='{{ gravatarUrl(log.teacher) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
-                <span>{{ log.teacher.display_name }} {{ $root.langStrings.inqLog.groupPageStatus[log.status] }}
+                <span>{{ ::log.teacher.display_name }} {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
                     <small class="text-muted">
-                        <small>{{ log.inq_activity[0].post_title }}</small>
-                    </small> for {{ log.learner.display_name }}
+                        <small>{{ ::log.inq_activity[0].post_title }}</small>
+                    </small> for {{ ::log.learner.display_name }}
                 </span>
-                <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yyyy HH:mm'}}</small></footer>
+                <footer class="text-muted"><small>- {{ ::log.created | date : 'dd.MM.yyyy HH:mm'}}</small></footer>
             </div>
 
             <!-- Peer actions for learner -->
             <div ng-if="log.status == 6" class="text-right">
                 <img ng-src='{{ gravatarUrl(log.peer) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
-                <span>{{ log.peer.display_name }} {{ $root.langStrings.inqLog.groupPageStatus[log.status] }} <small class="text-muted"><small>{{ log.inq_activity[0].post_title }}</small></small> for {{ log.learner.display_name }}</span>
-                <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
+                <span>{{ ::log.peer.display_name }} {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }} <small class="text-muted"><small>{{ ::log.inq_activity[0].post_title }}</small></small> for {{ ::log.learner.display_name }}</span>
+                <footer class="text-muted"><small>- {{ ::log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
 
             </div>
 
@@ -64,7 +64,7 @@
 
 
     <div class="col-sm-3">
-        <h4>Teachers</h4>
+        <h4>{{ $root.langStrings.group.infoPage.teachers }}</h4>
         <div ng-repeat="teacher in group.teachers">
             <a ui-sref="user.details({ id: teacher.ID })">
                 <img ng-src='{{ teacher.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle group-user-grid-pic mr10" ng-click="showUserProfile(teacher.ID)">
@@ -75,10 +75,10 @@
 
         <hr/>
 
-        <button type="button" class="btn btn-success btn-block" ng-if="$root.currentUserData.userRole == 'learner' && !pending && !loadingLearners && !alreadyJoined" ng-click="joinGroup()" ng-disabled="updating">Join group</button>
-        <alert type="info" ng-if="pending">Your join request is waiting for confirmation by the teacher</alert>
+        <button type="button" class="btn btn-success btn-block" ng-if="$root.currentUserData.userRole == 'learner' && !pending && !loadingLearners && !alreadyJoined" ng-click="joinGroup()" ng-disabled="updating">{{ $root.langStrings.group.infoPage.joinButton }}</button>
+        <alert type="info" ng-if="pending">{{ $root.langStrings.group.infoPage.pending }}</alert>
 
-        <h4>Learners</h4>
+        <h4>{{ $root.langStrings.group.infoPage.learners }}</h4>
         <div class="group-user-grid-pic" ng-repeat="learner in group.learners">
             <img ng-src='{{ learner.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle group-profile-link" tooltip="{{ learner.display_name }}" ng-click="showUserProfile(learner.ID)">
         </div>
@@ -86,19 +86,19 @@
         <hr/>
 
         <div ng-if="$root.currentUserData.userRole == 'teacher'">
-            <h4>Wait list</h4>
+            <h4>{{ $root.langStrings.group.infoPage.waitlist }}</h4>
             <div ng-repeat="learner in group.wait_list">
                 <a ui-sref="user.details({ id: learner.ID })">
                     <img ng-src='{{ learner.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle group-user-grid-pic mr10" ng-click="showUserProfile(learner.ID)">
                     <b style="line-height: 20px" class="group-profile-link">{{ learner.display_name }}</b>
                 </a><p>
-                        <button class="btn btn-success btn-xs" ng-click="acceptWaitList(learner.ID, $index)" ng-disabled="updating">Accept</button>
-                        <button class="btn btn-danger btn-xs" ng-click="declineWaitList(learner.ID, $index)" ng-disabled="updating">Decline</button>
+                        <button class="btn btn-success btn-xs" ng-click="acceptWaitList(learner.ID, $index)" ng-disabled="updating">{{ $root.langStrings.group.infoPage.acceptButton }}</button>
+                        <button class="btn btn-danger btn-xs" ng-click="declineWaitList(learner.ID, $index)" ng-disabled="updating">{{ $root.langStrings.group.infoPage.declineButton }}</button>
                     </p>
 
                 <div class="clearfix"></div>
             </div>
-            <div ng-if="group.wait_list.length == 0">No pending requests</div>
+            <div ng-if="group.wait_list.length == 0">{{ $root.langStrings.group.infoPage.noPending }}</div>
         </div>
     </div>
 </div>

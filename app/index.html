@@ -41,23 +41,23 @@
 
             <div class="header">
                 <ul class="nav nav-pills pull-right" ng-controller="NavCtrl" ng-if="loggedIn" ng-cloak>
-                    <li ng-class="setActiveIfPath('/')"><a ui-sref="home">Home</a></li>
-                    <li ng-class="setActiveIfPath('/help')"><a ui-sref="help">Help</a></li>
-                    <li ng-class="setActiveIfPath('/inq_act')"><a ui-sref="inq_act.main.list">Inquiry Activities</a></li>
-                    <li ng-class="setActiveIfPath('/group')"><a ui-sref="group.main.list">Groups</a></li>
+                    <li ng-class="setActiveIfPath('/')"><a ui-sref="home">{{ ::$root.langStrings.mainMenu.home }}</a></li>
+                    <li ng-class="setActiveIfPath('/help')"><a ui-sref="help">{{ ::$root.langStrings.mainMenu.help }}</a></li>
+                    <li ng-class="setActiveIfPath('/inq_act')"><a ui-sref="inq_act.main.list">{{ ::$root.langStrings.mainMenu.inqAct }}</a></li>
+                    <li ng-class="setActiveIfPath('/group')"><a ui-sref="group.main.list">{{ ::$root.langStrings.mainMenu.groups }}</a></li>
 
                     <li ng-class="setActiveIfPath('/user')" role="presentation" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ $root.currentUserData.userDisplayName }}<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a ng-click="showProfile($root.currentUserData.userID)">Show profile</a></li>
-                            <li><a ng-click="logout()">Logout</a></li>
+                            <li><a ng-click="showProfile($root.currentUserData.userID)">{{ ::$root.langStrings.mainMenu.showProfile }}</a></li>
+                            <li><a ng-click="logout()">{{ ::$root.langStrings.mainMenu.logout }}</a></li>
                         </ul>
                     </li>
                 </ul>
-                <a class="btn btn-success pull-right" ui-sref="login" role="button" ng-if="loggedIn === false && userLoaded" ng-cloak>Log In</a>
-                <a class="btn btn-default pull-right mr10" ui-sref="user.register" role="button" ng-if="loggedIn === false && userLoaded" ng-cloak>Register</a>
+                <a class="btn btn-success pull-right" ui-sref="login" role="button" ng-if="loggedIn === false && userLoaded" ng-cloak>{{ ::$root.langStrings.mainMenu.login }}</a>
+                <a class="btn btn-default pull-right mr10" ui-sref="user.register" role="button" ng-if="loggedIn === false && userLoaded" ng-cloak>{{ ::$root.langStrings.mainMenu.register }}</a>
                 <a ui-sref="home"><img src="images/aoi_logo.jpg" alt="Logo" class="img-responsive" id="logo"/></a>
             </div>
 
@@ -66,7 +66,7 @@
             </div>
 
             <div class="loading-spinner text-center" ng-if="!userLoaded">
-                <h3 class="text-muted">Loading...</h3>
+                <h3 class="text-muted">{{ ::$root.langStrings.mainMenu.loading }}...</h3>
                 <img src="images/loading_flower_grey.gif" alt="Loading spinner"/>
             </div>
 

@@ -1,7 +1,7 @@
 <div class="form-inline text-right mt20">
     <div class="form-group">
-        <label for="filterInput">Filter by group or teacher name</label>
-        <input type="text" class="form-control" id="filterInput" placeholder="Teacher or group name" ng-model="groupFilterText">
+        <label for="filterInput">{{ $root.langStrings.group.listPage.filter }}</label>
+        <input type="text" class="form-control" id="filterInput" placeholder="{{ $root.langStrings.group.filterPlaceholder }}" ng-model="groupFilterText">
     </div>
 </div>
 <br/>
@@ -9,6 +9,6 @@
 <div class="list-group">
   <a class="list-group-item" ng-repeat="group in groupList | orderBy:'id':true | filter:groupFilterText" ng-click="showGroupPage(group)">
     <h4 class="list-group-item-heading">{{ group.name }}</h4>
-    <p class="list-group-item-text">Teacher: {{ group.author.display_name }}</p>
+    <p class="list-group-item-text">{{ $root.langStrings.group.listPage.teacher }}: {{ group.author.display_name }}</p>
   </a>
 </div>

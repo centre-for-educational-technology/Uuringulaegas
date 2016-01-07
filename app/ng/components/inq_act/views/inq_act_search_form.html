@@ -1,26 +1,26 @@
 <form class="form-horizontal" novalidate collapse="searchFormHide">
-    <form-input-text id="phrase" label="Search phrase" model="formData.phrase"></form-input-text>
+    <form-input-text id="phrase" label="{{ ::$root.langStrings.forms.inqAct.searchLabels.searchPhrase }}" model="formData.phrase"></form-input-text>
 <!--
     <form-tags-input label="Keywords" model="formData.keywords" display-property="name" placeholder="Add keywords" autocomplete-source="loadKeywords(q)" autocomplete-only="true"></form-tags-input>-->
 
-    <form-input-checkbox name="location" label="Location" model="formData.location" options="$root.langStrings.inqAct.location"></form-input-checkbox>
+    <form-input-checkbox name="location" label="{{ ::$root.langStrings.forms.inqAct.labels.location }}" model="formData.location" options="$root.langStrings.inqAct.location"></form-input-checkbox>
 
-    <form-select-multiple label="Domain" options="$root.langStrings.inqAct.domains" model="formData.domains"></form-select-multiple>
+    <form-select-multiple label="{{ ::$root.langStrings.forms.inqAct.labels.domains }}" options="$root.langStrings.inqAct.domains" model="formData.domains"></form-select-multiple>
 
-    <form-select label="Language" options="formOptions.languages" model="formData.language"></form-select>
+    <form-select label="{{ ::$root.langStrings.forms.inqAct.labels.language }}" options="formOptions.languages" model="formData.language"></form-select>
 
-    <form-select id="level" label="Overall proficiency level" options="formOptions.proficiencyLevels" model="formData.proficiency_level"></form-select>
+    <form-select id="level" label="{{ ::$root.langStrings.forms.inqAct.labels.level }}" options="formOptions.proficiencyLevels" model="formData.proficiency_level"></form-select>
 
     <div class="form-group">
-        <label class="col-sm-4 control-label">Proficiency level for inquiry phases <span ng-show="req">*</span></label>
+        <label class="col-sm-4 control-label">{{ ::$root.langStrings.forms.inqAct.labels.levelPhases }} <span ng-show="req">*</span></label>
         <div class="col-sm-8">
             <table class="table">
                 <tr>
                     <th></th>
-                    <th>Phase</th>
-                    <th>Level A (basic)</th>
-                    <th>Level B (advanced)</th>
-                    <th>Level C (expert)</th>
+                    <th>{{ ::$root.langStrings.forms.inqAct.labels.phase }}</th>
+                    <th>{{ ::$root.langStrings.forms.inqAct.labels.phases.novice }}</th>
+                    <th>{{ ::$root.langStrings.forms.inqAct.labels.phases.basic }}</th>
+                    <th>{{ ::$root.langStrings.forms.inqAct.labels.phases.advanced }}</th>
                 </tr>
                 <tr ng-repeat="(key, value) in $root.langStrings.inqAct.coveredPhases">
                     <td><input type="checkbox" ng-model="phaseCheckboxes[key]"/></td>
@@ -34,29 +34,29 @@
         </div>
     </div>
 
-    <form-input-checkbox name="location" label="Other filters" model="formData.other" options="$root.langStrings.inqAct.search.otherFilters"></form-input-checkbox>
+    <form-input-checkbox name="location" label="{{ ::$root.langStrings.forms.inqAct.searchLabels.otherFilters }}" model="formData.other" options="$root.langStrings.inqAct.search.otherFilters"></form-input-checkbox>
 
-    <form-range-slider indent="true" label="Age Range" id="range" model-from="formData.age_range.from" model-to="formData.age_range.to" min="6" max="20" collapse="!_.contains(formData.other, 0)"></form-range-slider>
+    <form-range-slider indent="true" label="{{ ::$root.langStrings.forms.inqAct.labels.age }}" id="range" model-from="formData.age_range.from" model-to="formData.age_range.to" min="6" max="20" collapse="!_.contains(formData.other, 0)"></form-range-slider>
 
-    <form-input-text indent="true" id="learning_time_from" label="Learning Time From" model="formData.learning_time.from" collapse="!_.contains(formData.other, 1)"></form-input-text>
+    <form-input-text indent="true" id="learning_time_from" label="{{ ::$root.langStrings.forms.inqAct.searchLabels.learningTimeFrom }}" model="formData.learning_time.from" collapse="!_.contains(formData.other, 1)"></form-input-text>
 
-    <form-input-text indent="true" id="learning_time_from" label="Learning Time To" model="formData.learning_time.to" collapse="!_.contains(formData.other, 1)"></form-input-text>
+    <form-input-text indent="true" id="learning_time_from" label="{{ ::$root.langStrings.forms.inqAct.searchLabels.learningTimeTo }}" model="formData.learning_time.to" collapse="!_.contains(formData.other, 1)"></form-input-text>
 
     <div class="form-group">
         <div class="col-sm-4"></div>
         <div class="col-sm-8">
-            <button class="btn btn-success" type="submit" ng-click="searchActivities()" ng-disabled="updating">Search</button>
+            <button class="btn btn-success" type="submit" ng-click="searchActivities()" ng-disabled="updating">{{ ::$root.langStrings.forms.inqAct.searchLabels.searchButton }}</button>
         </div>
     </div>
 
 </form>
 
-<button class="btn btn-primary pull-right" ng-click="showSearchForm()" ng-if="searchFormHide">Show search form <span class="glyphicon glyphicon-chevron-down"></span></button>
+<button class="btn btn-primary pull-right" ng-click="showSearchForm()" ng-if="searchFormHide">{{ ::$root.langStrings.forms.inqAct.searchLabels.showSearch }} <span class="glyphicon glyphicon-chevron-down"></span></button>
 <br/>
 <br/>
 
 <div class="alert alert-warning" role="alert" collapse="searchResults.length > 0 || !searchResults">
-    There are no activities matching your search.
+    {{ ::$root.langStrings.forms.inqAct.searchLabels.noResults }}
 </div>
 
 <div class="list-group">

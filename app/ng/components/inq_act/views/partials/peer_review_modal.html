@@ -1,23 +1,23 @@
 <div class="modal-header">
-    <h3 class="modal-title">Submit peer review</h3>
+    <h3 class="modal-title">{{ ::$root.langStrings.inqAct.modals.submitPeerReview.title }}</h3>
 </div>
 <div class="modal-body">
     <dl class="dl-horizontal">
-        <dt>Activity</dt>
-        <dd>{{ log.inq_activity[0].post_title }}</dd>
+        <dt>{{ ::$root.langStrings.inqAct.modals.submitPeerReview.activity }}</dt>
+        <dd>{{ ::log.inq_activity[0].post_title }}</dd>
         <div ng-if="evidence[0].evidence_link">
-            <dt>Evidence link</dt>
-            <dd><a href="{{ evidence[0].evidence_link }}" target="_blank">{{ evidence[0].evidence_link }}</a></dd>
+            <dt>{{ ::$root.langStrings.inqAct.modals.submitPeerReview.evidenceLink }}</dt>
+            <dd><a href="{{ ::evidence[0].evidence_link }}" target="_blank">{{ ::evidence[0].evidence_link }}</a></dd>
         </div>
         <div ng-if="evidence[0].evidence_text">
-            <dt>Evidence info</dt>
-            <dd>{{ evidence[0].evidence_text }}</dd>
+            <dt>{{ ::$root.langStrings.inqAct.modals.submitPeerReview.evidenceInfo }}</dt>
+            <dd>{{ ::evidence[0].evidence_text }}</dd>
         </div>
     </dl>
     <hr/>
     <form name="form" novalidate>
         <div class="form-group">
-            <label for="rating">Rating</label>
+            <label for="rating">{{ ::$root.langStrings.inqAct.modals.submitPeerReview.rating }}</label>
             <div id="rating">
                 <label class="radio-inline">
                     <input type="radio" name="rating" ng-value="1" ng-model="review.rating" required> 1
@@ -31,12 +31,12 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="reviewText">Review</label>
+            <label for="reviewText">{{ ::$root.langStrings.inqAct.modals.submitPeerReview.review }}</label>
             <textarea class="form-control" rows="10" id="reviewText" name="reviewText" ng-model="review.post_content" required></textarea>
         </div>
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="accept()" ng-disabled="form.rating.$invalid || form.reviewText.$invalid || updating">Submit review</button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-click="accept()" ng-disabled="form.rating.$invalid || form.reviewText.$invalid || updating">{{ ::$root.langStrings.inqAct.modals.submitPeerReview.submitButton }}</button>
+    <button class="btn btn-warning" ng-click="cancel()">{{ ::$root.langStrings.inqAct.modals.submitEvidence.cancelButton }}</button>
 </div>

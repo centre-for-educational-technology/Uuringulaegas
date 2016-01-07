@@ -1,19 +1,19 @@
 <div class="modal-header">
-  <h3 class="modal-title">Submit evidence</h3>
+  <h3 class="modal-title">{{ ::$root.langStrings.inqAct.modals.submitEvidence.title }}</h3>
 </div>
 <div class="modal-body">
   <form name="form" novalidate>
     <div class="form-group">
-      <label for="evidenceLink">Web Link</label>
-      <input type="url" class="form-control" id="evidenceLink" name="evidenceLink" placeholder="Web link" ng-model="evidence.evidence_link" required>
+      <label for="evidenceLink">{{ ::$root.langStrings.inqAct.modals.submitEvidence.link }}</label>
+      <input type="url" class="form-control" id="evidenceLink" name="evidenceLink" placeholder="{{ ::$root.langStrings.inqAct.modals.submitEvidence.linkPlaceholder }}" ng-model="evidence.evidence_link" required>
     </div>
     <div class="form-group">
-      <label for="evidenceText">Comments or other info</label>
-      <textarea class="form-control" rows="5" id="evidenceText" name="evidenceText" placeholder="Text content" ng-model="evidence.evidence_text" required></textarea>
+      <label for="evidenceText">{{ ::$root.langStrings.inqAct.modals.submitEvidence.info }}</label>
+      <textarea class="form-control" rows="5" id="evidenceText" name="evidenceText" placeholder="{{ ::$root.langStrings.inqAct.modals.submitEvidence.infoPlaceholder }}" ng-model="evidence.evidence_text" required></textarea>
     </div>
   </form>
 </div>
 <div class="modal-footer">
-  <button class="btn btn-primary" ng-click="accept()" ng-disabled="form.evidenceLink.$invalid && form.evidenceText.$invalid || updating">Complete activity</button>
-  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  <button class="btn btn-primary" ng-click="accept()" ng-disabled="form.evidenceLink.$invalid && form.evidenceText.$invalid || updating">{{ ::$root.langStrings.inqAct.modals.submitEvidence.submitButton }}</button>
+  <button class="btn btn-warning" ng-click="cancel()">{{ ::$root.langStrings.inqAct.modals.submitEvidence.cancelButton }}</button>
 </div>

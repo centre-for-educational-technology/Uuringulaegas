@@ -1,42 +1,42 @@
 <div class="register-container center-block">
   <div class="page-header center">
-    <h1>Sign up for your account</h1>
-    <small>You are able to change entered information later</small>
+    <h1>{{ ::$root.langStrings.forms.userRegister.title }}</h1>
+    <small>{{ ::$root.langStrings.forms.userRegister.subtitle }}</small>
   </div>
 
-  <div class="alert alert-success" role="alert" collapse="postingState != 1"> User Registered! Please log in. If you created a Teacher account, please wait for confirmation from the site administrator.</div>
+  <div class="alert alert-success" role="alert" collapse="postingState != 1"> {{ ::$root.langStrings.forms.userRegister.alertSuccess }}</div>
 
-  <div class="alert alert-danger" role="alert" collapse="postingState != 2"> Error! Reason: {{ errors }}</div>
+  <div class="alert alert-danger" role="alert" collapse="postingState != 2"> {{ ::$root.langStrings.forms.userRegister.alertError }} </div>
 
   <form class="form-horizontal" novalidate collapse="postingState == 1">
-    <form-input-text id="full_name" label="Full Name" model="userData.extra.full_name" req="true"></form-input-text>
+    <form-input-text id="full_name" label="{{ ::$root.langStrings.forms.userRegister.labels.full_name }}" model="userData.extra.full_name" req="true"></form-input-text>
 
-    <form-input-email id="email" label="Email" model="userData.email" req="true" help-text="This will also be used as your username to log in"></form-input-email>
+    <form-input-email id="email" label="{{ ::$root.langStrings.forms.userRegister.labels.email }}" model="userData.email" req="true" help-text="{{ ::$root.langStrings.forms.userRegister.labels.emailHelp }}"></form-input-email>
 
-    <form-input-password id="password" label="Password" model="userData.password" req="true"></form-input-password>
+    <form-input-password id="password" label="{{ ::$root.langStrings.forms.userRegister.labels.password }}" model="userData.password" req="true"></form-input-password>
 
-    <form-select id="user_type" label="Type of User" options="formOptions.roles" model="userData.extra.user_type" req="true"></form-select>
+    <form-select id="user_type" label="{{ ::$root.langStrings.forms.userRegister.labels.userType }}" options="formOptions.roles" model="userData.extra.user_type" req="true"></form-select>
 
     <hr/>
 
-    <form-date-picker id="birth_date" label="Date of Birth" model="userData.extra.date_of_birth" mode="datePickerMode" is-open="datePickerOpened" options="datePickerOptions" max-date="todayDate" open="openDatePicker(ev)" req="true"></form-date-picker>
+    <form-date-picker id="birth_date" label="{{ ::$root.langStrings.forms.userRegister.labels.birthDate }}" model="userData.extra.date_of_birth" mode="datePickerMode" is-open="datePickerOpened" options="datePickerOptions" max-date="todayDate" open="openDatePicker(ev)" req="true"></form-date-picker>
 
-    <form-select id="sex" label="Sex" options="formOptions.sex" model="userData.extra.sex" req="true"></form-select>
+    <form-select id="sex" label="{{ ::$root.langStrings.forms.userRegister.labels.sex }}" options="formOptions.sex" model="userData.extra.sex" req="true"></form-select>
 
-    <form-select id="country" label="Country of Residence" options="$root.langStrings.user.countries" model="userData.extra.country_of_residence" req="true"></form-select>
+    <form-select id="country" label="{{ ::$root.langStrings.forms.userRegister.labels.country }}" options="$root.langStrings.user.countries" model="userData.extra.country_of_residence" req="true"></form-select>
 
-    <form-input-text id="city" label="City of Residence" model="userData.extra.city_of_residence" req="true"></form-input-text>
+    <form-input-text id="city" label="{{ ::$root.langStrings.forms.userRegister.labels.city }}" model="userData.extra.city_of_residence" req="true"></form-input-text>
 
-    <form-select id="preferred_language" label="Preferred Language" options="$root.langStrings.inqAct.languages" model="userData.extra.preferred_language" req="true"></form-select>
+    <form-select id="preferred_language" label="{{ ::$root.langStrings.forms.userRegister.labels.preferredLanguage }}" options="$root.langStrings.inqAct.languages" model="userData.extra.preferred_language" req="true"></form-select>
 
-    <form-select-multiple label="Additional Languages" options="$root.langStrings.inqAct.languages" model="userData.extra.additional_languages"></form-select-multiple>
+    <form-select-multiple label="{{ ::$root.langStrings.forms.userRegister.labels.additionalLanguages }}" options="$root.langStrings.inqAct.languages" model="userData.extra.additional_languages"></form-select-multiple>
 
 
 
     <div class="form-group">
       <div class="col-sm-4"></div>
       <div class="col-sm-8">
-        <input class="btn btn-success" type="submit" ng-click="registerUser(user)" ng-disabled="updating" value="Sign Up" />
+        <input class="btn btn-success" type="submit" ng-click="registerUser(user)" ng-disabled="form.$invalid || updating" value="{{ ::$root.langStrings.forms.userRegister.submit }}" />
       </div>
     </div>
 

@@ -1,16 +1,16 @@
 <div role="tabpanel">
     <ul class="nav nav-tabs">
         <li role="presentation" ui-sref-active="active">
-            <a ui-sref=".view" aria-controls="info">Group info</a>
+            <a ui-sref=".view" aria-controls="info">{{ ::$root.langStrings.group.infoPage.infoTab }}</a>
         </li>
         <li role="presentation" ui-sref-active="active">
-            <a ui-sref=".comments" aria-controls="comments">Comments</a>
+            <a ui-sref=".comments" aria-controls="comments">{{ ::$root.langStrings.group.infoPage.commentsTab }}</a>
         </li>
         <li role="presentation" ui-sref-active="active">
-            <a ui-sref=".act" aria-controls="activities">Recommended activities</a>
+            <a ui-sref=".act" aria-controls="activities">{{ ::$root.langStrings.group.infoPage.recActTab }}</a>
         </li>
         <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher' && allowedToEdit">
-            <a ui-sref=".edit" aria-controls="settings">Settings</a>
+            <a ui-sref=".edit" aria-controls="settings">{{ ::$root.langStrings.group.infoPage.settingsTab }}</a>
         </li>
     </ul>
     <div ui-view="" class="mt20 pb20"></div>

@@ -1,11 +1,11 @@
 <div class="page-header center">
-  <h1>Users</h1>
-  <small>Click on User to see his/her Passport Page</small>
+  <h1>{{ ::$root.langStrings.user.listPage.title }}</h1>
+  <small>{{ ::$root.langStrings.user.listPage.subtitle }}</small>
 </div>
 
 <div class="list-group">
   <a class="list-group-item" ng-repeat="user in userList | orderBy:'id':true" ng-click="showPassport(user)">
-    <h4 class="list-group-item-heading">{{ user.full_name }}</h4>
-    <p class="list-group-item-text">{{ user.user_email }}</p>
+    <h4 class="list-group-item-heading">{{ ::user.full_name }}</h4>
+    <p class="list-group-item-text">{{ ::user.user_email }}</p>
   </a>
 </div>
