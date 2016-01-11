@@ -73,6 +73,9 @@ angular.module('arkofinquiryApp')
         query += 't.post_title LIKE "%' + form.phrase + '%"'
       }
 
+      query = extendQuery();
+      query += 'age_range_from.meta_value>=' + form.age_range.from + ' AND age_range_to.meta_value<=' + form.age_range.to;
+
       if(isInArray(form.location, 0)){
         query = extendQuery();
         query += 'location.meta_value=0';
@@ -114,11 +117,6 @@ angular.module('arkofinquiryApp')
         }
       }
 
-      if(isInArray(form.other, 0)){
-        query = extendQuery();
-        query += 'age_range_from.meta_value>=' + form.age_range.from + ' AND age_range_to.meta_value<=' + form.age_range.to;
-      }
-
       if(isInArray(form.other, 1)){
         query = extendQuery();
         query += 'learning_time.meta_value BETWEEN ' + form.learning_time.from + ' AND ' + form.learning_time.to;
@@ -130,7 +128,7 @@ angular.module('arkofinquiryApp')
       }
 
 
-      console.log(query);
+      //console.log(query);
 
       InquiryActivityService.fullSearch({query: query}, function(response){
         $scope.searchResults = response;

@@ -3,6 +3,8 @@
 <!--
     <form-tags-input label="Keywords" model="formData.keywords" display-property="name" placeholder="Add keywords" autocomplete-source="loadKeywords(q)" autocomplete-only="true"></form-tags-input>-->
 
+    <form-range-slider label="{{ ::$root.langStrings.forms.inqAct.labels.age }}" id="range" model-from="formData.age_range.from" model-to="formData.age_range.to" min="6" max="20"></form-range-slider>
+
     <form-input-checkbox name="location" label="{{ ::$root.langStrings.forms.inqAct.labels.location }}" model="formData.location" options="$root.langStrings.inqAct.location"></form-input-checkbox>
 
     <form-select-multiple label="{{ ::$root.langStrings.forms.inqAct.labels.domains }}" options="$root.langStrings.inqAct.domains" model="formData.domains"></form-select-multiple>
@@ -36,7 +38,7 @@
 
     <form-input-checkbox name="location" label="{{ ::$root.langStrings.forms.inqAct.searchLabels.otherFilters }}" model="formData.other" options="$root.langStrings.inqAct.search.otherFilters"></form-input-checkbox>
 
-    <form-range-slider indent="true" label="{{ ::$root.langStrings.forms.inqAct.labels.age }}" id="range" model-from="formData.age_range.from" model-to="formData.age_range.to" min="6" max="20" collapse="!_.contains(formData.other, 0)"></form-range-slider>
+
 
     <form-input-text indent="true" id="learning_time_from" label="{{ ::$root.langStrings.forms.inqAct.searchLabels.learningTimeFrom }}" model="formData.learning_time.from" collapse="!_.contains(formData.other, 1)"></form-input-text>
 

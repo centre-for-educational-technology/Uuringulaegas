@@ -28,7 +28,7 @@
       "3": "accepted activity",
       "4": "started activity",
       "5": "completed activity",
-      "6": "reviewed evidence for", // User *reviewed evidence for* Other User
+      "6": "reviewed evidence for",
       "7": "graded activity",
       "8": "received a badge for",
       "9": "Advanced to level",
@@ -100,8 +100,8 @@
       "start": "Start activity",
       "finish": "Mark as completed",
       "viewEvidence": "View evidence",
-      "detailsPanelTitle": "Details", // sidepanel title
-      "tooltipOnline": "Online activity", // tooltips for icons in list view
+      "detailsPanelTitle": "Details",
+      "tooltipOnline": "Online activity",
       "tooltipPhysical": "Physical location"
     },
     "location": {
@@ -183,7 +183,6 @@
     "search": {
       "anyString": "-Any-",
       "otherFilters": {
-        "0": "Age Range",
         "1": "Learning time (Academic hours)",
         "2": "Has strong RRI component?"
       }
@@ -192,7 +191,7 @@
   },
   "forms": {
     "general": {
-      "addMore": "Add more" // Multi-select form fields
+      "addMore": "Add more"
     },
     "inqAct": {
       "title": "Add new inquiry activity",
@@ -211,8 +210,8 @@
         "language": "Languages",
         "level": "Overall proficiency level",
         "levelPhases": "Proficiency level for inquiry phases",
-        "levelString": "level", // used in detail view as an addition to phase name (ex. Orientation *level*)
-        "phase": "Phase", // table heading
+        "levelString": "level",
+        "phase": "Phase",
         "phases": {
           "novice": "Level A (Novice)",
           "basic": "Level B (Basic)",
@@ -292,7 +291,7 @@
       "inqActs": "Inquiry Activities",
       "inqActsPlaceholder": "Add activity...",
       "inqActsHelp": "Type above to search Activities",
-      "level": "Level", // proficiency level
+      "level": "Level",
       "learners": "Learners",
       "learnersPlaceholder": "Add learner...",
       "learnersHelp": "Type above to search learners by Name or Email",
@@ -344,7 +343,7 @@
       "title": "Sign in",
       "fb": "Sign in with Facebook",
       "google": "Sign in with Google",
-      "or": "or", // separator line between social and email login
+      "or": "or",
       "email": "Email address",
       "password": "Password",
       "remember": "Remember me",
@@ -364,7 +363,7 @@
       "tabHeadings": {
         "userFeed": "User feed",
         "activities": "Activities",
-        "subTabs": {// subtab headings for activities tab
+        "subTabs": {
           "started": "Started",
           "completed": "Completed"
         },
