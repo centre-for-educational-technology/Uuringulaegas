@@ -7,8 +7,6 @@
 
     <form-input-checkbox name="location" label="{{ ::$root.langStrings.forms.inqAct.labels.location }}" model="formData.location" options="$root.langStrings.inqAct.location"></form-input-checkbox>
 
-    <form-select-multiple label="{{ ::$root.langStrings.forms.inqAct.labels.domains }}" options="$root.langStrings.inqAct.domains" model="formData.domains"></form-select-multiple>
-
     <form-select label="{{ ::$root.langStrings.forms.inqAct.labels.language }}" options="formOptions.languages" model="formData.language"></form-select>
 
     <form-select id="level" label="{{ ::$root.langStrings.forms.inqAct.labels.level }}" options="formOptions.proficiencyLevels" model="formData.proficiency_level"></form-select>
@@ -36,9 +34,9 @@
         </div>
     </div>
 
-    <form-input-checkbox name="location" label="{{ ::$root.langStrings.forms.inqAct.searchLabels.otherFilters }}" model="formData.other" options="$root.langStrings.inqAct.search.otherFilters"></form-input-checkbox>
+    <form-select-multiple label="{{ ::$root.langStrings.forms.inqAct.labels.domains }}" options="$root.langStrings.inqAct.domains" model="formData.domains"></form-select-multiple>
 
-
+    <form-input-checkbox name="otherfilters" label="{{ ::$root.langStrings.forms.inqAct.searchLabels.otherFilters }}" model="formData.other" options="$root.langStrings.inqAct.search.otherFilters"></form-input-checkbox>
 
     <form-input-text indent="true" id="learning_time_from" label="{{ ::$root.langStrings.forms.inqAct.searchLabels.learningTimeFrom }}" model="formData.learning_time.from" collapse="!_.contains(formData.other, 1)"></form-input-text>
 
