@@ -6,5 +6,5 @@
         </h4>
         <p class="list-group-item-text" ng-bind-html="act.post_content || act.content | limitParagraph"></p>
     </a>
-    <pagination ng-model="currentPage" ng-change="loadPage(currentPage)" total-items="totals.totalActivities" items-per-page="totals.activitiesPerPage" ng-if="!keywordMode"></pagination>
+    <pagination ng-model="currentPage" ng-change="loadPage(currentPage)" total-items="totals.totalActivities" items-per-page="totals.activitiesPerPage" ng-if="!keywordMode" next-text="{{ $root.langStrings.general.nextItem }}" previous-text="{{ $root.langStrings.general.previousItem }}"></pagination>
 </div>

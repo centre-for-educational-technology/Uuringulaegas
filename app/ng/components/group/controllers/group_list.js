@@ -19,6 +19,9 @@ angular.module('arkofinquiryApp')
       $location.path('group/' + group.id)
     };
 
+    $scope.pageSize = 10;
+    $scope.currentPage = 1;
+
 
 
   });

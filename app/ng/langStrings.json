@@ -1,4 +1,8 @@
 {
+  "general": {
+    "nextItem": "Next",
+    "previousItem": "Previous"
+  },
   "mainMenu": {
     "home": "Home",
     "help": "Help",

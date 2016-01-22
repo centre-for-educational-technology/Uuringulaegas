@@ -7,8 +7,11 @@
 <br/>
 
 <div class="list-group">
-  <a class="list-group-item" ng-repeat="group in groupList | orderBy:'id':true | filter:groupFilterText" ng-click="showGroupPage(group)">
+  <a class="list-group-item" ng-repeat="group in filteredList = (groupList | filter:groupFilterText) | orderBy:'id':true | startFrom:currentPage * pageSize - pageSize | limitTo:pageSize" ng-click="showGroupPage(group)">
     <h4 class="list-group-item-heading">{{ group.name }}</h4>
     <p class="list-group-item-text">{{ $root.langStrings.group.listPage.teacher }}: {{ group.author.display_name }}</p>
   </a>
+    <pagination ng-model="currentPage" total-items="_.size(filteredList)" items-per-page="pageSize" next-text="{{ $root.langStrings.general.nextItem }}" previous-text="{{ $root.langStrings.general.previousItem }}"></pagination>
 </div>
+
+
