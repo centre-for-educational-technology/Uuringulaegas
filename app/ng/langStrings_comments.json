@@ -28,7 +28,7 @@
       "3": "accepted activity",
       "4": "started activity",
       "5": "completed activity",
-      "6": "reviewed evidence for",
+      "6": "reviewed evidence for", // User *reviewed evidence for* Other User
       "7": "graded activity",
       "8": "received a badge for",
       "9": "Advanced to level",
@@ -100,8 +100,8 @@
       "start": "Start activity",
       "finish": "Mark as completed",
       "viewEvidence": "View evidence",
-      "detailsPanelTitle": "Details",
-      "tooltipOnline": "Online activity",
+      "detailsPanelTitle": "Details", // sidepanel title
+      "tooltipOnline": "Online activity", // tooltips for icons in list view
       "tooltipPhysical": "Physical location"
     },
     "location": {
@@ -183,6 +183,7 @@
     "search": {
       "anyString": "-Any-",
       "otherFilters": {
+        "0": "Age Range",
         "1": "Learning time (Academic hours)",
         "2": "Has strong RRI component?"
       }
@@ -191,7 +192,7 @@
   },
   "forms": {
     "general": {
-      "addMore": "Add more"
+      "addMore": "Add more" // Multi-select form fields
     },
     "inqAct": {
       "title": "Add new inquiry activity",
@@ -210,8 +211,8 @@
         "language": "Languages",
         "level": "Overall proficiency level",
         "levelPhases": "Proficiency level for inquiry phases",
-        "levelString": "level",
-        "phase": "Phase",
+        "levelString": "level", // used in detail view as an addition to phase name (ex. Orientation *level*)
+        "phase": "Phase", // table heading
         "phases": {
           "novice": "Level A (Novice)",
           "basic": "Level B (Basic)",
@@ -262,14 +263,6 @@
         "preferredLanguage": "Preferred language",
         "additionalLanguages": "Additional languages"
       },
-      "sex": {
-        "1": "Male",
-        "2": "Female"
-      },
-      "roles": {
-        "0": "Learner",
-        "1": "Teacher"
-      },
       "submit": "Sign up"
     },
     "userSurvey": {
@@ -299,7 +292,7 @@
       "inqActs": "Inquiry Activities",
       "inqActsPlaceholder": "Add activity...",
       "inqActsHelp": "Type above to search Activities",
-      "level": "Level",
+      "level": "Level", // proficiency level
       "learners": "Learners",
       "learnersPlaceholder": "Add learner...",
       "learnersHelp": "Type above to search learners by Name or Email",
@@ -351,7 +344,7 @@
       "title": "Sign in",
       "fb": "Sign in with Facebook",
       "google": "Sign in with Google",
-      "or": "or",
+      "or": "or", // separator line between social and email login
       "email": "Email address",
       "password": "Password",
       "remember": "Remember me",
@@ -371,7 +364,7 @@
       "tabHeadings": {
         "userFeed": "User feed",
         "activities": "Activities",
-        "subTabs": {
+        "subTabs": {// subtab headings for activities tab
           "started": "Started",
           "completed": "Completed"
         },

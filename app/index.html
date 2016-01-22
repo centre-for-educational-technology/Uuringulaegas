@@ -62,7 +62,7 @@
             </div>
 
             <div ng-controller="AnnouncementCtrl" ng-if="userLoaded">
-                <alert type="info" ng-if="announcement.length > 0" ng-bind-html="announcement[0].post_content" class="multi-line-text"></alert>
+                <alert type="info" ng-if="announcement[0].post_content.length > 0" ng-bind-html="announcement[0].post_content" class="multi-line-text"></alert>
             </div>
 
             <div class="loading-spinner text-center" ng-if="!userLoaded">

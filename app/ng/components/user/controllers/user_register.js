@@ -10,25 +10,6 @@
 angular.module('arkofinquiryApp')
   .controller('UserRegisterCtrl', function ($scope, $http, $document, UserRegisterService) {
 
-    // Set up form options
-    $scope.formOptions = {
-      languages: {
-        est: 'Estonian',
-        eng: 'English',
-        fin: 'Finnish',
-        rus: 'Russian',
-        ger: 'German'
-      },
-      roles: [
-          'Learner',
-          'Teacher'
-      ],
-      sex: {
-        1: 'Male',
-        2: 'Female'
-      }
-    };
-
     // Set up DatePicker options and declare methods for it
     $scope.datePickerOptions = {
       startingDay: 1,
@@ -81,7 +62,6 @@ angular.module('arkofinquiryApp')
       user.$save(user, function() {
         // success
         $scope.updating = false;
-        console.log("OK"); // -------------------------------------- REMOVE after debugging
 
         resetForm();
         $document.scrollTopAnimated(0).then(function(){
@@ -91,7 +71,6 @@ angular.module('arkofinquiryApp')
         // error
         $scope.updating = false;
         $scope.errors = response;
-        console.log("ERROR"); // -------------------------------------- REMOVE after debugging
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 2; // Error
         });

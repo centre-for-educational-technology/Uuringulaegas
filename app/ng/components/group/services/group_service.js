@@ -9,6 +9,7 @@ angular.module("arkofinquiryApp")
 
   return $resource(appConfig.apiUrl + 'wp-json/pods/group/:id', {}, {
     query: {
+      url: 'wp-json/pods/group?data[limit]=-1',
       method: 'GET',
       isArray: true,
       transformResponse: [angular.fromJson, function(data, headers){

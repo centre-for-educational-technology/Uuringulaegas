@@ -15,13 +15,13 @@
 
     <form-input-password id="password" label="{{ ::$root.langStrings.forms.userRegister.labels.password }}" model="userData.password" req="true"></form-input-password>
 
-    <form-select id="user_type" label="{{ ::$root.langStrings.forms.userRegister.labels.userType }}" options="formOptions.roles" model="userData.extra.user_type" req="true"></form-select>
+    <form-select id="user_type" label="{{ ::$root.langStrings.forms.userRegister.labels.userType }}" options="$root.langStrings.forms.userRegister.roles" model="userData.extra.user_type" req="true"></form-select>
 
     <hr/>
 
     <form-date-picker id="birth_date" label="{{ ::$root.langStrings.forms.userRegister.labels.birthDate }}" model="userData.extra.date_of_birth" mode="datePickerMode" is-open="datePickerOpened" options="datePickerOptions" max-date="todayDate" open="openDatePicker(ev)" req="true"></form-date-picker>
 
-    <form-select id="sex" label="{{ ::$root.langStrings.forms.userRegister.labels.sex }}" options="formOptions.sex" model="userData.extra.sex" req="true"></form-select>
+    <form-select id="sex" label="{{ ::$root.langStrings.forms.userRegister.labels.sex }}" options="$root.langStrings.forms.userRegister.sex" model="userData.extra.sex" req="true"></form-select>
 
     <form-select id="country" label="{{ ::$root.langStrings.forms.userRegister.labels.country }}" options="$root.langStrings.user.countries" model="userData.extra.country_of_residence" req="true"></form-select>
 
