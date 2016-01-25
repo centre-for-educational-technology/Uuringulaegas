@@ -66,7 +66,7 @@
             </div>
 
             <div class="loading-spinner text-center" ng-if="!userLoaded">
-                <h3 class="text-muted">{{ ::$root.langStrings.mainMenu.loading }}...</h3>
+                <h3 class="text-muted" ng-cloak>{{ ::$root.langStrings.mainMenu.loading }}...</h3>
                 <img src="images/loading_flower_grey.gif" alt="Loading spinner"/>
             </div>
 

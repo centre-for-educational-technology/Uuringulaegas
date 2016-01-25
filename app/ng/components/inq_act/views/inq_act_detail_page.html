@@ -1,7 +1,7 @@
 <div class="page-header center">
     <h1>{{ ::activity.post_title }}</h1>
     <small>{{ ::$root.langStrings.forms.inqAct.labels.level }}:</small>
-    <span class="label label-spaced" ng-class="{ 'label-success': activity.proficiency_level == 1, 'label-warning': activity.proficiency_level == 2, 'label-danger': activity.proficiency_level == 3 }">{{ ::$root.langStrings.inqAct.levels[activity.proficiency_level] }}</span>
+    <span class="label label-spaced inq-label" ng-class="{ 'label-success': activity.proficiency_level == 1, 'label-warning': activity.proficiency_level == 2, 'label-danger': activity.proficiency_level == 3 }">{{ ::$root.langStrings.inqAct.levels[activity.proficiency_level] }}</span>
 
 </div>
 
@@ -11,7 +11,7 @@
             <dt>{{ ::$root.langStrings.forms.inqAct.labels.description }}</dt>
             <dd class="multi-line-text">{{ activity.post_content }}</dd>
             <dt>{{ ::$root.langStrings.forms.inqAct.labels.domains }}</dt>
-            <dd class="multi-line-text"><span class="label label-primary label-spaced" ng-repeat="domain in activity.domains">{{ $root.langStrings.inqAct.domains[domain] }}</span>
+            <dd class="multi-line-text"><span class="label label-primary label-spaced inq-label" ng-repeat="domain in activity.domains">{{ $root.langStrings.inqAct.domains[domain] }}</span>
             </dd>
             <!-- todo - clean up this boilerplate with phase levels -->
             <div ng-if="activity.phase_1_level != 0">

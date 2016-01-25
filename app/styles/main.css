@@ -14,7 +14,8 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 15px;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -22,6 +23,10 @@ body {
   margin-bottom: 0;
   line-height: 40px;
   padding-bottom: 19px;
+}
+
+.nav {
+    margin-top: 20px;
 }
 
 /* Custom page footer */
@@ -218,12 +223,20 @@ body {
   display:inline-block;
 }
 
+.inq-label {
+    font-size: 16px;
+}
+
 .multi-line-text {
   white-space: pre-line;
 }
 
 #logo {
-    max-height: 50px;
+    max-height: 75px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
 }
 
 .phaseLevelRadio:before {
@@ -246,3 +259,16 @@ body {
 .mt20 {margin-top: 20px;}
 
 .pb20 {padding-bottom: 20px;}
+
+/* Overwrite jQCloud styles */
+div.jqcloud {
+    font-size: 14px;
+}
+
+div.jqcloud span.w7 { color: #f04a58 ; }
+div.jqcloud span.w6 { color: #f068af  ; }
+div.jqcloud span.w5 { color: #dd98f0  ; }
+div.jqcloud span.w4 { color: #bfabf0  ; }
+div.jqcloud span.w3 { color: #aab5f0  ; }
+div.jqcloud span.w2 { color: #99ccee  ; }
+div.jqcloud span.w1 { color: #a0ddff  ; }
