@@ -13,9 +13,9 @@
 
   <form-textarea id="group_description" label="{{ ::$root.langStrings.forms.addGroup.description }}" rows="5" model="groupForm.description" req="true" placeholder="{{ ::$root.langStrings.forms.addGroup.descriptionPlaceholder }}"></form-textarea>
 
-  <form-select-multiple label="{{ ::$root.langStrings.forms.inqAct.labels.domains }}" options="formOptions.domains" model="groupForm.domains" req="true"></form-select-multiple>
+  <form-select-multiple label="{{ ::$root.langStrings.forms.inqAct.labels.domains }}" options="$root.langStrings.inqAct.domains" model="groupForm.domains" req="true"></form-select-multiple>
 
-  <form-input-text id="group_topics" label="{{ ::$root.langStrings.forms.inqActs.labels.topic }}" model="groupForm.topics" placeholder="{{ ::$root.langStrings.forms.addGroup.topicHelp }}"></form-input-text>
+  <form-input-text id="group_topics" label="{{ ::$root.langStrings.forms.inqAct.labels.topic }}" model="groupForm.topics" placeholder="{{ ::$root.langStrings.forms.addGroup.topicHelp }}"></form-input-text>
 
   <div class="form-group">
     <label class="col-sm-4 control-label">{{ ::$root.langStrings.forms.addGroup.inqActs }}</label>

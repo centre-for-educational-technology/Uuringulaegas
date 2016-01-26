@@ -195,6 +195,21 @@ add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $
   }, 10, 3 );
 
 /*
+ * Pods filters
+ */
+
+add_filter('pods_api_pre_create_pod_item_group', function ($pieces) {
+    if(!empty($pieces['fields']['name']['value']) && !empty($pieces['fields']['description']['value']) && !empty($pieces['fields']['domains']['value'])){
+        array_push ($pieces[ 'fields_active' ], 'teachers' );
+        $pieces[ 'fields' ][ 'teachers' ][ 'value' ] = wp_get_current_user()->ID;
+        return $pieces;
+    } else {
+        pods_error( 'Missing fields!');
+    }
+}, 10, 2);
+
+
+/*
  *  Custom endpoints for REST api
  *
  */
@@ -251,7 +266,7 @@ function decline_from_group_wait_list() {
 
 /*
  *
- *
+ * Login logic
  *
  *
  */
@@ -280,8 +295,20 @@ function create_nonce() {
 function return_logged_in_user(){
     global $nonce;
     $user = wp_get_current_user();
+    $profile_completed = false;
+    if(!empty($user->preferred_language)){
+        $profile_completed = true;
+    }
 
-    echo json_encode(array('nonce' => $nonce, 'userID' => $user->ID, 'userDisplayName' => $user->display_name, 'userRole' => $user->roles[0]));
+    echo json_encode(
+        array(
+            'nonce' => $nonce,
+            'userID' => $user->ID,
+            'userDisplayName' => $user->display_name,
+            'userRole' => $user->roles[0],
+            'profileCompleted' => $profile_completed
+        )
+    );
     die();
 }
 
@@ -304,7 +331,6 @@ function log_in(){
 }
 
 function log_in_social() {
-    error_log(print_r('trying login', true));
     wsl_process_login();
 }
 

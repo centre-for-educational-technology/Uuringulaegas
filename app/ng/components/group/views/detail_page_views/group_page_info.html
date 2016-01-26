@@ -67,8 +67,8 @@
         <h4>{{ $root.langStrings.group.infoPage.teachers }}</h4>
         <div ng-repeat="teacher in group.teachers">
             <a ui-sref="user.details({ id: teacher.ID })">
-                <img ng-src='{{ teacher.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle group-user-grid-pic mr10" ng-click="showUserProfile(teacher.ID)">
-                <b style="line-height: 20px" class="group-profile-link">{{ teacher.display_name }}</b>
+                <img ng-src='{{ teacher.gravatarUrl }}' alt="User profile picture" class="img-responsive img-circle group-user-grid-pic mr10 mb5" ng-click="showUserProfile(teacher.ID)">
+                <b class="group-profile-link group-teacher-name">{{ teacher.display_name }}</b>
             </a>
             <div class="clearfix"></div>
         </div>

@@ -179,8 +179,8 @@ body {
   float: left;
   max-width: 50px;
 }
-.group-teacher-profile-pic {
-  max-width: 100px;
+.group-teacher-name {
+    line-height: 50px;
 }
 .group-profile-link {
     color: #000000;
@@ -257,6 +257,8 @@ body {
 
 .mt10 {margin-top: 10px;}
 .mt20 {margin-top: 20px;}
+
+.mb5 {margin-bottom: 5px;}
 
 .pb20 {padding-bottom: 20px;}
 
