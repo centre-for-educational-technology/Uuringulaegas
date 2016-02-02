@@ -16,6 +16,15 @@ angular.module('arkofinquiryApp')
               disabled: '@'
             },
             link: function(scope, element, attrs, InquiryActivitiesCtrl){
+
+              scope.optionsArray = [];
+              scope.$watchCollection('options', function(items) {
+                scope.optionsArray.length = 0;
+                angular.forEach(items, function(value, key) {
+                  scope.optionsArray.push({ key: key, value: value});
+                });
+              });
+
                 scope.addChoice = function() {
                     scope.model.push('');
                     // scope.filteredOptions = _.difference(scope.options, scope.model);

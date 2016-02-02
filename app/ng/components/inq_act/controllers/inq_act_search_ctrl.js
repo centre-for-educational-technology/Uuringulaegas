@@ -48,10 +48,6 @@ angular.module('arkofinquiryApp')
       }).$promise;
     };
 
-    $scope.showDetailPage = function(activity){
-      $location.path('inq_act/' + activity.id);
-    };
-
     $scope.showSearchForm = function(){
       $scope.searchFormHide = false;
     };

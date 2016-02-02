@@ -14,6 +14,15 @@ angular.module('arkofinquiryApp')
                 model: '=',
                 options: '=',
                 req: '@'
-            }
+            },
+          link: function(scope){
+            scope.optionsArray = [];
+            scope.$watchCollection('options', function(items) {
+              scope.optionsArray.length = 0;
+              angular.forEach(items, function(value, key) {
+                scope.optionsArray.push({ key: key, value: value});
+              });
+            });
+          }
         }
     });

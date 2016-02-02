@@ -221,7 +221,7 @@
           "basic": "Level B (Basic)",
           "advanced": "Level C (Advanced)"
         },
-        "age": "Typical Age Range",
+        "age": "Typical Age Range (incl.)",
         "ageFrom": "From",
         "ageTo": "to",
         "time": "Typical Learning Time",

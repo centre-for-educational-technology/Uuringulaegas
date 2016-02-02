@@ -17,7 +17,7 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-warning" ng-click="editingEvidence = true" ng-hide="editingEvidence">{{ ::$root.langStrings.inqAct.modals.submitEvidence.editButton }}</button>
+    <button class="btn btn-warning" ng-click="editingEvidence = true" ng-hide="editingEvidence">{{ ::$root.langStrings.inqAct.modals.editEvidence.editButton }}</button>
     <button class="btn btn-success" ng-click="update()" ng-disabled="form.evidenceLink.$invalid && form.evidenceText.$invalid || updating" ng-show="editingEvidence"></button>
     <button class="btn btn-primary" ng-click="cancel()">{{ ::$root.langStrings.inqAct.modals.editEvidence.closeButton }}</button>
 </div>
