@@ -44,36 +44,39 @@
             <dd ng-repeat="language in activity.languages">{{ ::$root.langStrings.inqAct.languages[language] }}</dd>
             <dt>{{ ::$root.langStrings.forms.inqAct.labels.age }}</dt>
             <dd>{{ ::$root.langStrings.forms.inqAct.labels.ageFrom }} {{ ::activity.age_range_from }} {{ ::$root.langStrings.forms.inqAct.labels.ageTo }} {{ ::activity.age_range_to }}</dd>
-            <div ng-if="!_.isEmpty(activity.learning_time)">
-                <dt>{{ ::$root.langStrings.forms.inqAct.labels.time }}</dt>
-                <dd>{{ ::activity.learning_time }} h</dd>
-            </div>
-            <dt>{{ ::$root.langStrings.forms.inqAct.labels.materials }}</dt>
-            <dd class="multi-line-text">{{ ::activity.materials_needed }}</dd>
+            <div collapse="!showMore">
+                <div ng-if="!_.isEmpty(activity.learning_time)">
+                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.time }}</dt>
+                    <dd>{{ ::activity.learning_time }} h</dd>
+                </div>
+                <dt>{{ ::$root.langStrings.forms.inqAct.labels.materials }}</dt>
+                <dd class="multi-line-text">{{ ::activity.materials_needed }}</dd>
 
-            <dt>{{ ::$root.langStrings.forms.inqAct.labels.evidence }}</dt>
-            <dd ng-repeat="evidence in ::activity.success_evidence">{{ ::$root.langStrings.inqAct.successEvidence[evidence] }}</dd>
-            <dt>{{ ::$root.langStrings.forms.inqAct.labels.evidenceDescription }}</dt>
-            <dd class="multi-line-text">{{ ::activity.evidence_description }}</dd>
+                <dt>{{ ::$root.langStrings.forms.inqAct.labels.evidence }}</dt>
+                <dd ng-repeat="evidence in ::activity.success_evidence">{{ ::$root.langStrings.inqAct.successEvidence[evidence] }}</dd>
+                <dt>{{ ::$root.langStrings.forms.inqAct.labels.evidenceDescription }}</dt>
+                <dd class="multi-line-text">{{ ::activity.evidence_description }}</dd>
 
-            <div ng-if="::activity.rights_restrictions == 1">
-                <dt>{{ ::$root.langStrings.forms.inqAct.labels.rights }}</dt>
-                <dd><span class="label label-warning">{{ ::$root.langStrings.inqAct.booleanValues[1] }}</span></dd>
-                <dt>{{ ::$root.langStrings.forms.inqAct.labels.rightsDescription }}</dt>
-                <dd>{{ ::activity.rights_description }}</dd>
-            </div>
+                <div ng-if="::activity.rights_restrictions == 1">
+                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.rights }}</dt>
+                    <dd><span class="label label-warning">{{ ::$root.langStrings.inqAct.booleanValues[1] }}</span></dd>
+                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.rightsDescription }}</dt>
+                    <dd>{{ ::activity.rights_description }}</dd>
+                </div>
 
-            <hr/>
-            <div ng-if="_.contains(activity.location, '0')">
-                <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationWeb }}</dt>
-                <dd><a href="{{ ::activity.location_web }}" target="_blank">{{ ::activity.location_web }}</a></dd>
+                <hr/>
+                <div ng-if="_.contains(activity.location, '0')">
+                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationWeb }}</dt>
+                    <dd><a href="{{ ::activity.location_web }}" target="_blank">{{ ::activity.location_web }}</a></dd>
+                </div>
+                <div ng-if="_.contains(activity.location, '1')">
+                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationCity }}</dt>
+                    <dd>{{ ::activity.location_city }}</dd>
+                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationAddress }}</dt>
+                    <dd>{{ ::activity.location_address }}</dd>
+                </div>
             </div>
-            <div ng-if="_.contains(activity.location, '1')">
-                <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationCity }}</dt>
-                <dd>{{ ::activity.location_city }}</dd>
-                <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationAddress }}</dt>
-                <dd>{{ ::activity.location_address }}</dd>
-            </div>
+            <a class="login-separator" ng-click="showMore = !showMore">{{ !showMore ? $root.langStrings.general.showMore : $root.langStrings.general.showLess }}</a>
         </dl>
     </div>
     <div class="col-md-3">

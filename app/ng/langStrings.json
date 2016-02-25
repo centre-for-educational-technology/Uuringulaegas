@@ -1,7 +1,9 @@
 {
   "general": {
     "nextItem": "Next",
-    "previousItem": "Previous"
+    "previousItem": "Previous",
+    "showMore": "Show more",
+    "showLess": "Show less"
   },
   "mainMenu": {
     "home": "Home",
