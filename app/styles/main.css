@@ -68,19 +68,31 @@ body {
     margin-top: 15px;
 }
 
-.homepage-image-box:hover .overlay {
-    opacity: 1;
+.homepage-image-box:hover {
+    text-decoration: none;
 }
 
-.overlay {
+.homepage-image-box:hover h4 {
+    text-decoration: underline;
+}
+
+.homepage-image-box .hover-block {
+    position: relative;
+}
+
+.homepage-image-box .hover-block .overlay {
     width: 100%;
     height: 100%;
     position: absolute;
     overflow: hidden;
     top: 0;
-    left: 0px;
+    right: 0;
     background: -webkit-radial-gradient(transparent 30px, rgba(255, 255, 255, 0.4) 100px);
     opacity: 0;
+}
+
+.homepage-image-box:hover .overlay {
+    opacity: 1;
 }
 
 

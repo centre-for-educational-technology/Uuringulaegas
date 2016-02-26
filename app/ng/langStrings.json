@@ -14,7 +14,25 @@
     "logout": "Log out",
     "login": "Log in",
     "register": "Register",
-    "loading": "Loading"
+    "loading": "Loading",
+    "titlePageBoxes": {
+      "1": {
+        "title": "Teacher’s toolbox",
+        "description": "Something for the teachers – a collection of pedagogical instruments and tools for assessing the inquiry proficiency of pupils, including those developed within the Ark of Inquiry project."
+      },
+      "2": {
+        "title": "Inquiry activities",
+        "description": "A growing collection of fun activities that illustrate how scientific inquiry works, how whole communities can be engaged in science and how to think about the bigger picture behind a simple experiment or research task."
+      },
+      "3": {
+        "title": "Community",
+        "description": "The Ark of Inquiry community – join a group created by your teacher , check out what are other groups in the area doing, join discussions on the group comments board or find out about other ways to communicate with your fellow inquirers."
+      },
+      "4": {
+        "title": "My inquiry passport",
+        "description": "Your inquiry passport is your calling card, it shows who you are and what types of activities you have completed and what kind of rewards you have collected during your stay in the Ark of Inquiry platform."
+      }
+    }
   },
   "inqLog": {
     "passportStatus": {
