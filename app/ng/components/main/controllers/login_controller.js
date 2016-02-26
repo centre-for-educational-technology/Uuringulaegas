@@ -15,6 +15,8 @@ angular.module('arkofinquiryApp')
       action: 'log_in'
     };
 
+    $scope.apiUrl = appConfig.apiUrl;
+
     $scope.login = function(){
       console.log($scope.loginData);
       $scope.updating = true;
