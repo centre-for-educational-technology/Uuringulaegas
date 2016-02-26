@@ -320,6 +320,7 @@
       "title": "Groups",
       "listTab": "List of groups",
       "addGroupTab": "Add new",
+      "hallOfFameTab": "Hall of fame",
       "filter": "Filter by group or teacher name",
       "filterPlaceholder": "",
       "teacher": "Teacher"
@@ -350,6 +351,16 @@
       "successAlert": "Group updated!",
       "errorAlert": "Oops, something went wrong. Please look over the form.",
       "updateButton": "Update group"
+    },
+    "hallOfFamePage": {
+      "title": "Hall of fame",
+      "description": "",
+      "goldTitle": "Gold medalists",
+      "silverTitle": "Silver medalists",
+      "bronzeTitle": "Bronze medalists",
+      "diplomasTitle": "Distinguished scholars (Diplomas?)",
+      "starsTitle": "Renowned scientists (Inquiry stars?)",
+      "noMedalistsText": "No users have gained this badge yet."
     }
   },
   "user": {

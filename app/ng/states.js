@@ -121,6 +121,11 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/group/views/add_group.html',
         controller: 'AddGroupCtrl'
       })
+      .state('group.main.hallOfFame', {
+        url: '/halloffame',
+        templateUrl: base + 'ng/components/group/views/hall_of_fame.html',
+        controller: 'HallOfFameCtrl'
+      })
       .state('group.detail', {
         url: '/:id',
         abstract: false,

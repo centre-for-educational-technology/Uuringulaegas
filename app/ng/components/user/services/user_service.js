@@ -15,6 +15,13 @@ angular.module("arkofinquiryApp")
           return _.values(data); // Removes keys from response
         }]
       },
+      getHallOfFame: {
+        url: appConfig.apiUrl + 'wp-admin/admin-ajax.php',
+        method: 'GET',
+        params: {
+          action: 'get_hall_of_fame'
+        }
+      },
       queryLearnersByName: {
         url: appConfig.apiUrl + 'wp-json/pods/user?data[where]=(full_name.meta_value%20LIKE%20%22%25:searchName%25%22%20OR%20user_email%20LIKE%20%22%25:searchName%25%22%20)%20AND%20user_type.meta_value%3D0',
         searchName: '@searchName',

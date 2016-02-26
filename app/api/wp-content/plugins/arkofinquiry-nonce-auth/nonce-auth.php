@@ -214,6 +214,39 @@ add_filter('pods_api_pre_create_pod_item_group', function ($pieces) {
  *
  */
 
+add_action('wp_ajax_get_hall_of_fame', 'return_hall_of_fame');
+add_action('wp_ajax_nopriv_get_hall_of_fame', 'not_logged_in_error');
+
+function return_hall_of_fame(){
+
+    function getMedalists($badgeKey){
+        $learners = [];
+        $params = ['where' => 'badges.key.meta_value = "' . $badgeKey . '"'];
+        $medalists = pods('user', $params);
+        while ( $medalists->fetch() ) {
+            $user = [
+                'id' => $medalists->id(),
+                'name' => $medalists->field('display_name'),
+                'email' => $medalists->field('user_email'),
+                'url' => $medalists->field('user_url')
+            ];
+            array_push($learners, $user);
+        }
+        return $learners;
+    }
+
+    $medals =[];
+    $medals['medals_gold'] = getMedalists('medal_gold');
+    $medals['medals_silver'] = getMedalists('medal_silver');
+    $medals['medals_bronze'] = getMedalists('medal_bronze');
+    $medals['diplomas'] = getMedalists('diploma');
+    $medals['stars'] = getMedalists('star');
+
+    header('Content-Type: application/json');
+    echo json_encode($medals);
+    die();
+}
+
 add_action('wp_ajax_get_total_activities', 'return_total_activities');
 add_action('wp_ajax_nopriv_get_total_activities', 'not_logged_in_error');
 
