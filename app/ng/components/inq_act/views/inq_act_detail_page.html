@@ -9,7 +9,7 @@
     <div class="col-md-9">
         <dl class="dl-horizontal">
             <dt>{{ ::$root.langStrings.forms.inqAct.labels.description }}</dt>
-            <dd class="multi-line-text">{{ activity.post_content }}</dd>
+            <dd class="multi-line-text" ng-bind-html="activity.post_content"></dd>
             <dt>{{ ::$root.langStrings.forms.inqAct.labels.domains }}</dt>
             <dd class="multi-line-text"><span class="label label-primary label-spaced inq-label" ng-repeat="domain in activity.domains">{{ $root.langStrings.inqAct.domains[domain] }}</span>
             </dd>
