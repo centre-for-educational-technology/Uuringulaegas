@@ -11,6 +11,10 @@ angular.module('arkofinquiryApp')
   .filter('limitParagraph', function(){
 
     return function(string){
+      if(!string){
+        return "";
+      }
+
       var splitArray = string.split("\n");
       var ellipse = (splitArray.length > 1) ? " ..." : "";
       return splitArray[0] + ellipse;

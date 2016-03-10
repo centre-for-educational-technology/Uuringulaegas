@@ -67,6 +67,11 @@
         </h4>
         <p class="list-group-item-text" ng-bind-html="act.post_content || act.content | limitParagraph"></p>
     </a>
+    <br/>
+    <div class="col-md-12 text-center">
+        <button class="btn btn-primary centered" ng-click="loadMoreSearchResults()" ng-disabled="loadMoreButtonDisabled" ng-if="loadMoreButtonShown">{{ ::$root.langStrings.forms.inqAct.searchLabels.loadMoreSearchResults }} <span ng-if="loadMoreButtonDisabled" class="glyphicon glyphicon-refresh glyphicon-spin"></span></button>
+    </div>
+    <br/>
 </div>
 
 <div class="well" ng-if="$root.developerView">

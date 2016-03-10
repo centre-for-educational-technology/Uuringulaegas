@@ -10,6 +10,10 @@
 angular.module('arkofinquiryApp')
   .controller('InquiryActivitySearchCtrl', function ($scope, $http, $document, InquiryActivityService, InquiryActivityKeywordService, $rootScope, $location) {
 
+    var currentPage = 1;
+    var currentQuery = '';
+    var postsPerPage = 15;
+
     $scope.formOptions = {};
     $scope.formOptions.domains = $rootScope.langStrings.inqAct.domains;
     $scope.formOptions.domains.any = $rootScope.langStrings.inqAct.search.anyString;
@@ -17,9 +21,11 @@ angular.module('arkofinquiryApp')
     $scope.formOptions.proficiencyLevels.any = $rootScope.langStrings.inqAct.search.anyString;
     $scope.formOptions.languages = $rootScope.langStrings.inqAct.languages;
     $scope.formOptions.languages.any = $rootScope.langStrings.inqAct.search.anyString;
+    $scope.loadMoreButtonShown = false;
+    $scope.loadMoreButtonDisabled = false;
 
 
-    _.extend($scope.formOptions, $rootScope.langStrings.inqAct.search.anyString);
+      _.extend($scope.formOptions, $rootScope.langStrings.inqAct.search.anyString);
 
     $scope.phaseCheckboxes = {};
 
@@ -53,9 +59,10 @@ angular.module('arkofinquiryApp')
     };
 
     // Handle search
-
     $scope.searchActivities = function(){
       var query = '';
+      //Pagination
+      //var page = 2;
       var form = $scope.formData;
 
       function extendQuery(){
@@ -124,13 +131,32 @@ angular.module('arkofinquiryApp')
       }
 
 
-      //console.log(query);
+      currentQuery = query;
+      currentPage = 1;
 
-      InquiryActivityService.fullSearch({query: query}, function(response){
+      InquiryActivityService.fullSearch({query: query, page: currentPage, limit: postsPerPage}, function(response){
         $scope.searchResults = response;
         $scope.searchFormHide = true;
-        console.log(response);
+        if(response.length>=postsPerPage){
+          $scope.loadMoreButtonShown = true;
+        }
       });
+    };
+
+    $scope.loadMoreSearchResults = function(){
+      var newPage = currentPage+1;
+      $scope.loadMoreButtonDisabled = true;
+      InquiryActivityService.fullSearch({query: currentQuery, page: newPage, limit: postsPerPage}, function(response){
+        currentPage = newPage;
+        if(response.length<postsPerPage){
+          $scope.loadMoreButtonShown = false;
+        }
+
+        $scope.searchResults = $scope.searchResults.concat(response);
+
+        $scope.loadMoreButtonDisabled = false;
+      });
+
     };
 
     function isInArray(array, property){

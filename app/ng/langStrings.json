@@ -264,7 +264,8 @@
         "learningTimeTo": "Learning time to",
         "searchButton": "Search",
         "showSearch": "Show search form",
-        "noResults": "There are no activities matching your search."
+        "noResults": "There are no activities matching your search.",
+        "loadMoreSearchResults" : "Load more results"
       },
       "submitButton": "Add activity"
     },
