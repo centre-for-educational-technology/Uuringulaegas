@@ -7,7 +7,10 @@
             <a ui-sref=".list" aria-controls="list">{{ $root.langStrings.group.listPage.listTab }}</a>
         </li>
         <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher'">
-            <a ui-sref=".new" aria-controls="new">{{ $root.langStrings.group.listPage.addGroupTab }}</a>
+            <a ui-sref=".new" aria-controls="new">
+                <span class="glyphicon glyphicon-plus"></span>
+                {{ $root.langStrings.group.listPage.addGroupTab }}
+            </a>
         </li>
         <li role="presentation" ui-sref-active="active">
             <a ui-sref=".hallOfFame" aria-controls="halloffame">{{ $root.langStrings.group.listPage.hallOfFameTab }}</a>

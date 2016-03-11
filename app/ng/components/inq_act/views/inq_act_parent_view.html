@@ -13,7 +13,10 @@
             <a ui-sref=".search.tags" aria-controls="tags">{{ ::$root.langStrings.inqAct.listPage.tagTab }}</a>
         </li>
         <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher'">
-            <a ui-sref=".new" aria-controls="new">{{ ::$root.langStrings.inqAct.listPage.addNewTab }}</a>
+            <a ui-sref=".new" aria-controls="new">
+                <span class="glyphicon glyphicon-plus"></span>
+                {{ ::$root.langStrings.inqAct.listPage.addNewTab }}
+            </a>
         </li>
     </ul>
     <div ui-view="" class="mt20"></div>
