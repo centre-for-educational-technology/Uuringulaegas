@@ -23,9 +23,11 @@ angular.module('arkofinquiryApp')
     if(_.isEmpty($location.search())){
       $scope.inqActList = InquiryActivityService.queryByPage({page: 1});
       $scope.keywordMode = false;
+      $scope.keywordText = '';
     } else {
       $scope.inqActList = InquiryActivityService.searchByKeyword({keyword: $location.search().keyword});
       $scope.keywordMode = true;
+      $scope.keywordText = $location.search().keyword;
     }
 
     //$scope.totals = InquiryActivityService.getTotals();

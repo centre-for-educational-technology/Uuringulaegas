@@ -98,7 +98,8 @@
       "listTab": "List of activities",
       "searchTab": "Search",
       "tagTab": "Tag cloud",
-      "addNewTab": "Add new"
+      "addNewTab": "Add new",
+      "filterByTag": "Filter by tag"
     },
     "general": {
       "addedBy": "Added by",
