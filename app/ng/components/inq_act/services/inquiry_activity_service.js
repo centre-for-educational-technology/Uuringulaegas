@@ -87,7 +87,7 @@ angular.module("arkofinquiryApp")
         }]
       },
       fullSearch: {
-        url: appConfig.apiUrl + 'wp-json/pods/inq_activity?data[where]=(:query)&data[page]=:page&data[limit]=:limit&data[pagination]=true',
+        url: appConfig.apiUrl + 'wp-json/pods/inq_activity?data[where]=(:query)&data[page]=:page&data[limit]=:limit&data[pagination]=true&data[orderby]=id+DESC',
         query: '@query',
         method: 'GET',
         isArray: true,
