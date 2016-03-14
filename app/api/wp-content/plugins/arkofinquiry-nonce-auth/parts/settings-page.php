@@ -48,8 +48,8 @@ if ( isset($_POST['submit']) ) {
       </div>
     <?php endif; ?>
     <div class="aoi-settings-buttons">
-      <button id="downloadUsersGroupsCsv" onclick="window.open('<?php echo admin_url('?page=aoi-download-users-groups-csv&noheader=true'); ?>', '_blank');"><?php _e( 'Download users groups CSV', aoi_get_text_domain() ); ?></button>
-      <button id="downloadUsersBadgesCsv" onclick="window.open('<?php echo admin_url('?page=aoi-download-users-badges-csv&noheader=true'); ?>', '_blank');"><?php _e( 'Download users badges CSV', aoi_get_text_domain() ); ?></button>
+      <button id="downloadUsersGroupsCsv" class="button button-secondary" onclick="window.open('<?php echo admin_url('?page=aoi-download-users-groups-csv&noheader=true'); ?>', '_blank');"><span class="dashicons dashicons-cloud"></span> <?php _e( 'Download users groups CSV', aoi_get_text_domain() ); ?></button>
+      <button id="downloadUsersBadgesCsv" class="button button-secondary" onclick="window.open('<?php echo admin_url('?page=aoi-download-users-badges-csv&noheader=true'); ?>', '_blank');"><span class="dashicons dashicons-cloud"></span> <?php _e( 'Download users badges CSV', aoi_get_text_domain() ); ?></button>
     </div>
 
     <form method="post" action="" enctype="multipart/form-data">
