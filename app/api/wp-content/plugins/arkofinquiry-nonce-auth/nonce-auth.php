@@ -403,3 +403,168 @@ function redirect_homepage() {
     exit;
 }
 add_action( 'template_redirect', 'redirect_homepage' );
+
+/**
+ * Administration pages and logic
+ */
+
+/**
+ * [aoi_upload_dir description]
+ * @return [type] [description]
+ */
+function aoi_upload_dir() {
+  $wp_upload_dir = wp_upload_dir();
+
+  if ( !file_exists($wp_upload_dir['basedir'] . '/aoi') ) {
+    mkdir($wp_upload_dir['basedir'] . '/aoi');
+  }
+
+  return array(
+    'path' => $wp_upload_dir['basedir'] . '/aoi',
+    'url' => $wp_upload_dir['baseurl'] . '/aoi',
+  );
+}
+
+/**
+ * Mova uploade file to new correct location with set name and original
+ * extension. Creates a directory if needed.
+ * @param  array $tmp_file Uploaded file data
+ * @return mixed New file name on succes and FALSE on failure
+ */
+function aoi_upload_file(&$tmp_file, $file_name) {
+  $aoi_upload_dir = aoi_upload_dir();
+  $new_file_name = $file_name . '.' . pathinfo($tmp_file['name'], PATHINFO_EXTENSION);
+  $new_file_location = $aoi_upload_dir['path'] . '/' . $new_file_name;
+  $uploaded = move_uploaded_file($tmp_file['tmp_name'], $new_file_location);
+  if ( $uploaded ) {
+    return $new_file_name;
+  }
+  return $uploaded;
+}
+
+/**
+ * Get uploade file location.
+ * @param  string $file_name Uploaded file name.
+ * @return string            Full file path.
+ */
+function aoi_get_uploaded_file_location($file_name) {
+  $aoi_upload_dir = aoi_upload_dir();
+  return $aoi_upload_dir['path'] . '/' . $file_name;
+}
+
+/**
+ * Get uploaded file public url.
+ * @param  string $file_name Uploaded file name.
+ * @return string            URL of the file.
+ */
+function aoi_get_uploaded_file_url($file_name) {
+  $aoi_upload_dir = aoi_upload_dir();
+  return $aoi_upload_dir['url'] . '/' . $file_name;
+}
+
+/**
+ * Returns text domain
+ * @return string Text domain value
+ */
+function aoi_get_text_domain() {
+  return 'aoi';
+}
+
+/**
+ * Loads and displays settings page
+ * @return void
+ */
+function aoi_load_settings_page() {
+  include_once(__DIR__ . '/parts/settings-page.php');
+}
+
+/**
+ * Starts CSV file download
+ * @param  array $csv_data   Data to be converted into CSV
+ * @param  string $file_name Downloaded file name (no need for extension)
+ * @return void
+ */
+function _aoi_start_csv_download(&$csv_data, $file_name) {
+  $fp = fopen('php://memory', 'w+');
+  foreach ( $csv_data as $single_data ) {
+    fputcsv( $fp, $single_data );
+  }
+  rewind( $fp );
+  $contents = stream_get_contents( $fp );
+  fclose( $fp );
+
+  // Force line separator to Windows style
+  if (PHP_EOL !== "\r\n") {
+    $contents = str_replace("\n", "\r\n", $contents);
+  }
+
+  header('Content-Description: File Transfer');
+  header('Content-Type: text/csv');
+  header('Content-Disposition: attachment; filename=' . $file_name. '.csv');
+  header('Expires: 0');
+  header('Cache-Control: must-revalidate');
+  header('Pragma: public');
+  echo $contents;
+  exit;
+}
+
+/**
+ * Starts users groups CSV file download
+ * @return void
+ */
+function aoi_download_users_groups_csv() {
+  if ( !current_user_can( 'manage_options' ) ) {
+    wp_die( __( 'Insufficient permissions.', aoi_get_text_domain() ) );
+  }
+
+  $csv_data = array();
+
+  _aoi_start_csv_download($csv_data, 'users_groups');
+}
+
+/**
+ * Starts users badges CSV file download
+ * @return [type] [description]
+ */
+function aoi_download_users_badges_csv() {
+  if ( !current_user_can( 'manage_options' ) ) {
+    wp_die( __( 'Insufficient permissions.', aoi_get_text_domain() ) );
+  }
+
+  $csv_data = array();
+
+  _aoi_start_csv_download($csv_data, 'users_badges');
+}
+
+/**
+ * Admin menu pages
+ */
+function aoi_add_menu_pages() {
+  if ( current_user_can('manage_options') ) {
+    add_options_page( __( 'Arc of Inquiry settings', aoi_get_text_domain() ), __( 'Arc of Inquiry settings', aoi_get_text_domain() ), 'manage_options', 'aoi-settings', 'aoi_load_settings_page' );
+    add_submenu_page( NULL, '', '', 'manage_options', 'aoi-download-users-groups-csv', 'aoi_download_users_groups_csv' );
+    add_submenu_page( NULL, '', '', 'manage_options', 'aoi-download-users-badges-csv', 'aoi_download_users_badges_csv' );
+  }
+}
+add_action('admin_menu', 'aoi_add_menu_pages');
+
+/**
+ * Responds with activities background image data in JSON.
+ * @return void
+ */
+function aoi_api_return_activities_background_image() {
+  $background_image = get_option('aoi_activities_background', null);
+  $response = array(
+    'status' => 'success',
+    'url' => null,
+  );
+
+  if ( $background_image ) {
+    $response = aoi_get_uploaded_file_url($background_image);
+
+  }
+
+  wp_send_json($response);
+}
+add_action('wp_ajax_get_activities_background_image', 'aoi_api_return_activities_background_image');
+add_action('wp_ajax_nopriv_get_activities_background_image', 'aoi_api_return_activities_background_image');
