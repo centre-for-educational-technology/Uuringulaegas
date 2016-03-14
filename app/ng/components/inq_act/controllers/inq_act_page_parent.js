@@ -10,8 +10,11 @@
 angular.module('arkofinquiryApp')
   .controller('InquiryActivityParentCtrl', function ($scope, $stateParams, InquiryActivityService, appConfig) {
     $scope.totals = InquiryActivityService.getTotals();
-    $scope.activitiesBackgroundImage = appConfig.appBase + 'images/backgrounds/activity/main.jpg';
     InquiryActivityService.getActivitiesBackgroundImage(function(data) {
-      $scope.activitiesBackgroundImage = data.url;
+      if ( data.url ) {
+        $scope.activitiesBackgroundImage = data.url;
+      } else {
+        $scope.activitiesBackgroundImage = appConfig.appBase + 'images/backgrounds/activity/main.jpg';
+      }
     });
   });
