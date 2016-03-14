@@ -560,7 +560,7 @@ function aoi_api_return_activities_background_image() {
   );
 
   if ( $background_image ) {
-    $response = aoi_get_uploaded_file_url($background_image);
+    $response['url'] = aoi_get_uploaded_file_url($background_image);
 
   }
 
