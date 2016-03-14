@@ -519,6 +519,34 @@ function aoi_download_users_groups_csv() {
 
   $csv_data = array();
 
+  $user = pods('user', array(
+    'limit' => -1,
+  ));
+
+  while( $user->fetch() ) {
+    $groups = $user->field('groups');
+    $groups_ids = array();
+    $groups_names = array();
+
+    if ( $groups && is_array($groups) && sizeof($groups) > 0 ) {
+      foreach( $groups as $group ) {
+        $groups_ids []= $group['id'];
+        $groups_names []= $group['name'];
+      }
+    }
+
+    $data = [
+        'id' => $user->id(),
+        'email' => $user->field('user_email'),
+        'name' => $user->field('display_name'),
+        'groups_ids' => implode(',', $groups_ids),
+        'groups_names' => implode(',', $groups_names),
+    ];
+
+    $csv_data []= $data;
+  }
+
+
   _aoi_start_csv_download($csv_data, 'users_groups');
 }
 
