@@ -10,7 +10,10 @@
             <a ui-sref=".act" aria-controls="activities">{{ ::$root.langStrings.group.infoPage.recActTab }}</a>
         </li>
         <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher' && allowedToEdit">
-            <a ui-sref=".edit" aria-controls="settings">{{ ::$root.langStrings.group.infoPage.settingsTab }}</a>
+            <a ui-sref=".edit" aria-controls="settings">
+              <span class="glyphicon glyphicon-cog"></span>
+              {{ ::$root.langStrings.group.infoPage.settingsTab }}
+            </a>
         </li>
     </ul>
     <div ui-view="" class="mt20 pb20"></div>
