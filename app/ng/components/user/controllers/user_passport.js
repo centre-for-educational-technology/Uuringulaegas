@@ -87,17 +87,16 @@ angular.module('arkofinquiryApp')
 
     //Save cover image
     $scope.saveCover = function(user){
-      // POST to DB
-      user.profile_background = $scope.user.profile_background;
-      user.user_pass = $scope.user.password;
-
-      user.$save(user, function() {
+      UserService.save({
+        id: user.id
+      }, {
+        profile_background: $scope.user.profile_background
+      }, function(data) {
         $scope.saveCoverButtonDisabled = true;
-
+        user.profile_background = data.profile_background;
       }, function(response){
-
+        // TODO Notify user, maybe reset to original background
         $scope.errors = response;
-
       });
 
     };
@@ -136,5 +135,3 @@ angular.module('arkofinquiryApp')
     };
 
   });
-
-
