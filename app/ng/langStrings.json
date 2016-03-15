@@ -421,11 +421,14 @@
         "noComments": "There are no comments yet"
       },
       "titleChangeCover": "Change skin",
-      "titleSaveCover": "Save"
+      "titleSaveCover": "Save",
+      "titleSaveCoverSaved": "Saved",
+      "titleSaveCoverFailed": "Failed"
     },
     "roles": {
       "teacher": "Teacher",
-      "learner": "Learner"
+      "learner": "Learner",
+      "administrator": "Administrator"
     },
     "countries": {
       "AD" : "Andorra",

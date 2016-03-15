@@ -12,6 +12,7 @@ angular.module('arkofinquiryApp')
 
 
     $scope.saveCoverButtonDisabled = true;
+    $scope.saveCoverButtonText = $scope.langStrings.user.passport.titleSaveCover;
 
 
     // Expose Underscore.js to scope
@@ -41,7 +42,11 @@ angular.module('arkofinquiryApp')
         });
       }
 
+      if(Array.isArray($scope.user.profile_background)){
+        $scope.user.profile_background = 1;
+      }
       $scope.currentCover = $scope.user.profile_background;
+
       $scope.profile_background_url = 'images/backgrounds/profile/preset_'+$scope.user.profile_background+'.jpg';
     });
 
@@ -68,6 +73,7 @@ angular.module('arkofinquiryApp')
 
     //Get next cover image id
     $scope.changeCover = function(){
+      $scope.saveCoverButtonText = $scope.langStrings.user.passport.titleSaveCover;
       if($scope.user.profile_background<=7){
         $scope.user.profile_background = parseInt($scope.user.profile_background) + 1;
 
@@ -93,10 +99,13 @@ angular.module('arkofinquiryApp')
         profile_background: $scope.user.profile_background
       }, function(data) {
         $scope.saveCoverButtonDisabled = true;
+        $scope.saveCoverButtonText = $scope.langStrings.user.passport.titleSaveCoverSaved;
         user.profile_background = data.profile_background;
       }, function(response){
         // TODO Notify user, maybe reset to original background
         $scope.errors = response;
+        $scope.user.profile_background = $scope.currentCover;
+        $scope.saveCoverButtonText = $scope.langStrings.user.passport.titleSaveCoverFailed;
       });
 
     };
