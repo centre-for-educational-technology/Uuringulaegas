@@ -419,7 +419,9 @@
         "inputLabel": "Post comment",
         "buttonLabel": "Post comment",
         "noComments": "There are no comments yet"
-      }
+      },
+      "titleChangeCover": "Change skin",
+      "titleSaveCover": "Save"
     },
     "roles": {
       "teacher": "Teacher",

@@ -1,30 +1,39 @@
 <div class="row">
-    <div class="col-sm-4">
-        <img ng-src='{{ gravatarUrl(user) }}' alt="User profile picture" class="img-responsive img-circle center-block">
-        <h3 class="text-center">{{ ::user.display_name }}</h3>
-            <h3 class="text-center"><span class="label" ng-class="{ 'label-primary': user.roles[0] == 'learner', 'label-danger': user.roles[0] == 'teacher' }">{{ ::$root.langStrings.user.roles[user.roles[0]] }}</span></h3>
-        <hr/>
-        <h4>{{ ::$root.langStrings.user.passport.titleBadges }}</h4>
-        <div class="group-user-grid-pic" ng-repeat="badge in user.badges">
-            <img ng-src='{{ badge.image.guid }}' alt="Badge - {{ badge.description }}" class="img-responsive" tooltip="{{ badge.post_title }} - {{ badge.description }}">
+    <div class="container" id="user-passport-cover" ng-style="{'background-image':'url('+profile_background_url+')'}"></div>
+    <div class="container user-passport">
+        <div class="btn-group profile_background pull-right" role="group">
+            <button type="button" class="btn btn-primary btn-xs" type="button" ng-click="changeCover()">{{ ::$root.langStrings.user.passport.titleChangeCover }}</button>
+            <button type="button" class="btn btn-primary btn-xs" type="button" ng-disabled="saveCoverButtonDisabled" ng-click="saveCover(user)">{{ ::$root.langStrings.user.passport.titleSaveCover }}</button>
+        </div>
+        <div class="col-sm-4">
+            <img ng-src='{{ gravatarUrl(user) }}' alt="User profile picture" class="img-responsive img-circle center-block user-passport-gravatar">
+            <h3 class="text-center">{{ ::user.display_name }}</h3>
+                <h3 class="text-center"><span class="label" ng-class="{ 'label-primary': user.roles[0] == 'learner', 'label-danger': user.roles[0] == 'teacher' }">{{ ::$root.langStrings.user.roles[user.roles[0]] }}</span></h3>
+        </div>
+        <div class="col-sm-8" id="user-passport-details">
+            <dl class="dl-horizontal">
+                <dt>{{ ::$root.langStrings.forms.userRegister.labels.birthDate }}</dt>
+                <dd>{{ ::user.date_of_birth | date : 'dd.MM.yyyy' }}</dd>
+                <dt>{{ ::$root.langStrings.forms.userRegister.labels.email }}</dt>
+                <dd>{{ ::user.user_email }}</dd>
+                <dt>{{ ::$root.langStrings.forms.userRegister.labels.preferredLanguage }}</dt>
+                <dd>{{ ::$root.langStrings.inqAct.languages[user.preferred_language] }}</dd>
+                <dt>{{ ::$root.langStrings.forms.userRegister.labels.country }}</dt>
+                <dd>{{ ::$root.langStrings.user.countries[user.country_of_residence] }}</dd>
+                <dt>{{ ::$root.langStrings.forms.userRegister.labels.city }}</dt>
+                <dd>{{ ::user.city_of_residence }}</dd>
+            </dl>
+
+            <hr/>
+            <h4>{{ ::$root.langStrings.user.passport.titleBadges }}</h4>
+            <div class="group-user-grid-pic" ng-repeat="badge in user.badges">
+                <img ng-src='{{ badge.image.guid }}' alt="Badge - {{ badge.description }}" class="img-responsive" tooltip="{{ badge.post_title }} - {{ badge.description }}">
+            </div>
+
+
         </div>
     </div>
-    <div class="col-sm-8">
-        <dl class="dl-horizontal">
-            <dt>{{ ::$root.langStrings.forms.userRegister.labels.birthDate }}</dt>
-            <dd>{{ ::user.date_of_birth | date : 'dd.MM.yyyy' }}</dd>
-            <dt>{{ ::$root.langStrings.forms.userRegister.labels.email }}</dt>
-            <dd>{{ ::user.user_email }}</dd>
-            <dt>{{ ::$root.langStrings.forms.userRegister.labels.preferredLanguage }}</dt>
-            <dd>{{ ::$root.langStrings.inqAct.languages[user.preferred_language] }}</dd>
-            <dt>{{ ::$root.langStrings.forms.userRegister.labels.country }}</dt>
-            <dd>{{ ::$root.langStrings.user.countries[user.country_of_residence] }}</dd>
-            <dt>{{ ::$root.langStrings.forms.userRegister.labels.city }}</dt>
-            <dd>{{ ::user.city_of_residence }}</dd>
-        </dl>
-
-        <hr/>
-
+    <div class="col-sm-12">
         <tabset>
             <tab heading="{{ ::$root.langStrings.user.passport.tabHeadings.userFeed }}">
                 <h4>{{ ::$root.langStrings.user.passport.titleUpdates }}</h4>
@@ -110,7 +119,6 @@
                 </div>
             </tab>
         </tabset>
-
     </div>
 </div>
 

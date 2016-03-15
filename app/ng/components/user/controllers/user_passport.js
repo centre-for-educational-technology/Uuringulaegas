@@ -10,6 +10,10 @@
 angular.module('arkofinquiryApp')
   .controller('UserPassportCtrl', function ($scope, $http, $stateParams, UserService, $gravatar, InquiryActivityLogService, $rootScope, $filter, InquiryActivityStatusService, $location) {
 
+
+    $scope.saveCoverButtonDisabled = true;
+
+
     // Expose Underscore.js to scope
     $scope._ = _;
 
@@ -36,9 +40,13 @@ angular.module('arkofinquiryApp')
           }
         });
       }
+
+      $scope.currentCover = $scope.user.profile_background;
+      $scope.profile_background_url = 'images/backgrounds/profile/preset_'+$scope.user.profile_background+'.jpg';
     });
 
-    console.log($scope.user);
+
+
 
 
 
@@ -57,6 +65,46 @@ angular.module('arkofinquiryApp')
     }
 
 
+
+    //Get next cover image id
+    $scope.changeCover = function(){
+      if($scope.user.profile_background<=7){
+        $scope.user.profile_background = parseInt($scope.user.profile_background) + 1;
+
+      }else if($scope.user.profile_background==8){
+        $scope.user.profile_background = 1;
+      }
+
+      if($scope.user.profile_background != $scope.currentCover){
+        $scope.saveCoverButtonDisabled = false;
+      }else{
+        $scope.saveCoverButtonDisabled = true;
+      }
+
+      $scope.profile_background_url = 'images/backgrounds/profile/preset_'+$scope.user.profile_background+'.jpg';
+
+    };
+
+    //Save cover image
+    $scope.saveCover = function(user){
+      // POST to DB
+      user.profile_background = $scope.user.profile_background;
+      user.user_pass = $scope.user.password;
+
+      user.$save(user, function() {
+        $scope.saveCoverButtonDisabled = true;
+
+      }, function(response){
+
+        $scope.errors = response;
+
+      });
+
+    };
+
+
+
+
     /**
      *
      * Getters for tab contents
@@ -66,7 +114,7 @@ angular.module('arkofinquiryApp')
     $scope.recommendedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $stateParams.id, status: 1}, function(){});
 
     $scope.startedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $stateParams.id, status: 4}, function(response){
-      console.log(_.clone(response));
+      //console.log(_.clone(response));
       for(var i = 0; i < response.length; i++){
         response[i].inq_activity = _.values(response[i].inq_activity);
       }
