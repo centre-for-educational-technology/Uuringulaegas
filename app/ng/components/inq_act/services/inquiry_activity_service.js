@@ -46,6 +46,18 @@ angular.module("arkofinquiryApp")
           }
         }
       },
+      getActivitiesBackgroundImage: {
+        url: appConfig.apiUrl + 'wp-admin/admin-ajax.php',
+        method: 'GET',
+        params: {
+          action: 'get_activities_background_image'
+        },
+        transformResponse: [angular.fromJson, function(data) {
+          return {
+            url: data.url
+          };
+        }]
+      },
       queryByPage: {
         url: appConfig.apiUrl + 'wp-json/pods/inq_activity?data[limit]=' + activitiesPerPage + '&data[orderby]=-post_date&data[page]=:page',
         page: '@page',
