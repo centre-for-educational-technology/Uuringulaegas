@@ -616,3 +616,24 @@ function aoi_api_return_activities_background_image() {
 }
 add_action('wp_ajax_get_activities_background_image', 'aoi_api_return_activities_background_image');
 add_action('wp_ajax_nopriv_get_activities_background_image', 'aoi_api_return_activities_background_image');
+
+/**
+ * Responds with activities background image data in JSON.
+ * @return void
+ */
+function aoi_api_return_activity_background_image() {
+  $background_image = get_option('aoi_activity_background', null);
+  $response = array(
+    'status' => 'success',
+    'url' => null,
+  );
+
+  if ( $background_image ) {
+    $response['url'] = aoi_get_uploaded_file_url($background_image);
+
+  }
+
+  wp_send_json($response);
+}
+add_action('wp_ajax_get_activity_background_image', 'aoi_api_return_activity_background_image');
+add_action('wp_ajax_nopriv_get_activity_background_image', 'aoi_api_return_activity_background_image');
