@@ -4,13 +4,13 @@
     <div class="row" ng-class="{'appear-in' : loaded}" ng-repeat="choice in model track by $index">
       <div ng-if="$index == 0" class="col-sm-12">
         <select class="form-control margin-bottom" ng-model="model[$index]" ng-required="req" ng-disabled="disabled">
-            <option ng-repeat="option in optionsArray | orderBy: 'value'" value="{{::option.key}}">{{::option.value}}</option>
+            <option ng-repeat="option in optionsArray | orderBy: 'value'" value="{{::option.key}}" ng-selected="option.key==choice">{{::option.value}}</option>
         </select>
       </div>
       <div ng-if="$index > 0">
         <div class="col-xs-11 no-padding-right">
           <select class="form-control margin-bottom" ng-model="model[$index]" ng-required="req" ng-disabled="disabled">
-              <option ng-repeat="option in optionsArray | orderBy: 'value'" value="{{::option.key}}">{{::option.value}}</option>
+              <option ng-repeat="option in optionsArray | orderBy: 'value'" value="{{::option.key}}" ng-selected="option.key==choice">{{::option.value}}</option>
           </select>
         </div>
         <div class="col-xs-1 no-padding-left">
