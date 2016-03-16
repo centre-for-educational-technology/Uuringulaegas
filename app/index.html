@@ -51,8 +51,24 @@
                             {{ $root.currentUserData.userDisplayName }}<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a ng-click="showProfile($root.currentUserData.userID)">{{ ::$root.langStrings.mainMenu.showProfile }}</a></li>
-                            <li><a ng-click="logout()">{{ ::$root.langStrings.mainMenu.logout }}</a></li>
+                            <li>
+                              <a ng-click="showProfile($root.currentUserData.userID)">
+                                <span class="glyphicon glyphicon-user"></span>
+                                {{ ::$root.langStrings.mainMenu.showProfile }}
+                              </a>
+                            </li>
+                            <li>
+                              <a ng-click="editProfile($root.currentUserData.userID)">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                {{ ::$root.langStrings.mainMenu.editProfile }}
+                              </a>
+                            </li>
+                            <li>
+                              <a ng-click="logout()">
+                                <span class="glyphicon glyphicon-log-out"></span>
+                                {{ ::$root.langStrings.mainMenu.logout }}
+                              </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -190,6 +206,7 @@
                 <script src="ng/common/filters/not_in_array_filter.js"></script>
                 <script src="ng/components/group/filters/or_filter.js"></script>
                 <script src="ng/common/filters/object_not_in_array_filter.js"></script>
+                <script src="ng/components/user/controllers/user_edit.js"></script>
                 <!-- endbuild -->
 
         <script src="http://underscorejs.org/underscore-min.js"></script>

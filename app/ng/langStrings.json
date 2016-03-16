@@ -11,6 +11,7 @@
     "inqAct": "Inquiry Activities",
     "groups": "Groups",
     "showProfile": "Show profile",
+    "editProfile": "Edit profile",
     "logout": "Log out",
     "login": "Log in",
     "register": "Register",
@@ -297,6 +298,13 @@
         "1": "Teacher"
       },
       "submit": "Sign up"
+    },
+    "userEdit": {
+      "title": "Edit your profile",
+      "subtitle": "You are able to change entered information later",
+      "alertSuccess": "Profile information updated successfully.",
+      "alertError": "Profile update failed!",
+      "submit": "Update"
     },
     "userSurvey": {
       "title": "Who am I?",

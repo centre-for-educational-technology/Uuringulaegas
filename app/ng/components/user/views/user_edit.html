@@ -1,0 +1,36 @@
+<div class="edit-profile-container center-block">
+  <div class="page-header center">
+    <h1>{{ ::$root.langStrings.forms.userEdit.title }}</h1>
+    <small>{{ ::$root.langStrings.forms.userEdit.subtitle }}</small>
+  </div>
+
+  <div class="alert alert-success" role="alert" collapse="postingState != 1"> {{ ::$root.langStrings.forms.userEdit.alertSuccess }}</div>
+
+  <div class="alert alert-danger" role="alert" collapse="postingState != 2"> {{ ::$root.langStrings.forms.userEdit.alertError }} </div>
+
+  <spinner class="mt20" ng-if="!user"></spinner>
+
+  <form class="form-horizontal" novalidate ng-if="user">
+    <form-input-text id="full_name" label="{{ ::$root.langStrings.forms.userRegister.labels.full_name }}" model="userData.full_name" req="true"></form-input-text>
+
+    <form-date-picker id="birth_date" label="{{ ::$root.langStrings.forms.userRegister.labels.birthDate }}" model="userData.date_of_birth" mode="datePickerMode" is-open="datePickerOpened" options="datePickerOptions" max-date="todayDate" open="openDatePicker(ev)" req="true"></form-date-picker>
+
+    <form-select id="sex" label="{{ ::$root.langStrings.forms.userRegister.labels.sex }}" options="$root.langStrings.forms.userRegister.sex" model="userData.sex" req="true"></form-select>
+
+    <form-select id="country" label="{{ ::$root.langStrings.forms.userRegister.labels.country }}" options="$root.langStrings.user.countries" model="userData.country_of_residence" req="true"></form-select>
+
+    <form-input-text id="city" label="{{ ::$root.langStrings.forms.userRegister.labels.city }}" model="userData.city_of_residence" req="true"></form-input-text>
+
+    <form-select id="preferred_language" label="{{ ::$root.langStrings.forms.userRegister.labels.preferredLanguage }}" options="$root.langStrings.inqAct.languages" model="userData.preferred_language" req="true"></form-select>
+
+    <form-select-multiple label="{{ ::$root.langStrings.forms.userRegister.labels.additionalLanguages }}" options="$root.langStrings.inqAct.languages" model="userData.additional_languages"></form-select-multiple>
+
+
+    <div class="form-group">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-8">
+        <input class="btn btn-success" type="submit" ng-click="editUser(user)" ng-disabled="form.$invalid || updating" value="{{ ::$root.langStrings.forms.userEdit.submit }}" />
+      </div>
+    </div>
+  </form>
+</div>

@@ -102,6 +102,11 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/user/views/user_survey.html',
         controller: 'UserSurveyCtrl'
       })
+      .state('user.edit', {
+        url: '/:id/edit',
+        templateUrl: base + 'ng/components/user/views/user_edit.html',
+        controller: 'UserEditCtrl'
+      })
 
 
       .state('group', {
