@@ -1,23 +1,27 @@
-<div class="page-header center">
-    <h1>{{ ::$root.langStrings.inqAct.listPage.title }}</h1>
-</div>
-<div role="tabpanel">
-    <ul class="nav nav-tabs">
-        <li role="presentation" ui-sref-active="active">
-            <a ui-sref=".list" aria-controls="list">{{ ::$root.langStrings.inqAct.listPage.listTab }} ({{ totals.totalActivities }})</a>
-        </li>
-        <li role="presentation" ui-sref-active="active">
-            <a ui-sref=".search.search" aria-controls="search">{{ ::$root.langStrings.inqAct.listPage.searchTab }}</a>
-        </li>
-        <li role="presentation" ui-sref-active="active">
-            <a ui-sref=".search.tags" aria-controls="tags">{{ ::$root.langStrings.inqAct.listPage.tagTab }}</a>
-        </li>
-        <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher'">
-            <a ui-sref=".new" aria-controls="new">
-                <span class="glyphicon glyphicon-plus"></span>
-                {{ ::$root.langStrings.inqAct.listPage.addNewTab }}
-            </a>
-        </li>
-    </ul>
-    <div ui-view="" class="mt20"></div>
+<div class="container-fluid" id="activities-background-image" ng-style="{'background-image':'url('+activitiesBackgroundImage+')'}"></div>
+<div class="container-fluid">
+    <div class="page-header center activities">
+        <h1>{{ ::$root.langStrings.inqAct.listPage.title }}</h1>
+    </div>
+    <div role="tabpanel">
+        <ul class="nav nav-tabs activities">
+            <li role="presentation" ui-sref-active="active">
+                <a ui-sref=".list" aria-controls="list">{{ ::$root.langStrings.inqAct.listPage.listTab }} ({{ totals.totalActivities }})</a>
+            </li>
+            <li role="presentation" ui-sref-active="active">
+                <a ui-sref=".search.search" aria-controls="search">{{ ::$root.langStrings.inqAct.listPage.searchTab }}</a>
+            </li>
+            <li role="presentation" ui-sref-active="active">
+                <a ui-sref=".search.tags" aria-controls="tags">{{ ::$root.langStrings.inqAct.listPage.tagTab }}</a>
+            </li>
+            <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher'">
+                <a ui-sref=".new" aria-controls="new">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    {{ ::$root.langStrings.inqAct.listPage.addNewTab }}
+                </a>
+            </li>
+        </ul>
+        <div ui-view="" class="mt20"></div>
+    </div>
+
 </div>

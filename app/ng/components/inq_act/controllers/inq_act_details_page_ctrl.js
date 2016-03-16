@@ -30,6 +30,19 @@ angular.module('arkofinquiryApp')
       $scope.activity.teacher = UserService.get({id: response.post_author});
     });
 
+
+    //Single activity background image
+    InquiryActivityService.getActivityBackgroundImage(function(data) {
+      if ( data.url ) {
+        $scope.activityBackgroundImage = data.url;
+      } else {
+        $scope.activityBackgroundImage = appConfig.appBase + 'images/backgrounds/activity/single.jpg';
+      }
+
+    });
+
+
+
     getCurrentStatus().then(function(success){
       console.log(success);
 
@@ -56,6 +69,7 @@ angular.module('arkofinquiryApp')
       }
 
     });
+
 
     $scope.startActivity = function () {
       $scope.updating= true;

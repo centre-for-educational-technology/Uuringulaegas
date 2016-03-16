@@ -1,109 +1,113 @@
-<div class="page-header center">
-    <h1>{{ ::activity.post_title }}</h1>
-    <small>{{ ::$root.langStrings.forms.inqAct.labels.level }}:</small>
-    <span class="label label-spaced inq-label" ng-class="{ 'label-success': activity.proficiency_level == 1, 'label-warning': activity.proficiency_level == 2, 'label-danger': activity.proficiency_level == 3 }">{{ ::$root.langStrings.inqAct.levels[activity.proficiency_level] }}</span>
+<div class="container-fluid" id="activity-background-image" ng-style="{'background-image':'url('+activityBackgroundImage+')'}"></div>
+<div class="container-fluid">
+    <div class="page-header center">
+        <h1>{{ ::activity.post_title }}</h1>
+        <small>{{ ::$root.langStrings.forms.inqAct.labels.level }}:</small>
+        <span class="label label-spaced inq-label" ng-class="{ 'label-success': activity.proficiency_level == 1, 'label-warning': activity.proficiency_level == 2, 'label-danger': activity.proficiency_level == 3 }">{{ ::$root.langStrings.inqAct.levels[activity.proficiency_level] }}</span>
 
-</div>
-
-<div class="row">
-    <div class="col-md-9">
-        <dl class="dl-horizontal">
-            <dt>{{ ::$root.langStrings.forms.inqAct.labels.description }}</dt>
-            <dd class="multi-line-text" ng-bind-html="activity.post_content"></dd>
-            <dt>{{ ::$root.langStrings.forms.inqAct.labels.domains }}</dt>
-            <dd class="multi-line-text"><span class="label label-primary label-spaced inq-label" ng-repeat="domain in activity.domains">{{ $root.langStrings.inqAct.domains[domain] }}</span>
-            </dd>
-            <!-- todo - clean up this boilerplate with phase levels -->
-            <div ng-if="activity.phase_1_level != 0">
-                <dt>{{ ::$root.langStrings.inqAct.coveredPhases[1] }} {{ ::$root.langStrings.forms.inqAct.labels.levelString }}</dt>
-                <dd>{{ ::$root.langStrings.inqAct.levels[activity.phase_1_level] }}</dd>
-            </div>
-            <div ng-if="activity.phase_2_level != 0">
-                <dt>{{ ::$root.langStrings.inqAct.coveredPhases[2] }} {{ ::$root.langStrings.forms.inqAct.labels.levelString }}</dt>
-                <dd>{{ ::$root.langStrings.inqAct.levels[activity.phase_2_level] }}</dd>
-            </div>
-            <div ng-if="activity.phase_3_level != 0">
-                <dt>{{ ::$root.langStrings.inqAct.coveredPhases[3] }} {{ ::$root.langStrings.forms.inqAct.labels.levelString }}</dt>
-                <dd>{{ ::$root.langStrings.inqAct.levels[activity.phase_3_level] }}</dd>
-            </div>
-            <div ng-if="activity.phase_4_level != 0">
-                <dt>{{ ::$root.langStrings.inqAct.coveredPhases[4] }} {{ ::$root.langStrings.forms.inqAct.labels.levelString }}</dt>
-                <dd>{{ ::$root.langStrings.inqAct.levels[activity.phase_4_level] }}</dd>
-            </div>
-            <div ng-if="activity.phase_5_level != 0">
-                <dt>{{ ::$root.langStrings.inqAct.coveredPhases[5] }} {{ ::$root.langStrings.forms.inqAct.labels.levelString }}</dt>
-                <dd>{{ ::$root.langStrings.inqAct.levels[activity.phase_5_level] }}</dd>
-            </div>
-            <hr/>
-
-            <div ng-if="!_.isEmpty(activity.topic)">
-                <dt>{{ ::$root.langStrings.forms.inqAct.labels.topic }}</dt>
-                <dd>{{ ::activity.topic }}</dd>
-            </div>
-            <dt>{{ ::$root.langStrings.forms.inqAct.labels.language }}</dt>
-            <dd ng-repeat="language in activity.languages">{{ ::$root.langStrings.inqAct.languages[language] }}</dd>
-            <dt>{{ ::$root.langStrings.forms.inqAct.labels.age }}</dt>
-            <dd>{{ ::$root.langStrings.forms.inqAct.labels.ageFrom }} {{ ::activity.age_range_from }} {{ ::$root.langStrings.forms.inqAct.labels.ageTo }} {{ ::activity.age_range_to }}</dd>
-            <div collapse="!showMore">
-                <div ng-if="!_.isEmpty(activity.learning_time)">
-                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.time }}</dt>
-                    <dd>{{ ::activity.learning_time }} h</dd>
-                </div>
-                <dt>{{ ::$root.langStrings.forms.inqAct.labels.materials }}</dt>
-                <dd class="multi-line-text">{{ ::activity.materials_needed }}</dd>
-
-                <dt>{{ ::$root.langStrings.forms.inqAct.labels.evidence }}</dt>
-                <dd ng-repeat="evidence in ::activity.success_evidence">{{ ::$root.langStrings.inqAct.successEvidence[evidence] }}</dd>
-                <dt>{{ ::$root.langStrings.forms.inqAct.labels.evidenceDescription }}</dt>
-                <dd class="multi-line-text">{{ ::activity.evidence_description }}</dd>
-
-                <div ng-if="::activity.rights_restrictions == 1">
-                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.rights }}</dt>
-                    <dd><span class="label label-warning">{{ ::$root.langStrings.inqAct.booleanValues[1] }}</span></dd>
-                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.rightsDescription }}</dt>
-                    <dd>{{ ::activity.rights_description }}</dd>
-                </div>
-
-                <hr/>
-                <div ng-if="_.contains(activity.location, '0')">
-                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationWeb }}</dt>
-                    <dd><a href="{{ ::activity.location_web }}" target="_blank">{{ ::activity.location_web }}</a></dd>
-                </div>
-                <div ng-if="_.contains(activity.location, '1')">
-                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationCity }}</dt>
-                    <dd>{{ ::activity.location_city }}</dd>
-                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationAddress }}</dt>
-                    <dd>{{ ::activity.location_address }}</dd>
-                </div>
-            </div>
-            <a class="login-separator" ng-click="showMore = !showMore">{{ !showMore ? $root.langStrings.general.showMore : $root.langStrings.general.showLess }}</a>
-        </dl>
     </div>
-    <div class="col-md-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">{{ ::$root.langStrings.inqAct.general.detailsPanelTitle }}</div>
-            <div class="panel-body">
-                <dl>
-                    <dt>{{ ::$root.langStrings.inqAct.general.addedBy }}</dt>
-                    <dd>{{ activity.teacher.full_name }}</dd>
-                    <dt>{{ ::$root.langStrings.inqAct.general.addedDate }}</dt>
-                    <dd ng-if="activity.post_date">{{ ::activity.post_date | stringToDate | date: 'dd.MM.yyyy' }}</dd>
-                </dl>
-            </div>
-            <div class="panel-footer text-center">
-                <div ng-if="evidence">
-                    <span class="lead text-success">{{ ::$root.langStrings.inqAct.finished }}</span>
-                    <br/>
-                    <small>{{ ::evidence.modified | stringToDate | date: 'dd.MM.yyyy HH:mm' }}</small>
-                    <br/>
-                    <button class="btn btn-link" ng-disabled="updating" ng-click="openEvidenceEditModal(evidence)">{{ ::$root.langStrings.inqAct.general.viewEvidence }}</button>
+
+    <div class="row">
+        <div class="col-md-9">
+            <dl class="dl-horizontal">
+                <dt>{{ ::$root.langStrings.forms.inqAct.labels.description }}</dt>
+                <dd class="multi-line-text" ng-bind-html="activity.post_content"></dd>
+                <dt>{{ ::$root.langStrings.forms.inqAct.labels.domains }}</dt>
+                <dd class="multi-line-text"><span class="label label-primary label-spaced inq-label" ng-repeat="domain in activity.domains">{{ $root.langStrings.inqAct.domains[domain] }}</span>
+                </dd>
+                <!-- todo - clean up this boilerplate with phase levels -->
+                <div ng-if="activity.phase_1_level != 0">
+                    <dt>{{ ::$root.langStrings.inqAct.coveredPhases[1] }} {{ ::$root.langStrings.forms.inqAct.labels.levelString }}</dt>
+                    <dd>{{ ::$root.langStrings.inqAct.levels[activity.phase_1_level] }}</dd>
                 </div>
-                <button class="btn btn-primary btn-block" ng-if="!activityStatus.started && $root.currentUserData.userRole == 'learner'" ng-disabled="updating" ng-click="openStartActivityModal(activity)">{{ ::$root.langStrings.inqAct.general.start }}</button>
-                <button class="btn btn-success btn-block" ng-if="activityStatus.status == 4 && $root.currentUserData.userRole == 'learner'" ng-disabled="updating" ng-click="openEvidenceModal(activity)">{{ ::$root.langStrings.inqAct.general.finish }}</button>
+                <div ng-if="activity.phase_2_level != 0">
+                    <dt>{{ ::$root.langStrings.inqAct.coveredPhases[2] }} {{ ::$root.langStrings.forms.inqAct.labels.levelString }}</dt>
+                    <dd>{{ ::$root.langStrings.inqAct.levels[activity.phase_2_level] }}</dd>
+                </div>
+                <div ng-if="activity.phase_3_level != 0">
+                    <dt>{{ ::$root.langStrings.inqAct.coveredPhases[3] }} {{ ::$root.langStrings.forms.inqAct.labels.levelString }}</dt>
+                    <dd>{{ ::$root.langStrings.inqAct.levels[activity.phase_3_level] }}</dd>
+                </div>
+                <div ng-if="activity.phase_4_level != 0">
+                    <dt>{{ ::$root.langStrings.inqAct.coveredPhases[4] }} {{ ::$root.langStrings.forms.inqAct.labels.levelString }}</dt>
+                    <dd>{{ ::$root.langStrings.inqAct.levels[activity.phase_4_level] }}</dd>
+                </div>
+                <div ng-if="activity.phase_5_level != 0">
+                    <dt>{{ ::$root.langStrings.inqAct.coveredPhases[5] }} {{ ::$root.langStrings.forms.inqAct.labels.levelString }}</dt>
+                    <dd>{{ ::$root.langStrings.inqAct.levels[activity.phase_5_level] }}</dd>
+                </div>
+                <hr/>
+
+                <div ng-if="!_.isEmpty(activity.topic)">
+                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.topic }}</dt>
+                    <dd>{{ ::activity.topic }}</dd>
+                </div>
+                <dt>{{ ::$root.langStrings.forms.inqAct.labels.language }}</dt>
+                <dd ng-repeat="language in activity.languages">{{ ::$root.langStrings.inqAct.languages[language] }}</dd>
+                <dt>{{ ::$root.langStrings.forms.inqAct.labels.age }}</dt>
+                <dd>{{ ::$root.langStrings.forms.inqAct.labels.ageFrom }} {{ ::activity.age_range_from }} {{ ::$root.langStrings.forms.inqAct.labels.ageTo }} {{ ::activity.age_range_to }}</dd>
+                <div collapse="!showMore">
+                    <div ng-if="!_.isEmpty(activity.learning_time)">
+                        <dt>{{ ::$root.langStrings.forms.inqAct.labels.time }}</dt>
+                        <dd>{{ ::activity.learning_time }} h</dd>
+                    </div>
+                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.materials }}</dt>
+                    <dd class="multi-line-text">{{ ::activity.materials_needed }}</dd>
+
+                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.evidence }}</dt>
+                    <dd ng-repeat="evidence in ::activity.success_evidence">{{ ::$root.langStrings.inqAct.successEvidence[evidence] }}</dd>
+                    <dt>{{ ::$root.langStrings.forms.inqAct.labels.evidenceDescription }}</dt>
+                    <dd class="multi-line-text">{{ ::activity.evidence_description }}</dd>
+
+                    <div ng-if="::activity.rights_restrictions == 1">
+                        <dt>{{ ::$root.langStrings.forms.inqAct.labels.rights }}</dt>
+                        <dd><span class="label label-warning">{{ ::$root.langStrings.inqAct.booleanValues[1] }}</span></dd>
+                        <dt>{{ ::$root.langStrings.forms.inqAct.labels.rightsDescription }}</dt>
+                        <dd>{{ ::activity.rights_description }}</dd>
+                    </div>
+
+                    <hr/>
+                    <div ng-if="_.contains(activity.location, '0')">
+                        <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationWeb }}</dt>
+                        <dd><a href="{{ ::activity.location_web }}" target="_blank">{{ ::activity.location_web }}</a></dd>
+                    </div>
+                    <div ng-if="_.contains(activity.location, '1')">
+                        <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationCity }}</dt>
+                        <dd>{{ ::activity.location_city }}</dd>
+                        <dt>{{ ::$root.langStrings.forms.inqAct.labels.locationAddress }}</dt>
+                        <dd>{{ ::activity.location_address }}</dd>
+                    </div>
+                </div>
+                <a class="login-separator" ng-click="showMore = !showMore">{{ !showMore ? $root.langStrings.general.showMore : $root.langStrings.general.showLess }}</a>
+            </dl>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{ ::$root.langStrings.inqAct.general.detailsPanelTitle }}</div>
+                <div class="panel-body">
+                    <dl>
+                        <dt>{{ ::$root.langStrings.inqAct.general.addedBy }}</dt>
+                        <dd>{{ activity.teacher.full_name }}</dd>
+                        <dt>{{ ::$root.langStrings.inqAct.general.addedDate }}</dt>
+                        <dd ng-if="activity.post_date">{{ ::activity.post_date | stringToDate | date: 'dd.MM.yyyy' }}</dd>
+                    </dl>
+                </div>
+                <div class="panel-footer text-center">
+                    <div ng-if="evidence">
+                        <span class="lead text-success">{{ ::$root.langStrings.inqAct.finished }}</span>
+                        <br/>
+                        <small>{{ ::evidence.modified | stringToDate | date: 'dd.MM.yyyy HH:mm' }}</small>
+                        <br/>
+                        <button class="btn btn-link" ng-disabled="updating" ng-click="openEvidenceEditModal(evidence)">{{ ::$root.langStrings.inqAct.general.viewEvidence }}</button>
+                    </div>
+                    <button class="btn btn-primary btn-block" ng-if="!activityStatus.started && $root.currentUserData.userRole == 'learner'" ng-disabled="updating" ng-click="openStartActivityModal(activity)">{{ ::$root.langStrings.inqAct.general.start }}</button>
+                    <button class="btn btn-success btn-block" ng-if="activityStatus.status == 4 && $root.currentUserData.userRole == 'learner'" ng-disabled="updating" ng-click="openEvidenceModal(activity)">{{ ::$root.langStrings.inqAct.general.finish }}</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <div class="well" ng-if="$root.developerView">
     <pre>{{ evidence | json }}</pre>

@@ -249,12 +249,67 @@ body {
   background-color: #f5f5f5;
 }
 
+/* Activity cover image */
+#activity-background-image{
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 400px;
+    opacity: 0.6;
+    border-radius: 4px;
+    width: 870px;
+    z-index: -1;
+    background-size: cover;
+    left: 0;
+    right: 0;
+}
+
+/* Activities - parent cover image */
+#activities-background-image{
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 145px;
+    opacity: 0.6;
+    border-radius: 4px;
+    width: 870px;
+    z-index: -1;
+    background-size: cover;
+    left: 0;
+    right: 0;
+
+}
+
+@media screen and (max-width:991px){
+    #activities-background-image{
+        width: 100%;
+    }
+
+    #activity-background-image{
+        width: 100%;
+    }
+}
+
+.nav-tabs.activities > li > a:hover {
+     border-color: #fff;
+}
+
+.nav-tabs.activities{
+    border-bottom: none;
+}
+
+.nav-tabs.activities > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border: 1px solid #fff;
+}
+
+.page-header.activities{
+    margin-bottom: -15px;
+}
+
 /* User profile cover image */
 #user-passport-cover{
     background-size: cover;
     position: absolute;
     height: 300px;
-    opacity: 0.7;
+    opacity: 0.6;
     border-radius: 4px;
 }
 
