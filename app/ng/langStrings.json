@@ -9,7 +9,7 @@
     "home": "Home",
     "help": "Help",
     "inqAct": "Inquiry Activities",
-    "groups": "Groups",
+    "groups": "Community",
     "showProfile": "Show profile",
     "editProfile": "Edit profile",
     "logout": "Log out",
@@ -27,7 +27,7 @@
       },
       "3": {
         "title": "Community",
-        "description": "The Ark of Inquiry community – join a group created by your teacher , check out what are other groups in the area doing, join discussions on the group comments board or find out about other ways to communicate with your fellow inquirers."
+        "description": "The Ark of Inquiry community – join a group created by your teacher, check out what are other groups in the area doing, join discussions on the group comments board or find out about other ways to communicate with your fellow inquirers."
       },
       "4": {
         "title": "My inquiry passport",
