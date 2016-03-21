@@ -12,8 +12,5 @@ angular.module('arkofinquiryApp')
 
     InfoService.getAnnouncement({}, function(response){
       $scope.announcement = response;
-      console.log(response);
     });
-
-    $scope.hi = function(){console.log("jou")};
   });

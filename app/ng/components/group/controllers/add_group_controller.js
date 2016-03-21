@@ -76,7 +76,6 @@ angular.module('arkofinquiryApp')
       newGroup.$save(newGroup, function() {
         // success
         $scope.updating = false;
-        console.log("OK"); // -------------------------------------- REMOVE after debugging
 
         resetForm();
         $document.scrollTopAnimated(0).then(function(){
@@ -85,7 +84,6 @@ angular.module('arkofinquiryApp')
       }, function(newGroup){
         // error
         $scope.updating = false;
-        console.log("ERROR"); // -------------------------------------- REMOVE after debugging
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 2; // Error
         });

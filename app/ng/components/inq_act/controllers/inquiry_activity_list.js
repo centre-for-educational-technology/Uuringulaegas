@@ -32,7 +32,6 @@ angular.module('arkofinquiryApp')
 
     //$scope.totals = InquiryActivityService.getTotals();
 
-    //console.log($location.search().keyword);
 
 
     $scope.showDetailPage = function(activity){
@@ -58,7 +57,6 @@ angular.module('arkofinquiryApp')
       });
 
       modalInstance.result.then(function (acceptedID) {
-        console.log('Accepted activity with ID: ' + acceptedID)
       }, function () {
         //$log.info('Modal dismissed at: ' + new Date());
       });

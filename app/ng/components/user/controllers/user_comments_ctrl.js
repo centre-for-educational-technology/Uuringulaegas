@@ -20,7 +20,6 @@ angular.module('arkofinquiryApp')
         response[i].created = $filter('stringToDate')(response[i].created);
       }
       $scope.loadingComments = false;
-      console.log(response);
     });
 
     $scope.newComment = {};
@@ -35,12 +34,10 @@ angular.module('arkofinquiryApp')
         $scope.success = true;
         $scope.comments.push(successCallback);
         $scope.newComment = {};
-        console.log(successCallback);
       }, function(errorCallback){
         $scope.updating = false;
         $scope.error = true;
         $scope.errorReason = errorCallback;
-        console.log(errorCallback);
       });
     };
 

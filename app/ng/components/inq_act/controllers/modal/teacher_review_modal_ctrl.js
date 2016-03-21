@@ -50,9 +50,9 @@ angular.module('arkofinquiryApp')
       });
       InquiryActivityStatusService.getCurrentStatus({learnerID: log.learner.ID, inqActID: log.inq_activity[0].id}, function(response){
           if(response[0].status == 5){
-            updateExistingStatus(response[0]).then(function(){console.log('updated status to 7')});
-            createNewLog(logData).then(function(){console.log('created log')});
-            createNewTeacherReview($scope.review).then(function(){console.log('created peer review')});
+            updateExistingStatus(response[0]);
+            createNewLog(logData);
+            createNewTeacherReview($scope.review);
 
             $q.all(servicePromises).then(function(){
               $modalInstance.close(logData.status);
@@ -64,7 +64,7 @@ angular.module('arkofinquiryApp')
     };
 
     $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
+      $modalInstance.dismiss('');
     };
 
     $scope.showPeerReviewModal = function (review) {

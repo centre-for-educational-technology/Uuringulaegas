@@ -154,7 +154,7 @@ angular.module('arkofinquiryApp')
 
       modalInstance.result.then(function (status) {
         //$scope.activityStatus.status = status;
-        console.log('Modal returned status: ' + status)
+
       });
     };
 
@@ -173,7 +173,6 @@ angular.module('arkofinquiryApp')
 
       modalInstance.result.then(function (status) {
         //$scope.activityStatus.status = status;
-        console.log('Modal returned status: ' + status)
       });
     };
 

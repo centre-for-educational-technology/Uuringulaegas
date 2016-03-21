@@ -65,10 +65,8 @@ angular.module('arkofinquiryApp')
     $scope.phaseCheckboxes = {};
 
     $scope.$watch('phaseCheckboxes', function() {
-      console.log('changed');
       for(var i = 1; i <= _.size($scope.phaseCheckboxes); i++){
         if($scope.phaseCheckboxes[i] == false){
-          console.log('false ' + i);
           $scope.formData.phaseLevels[i] = '0';
         }
       }
@@ -134,7 +132,6 @@ angular.module('arkofinquiryApp')
       activity.$save(activity, function() {
         // success
         $scope.updating = false;
-        console.log("OK"); // -------------------------------------- REMOVE after debugging
 
         resetForm();
         $document.scrollTopAnimated(0).then(function(){
@@ -144,7 +141,6 @@ angular.module('arkofinquiryApp')
         // error
         $scope.updating = false;
         $scope.errors = error;
-        console.log("ERROR " + error); // -------------------------------------- REMOVE after debugging
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 2; // Error
         });

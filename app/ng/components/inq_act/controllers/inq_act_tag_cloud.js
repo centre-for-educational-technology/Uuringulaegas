@@ -36,7 +36,6 @@ angular.module('arkofinquiryApp')
         // Push new keyword object to words array
         $scope.words.push(keyword);
       }
-      console.log($scope.words);
     });
 
     function searchKeyword(keywordText){

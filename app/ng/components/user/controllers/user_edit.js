@@ -26,6 +26,10 @@ angular.module('arkofinquiryApp')
       $scope.datePickerOpened = true;
     };
 
+    $scope.closeDatePicker = function(){
+      $scope.datePickerOpened = false;
+    };
+
     // Set up empty userData object
     $scope.userData = {
       full_name: '',
@@ -79,7 +83,7 @@ angular.module('arkofinquiryApp')
     };
 
     // Load user data
-    UserService.get({id: $stateParams.id}, function(user){
+    UserService.get({id: $rootScope.currentUserData.userID}, function(user){
       $scope.user = user;
       $scope.userData.full_name = user.full_name;
       $scope.userData.date_of_birth = user.date_of_birth;

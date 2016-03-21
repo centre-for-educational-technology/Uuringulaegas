@@ -22,7 +22,6 @@ angular.module('arkofinquiryApp')
         scope.pasteTags = function(event){
           event.preventDefault();
           var tags = event.originalEvent.clipboardData.getData('text/plain').split(',');
-          console.log(_.values(scope.model));
 
           for(var i = 0; i < tags.length; i++){
             tags[i] = tags[i].trim();

@@ -39,7 +39,6 @@ angular.module('arkofinquiryApp')
       smt.$save(user, function() {
         // success
         $scope.updating = false;
-        console.log("OK"); // -------------------------------------- REMOVE after debugging
 
         resetForm();
         $document.scrollTopAnimated(0).then(function(){
@@ -49,7 +48,6 @@ angular.module('arkofinquiryApp')
         // error
         $scope.updating = false;
         $scope.errors = response;
-        console.log("ERROR"); // -------------------------------------- REMOVE after debugging
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 2; // Error
         });

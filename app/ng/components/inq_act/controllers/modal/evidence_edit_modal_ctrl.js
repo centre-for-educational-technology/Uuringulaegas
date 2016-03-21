@@ -27,10 +27,9 @@ angular.module('arkofinquiryApp')
       $scope.updating= true;
 
       InquiryActivityStatusService.getCurrentStatus({learnerID: $rootScope.currentUserData.userID, inqActID: logData.inq_activity}, function(response){
-        console.log('sttatus: ' + response[0].status);
         if(response[0].status >= 5){
-          createNewLog(logData).then(function(){console.log('created log')});
-          updateEvidence($scope.evidence).then(function(){console.log('edited evidence')});
+          createNewLog(logData);
+          updateEvidence($scope.evidence);
 
           $q.all(servicePromises).then(function(){
             $modalInstance.close(logData.status);
@@ -40,7 +39,7 @@ angular.module('arkofinquiryApp')
     };
 
     $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
+      $modalInstance.dismiss('');
     };
 
     function createNewLog(logData){

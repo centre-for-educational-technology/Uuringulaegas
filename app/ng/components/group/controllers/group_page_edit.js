@@ -83,9 +83,6 @@ angular.module('arkofinquiryApp')
         $scope.groupForm.inq_activities[j] = $scope.groupForm.inq_activities[j].id;
       }
 
-      //console.log($scope.groupForm.learners);
-      //console.log($scope.groupForm.inq_activities);
-
       // append form data object to group object (same keys)
       _.extend(editGroup, $scope.groupForm);
 
@@ -100,7 +97,6 @@ angular.module('arkofinquiryApp')
       editGroup.$update(editGroup, function() {
         // success
         $scope.updating = false;
-        console.log("OK"); // -------------------------------------- REMOVE after debugging
 
         resetForm();
         $document.scrollTopAnimated(0).then(function(){
@@ -109,7 +105,6 @@ angular.module('arkofinquiryApp')
       }, function(groupForm){
         // error
         $scope.updating = false;
-        console.log("ERROR"); // -------------------------------------- REMOVE after debugging
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 2; // Error
         });

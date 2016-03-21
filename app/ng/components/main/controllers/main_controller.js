@@ -16,8 +16,6 @@ angular.module('arkofinquiryApp')
 
     $.get('ng/langStrings.json', function(data){
       $rootScope.langStrings = data;
-      //console.log(data);
-      //console.log(data);
     });
 
     $scope.$on('$locationChangeStart', function(event) {

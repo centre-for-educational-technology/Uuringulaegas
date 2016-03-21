@@ -13,8 +13,6 @@ angular.module('arkofinquiryApp')
 
     $scope.log = log;
 
-    console.log(log);
-
     $scope.review = {};
     $scope.review.peer = $rootScope.currentUserData.userID;
     $scope.review.learner = log.learner.ID;
@@ -24,7 +22,6 @@ angular.module('arkofinquiryApp')
     $scope.evidence =  EvidenceService.searchByLearnerAndActivity({learnerID: log.learner.ID, activityID: log.inq_activity[0].id}, function(success){
       $scope.review.evidence = $scope.evidence[0].id;
     });
-    console.log($scope.evidence);
 
     InfoService.getReviewGuide({}, function(response){
       $scope.review.post_content = response[0].post_content;
@@ -42,8 +39,8 @@ angular.module('arkofinquiryApp')
 
       $scope.updating= true;
 
-      createNewLog(logData).then(function(){console.log('created log')});
-      createNewPeerReview($scope.review).then(function(){console.log('created peer review')});
+      createNewLog(logData);
+      createNewPeerReview($scope.review);
 
       $q.all(servicePromises).then(function(){
         $modalInstance.close(logData.status);
@@ -51,7 +48,7 @@ angular.module('arkofinquiryApp')
     };
 
     $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
+      $modalInstance.dismiss('');
     };
 
     function createNewLog(logData){

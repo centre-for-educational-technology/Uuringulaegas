@@ -31,8 +31,8 @@ angular.module("arkofinquiryApp")
       $location.path('user/' + id);
     };
 
-    $scope.editProfile = function(id){
-      $location.path('user/' + id + '/edit');
+    $scope.editProfile = function(){
+      $location.path('user/edit');
     };
 
 });

@@ -32,8 +32,4 @@
 
   <p class="text-center">{{ ::$root.langStrings.user.login.noAccount }} <a ui-sref="user.register">{{ ::$root.langStrings.user.login.register }}</a></p>
   <p class="text-center"><a ng-href="{{ ::apiUrl }}wp-login.php?action=lostpassword">{{ ::$root.langStrings.user.login.forgotPassword }}</a></p>
-
-  <div class="well" ng-if="$root.developerView">
-    {{ $root.currentUserData | json}}
-  </div>
 </div>

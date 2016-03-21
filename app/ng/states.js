@@ -92,6 +92,11 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/user/views/user_register.html',
         controller: 'UserRegisterCtrl'
       })
+      .state('user.edit', {
+        url: '/edit',
+        templateUrl: base + 'ng/components/user/views/user_edit.html',
+        controller: 'UserEditCtrl'
+      })
       .state('user.details', {
         url: '/:id',
         templateUrl: base + 'ng/components/user/views/user_passport.html',
@@ -101,11 +106,6 @@ angular.module('arkofinquiryApp')
         url: '/welcome',
         templateUrl: base + 'ng/components/user/views/user_survey.html',
         controller: 'UserSurveyCtrl'
-      })
-      .state('user.edit', {
-        url: '/:id/edit',
-        templateUrl: base + 'ng/components/user/views/user_edit.html',
-        controller: 'UserEditCtrl'
       })
 
 

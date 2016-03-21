@@ -44,20 +44,15 @@ angular.module('arkofinquiryApp')
 
 
     getCurrentStatus().then(function(success){
-      console.log(success);
-
       if(_.isEmpty(success)){
-        console.log('tühi');
         $scope.activityStatus.exists = false;
         $scope.activityStatus.started = false;
       } else if (success[0].status < 4){
         $scope.activityStatus.status = success[0].status;
-        console.log('olemas, pole alustatud');
         $scope.activityStatus.exists = true;
         $scope.activityStatus.started = false;
       } else {
         $scope.activityStatus.status = success[0].status;
-        console.log('juba alustatud');
         $scope.activityStatus.exists = true;
         $scope.activityStatus.started = true;
       }
@@ -81,23 +76,15 @@ angular.module('arkofinquiryApp')
       getCurrentStatus().then(function(success){
         if(_.isEmpty(success)){
           // If status doesn't exist, create it
-          createNewStatus().then(function(){
-            console.log('tegin uue staatuse');
-          })
+          createNewStatus()
         } else {
           // If status exists, update it
           success[0].status = postData.status;
-          updateExistingStatus(success[0]).then(function(){
-            console.log('muutsin olemasolevat');
-          });
+          updateExistingStatus(success[0])
         }
 
         // Save log for feeds
-        createNewLog().then(function(success){
-          console.log('log saved');
-        }, function(error){
-          console.log(error);
-        });
+        createNewLog();
 
         // Wait for all services to finish
         $q.all(servicePromises).then(function(){
@@ -123,7 +110,6 @@ angular.module('arkofinquiryApp')
 
       modalInstance.result.then(function (status) {
         $scope.activityStatus.status = status;
-        console.log('Modal returned status: ' + status)
       });
     };
 
@@ -153,7 +139,6 @@ angular.module('arkofinquiryApp')
       });
 
       startModalInstance.result.then(function (status) {
-        console.log('Started activity');
         $scope.startActivity();
         window.open(activity.location_web, '_blank');
       });

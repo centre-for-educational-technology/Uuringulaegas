@@ -4,21 +4,21 @@
 
 angular.module('arkofinquiryApp')
 .directive('formDatePicker', function(appConfig){
-        return {
-            replace: true,
-            restrict: 'E',
-            templateUrl: appConfig.appBase + 'ng/common/form/views/date_picker.html',
-            scope: {
-                id: '@',
-                label: '@',
-                model: '=',
-                mode: '=',
-                isOpen: '=',
-                options: '=',
-                maxDate: '=',
-                minDate: '=',
-                open: '&',
-                req: '@'
-            }
-        }
-    });
+    return {
+      replace: true,
+      restrict: 'E',
+      templateUrl: appConfig.appBase + 'ng/common/form/views/date_picker.html',
+      scope: {
+        id: '@',
+        label: '@',
+        model: '=',
+        mode: '=',
+        isOpen: '=',
+        options: '=',
+        maxDate: '=',
+        minDate: '=',
+        open: '&',
+        req: '@'
+      }
+    }
+  });
