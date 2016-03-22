@@ -88,7 +88,6 @@ angular.module('arkofinquiryApp')
           sex: '',
           country_of_residence: '',
           city_of_residence: '',
-          user_type: '0',
           preferred_language: '',
           additional_languages: ['']
         }
