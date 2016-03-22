@@ -349,6 +349,11 @@ body {
     white-space: normal;
 }
 
+dl.dl-horizontal {
+    background: #fff;
+    padding: 10px;
+}
+
 .phaseLevelRadio:before {
     content: "";
     display: block;
