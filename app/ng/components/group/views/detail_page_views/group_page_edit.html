@@ -7,7 +7,7 @@
 <div class="alert alert-danger" role="alert" collapse="postingState != 2"> {{ $root.langStrings.group.editPage.errorAlert }}</div>
 
 
-<form class="form-horizontal" novalidate>
+<form class="form-horizontal" novalidate ng-disabled="updating">
     <form-input-text id="group_name" label="{{ $root.langStrings.forms.addGroup.name }}" model="groupForm.name" req="true" placeholder="Group name"></form-input-text>
 
     <form-textarea id="group_description" label="{{ $root.langStrings.forms.addGroup.description }}" rows="5" model="groupForm.description" req="true" placeholder="{{ $root.langStrings.forms.addGroup.descriptionPlaceholder }}"></form-textarea>
@@ -70,7 +70,7 @@
     <div class="form-group">
         <div class="col-sm-4"></div>
         <div class="col-sm-8">
-            <input class="btn btn-success" type="button" ng-click="updateGroup(editGroup)" ng-disabled="updating" value="{{ $root.langStrings.group.editPage.updateButton }}" />
+            <input class="btn btn-success" type="button" ng-click="updateGroup()" ng-disabled="updating" value="{{ $root.langStrings.group.editPage.updateButton }}" />
         </div>
     </div>
 

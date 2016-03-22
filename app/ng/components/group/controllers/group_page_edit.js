@@ -64,41 +64,37 @@ angular.module('arkofinquiryApp')
       success.inq_activities = _.values(success.inq_activities);
     });
 
-    $scope.editGroup = new GroupService();
-
     // Save new Group
     $scope.updateGroup = function(editGroup){
       $scope.errors = null;
       $scope.updating = true;
+      var groupData = {};
+
+      // Copy data from object used in view to object saved to DB
+      groupData.name = $scope.groupForm.name;
+      groupData.description = $scope.groupForm.description;
+      groupData.domains = $scope.groupForm.domains;
+      groupData.learners = [];
+      groupData.teachers = [];
+      groupData.inq_activities = [];
+
 
       for(var i = 0; i < $scope.groupForm.learners.length; i++){
-        $scope.groupForm.learners[i] = $scope.groupForm.learners[i].id;
+        groupData.learners[i] = $scope.groupForm.learners[i].id;
       }
-
       for(var t = 0; t < $scope.groupForm.teachers.length; t++){
-        $scope.groupForm.teachers[t] = $scope.groupForm.teachers[t].id;
+        groupData.teachers[t] = $scope.groupForm.teachers[t].id;
       }
-
       for(var j = 0; j < $scope.groupForm.inq_activities.length; j++){
-        $scope.groupForm.inq_activities[j] = $scope.groupForm.inq_activities[j].id;
+        groupData.inq_activities[j] = $scope.groupForm.inq_activities[j].id;
       }
-
-      // append form data object to group object (same keys)
-      _.extend(editGroup, $scope.groupForm);
-
-      //// Push only ID's from groupForm to GroupService.learners array
-      //// NEEDED ONLY for ng-tags-input, not needed for ui.select module
-      //
-      //for(var i = 0; i < $scope.groupForm.learners.length; i++){
-      //  newGroup.learners.push($scope.groupForm.learners[i].id);
-      //}
 
       // POST to DB
-      editGroup.$update(editGroup, function() {
+      GroupService.save({id: $stateParams.id}, groupData, function() {
         // success
         $scope.updating = false;
 
-        resetForm();
+        //resetForm();
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 1; // OK
         });
@@ -109,6 +105,7 @@ angular.module('arkofinquiryApp')
           $scope.postingState = 2; // Error
         });
       });
+
     };
 
 
