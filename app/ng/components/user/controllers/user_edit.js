@@ -18,16 +18,14 @@ angular.module('arkofinquiryApp')
 
     $scope.todayDate = new Date();
     $scope.datePickerMode = 'year';
+    $scope.datePickerOpened = {};
+    $scope.datePickerOpened.state = false;
 
     $scope.openDatePicker = function($event) {
       $event.preventDefault();
       $event.stopPropagation();
 
-      $scope.datePickerOpened = true;
-    };
-
-    $scope.closeDatePicker = function(){
-      $scope.datePickerOpened = false;
+      $scope.datePickerOpened.state = true;
     };
 
     // Set up empty userData object

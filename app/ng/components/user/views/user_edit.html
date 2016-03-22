@@ -13,7 +13,7 @@
   <form class="form-horizontal" novalidate ng-if="user">
     <form-input-text id="full_name" label="{{ ::$root.langStrings.forms.userRegister.labels.full_name }}" model="userData.full_name" req="true"></form-input-text>
 
-    <form-date-picker id="birth_date" label="{{ ::$root.langStrings.forms.userRegister.labels.birthDate }}" model="userData.date_of_birth" mode="datePickerMode" is-open="datePickerOpened" options="datePickerOptions" max-date="todayDate" open="openDatePicker(ev)" req="true"></form-date-picker>
+    <form-date-picker id="birth_date" label="{{ ::$root.langStrings.forms.userRegister.labels.birthDate }}" model="userData.date_of_birth" mode="datePickerMode" is-open="datePickerOpened.state" options="datePickerOptions" max-date="todayDate" open="openDatePicker(ev)" req="true"></form-date-picker>
 
     <form-select id="sex" label="{{ ::$root.langStrings.forms.userRegister.labels.sex }}" options="$root.langStrings.forms.userRegister.sex" model="userData.sex" req="true"></form-select>
 
