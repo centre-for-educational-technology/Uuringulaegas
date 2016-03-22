@@ -13,7 +13,9 @@ angular.module('arkofinquiryApp')
     // Expose Underscore.js to scope
     $scope._ = _;
 
-    $scope.groupList = GroupService.query();
+    $scope.groupList = GroupService.query({}, function(){
+      $scope.listLoaded = true;
+    });
 
     $scope.showGroupPage = function(group){
       $location.path('group/' + group.id)

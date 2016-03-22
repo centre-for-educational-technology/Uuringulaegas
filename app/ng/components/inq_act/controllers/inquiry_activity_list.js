@@ -14,21 +14,28 @@ angular.module('arkofinquiryApp')
     $scope._ = _;
 
     $scope.currentPage = 1;
-
-    $scope.loadPage = function(currentPage){
-      $scope.inqActList = InquiryActivityService.queryByPage({page: currentPage});
-    };
-
+    $scope.listLoaded = false;
 
     if(_.isEmpty($location.search())){
-      $scope.inqActList = InquiryActivityService.queryByPage({page: 1});
+      $scope.inqActList = InquiryActivityService.queryByPage({page: 1}, function(){
+        $scope.listLoaded = true;
+      });
       $scope.keywordMode = false;
       $scope.keywordText = '';
     } else {
-      $scope.inqActList = InquiryActivityService.searchByKeyword({keyword: $location.search().keyword});
+      $scope.inqActList = InquiryActivityService.searchByKeyword({keyword: $location.search().keyword}, function(){
+        $scope.listLoaded = true;
+      });
       $scope.keywordMode = true;
       $scope.keywordText = $location.search().keyword;
     }
+
+    $scope.loadPage = function(currentPage){
+      $scope.listLoaded = false;
+      $scope.inqActList = InquiryActivityService.queryByPage({page: currentPage}, function(){
+        $scope.listLoaded = true;
+      });
+    };
 
     //$scope.totals = InquiryActivityService.getTotals();
 

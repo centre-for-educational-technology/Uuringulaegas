@@ -1,4 +1,6 @@
-<div class="form-inline text-right mt20">
+<spinner class="mt20" ng-if="!listLoaded"></spinner>
+
+<div class="form-inline text-right mt20" ng-if="listLoaded">
     <div class="form-group">
         <label for="filterInput">{{ $root.langStrings.group.listPage.filter }}</label>
         <input type="text" class="form-control" id="filterInput" placeholder="{{ $root.langStrings.group.filterPlaceholder }}" ng-model="groupFilterText">
@@ -6,7 +8,7 @@
 </div>
 <br/>
 
-<div class="list-group">
+<div class="list-group" ng-if="listLoaded">
   <a class="list-group-item" ng-repeat="group in filteredList = (groupList | filter:groupFilterText) | orderBy:'id':true | startFrom:currentPage * pageSize - pageSize | limitTo:pageSize" ng-click="showGroupPage(group)">
     <h4 class="list-group-item-heading">{{ group.name }}</h4>
     <p class="list-group-item-text">
