@@ -7,7 +7,7 @@
   },
   "mainMenu": {
     "home": "Home",
-    "help": "Help",
+    "help": "Teacher's toolbox",
     "inqAct": "Inquiry Activities",
     "groups": "Community",
     "showProfile": "Show profile",
@@ -19,7 +19,7 @@
     "titlePageBoxes": {
       "1": {
         "title": "Teacher’s toolbox",
-        "description": "Something for the teachers – a collection of pedagogical instruments and tools for assessing the inquiry proficiency of pupils, including those developed within the Ark of Inquiry project."
+        "description": "A collection of pedagogical scenarios for teachers for adapting and improving inquiry activities. Pedagogical instruments and tools for assessing the inquiry proficiency of pupils."
       },
       "2": {
         "title": "Inquiry activities",
@@ -222,7 +222,7 @@
     "inqAct": {
       "title": "Add new inquiry activity",
       "subtitle": "Fields marked with an asterisk (*) are mandatory",
-      "alertSuccess": "Activity added!",
+      "alertSuccess": "Activity added! View created activity: ",
       "alertError": "Error! Check that you have filled all required fields.",
       "labels": {
         "title": "Title",
@@ -338,7 +338,7 @@
       "learnersPlaceholder": "Add learner...",
       "learnersHelp": "Type above to search learners by Name or Email",
       "email": "Email",
-      "successAlert": "Group created!",
+      "successAlert": "Group created! View group: ",
       "errorAlert": "Error creating group. Did you fill all required fields?",
       "submitButton": "Create Group"
     }
