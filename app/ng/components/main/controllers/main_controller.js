@@ -12,7 +12,7 @@ angular.module('arkofinquiryApp')
 
     $rootScope.developerView = true; // Set to 'true' to see hidden raw data
 
-    $scope.userLoaded = false;
+    $rootScope.userLoaded = false;
 
     $.get('ng/langStrings.json', function(data){
       $rootScope.langStrings = data;
@@ -27,11 +27,13 @@ angular.module('arkofinquiryApp')
         // Success
         $rootScope.loggedIn = true;
         $rootScope.currentUserData = data;
-        $scope.userLoaded = true;
+        $rootScope.userLoaded = true;
+        $rootScope.$broadcast("userLoaded");
       }, function(error){
         // Error (not logged in)
         $rootScope.loggedIn = false;
-        $scope.userLoaded = true;
+        $rootScope.userLoaded = true;
+        $rootScope.$broadcast("userLoaded");
       });
     }
 

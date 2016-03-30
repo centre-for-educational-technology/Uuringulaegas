@@ -185,12 +185,21 @@ angular.module('arkofinquiryApp')
 
     //$locationProvider.html5Mode(true);
   })
-  .run(function ($rootScope, $state) {
+  .run(function ($rootScope, $state, $timeout) {
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-      if (toState.authenticate && !$rootScope.loggedIn){
-        // User isn’t authenticated
-        $state.transitionTo("login");
-        event.preventDefault();
+      if(!$rootScope.userLoaded) {
+        $timeout(checkAuth, 1000)
+      } else {
+        checkAuth();
       }
+
+      function checkAuth() {
+        if (toState.authenticate && !$rootScope.loggedIn && $rootScope.userLoaded){
+          // User isn’t authenticated
+          $state.transitionTo("login");
+          event.preventDefault();
+        }
+      }
+
     });
   });
