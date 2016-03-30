@@ -176,7 +176,7 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
 
 add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $pod) {
      if ( $pod == 'completed_activity' && current_user_can( 'confirm_completed_activity' )) {
-          error_log(print_r($_REQUEST, true));
+
          $access = true;
      } else if ( $pod == 'inq_keywords' && current_user_can( 'publish_inq_activitys' ) ) {
          $access = true;
@@ -186,8 +186,6 @@ add_filter( 'pods_json_api_access_pods_save_item', function( $access, $method, $
          $access = true;
      } else if ( $pod == 'user' ) {
          parse_str(file_get_contents("php://input"),$post_vars);
-         error_log(print_r($post_vars, true));
-         error_log(print_r($method, true));
          $access = true;
      }
 
@@ -260,7 +258,6 @@ add_action('wp_ajax_add_to_group_wait_list', 'add_to_group_wait_list');
 add_action('wp_ajax_nopriv_add_to_group_wait_list', 'not_logged_in_error');
 
 function add_to_group_wait_list() {
-    error_log(print_r($_REQUEST, true));
     $groupID = $_REQUEST[groupID];
     $learnerID = wp_get_current_user()->ID;
 
