@@ -1,46 +1,52 @@
 <br/>
+<h2>{{ ::$root.langStrings.group.listPage.hallOfFameTab }}</h2>
+<p class="multi-line-text" ng-bind-html="::$root.langStrings.group.hallOfFamePage.introText"></p>
 <h3>{{ ::$root.langStrings.group.hallOfFamePage.goldTitle }}</h3>
+<p>{{ ::$root.langStrings.group.hallOfFamePage.goldText }}</p>
 <div class="group-user-grid-pic" ng-repeat="learner in hallOfFame.medals_gold">
     <a ui-sref="user.details({id: learner.id})">
         <img ng-src='{{ gravatarUrl(learner) }}' alt="User profile picture" class="img-responsive img-circle group-profile-link" tooltip="{{ ::learner.name }}">
     </a>
 </div>
-<p ng-if="hallOfFame.medals_gold.length == 0">{{ ::$root.langStrings.group.hallOfFamePage.noMedalistsText }}</p>
+<p ng-if="hallOfFame.medals_gold.length == 0" class="label label-info">{{ ::$root.langStrings.group.hallOfFamePage.noMedalistsText }}</p>
 <div class="clearfix"></div>
 
 <h3>{{ ::$root.langStrings.group.hallOfFamePage.silverTitle }}</h3>
+<p>{{ ::$root.langStrings.group.hallOfFamePage.silverText }}</p>
 <div class="group-user-grid-pic" ng-repeat="learner in hallOfFame.medals_silver">
     <a ui-sref="user.details({id: learner.id})">
         <img ng-src='{{ gravatarUrl(learner) }}' alt="User profile picture" class="img-responsive img-circle group-profile-link" tooltip="{{ ::learner.name }}">
     </a>
 </div>
-<p ng-if="hallOfFame.medals_silver.length == 0">{{ ::$root.langStrings.group.hallOfFamePage.noMedalistsText }}</p>
+<p ng-if="hallOfFame.medals_silver.length == 0" class="label label-info">{{ ::$root.langStrings.group.hallOfFamePage.noMedalistsText }}</p>
 <div class="clearfix"></div>
 
 <h3>{{ ::$root.langStrings.group.hallOfFamePage.bronzeTitle }}</h3>
+<p>{{ ::$root.langStrings.group.hallOfFamePage.bronzeText }}</p>
 <div class="group-user-grid-pic" ng-repeat="learner in hallOfFame.medals_bronze">
     <a ui-sref="user.details({id: learner.id})">
         <img ng-src='{{ gravatarUrl(learner) }}' alt="User profile picture" class="img-responsive img-circle group-profile-link" tooltip="{{ ::learner.name }}">
     </a>
 </div>
-<p ng-if="hallOfFame.medals_bronze.length == 0">{{ ::$root.langStrings.group.hallOfFamePage.noMedalistsText }}</p>
+<p ng-if="hallOfFame.medals_bronze.length == 0" class="label label-info">{{ ::$root.langStrings.group.hallOfFamePage.noMedalistsText }}</p>
 <div class="clearfix"></div>
-<hr/>
 
 <h3>{{ ::$root.langStrings.group.hallOfFamePage.diplomasTitle }}</h3>
+<p>{{ ::$root.langStrings.group.hallOfFamePage.diplomasText }}</p>
 <div class="group-user-grid-pic" ng-repeat="learner in hallOfFame.diplomas">
     <a ui-sref="user.details({id: learner.id})">
         <img ng-src='{{ gravatarUrl(learner) }}' alt="User profile picture" class="img-responsive img-circle group-profile-link" tooltip="{{ ::learner.name }}">
     </a>
 </div>
-<p ng-if="hallOfFame.diplomas.length == 0">{{ ::$root.langStrings.group.hallOfFamePage.noMedalistsText }}</p>
+<p ng-if="hallOfFame.diplomas.length == 0" class="label label-info">{{ ::$root.langStrings.group.hallOfFamePage.noMedalistsText }}</p>
 <div class="clearfix"></div>
 
 <h3>{{ ::$root.langStrings.group.hallOfFamePage.starsTitle }}</h3>
+<p>{{ ::$root.langStrings.group.hallOfFamePage.starsText }}</p>
 <div class="group-user-grid-pic" ng-repeat="learner in hallOfFame.stars">
     <a ui-sref="user.details({id: learner.id})">
         <img ng-src='{{ gravatarUrl(learner) }}' alt="User profile picture" class="img-responsive img-circle group-profile-link" tooltip="{{ ::learner.name }}">
     </a>
 </div>
-<p ng-if="hallOfFame.stars.length == 0">{{ ::$root.langStrings.group.hallOfFamePage.noMedalistsText }}</p>
+<p ng-if="hallOfFame.stars.length == 0" class="label label-info">{{ ::$root.langStrings.group.hallOfFamePage.noMedalistsText }}</p>
 <div class="clearfix"></div>
