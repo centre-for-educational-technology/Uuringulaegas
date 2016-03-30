@@ -6,6 +6,7 @@ if ( !current_user_can( 'manage_options' ) ) {
 
 $activities_file_upload = null;
 $activity_file_upload = null;
+$groups_file_upload = null;
 
 if ( isset($_POST['submit']) ) {
   if ( isset($_FILES['activities-background']) && $_FILES['activities-background']['error'] === 0 ) {
@@ -53,6 +54,29 @@ if ( isset($_POST['submit']) ) {
   } else {
     $activity_file_upload = false;
   }
+
+    if ( isset($_FILES['groups-background']) && $_FILES['groups-background']['error'] === 0 ) {
+        $suitable_mime_types = array('image/jpeg', 'image/png');
+        if ( in_array($_FILES['groups-background']['type'], $suitable_mime_types) ) {
+            $upload_result = aoi_upload_file($_FILES['groups-background'], 'groups_background_' . time());
+
+            if ( $upload_result ) {
+                $groups_file_upload = true;
+
+                $old_file_name = get_option('aoi_groups_background', null);
+                if ( $old_file_name ) {
+                    unlink(aoi_get_uploaded_file_location($old_file_name));
+                }
+                update_option('aoi_groups_background', $upload_result);
+            } else {
+                $groups_file_upload = false;
+            }
+        } else {
+            $groups_file_upload = false;
+        }
+    } else {
+        $groups_file_upload = false;
+    }
 }
 ?>
 <div class="wrap">
@@ -87,6 +111,21 @@ if ( isset($_POST['submit']) ) {
       </div>
     <?php endif; ?>
 
+    <?php if ( $groups_file_upload === true ): ?>
+        <div class="notice notice-success">
+            <p>
+                <?php _e( 'Community image uploaded successfully.', aoi_get_text_domain() ); ?>
+            </p>
+        </div>
+    <?php endif; ?>
+    <?php if ( $groups_file_upload === false ): ?>
+        <div class="notice notice-error">
+            <p>
+                <?php _e( 'Community image could not be uploaded. Please check file type before contacting administrator.', aoi_get_text_domain() ); ?>
+            </p>
+        </div>
+    <?php endif; ?>
+
     <div class="aoi-settings-buttons">
       <button id="downloadUsersGroupsCsv" class="button button-secondary" onclick="window.open('<?php echo admin_url('?page=aoi-download-users-groups-csv&noheader=true'); ?>', '_blank');"><span class="dashicons dashicons-cloud"></span> <?php _e( 'Download users groups CSV', aoi_get_text_domain() ); ?></button>
       <button id="downloadUsersBadgesCsv" class="button button-secondary" onclick="window.open('<?php echo admin_url('?page=aoi-download-users-badges-csv&noheader=true'); ?>', '_blank');"><span class="dashicons dashicons-cloud"></span> <?php _e( 'Download users badges CSV', aoi_get_text_domain() ); ?></button>
@@ -116,6 +155,19 @@ if ( isset($_POST['submit']) ) {
         <h4><?php _e( 'Current single activity background preview.', aoi_get_text_domain() ); ?></h4>
         <img src="<?php echo aoi_get_uploaded_file_url(get_option('aoi_activity_background', null)); ?>" alt="current_activity_background" style="width:348px;height:160px;">
       <?php endif; ?>
+
+        <hr/>
+
+        <h3><?php _e( 'Add/replace community background image', aoi_get_text_domain() ); ?></h3>
+        <label><?php _e( 'Community page background', aoi_get_text_domain() ); ?></label>
+        <input type="file" name="groups-background">
+        <p class="description">
+            <?php _e( 'Image should be with an extension of .jpg, .jpeg or .png and have dimensions of 870 x 145 pixels.', aoi_get_text_domain() ); ?>
+        </p>
+        <?php if ( get_option('aoi_groups_background', null) ): ?>
+            <h4><?php _e( 'Current community background preview.', aoi_get_text_domain() ); ?></h4>
+            <img src="<?php echo aoi_get_uploaded_file_url(get_option('aoi_groups_background', null)); ?>" alt="current_groups_background" style="width:348px;height:58px;">
+        <?php endif; ?>
 
       <?php submit_button(); ?>
     </form>

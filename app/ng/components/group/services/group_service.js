@@ -19,6 +19,18 @@ angular.module("arkofinquiryApp")
     update: {
       method: 'PUT'
     },
+    getGroupsBackgroundImage: {
+      url: appConfig.apiUrl + 'wp-admin/admin-ajax.php',
+      method: 'GET',
+      params: {
+        action: 'get_groups_background_image'
+      },
+      transformResponse: [angular.fromJson, function(data) {
+        return {
+          url: data.url
+        };
+      }]
+    },
     handleWaitList: {
       url: appConfig.apiUrl + 'wp-admin/admin-ajax.php',
       method: 'POST',

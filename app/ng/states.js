@@ -114,7 +114,8 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/main/views/parent_view.html'
       })
       .state('group.main', {
-        templateUrl: base + 'ng/components/group/views/group_parent_view.html'
+        templateUrl: base + 'ng/components/group/views/group_parent_view.html',
+        controller: 'GroupParentCtrl'
       })
       .state('group.main.list', {
         url: '/list',

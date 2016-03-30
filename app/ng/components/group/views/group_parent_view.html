@@ -1,20 +1,24 @@
-<div class="page-header center">
-    <h1>{{ $root.langStrings.group.listPage.title }}</h1>
+<div class="container-fluid" id="activities-background-image" ng-style="{'background-image':'url('+groupsBackgroundImage+')'}"></div>
+<div class="container-fluid">
+    <div class="page-header center activities">
+        <h1>{{ $root.langStrings.group.listPage.title }}</h1>
+    </div>
+    <div role="tabpanel">
+        <ul class="nav nav-tabs">
+            <li role="presentation" ui-sref-active="active">
+                <a ui-sref=".list" aria-controls="list">{{ $root.langStrings.group.listPage.listTab }}</a>
+            </li>
+            <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher'">
+                <a ui-sref=".new" aria-controls="new">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    {{ $root.langStrings.group.listPage.addGroupTab }}
+                </a>
+            </li>
+            <li role="presentation" ui-sref-active="active">
+                <a ui-sref=".hallOfFame" aria-controls="halloffame">{{ $root.langStrings.group.listPage.hallOfFameTab }}</a>
+            </li>
+        </ul>
+    </div>
+    <div ui-view=""></div>
+
 </div>
-<div role="tabpanel">
-    <ul class="nav nav-tabs">
-        <li role="presentation" ui-sref-active="active">
-            <a ui-sref=".list" aria-controls="list">{{ $root.langStrings.group.listPage.listTab }}</a>
-        </li>
-        <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'teacher'">
-            <a ui-sref=".new" aria-controls="new">
-                <span class="glyphicon glyphicon-plus"></span>
-                {{ $root.langStrings.group.listPage.addGroupTab }}
-            </a>
-        </li>
-        <li role="presentation" ui-sref-active="active">
-            <a ui-sref=".hallOfFame" aria-controls="halloffame">{{ $root.langStrings.group.listPage.hallOfFameTab }}</a>
-        </li>
-    </ul>
-</div>
-<div ui-view=""></div>

@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Ark of Inquiry Nonce Authentication
- * Description: This plugin generates nonces to authenticate users in the Ark of Inquiry app
- * Version: 0.6.0
+ * Plugin Name: Ark of Inquiry Authentication and Settings
+ * Description: This plugin generates nonces to authenticate users in the Ark of Inquiry app and provides some settings in the settings menu.
+ * Version: 0.7.0
  * Author: Sander Aido
  * License: GPL2
  */
@@ -634,3 +634,24 @@ function aoi_api_return_activity_background_image() {
 }
 add_action('wp_ajax_get_activity_background_image', 'aoi_api_return_activity_background_image');
 add_action('wp_ajax_nopriv_get_activity_background_image', 'aoi_api_return_activity_background_image');
+
+/**
+ * Responds with activities background image data in JSON.
+ * @return void
+ */
+function aoi_api_return_groups_background_image() {
+    $background_image = get_option('aoi_groups_background', null);
+    $response = array(
+        'status' => 'success',
+        'url' => null,
+    );
+
+    if ( $background_image ) {
+        $response['url'] = aoi_get_uploaded_file_url($background_image);
+
+    }
+
+    wp_send_json($response);
+}
+add_action('wp_ajax_get_groups_background_image', 'aoi_api_return_groups_background_image');
+add_action('wp_ajax_nopriv_get_groups_background_image', 'aoi_api_return_groups_background_image');
