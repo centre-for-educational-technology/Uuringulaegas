@@ -11,9 +11,7 @@
 angular
   .module('arkofinquiryApp', [
     'arkofinquiryApp.config',
-    'ngAnimate',
     'ngAria',
-    'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
