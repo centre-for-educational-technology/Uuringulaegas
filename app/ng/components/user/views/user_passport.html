@@ -68,7 +68,7 @@
 
                 </div>
             </tab>
-            <tab heading="{{ ::$root.langStrings.user.passport.tabHeadings.activities }}">
+            <tab heading="{{ ::$root.langStrings.user.passport.tabHeadings.activities }}" ng-if="$root.currentUserData.userRole == 'learner'">
                 <tabset>
                     <tab heading="{{ ::$root.langStrings.user.passport.tabHeadings.subTabs.started }}">
                         <ul class="list-group">
