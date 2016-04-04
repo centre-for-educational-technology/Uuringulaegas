@@ -108,7 +108,7 @@
         "noReviews": "There are no peer reviews for this evidence",
         "overallRating": "Overall Rating",
         "phaseRatings": "Proficiency levels for inquiry phases in the activity",
-        "phaseRatingsHelp": "Only shows phases that are present in the acitivity. Green color indicates the phase's proficiency level in the activity.",
+        "phaseRatingsHelp": "Only shows phases that are present in the activity. Green color indicates the phase's proficiency level in the activity.",
         "perfEval": "Arenguvestlus",
         "submitButton": "Submit review"
       }
@@ -275,7 +275,7 @@
     "userRegister": {
       "title": "Sign up for your account",
       "subtitle": "You are able to change entered information later",
-      "alertSuccess": "User Registered! Please log in. If you created a Teacher account, please wait for confirmation from the site administrator.",
+      "alertSuccess": "User registered. Please log in. If you are a teacher, a scientist or a staff member of a science centre or a museum, please contact your local coordinator via e-mail and ask to be given the role of a teacher within the platform. ",
       "alertError": "Registration failed. Did you fill all the required fields?",
       "labels": {
         "full_name": "Full name",
@@ -305,7 +305,11 @@
       "subtitle": "You are able to change entered information later",
       "alertSuccess": "Profile information updated successfully.",
       "alertError": "Profile update failed!",
-      "submit": "Update"
+      "submit": "Update",
+      "profileTab": "Profile",
+      "forcedProfileCompletionNotice": "Please complete your profile information before continuing",
+      "extraTab": "Extra info",
+      "forcedExtraInfoNotice": "You have to complete this information to start using the platform"
     },
     "userSurvey": {
       "title": "Who am I?",
