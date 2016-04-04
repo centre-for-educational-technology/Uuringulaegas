@@ -174,7 +174,7 @@ module.exports = function (grunt) {
         src: [
           '<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          //'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= yeoman.dist %>/styles/fonts/*'
         ]
       }
@@ -187,6 +187,7 @@ module.exports = function (grunt) {
       html: '<%= yeoman.app %>/index.html',
       options: {
         dest: '<%= yeoman.dist %>',
+        src: '!ng/langStrings.json',
         flow: {
           html: {
             steps: {
@@ -239,7 +240,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
+          src: '{,**/}*.{png,jpg,jpeg,gif}',
           dest: '<%= yeoman.dist %>/images'
         }]
       }
@@ -306,9 +307,11 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
-            'fonts/{,*/}*.*'
+            'ng/{,**/}*.html',
+            'images/{,**/}*.{webp}',
+            'fonts/{,*/}*.*',
+            'ng/config.js',
+            'ng/langStrings.json'
           ]
         }, {
           expand: true,
@@ -317,7 +320,7 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }, {
           expand: true,
-          cwd: 'bower_components/bootstrap/dist',
+          cwd: '<%= yeoman.app %>/bower_components/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
         }]
