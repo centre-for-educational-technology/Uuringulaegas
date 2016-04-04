@@ -17,6 +17,8 @@ angular.module('arkofinquiryApp')
       $scope.listLoaded = true;
     });
 
+    $scope.groupFilterText = '';
+
     $scope.showGroupPage = function(group){
       $location.path('group/' + group.id)
     };

@@ -32,7 +32,7 @@ angular.module("arkofinquiryApp")
     };
 
     $scope.editProfile = function(){
-      $location.path('user/edit');
+      $location.path('user/edit/profile');
     };
 
 });

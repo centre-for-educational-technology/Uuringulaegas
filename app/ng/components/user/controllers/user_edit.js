@@ -16,6 +16,8 @@ angular.module('arkofinquiryApp')
       showWeeks: false
     };
 
+    $scope.forced = $stateParams.forced;
+
     $scope.todayDate = new Date();
     $scope.datePickerMode = 'year';
     $scope.datePickerOpened = {};
@@ -71,6 +73,7 @@ angular.module('arkofinquiryApp')
           $scope.postingState = 1; // OK
         });
         $rootScope.currentUserData.userDisplayName = data.display_name;
+        $scope.forced = false;
       }, function() {
         $scope.updating = false;
         $scope.errors = response;

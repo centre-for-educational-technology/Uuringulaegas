@@ -57,7 +57,7 @@ angular.module('arkofinquiryApp')
         $scope.activityStatus.started = true;
       }
 
-      if(success[0].status >= 5){
+      if(!_.isEmpty(success) && success[0].status >= 5){
         EvidenceService.searchByLearnerAndActivity({learnerID: $rootScope.currentUserData.userID, activityID: currentActivityID}, function(success){
           $scope.evidence = success[0];
         });

@@ -11,7 +11,7 @@
   <form class="form-horizontal" novalidate collapse="postingState == 1">
     <form-input-text id="full_name" label="{{ ::$root.langStrings.forms.userRegister.labels.full_name }}" model="userData.extra.full_name" req="true"></form-input-text>
 
-    <form-input-email id="email" label="{{ ::$root.langStrings.forms.userRegister.labels.email }}" model="userData.email" req="true" help-text="{{ ::$root.langStrings.forms.userRegister.labels.emailHelp }}"></form-input-email>
+    <form-input-text id="email" label="{{ ::$root.langStrings.forms.userRegister.labels.email }}" model="userData.email" req="true" help-text="{{ ::$root.langStrings.forms.userRegister.labels.emailHelp }}"></form-input-text>
 
     <form-input-password id="password" label="{{ ::$root.langStrings.forms.userRegister.labels.password }}" model="userData.password" req="true"></form-input-password>
 

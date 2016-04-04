@@ -3,7 +3,7 @@
     <small>{{ ::$root.langStrings.forms.inqAct.subtitle }}</small>
 </div>
 
-<div id="successAlert" class="alert alert-success" role="alert" collapse="postingState != 1"> {{ ::$root.langStrings.forms.inqAct.alertSuccess }}</div>
+<div id="successAlert" class="alert alert-success" role="alert" collapse="postingState != 1"> {{ ::$root.langStrings.forms.inqAct.alertSuccess }} <a ui-sref="inq_act.details({id: createdActivity.id})">{{ createdActivity.name }}</a></div>
 
 <div id="errorAlert" class="alert alert-danger" role="alert" collapse="postingState != 2"> {{ ::$root.langStrings.forms.inqAct.alertError }}</div>
 
@@ -80,7 +80,7 @@
     <div class="form-group">
         <div class="col-sm-4"></div>
         <div class="col-sm-8">
-            <button class="btn btn-success" type="submit" ng-click="saveActivity(activity)" ng-disabled="updating">{{ ::$root.langStrings.forms.inqAct.submitButton }}</button>
+            <button class="btn btn-success" type="submit" ng-click="saveActivity()" ng-disabled="updating">{{ ::$root.langStrings.forms.inqAct.submitButton }}</button>
         </div>
     </div>
 

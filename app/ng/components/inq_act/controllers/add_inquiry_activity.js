@@ -87,9 +87,6 @@ angular.module('arkofinquiryApp')
       }).$promise;
     };
 
-    // Create new Activity Service
-    $scope.activity = new InquiryActivityService();
-
     /*
       postingState variable:
       0 - Not yet posted
@@ -99,46 +96,46 @@ angular.module('arkofinquiryApp')
     $scope.postingState = 0; // Not posted
 
     // Save new Inquiry Activity
-    $scope.saveActivity = function(activity){
+    $scope.saveActivity = function(){
       $scope.errors = null;
       $scope.updating = true;
+      var postData = {};
 
       // Set post data that has different keys from form extra data
-      activity.post_title = $scope.formData.title;
-      activity.post_content = $scope.formData.description;
-      activity.post_status = 'publish';
-      activity.post_type = 'inq_activity';
+      postData.post_title = $scope.formData.title;
+      postData.post_content = $scope.formData.description;
+      postData.post_status = 'publish';
+      postData.post_type = 'inq_activity';
 
-      activity.inq_keywords = [];
+      postData.inq_keywords = [];
       for(var i = 0; i < $scope.formData.keywords.length; i++){
         if ($scope.formData.keywords[i].term_id){
-          activity.inq_keywords.push($scope.formData.keywords[i].term_id)
+          postData.inq_keywords.push($scope.formData.keywords[i].term_id)
         } else {
-          activity.inq_keywords.push($scope.formData.keywords[i].name)
+          postData.inq_keywords.push($scope.formData.keywords[i].name)
         }
       }
 
       // Adds phase levels to post
       for(var j = 1; j <= 5; j++){
-        activity['phase_' + j + '_level'] = parseInt($scope.formData.phaseLevels[j]);
+        postData['phase_' + j + '_level'] = parseInt($scope.formData.phaseLevels[j]);
       }
 
-
-
       // append form data object to activity object (same keys)
-      _.extend(activity, $scope.formData.extra);
+      _.extend(postData, $scope.formData.extra);
 
       // POST to DP
-      activity.$save(activity, function() {
-        // success
+      InquiryActivityService.save(postData, function(successResponse) {
         $scope.updating = false;
-
         resetForm();
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 1; // OK
         });
+        $scope.createdActivity = {
+          id: successResponse.id,
+          name: successResponse.post_title
+        }
       }, function(error){
-        // error
         $scope.updating = false;
         $scope.errors = error;
         $document.scrollTopAnimated(0).then(function(){

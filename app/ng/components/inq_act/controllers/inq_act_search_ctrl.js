@@ -74,6 +74,7 @@ angular.module('arkofinquiryApp')
         query += 't.post_title LIKE "%' + form.phrase + '%"'
       }
 
+
       query = extendQuery();
       query += 'age_range_from.meta_value>=' + form.age_range.from + ' AND age_range_to.meta_value<=' + form.age_range.to;
 
@@ -126,6 +127,7 @@ angular.module('arkofinquiryApp')
         query = extendQuery();
         query += 'rri_component.meta_value="1"';
       }
+
 
 
       currentQuery = query;

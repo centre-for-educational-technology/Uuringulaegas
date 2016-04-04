@@ -58,36 +58,28 @@ angular.module('arkofinquiryApp')
     $scope.newGroup = new GroupService();
 
     // Save new Group
-    $scope.addGroup = function(newGroup){
+    $scope.addGroup = function(){
       $scope.errors = null;
       $scope.updating = true;
 
-      // append form data object to group object (same keys)
-      _.extend(newGroup, $scope.groupForm);
-
-      //// Push only ID's from groupForm to GroupService.learners array
-      //// NEEDED ONLY for ng-tags-input, not needed for ui.select module
-      //
-      //for(var i = 0; i < $scope.groupForm.learners.length; i++){
-      //  newGroup.learners.push($scope.groupForm.learners[i].id);
-      //}
-
       // POST to DB
-      newGroup.$save(newGroup, function() {
-        // success
+      GroupService.save($scope.groupForm, function(successResponse) {
         $scope.updating = false;
-
         resetForm();
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 1; // OK
         });
-      }, function(newGroup){
-        // error
+        $scope.createdGroup = {
+          id: successResponse.id,
+          name: successResponse.name
+        }
+      }, function(errorResponse){
         $scope.updating = false;
         $document.scrollTopAnimated(0).then(function(){
           $scope.postingState = 2; // Error
         });
       });
+
     };
 
 

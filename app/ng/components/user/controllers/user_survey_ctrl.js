@@ -8,14 +8,25 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('UserSurveyCtrl', function ($scope, $http, $document, UserService, $rootScope) {
+  .controller('UserSurveyCtrl', function ($scope, $http, $document, UserService, $rootScope, $stateParams) {
 
+    /*
     OpenBadges.issue(['http://www.tlu.ee/~aido/badges/test.json'], function(errors, successes) {
       //...
-    });
+    });*/
+
+    $scope.forced = $stateParams.forced;
 
     // Set up empty userData object
     resetForm();
+
+    UserService.get({id: $rootScope.currentUserData.userID}, function(success){
+      if(!_.isEmpty(success.interests)){
+        $scope.formData.interests = success.interests;
+      }
+      $scope.formData.like_research_text = success.like_research_text;
+      $scope.formData.why_ark_text = success.why_ark_text;
+    });
 
     /*
      postingState variable:
@@ -31,7 +42,18 @@ angular.module('arkofinquiryApp')
       $scope.updating = true;
 
 
-      UserService.update({id: $rootScope.currentUserData.userID}, $scope.formData);
+      UserService.update({id: $rootScope.currentUserData.userID}, $scope.formData, function(success){
+        $scope.updating = false;
+        $document.scrollTopAnimated(0).then(function(){
+          $scope.postingState = 1; // OK
+        });
+        $scope.forced = false;
+      }, function(error){
+        $scope.updating = false;
+        $document.scrollTopAnimated(0).then(function(){
+          $scope.postingState = 2; // Error
+        });
+      });
 
 
 

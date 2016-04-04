@@ -104,9 +104,26 @@ angular.module('arkofinquiryApp')
       })
       .state('user.edit', {
         url: '/edit',
+        templateUrl: base + 'ng/components/user/views/user_edit_parent_view.html',
+        authenticate: true
+      })
+      .state('user.edit.profile', {
+        url: '/profile',
         templateUrl: base + 'ng/components/user/views/user_edit.html',
         controller: 'UserEditCtrl',
-        authenticate: true
+        authenticate: true,
+        params: {
+          forced: null
+        }
+      })
+      .state('user.edit.extra', {
+        url: '/extra',
+        templateUrl: base + 'ng/components/user/views/user_survey.html',
+        controller: 'UserSurveyCtrl',
+        authenticate: true,
+        params: {
+          forced: null
+        }
       })
       .state('user.details', {
         url: '/:id',

@@ -8,12 +8,14 @@
 
     <div class="alert alert-danger" role="alert" collapse="postingState != 2"> {{ ::$root.langStrings.forms.userSurvey.alertError }} </div>
 
-    <form class="form-horizontal" novalidate collapse="postingState == 1">
+    <div class="alert alert-warning" role="alert" ng-show="forced"> {{ ::$root.langStrings.forms.userEdit.forcedExtraInfoNotice }} </div>
+
+    <form class="form-horizontal" novalidate>
         <form-select-multiple label="{{ ::$root.langStrings.forms.userSurvey.labels.interests }}" options="$root.langStrings.inqAct.domains" model="formData.interests" req="true"></form-select-multiple>
             
-        <form-textarea id="like_research" label="{{ ::$root.langStrings.forms.userSurvey.labels.like_research_text }}" rows="7" model="formData.like_research_text"></form-textarea>
+        <form-textarea id="like_research" label="{{ ::$root.langStrings.forms.userSurvey.labels.like_research_text }}" rows="7" model="formData.like_research_text" req="true"></form-textarea>
 
-        <form-textarea id="evidence_description" label="{{ ::$root.langStrings.forms.userSurvey.labels.why_ark_text }}" rows="7" model="formData.why_ark_text" req="true"></form-textarea>
+        <form-textarea id="why_ark" label="{{ ::$root.langStrings.forms.userSurvey.labels.why_ark_text }}" rows="7" model="formData.why_ark_text" req="true"></form-textarea>
 
         <div class="form-group">
             <div class="col-sm-4"></div>

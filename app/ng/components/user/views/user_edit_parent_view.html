@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="page-header center">
+        <h1>{{ ::$root.langStrings.forms.userEdit.title }}</h1>
+    </div>
+    <div role="tabpanel">
+        <ul class="nav nav-tabs">
+            <li role="presentation" ui-sref-active="active">
+                <a ui-sref=".profile" aria-controls="profile">{{ ::$root.langStrings.forms.userEdit.profileTab }}</a>
+            </li>
+            <li role="presentation" ui-sref-active="active" ng-if="$root.currentUserData.userRole == 'learner'">
+                <a ui-sref=".extra" aria-controls="extra">{{ ::$root.langStrings.forms.userEdit.extraTab }}</a>
+            </li>
+        </ul>
+    </div>
+    <div ui-view="" class="mt20"></div>
+</div>

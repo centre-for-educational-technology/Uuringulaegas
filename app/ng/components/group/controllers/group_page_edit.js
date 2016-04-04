@@ -78,7 +78,6 @@ angular.module('arkofinquiryApp')
       groupData.teachers = [];
       groupData.inq_activities = [];
 
-
       for(var i = 0; i < $scope.groupForm.learners.length; i++){
         groupData.learners[i] = $scope.groupForm.learners[i].id;
       }
@@ -105,7 +104,6 @@ angular.module('arkofinquiryApp')
           $scope.postingState = 2; // Error
         });
       });
-
     };
 
 

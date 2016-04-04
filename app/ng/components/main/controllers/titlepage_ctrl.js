@@ -9,9 +9,5 @@
  */
 angular.module('arkofinquiryApp')
   .controller('TitlePageCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
   });
