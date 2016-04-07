@@ -195,7 +195,7 @@ angular.module('arkofinquiryApp')
       .state('group.detail.act', {
         url: '/activities',
         templateUrl: base + 'ng/components/group/views/detail_page_views/group_page_activities.html',
-        controller: 'GroupPageInfoCtrl',
+        controller: 'GroupPageActivitiesCtrl',
         authenticate: true
       });
 

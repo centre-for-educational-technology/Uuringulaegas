@@ -12,6 +12,7 @@
     <div class="col-sm-6">
         <h4>{{ $root.langStrings.group.infoPage.feed }}</h4>
         <spinner collapse="!loadingInqLog"></spinner>
+        <div class="alert alert-info" role="alert" collapse="!noActivities"> {{ ::$root.langStrings.group.infoPage.noActivities }} </div>
 
         <div class="activity-feed-row" ng-repeat="log in inqLog | orderBy:'created':true">
             <!-- User own actions -->

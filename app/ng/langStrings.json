@@ -374,7 +374,8 @@
       "waitlist": "Wait list",
       "acceptButton": "Accept",
       "declineButton": "Decline",
-      "noPending": "No pending requests"
+      "noPending": "No pending requests",
+      "noActivities": "There are no Inquiry Activities set for this group so there is no feed available."
     },
     "editPage": {
       "title": "Edit group",

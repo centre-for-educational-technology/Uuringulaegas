@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name arkofinquiryApp.controller:UserPassportCtrl
+ * @name arkofinquiryApp.controller:GroupPageInfoCtrl
  * @description
- * # UserPassportCtrl
+ * # GroupPageInfoCtrl
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
@@ -117,10 +117,13 @@ angular.module('arkofinquiryApp')
     }
 
     function getUserLog(user){
-      //var log = InquiryActivityLogService.searchByLearnerID({learnerID: user.ID});
-      var log = InquiryActivityLogService.searchByLearnerWithActivities({learnerID: user.ID, activityList: activityListString});
-      inqLogServicePromises.push(log.$promise);
-      return log;
+      if(!_.isEmpty(activityListString)){
+        var log = InquiryActivityLogService.searchByLearnerWithActivities({learnerID: user.ID, activityList: activityListString});
+        inqLogServicePromises.push(log.$promise);
+        return log;
+      } else {
+        $scope.noActivities = true;
+      }
     }
 
     // Get gravatarUrl
