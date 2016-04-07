@@ -4,13 +4,14 @@
 <div class="modal-body">
     <form name="form" novalidate>
         <div class="form-group">
-            <label for="evidenceLink">{{ ::$root.langStrings.inqAct.modals.submitEvidence.link }}</label>
+            <label for="evidenceLink" ng-show="evidence.evidence_link || editingEvidence">{{ ::$root.langStrings.inqAct.modals.submitEvidence.link }}</label>
             <br/>
-            <input ng-show="editingEvidence" type="url" class="form-control" id="evidenceLink" name="evidenceLink" placeholder="{{ ::$root.langStrings.inqAct.modals.submitEvidence.linkPlaceholder }}" ng-model="evidence.evidence_link" required>
+            <input ng-show="editingEvidence" type="text" class="form-control" id="evidenceLink" name="evidenceLink" placeholder="{{ ::$root.langStrings.inqAct.modals.submitEvidence.linkPlaceholder }}" ng-model="evidence.evidence_link" required>
             <a ng-show="!editingEvidence" ng-href="{{ ::evidence.evidence_link }}" target="_blank">{{ ::evidence.evidence_link }}</a>
         </div>
         <div class="form-group">
             <label for="evidenceText">{{ ::$root.langStrings.inqAct.modals.submitEvidence.info }}</label>
+            <p class="help-block multi-line-text" ng-show="editingEvidence">{{ guide }}</p>
             <textarea ng-show="editingEvidence" class="form-control" rows="5" id="evidenceText" name="evidenceText" placeholder="{{ ::$root.langStrings.inqAct.modals.submitEvidence.infoPlaceholder }}" ng-model="evidence.evidence_text" required></textarea>
             <p ng-show="!editingEvidence" class="multi-line-text">{{ ::evidence.evidence_text }}</p>
         </div>
@@ -18,6 +19,6 @@
 </div>
 <div class="modal-footer">
     <button class="btn btn-warning" ng-click="editingEvidence = true" ng-hide="editingEvidence">{{ ::$root.langStrings.inqAct.modals.editEvidence.editButton }}</button>
-    <button class="btn btn-success" ng-click="update()" ng-disabled="form.evidenceLink.$invalid && form.evidenceText.$invalid || updating" ng-show="editingEvidence"></button>
+    <button class="btn btn-success" ng-click="update()" ng-disabled="form.evidenceLink.$invalid && form.evidenceText.$invalid || updating" ng-show="editingEvidence">{{ ::$root.langStrings.inqAct.modals.editEvidence.acceptButton }}</button>
     <button class="btn btn-primary" ng-click="cancel()">{{ ::$root.langStrings.inqAct.modals.editEvidence.closeButton }}</button>
 </div>

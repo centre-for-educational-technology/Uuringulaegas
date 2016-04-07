@@ -9,7 +9,7 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('EvidenceEditModalCtrl', function ($scope, $modalInstance, $rootScope, $q, InquiryActivityLogService, InquiryActivityStatusService, EvidenceService, evidence) {
+  .controller('EvidenceEditModalCtrl', function ($scope, $modalInstance, $rootScope, $q, InquiryActivityLogService, InquiryActivityStatusService, EvidenceService, evidence, InfoService) {
 
     $scope.evidence = evidence;
 
@@ -21,6 +21,10 @@ angular.module('arkofinquiryApp')
       status: 51
     };
     var servicePromises = [];
+
+    InfoService.getEvidenceGuide({}, function(response){
+      $scope.guide = response[0].post_content;
+    });
 
     $scope.update = function () {
 
