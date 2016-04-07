@@ -36,6 +36,15 @@ angular.module("arkofinquiryApp")
         transformResponse: [angular.fromJson, function(data, headers){
           return _.values(data); // Removes keys from response
         }]
+      },
+      getEvidenceGuide: {
+        url: appConfig.apiUrl + 'wp-json/pods/page?data[where]=category.slug="evidence-guide"',
+        method: 'GET',
+        cache: true,
+        isArray: true,
+        transformResponse: [angular.fromJson, function(data, headers){
+          return _.values(data); // Removes keys from response
+        }]
       }
     });
 

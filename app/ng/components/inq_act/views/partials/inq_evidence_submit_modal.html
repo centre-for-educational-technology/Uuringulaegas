@@ -9,7 +9,8 @@
     </div>
     <div class="form-group">
       <label for="evidenceText">{{ ::$root.langStrings.inqAct.modals.submitEvidence.info }}</label>
-      <textarea class="form-control" rows="5" id="evidenceText" name="evidenceText" placeholder="{{ ::$root.langStrings.inqAct.modals.submitEvidence.infoPlaceholder }}" ng-model="evidence.evidence_text" required></textarea>
+        <p class="help-block multi-line-text">{{ guide }}</p>
+      <textarea class="form-control" rows="5" id="evidenceText" name="evidenceText" ng-model="evidence.evidence_text" required></textarea>
     </div>
   </form>
 </div>
