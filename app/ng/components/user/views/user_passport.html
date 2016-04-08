@@ -2,8 +2,8 @@
     <div class="container" id="user-passport-cover" ng-style="{'background-image':'url('+profile_background_url+')'}"></div>
     <div class="container user-passport">
         <div class="btn-group profile_background pull-right" role="group">
-            <button type="button" class="btn btn-primary btn-xs" type="button" ng-click="changeCover()">{{ ::$root.langStrings.user.passport.titleChangeCover }}</button>
-            <button type="button" class="btn btn-primary btn-success btn-xs" type="button" ng-disabled="saveCoverButtonDisabled" ng-click="saveCover(user)">{{ saveCoverButtonText }}</button>
+            <button type="button" class="btn btn-primary btn-xs" type="button" ng-click="changeCover()" ng-if="ownProfile">{{ ::$root.langStrings.user.passport.titleChangeCover }}</button>
+            <button type="button" class="btn btn-primary btn-success btn-xs" type="button" ng-disabled="saveCoverButtonDisabled" ng-click="saveCover(user)" ng-if="ownProfile">{{ saveCoverButtonText }}</button>
         </div>
         <div class="col-sm-4">
             <img ng-src='{{ gravatarUrl(user) }}' alt="User profile picture" class="img-responsive img-circle center-block user-passport-gravatar">
@@ -88,7 +88,7 @@
             </tab>
             <tab heading="{{ ::$root.langStrings.user.passport.tabHeadings.groups }}">
                 <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="(key, value) in user.groups">
+                    <li class="list-group-item" ng-repeat="(key, value) in displayedGroups">
                         <a href="" ng-click="showGroupPage(key)">{{ value.name }}</a>
                     </li>
                 </ul>

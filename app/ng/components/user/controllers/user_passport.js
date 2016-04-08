@@ -14,11 +14,13 @@ angular.module('arkofinquiryApp')
     $scope.saveCoverButtonDisabled = true;
     $scope.saveCoverButtonText = $scope.langStrings.user.passport.titleSaveCover;
 
+    $scope.ownProfile = $rootScope.currentUserData.userID == $stateParams.id;
+
 
     // Expose Underscore.js to scope
     $scope._ = _;
 
-    $scope.user = UserService.get({id: $stateParams.id}, function(){
+    $scope.user = UserService.get({id: $stateParams.id}, function(successData){
       // Get gravatarURL for current profile and append it to user data
       $scope.user.gravatarUrl = getGravatarUrl($scope.user.user_email);
 
@@ -31,6 +33,7 @@ angular.module('arkofinquiryApp')
             $scope.inqLog[i].inq_activity = _.values($scope.inqLog[i].inq_activity);
           }
         });
+        $scope.displayedGroups = $scope.user.groups;
       } else if ($scope.user.roles[0] == 'teacher'){
         $scope.inqLog = InquiryActivityLogService.searchByTeacherID({teacherID: $stateParams.id}, function(success){
           for(var i = 0; i < $scope.inqLog.length; i++){
@@ -40,6 +43,7 @@ angular.module('arkofinquiryApp')
             $scope.inqLog[i].inq_activity = _.values($scope.inqLog[i].inq_activity);
           }
         });
+        $scope.displayedGroups = $scope.user.groups_teacher;
       }
 
       if(Array.isArray($scope.user.profile_background)){
