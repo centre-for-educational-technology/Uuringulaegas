@@ -15,8 +15,8 @@ dist/
 
 npm-debug.log
 
-npm-debug.log
-
 composer.phar
 composer.lock
 vendor/
+
+app/bower_components

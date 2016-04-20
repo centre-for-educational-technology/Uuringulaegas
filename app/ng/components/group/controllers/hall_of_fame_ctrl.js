@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('HallOfFameCtrl', function ($scope, UserService, $location, $gravatar) {
+  .controller('HallOfFameCtrl', function ($scope, UserService, $location, $gravatar, $cookies) {
 
     $scope._ = _;
 
@@ -17,6 +17,23 @@ angular.module('arkofinquiryApp')
     // Get gravatarUrl
     $scope.gravatarUrl = function(learner) {
       return $gravatar.generate(learner.email);
+    };
+
+    var HelpCookie = $cookies.showHofHelp;
+    if(HelpCookie == 0){
+      $scope.helpCollapsed = true;
+    } else {
+      $scope.helpCollapsed = false;
+    }
+
+    $scope.toggleHelp = function () {
+      if($scope.helpCollapsed){
+        $cookies.showHofHelp = 1;
+        $scope.helpCollapsed = false;
+      } else {
+        $cookies.showHofHelp = 0;
+        $scope.helpCollapsed = true;
+      }
     };
 
   });

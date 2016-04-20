@@ -16,6 +16,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'ngCookies',
     'ui-rangeSlider',
     'ui.bootstrap',
     'ui.select',

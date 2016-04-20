@@ -1,6 +1,13 @@
 <br/>
-<h2>{{ ::$root.langStrings.group.listPage.hallOfFameTab }}</h2>
-<p class="multi-line-text" ng-bind-html="::$root.langStrings.group.hallOfFamePage.introText"></p>
+<h2>{{ ::$root.langStrings.group.listPage.hallOfFameTab }} <span class="glyphicon glyphicon-question-sign pull-right lead" ng-click="toggleHelp()" tooltip="{{ helpCollapsed ? $root.langStrings.general.showHelp : $root.langStrings.general.hideHelp }}"></span></h2>
+<div collapse="helpCollapsed">
+    <p class="multi-line-text" ng-bind-html="::$root.langStrings.group.hallOfFamePage.introText"></p>
+    <div class="login-separator lead">
+        <span class="glyphicon glyphicon-menu-up" ng-click="toggleHelp()"></span>
+    </div>
+</div>
+<p>{{ ::$root.langStrings.group.hallOfFamePage.subHeading }}</p>
+
 <h3>{{ ::$root.langStrings.group.hallOfFamePage.goldTitle }}</h3>
 <p>{{ ::$root.langStrings.group.hallOfFamePage.goldText }}</p>
 <div class="group-user-grid-pic" ng-repeat="learner in hallOfFame.medals_gold">

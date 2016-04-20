@@ -3,7 +3,9 @@
     "nextItem": "Next",
     "previousItem": "Previous",
     "showMore": "Show more",
-    "showLess": "Show less"
+    "showLess": "Show less",
+    "showHelp": "Show help",
+    "hideHelp": "Hide help"
   },
   "mainMenu": {
     "home": "Home",
@@ -109,8 +111,13 @@
         "overallRating": "Overall Rating",
         "phaseRatings": "Proficiency levels for inquiry phases in the activity",
         "phaseRatingsHelp": "Only shows phases that are present in the activity. Green color indicates the phase's proficiency level in the activity.",
-        "perfEval": "Performance evaluation",
+        "perfEval": "Formative dialogue",
         "submitButton": "Submit review"
+      },
+      "reviewList": {
+        "title": "Reviews",
+        "peerListHeading": "Peer reviews",
+        "teacherListHeading": "Teacher reviews"
       }
     },
     "listPage": {
@@ -119,7 +126,8 @@
       "searchTab": "Search",
       "tagTab": "Tag cloud",
       "addNewTab": "Add new",
-      "filterByTag": "Filter by tag"
+      "filterByTag": "Filter by tag",
+      "introText": "Here you can search and browse the collection of the inquiry activities. The collection features carefully selected inquiry activities that promote pupils’ RRI awareness. The activities have been collected from various national and international projects and have been tested by pupils and teachers all over Europe. The collection is growing, as new activities are being added here every day.\n\rYou can search the activities via search form or use the tag cloud. In the search form, you can filter the results according to different parameters, like domain, language, proficiency level, etc."
     },
     "general": {
       "addedBy": "Added by",
@@ -350,13 +358,14 @@
   },
   "group": {
     "listPage": {
-      "title": "Groups",
+      "title": "Community",
       "listTab": "List of groups",
       "addGroupTab": "Add new",
       "hallOfFameTab": "Hall of fame",
       "filter": "Filter by group or teacher name",
       "filterPlaceholder": "",
-      "teacher": "Teacher"
+      "teacher": "Teacher",
+      "introText": "Here you can contact and communicate with Ark of Inquiry community members. Feel free to browse and search the list of groups. You can filter the groups by group or teacher name.  Be sure to check out our Hall of Fame page where we celebrate the best young scholars and scientists among us!"
     },
     "infoPage": {
       "infoTab": "Group info",
@@ -387,7 +396,8 @@
       "updateButton": "Update group"
     },
     "hallOfFamePage": {
-      "introText": "In the Ark of Inquiry Project, an award system is designed to challenge and stimulate pupils to become responsible researchers and innovators. On this Hall of fame page we celebrate the success of our learners and make their accomplishments visible for all.\n\rThe award system consists of five awards: a star, diploma, bronze medal, silver medal, and a gold medal. The awards can be obtained cumulatively by individual learners. That means that in order to earn a gold medal, a pupil must obtain all other awards first. The awards a pupil obtained are published on the profile page and on this Hall of Fame page.\n\rAt stage 1 an inquiry star and diploma celebrate the ability to individually reflect on the relevance, consequences and ethics of processes and outcomes of inquiry for oneself, others and society. At stage 2 bronze, silver and gold medals celebrate excellent communication and discussion about the relevance, consequences and ethics of inquiry processes and outcomes for oneself, others and society with an audience.\n\rPupils can obtain up to all five awards during the time they participate in the Ark of Inquiry.\n\rTogether with their teachers pupils take active roles in getting nominated. Granting is organized by a national jury consisting of teachers, teacher educators and experts. The process of awarding is coordinated by a national administrator.\n\rIn addition to the awards, the Ark of Inquiry platform also features a set of OpenBadges. Badges can be obtained for completing a set of activities, for mastering a specific domain or just by showing initiative. Start collecting badges by starting your next inquiry activity!\n\rBelow are the learners who have been awarded inquiry awards by the Ark of Inquiry jury:",
+      "introText": "In the Ark of Inquiry Project, an award system is designed to challenge and stimulate pupils to become responsible researchers and innovators. On this Hall of fame page we celebrate the success of our learners and make their accomplishments visible for all.\n\rThe award system consists of five awards: a star, diploma, bronze medal, silver medal, and a gold medal. The awards can be obtained cumulatively by individual learners. That means that in order to earn a gold medal, a pupil must obtain all other awards first. The awards a pupil obtained are published on the profile page and on this Hall of Fame page.\n\rAt stage 1 an inquiry star and diploma celebrate the ability to individually reflect on the relevance, consequences and ethics of processes and outcomes of inquiry for oneself, others and society. At stage 2 bronze, silver and gold medals celebrate excellent communication and discussion about the relevance, consequences and ethics of inquiry processes and outcomes for oneself, others and society with an audience.\n\rPupils can obtain up to all five awards during the time they participate in the Ark of Inquiry.\n\rTogether with their teachers pupils take active roles in getting nominated. Granting is organized by a national jury consisting of teachers, teacher educators and experts. The process of awarding is coordinated by a national administrator.\n\rIn addition to the awards, the Ark of Inquiry platform also features a set of OpenBadges. Badges can be obtained for completing a set of activities, for mastering a specific domain or just by showing initiative. Start collecting badges by starting your next inquiry activity!",
+      "subHeading": "Below are the learners who have been awarded inquiry awards by the Ark of Inquiry jury:",
       "goldTitle": "Gold medalists",
       "goldText": "Only 1% of all the learners will obtain a gold medal. In order to get a gold medal, learners will first have to obtain all other four awards. This award focusses on the attitude and ability to communicate and discuss processes and outcomes of inquiry with an audience. So let us celebrate our best inquirers and responsible researchers among us! Congratulations, dear gold medalists!",
       "silverTitle": "Silver medalists",

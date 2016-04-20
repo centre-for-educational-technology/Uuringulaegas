@@ -1,3 +1,12 @@
+<span class="glyphicon glyphicon-question-sign pull-right lead" ng-click="toggleMainHelp()" tooltip="{{ helpCollapsed ? $root.langStrings.general.showHelp : $root.langStrings.general.hideHelp }}"></span>
+<div class="clearfix"></div>
+<div collapse="helpCollapsed">
+    <p ng-bind-html="::$root.langStrings.group.listPage.introText" class="multi-line-text"></p>
+    <div class="login-separator lead">
+        <span class="glyphicon glyphicon-menu-up" ng-click="toggleMainHelp()"></span>
+    </div>
+</div>
+
 <div class="container-fluid" id="activities-background-image" ng-style="{'background-image':'url('+groupsBackgroundImage+')'}"></div>
 <div class="container-fluid">
     <div class="page-header center activities">
