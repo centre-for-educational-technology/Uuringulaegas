@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ark of Inquiry Authentication and Settings
  * Description: This plugin generates nonces to authenticate users in the Ark of Inquiry app and provides some settings in the settings menu.
- * Version: 0.7.0
+ * Version: 0.8.0
  * Author: Sander Aido
  * License: GPL2
  */
@@ -294,6 +294,44 @@ function decline_from_group_wait_list() {
     die();
 }
 
+add_action('wp_ajax_get_inq_act_feedback', 'get_inq_act_feedback');
+add_action('wp_ajax_nopriv_get_inq_act_feedback', 'not_logged_in_error');
+
+function get_inq_act_feedback() {
+    if (current_user_can('read_peer_review')) {
+        $activityID = $_REQUEST[activityID];
+        $learnerID = $_REQUEST[learnerID];
+
+        $params = ['where' => 'activity.id = "' . $activityID . '" AND learner.id = "' . $learnerID . '"'];
+
+        $reviews = [];
+        $reviews['peerReviews'] = pods('peer_review', $params);
+        $reviews['teacherReviews'] = pods('teacher_review', $params);
+        echo json_encode($reviews);
+    }
+    die();
+}
+
+add_action('wp_ajax_get_group_list', 'get_group_list');
+add_action('wp_ajax_nopriv_get_group_list', 'not_logged_in_error');
+
+function get_group_list() {
+    if (current_user_can('read_group')) {
+
+        $params = [
+            'select' => 't.id, t.name, GROUP_CONCAT(teachers.display_name SEPARATOR " | ") as teachers',
+            'limit' => -1,
+            'groupby' => 't.id'
+        ];
+
+        $podsGroups = pods('group', $params)->rows;
+        $groups = [];
+        
+        echo json_encode($podsGroups);
+    }
+    die();
+}
+
 /*
  *
  * Login logic
@@ -326,8 +364,13 @@ function return_logged_in_user(){
     global $nonce;
     $user = wp_get_current_user();
     $profile_completed = false;
+    $extra_info_completed = false;
     if(!empty($user->preferred_language)){
         $profile_completed = true;
+    }
+
+    if(!empty($user->like_research_text)){
+        $extra_info_completed = true;
     }
 
     echo json_encode(
@@ -336,7 +379,8 @@ function return_logged_in_user(){
             'userID' => $user->ID,
             'userDisplayName' => $user->display_name,
             'userRole' => $user->roles[0],
-            'profileCompleted' => $profile_completed
+            'profileCompleted' => $profile_completed,
+            'extraInfoCompleted' => $extra_info_completed
         )
     );
     die();

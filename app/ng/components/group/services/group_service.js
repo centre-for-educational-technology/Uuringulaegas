@@ -16,6 +16,14 @@ angular.module("arkofinquiryApp")
         return _.values(data); // Removes keys from response
       }]
     },
+    getList:{
+      url: appConfig.apiUrl + 'wp-admin/admin-ajax.php',
+      method: 'GET',
+      params: {
+        action: 'get_group_list'
+      },
+      isArray: true
+    },
     update: {
       method: 'PUT'
     },
