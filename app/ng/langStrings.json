@@ -118,6 +118,9 @@
         "title": "Reviews",
         "peerListHeading": "Peer reviews",
         "teacherListHeading": "Teacher reviews"
+      },
+      "viewTeacherReview": {
+        "phaseRatings": "Ratings for this activity's inquiry phases"
       }
     },
     "listPage": {
@@ -135,6 +138,7 @@
       "start": "Start activity",
       "finish": "Mark as completed",
       "viewEvidence": "View evidence",
+      "viewFeedback": "View feedback",
       "detailsPanelTitle": "Details",
       "tooltipOnline": "Online activity",
       "tooltipPhysical": "Physical location"

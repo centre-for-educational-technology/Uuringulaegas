@@ -100,6 +100,8 @@
                         <br/>
                         <button class="btn btn-link" ng-disabled="updating" ng-click="openEvidenceEditModal(evidence)">{{ ::$root.langStrings.inqAct.general.viewEvidence }}</button>
                     </div>
+                    <button class="btn btn-link" ng-click="openFeedbackModal(feedbackList)" ng-if="hasFeedback">{{ ::$root.langStrings.inqAct.general.viewFeedback }}</button>
+
                     <button class="btn btn-primary btn-block" ng-if="!activityStatus.started && $root.currentUserData.userRole == 'learner'" ng-disabled="updating" ng-click="openStartActivityModal(activity)">{{ ::$root.langStrings.inqAct.general.start }}</button>
                     <button class="btn btn-success btn-block" ng-if="activityStatus.status == 4 && $root.currentUserData.userRole == 'learner'" ng-disabled="updating" ng-click="openEvidenceModal(activity)">{{ ::$root.langStrings.inqAct.general.finish }}</button>
                 </div>

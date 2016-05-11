@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{ ::$root.langStrings.inqAct.modals.viewPeerReview.title }}</h3>
+</div>
+<div class="modal-body">
+    <dl class="dl-horizontal">
+        <dt>{{ ::$root.langStrings.inqAct.modals.viewPeerReview.reviewedBy }}</dt>
+        <dd ng-if="::review.peer">{{ ::review.peer }}</dd>
+        <dd ng-if="::review.teacher">{{ ::review.teacher }}</dd>
+        <dt>{{ ::$root.langStrings.inqAct.modals.viewPeerReview.reviewDate }}</dt>
+        <dd>{{ ::review.date | date : 'dd.MM.yy HH:mm' }}</dd>
+    </dl>
+
+    <hr/>
+
+    <h4>{{ ::$root.langStrings.inqAct.modals.submitTeacherReview.overallRating }}</h4>
+    <p>{{ ::review.rating }}</p>
+    <div ng-if="::review.teacher">
+        <h4>{{ ::$root.langStrings.inqAct.modals.viewTeacherReview.phaseRatings }}</h4>
+        <dl class="dl-horizontal">
+            <dt ng-repeat-start="i in [1,2,3,4,5]" ng-if="::review['phase_' + i + '_rating']">{{ ::$root.langStrings.inqAct.coveredPhases[i] }}</dt>
+            <dd ng-repeat-end>{{ ::review['phase_' + i + '_rating'] }}</dd>
+        </dl>
+    </div>
+    <h4>{{ ::$root.langStrings.inqAct.modals.submitPeerReview.review }}</h4>
+    <p class="multi-line-text">{{ ::review.post_content }}</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="accept()">{{ ::$root.langStrings.inqAct.modals.viewPeerReview.closeButton }}</button>
+</div>

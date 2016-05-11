@@ -294,19 +294,38 @@ function decline_from_group_wait_list() {
     die();
 }
 
-add_action('wp_ajax_get_inq_act_feedback', 'get_inq_act_feedback');
-add_action('wp_ajax_nopriv_get_inq_act_feedback', 'not_logged_in_error');
+add_action('wp_ajax_get_my_feedback', 'get_my_feedback');
+add_action('wp_ajax_nopriv_get_my_feedback', 'not_logged_in_error');
 
-function get_inq_act_feedback() {
+function get_my_feedback() {
     if (current_user_can('read_peer_review')) {
         $activityID = $_REQUEST[activityID];
-        $learnerID = $_REQUEST[learnerID];
+        //$learnerID = $_REQUEST[learnerID];
 
-        $params = ['where' => 'activity.id = "' . $activityID . '" AND learner.id = "' . $learnerID . '"'];
+        $peerQueryParams = [
+            'select' => 't.id, peer.display_name as peer, t.post_content, rating.meta_value as rating, t.post_modified',
+            'where' => 'inq_activity.ID = "' . $activityID . '" AND learner.id = "' . wp_get_current_user()->ID . '"',
+        ];
+        $teacherQueryParams = [
+            'select' => '
+                t.id,
+                teacher.display_name as teacher, 
+                t.post_content, 
+                rating.meta_value as rating, 
+                phase_1_level.meta_value as phase_1_rating,
+                phase_2_level.meta_value as phase_2_rating,
+                phase_3_level.meta_value as phase_3_rating,
+                phase_4_level.meta_value as phase_4_rating,
+                phase_5_level.meta_value as phase_5_rating,
+                perf_eval.meta_value as perf_eval,
+                t.post_modified',
+            'where' => 'inq_activity.ID = "' . $activityID . '" AND learner.id = "' . wp_get_current_user()->ID . '"'
+        ];
 
         $reviews = [];
-        $reviews['peerReviews'] = pods('peer_review', $params);
-        $reviews['teacherReviews'] = pods('teacher_review', $params);
+        $reviews['peerReviews'] = pods('peer_review', $peerQueryParams)->rows;
+        $reviews['teacherReviews'] = pods('teacher_review', $teacherQueryParams)->rows;
+        //$reviews['meta'] = get_post_meta(390);
         echo json_encode($reviews);
     }
     die();

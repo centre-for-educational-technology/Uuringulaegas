@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{ ::$root.langStrings.inqAct.modals.reviewList.title }}</h3>
+</div>
+<div class="modal-body">
+    <h3 ng-if="feedbackList.peerReviews[0]">{{ ::$root.langStrings.inqAct.modals.reviewList.peerListHeading }}</h3>
+    <div class="list-group" ng-if="feedbackList.peerReviews[0]">
+        <a href="" class="list-group-item" ng-repeat="review in feedbackList.peerReviews" ng-click="showPeerReviewModal(review)">{{ review.peer }}</a>
+    </div>
+
+    <h3 ng-if="feedbackList.teacherReviews[0]">{{ ::$root.langStrings.inqAct.modals.reviewList.teacherListHeading }}</h3>
+    <div class="list-group" ng-if="feedbackList.teacherReviews[0]">
+        <a href="" class="list-group-item" ng-repeat="review in feedbackList.teacherReviews" ng-click="showPeerReviewModal(review)">{{ review.teacher }}</a>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="cancel()">{{ ::$root.langStrings.inqAct.modals.editEvidence.closeButton }}</button>
+</div>

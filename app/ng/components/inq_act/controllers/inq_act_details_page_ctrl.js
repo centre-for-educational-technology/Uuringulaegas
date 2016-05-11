@@ -9,12 +9,20 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('InquiryActivityDetailPageCtrl', function ($scope, $stateParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, UserService, $rootScope, appConfig, $window, $q, $modal, EvidenceService) {
+  .controller('InquiryActivityDetailPageCtrl', function ($scope, $stateParams, InquiryActivityService, InquiryActivityLogService, InquiryActivityStatusService, UserService, $rootScope, appConfig, $window, $q, $modal, EvidenceService, TeacherReviewService) {
 
     $scope.activityStatus = {
       exists: false,
       started: true
     };
+
+    TeacherReviewService.getFeedbackList({activityID: $stateParams.id}, function(res){
+      $scope.hasFeedback = false;
+      if(!_.isEmpty(res.peerReviews) || !_.isEmpty(res.teacherReviews)){
+        $scope.hasFeedback = true;
+      }
+      $scope.feedbackList = res;
+    });
 
     var currentActivityID = $stateParams.id;
     var servicePromises = [];
@@ -141,6 +149,18 @@ angular.module('arkofinquiryApp')
       startModalInstance.result.then(function (status) {
         $scope.startActivity();
         window.open(activity.location_web, '_blank');
+      });
+    };
+
+    $scope.openFeedbackModal = function (feedbackList) {
+      $modal.open({
+        templateUrl: appConfig.appBase + 'ng/components/inq_act/views/partials/inq_feedback_list_modal.html',
+        controller: 'FeedbackListModalCtrl',
+        resolve: {
+          feedbackList: function () {
+            return feedbackList;
+          }
+        }
       });
     };
 
