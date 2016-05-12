@@ -51,7 +51,7 @@ angular.module('arkofinquiryApp')
       }
       $scope.currentCover = $scope.user.profile_background;
 
-      $scope.profile_background_url = 'images/backgrounds/profile/preset_'+$scope.user.profile_background+'.jpg';
+      $scope.profile_background_url = 'images/backgrounds/profile/profile'+$scope.user.profile_background+'.jpg';
     });
 
 
@@ -91,7 +91,7 @@ angular.module('arkofinquiryApp')
         $scope.saveCoverButtonDisabled = true;
       }
 
-      $scope.profile_background_url = 'images/backgrounds/profile/preset_'+$scope.user.profile_background+'.jpg';
+      $scope.profile_background_url = 'images/backgrounds/profile/profile'+$scope.user.profile_background+'.jpg';
 
     };
 
