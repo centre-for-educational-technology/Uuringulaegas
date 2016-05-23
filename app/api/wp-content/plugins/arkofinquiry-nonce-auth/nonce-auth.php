@@ -300,7 +300,6 @@ add_action('wp_ajax_nopriv_get_my_feedback', 'not_logged_in_error');
 function get_my_feedback() {
     if (current_user_can('read_peer_review')) {
         $activityID = $_REQUEST[activityID];
-        //$learnerID = $_REQUEST[learnerID];
 
         $peerQueryParams = [
             'select' => 't.id, peer.display_name as peer, t.post_content, rating.meta_value as rating, t.post_modified',
@@ -325,8 +324,34 @@ function get_my_feedback() {
         $reviews = [];
         $reviews['peerReviews'] = pods('peer_review', $peerQueryParams)->rows;
         $reviews['teacherReviews'] = pods('teacher_review', $teacherQueryParams)->rows;
-        //$reviews['meta'] = get_post_meta(390);
         echo json_encode($reviews);
+    }
+    die();
+}
+
+add_action('wp_ajax_get_my_recommendations', 'get_my_recommendations');
+add_action('wp_ajax_nopriv_get_my_recommendations', 'not_logged_in_error');
+
+function get_my_recommendations() {
+    if (current_user_can('read_user')) {
+
+        $interestsQuery = [
+            'where' => 't.id = "' . wp_get_current_user()->ID . '"',
+        ];
+
+        $interests = pods('user', $interestsQuery)->field('interests');
+
+        $activities = [];
+        foreach ($interests as $interest) {
+            $actQuery = [
+                'select' => 't.id, t.post_title, t.post_content',
+                'where' => 'domains.meta_value = "' . $interest . '"'
+            ];
+            $act = pods('inq_activity', $actQuery)->rows;
+            array_push($activities, $act);
+        }
+
+        echo json_encode($activities);
     }
     die();
 }

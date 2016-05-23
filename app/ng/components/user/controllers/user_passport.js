@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('UserPassportCtrl', function ($scope, $http, $stateParams, UserService, $gravatar, InquiryActivityLogService, $rootScope, $filter, InquiryActivityStatusService, $location) {
+  .controller('UserPassportCtrl', function ($scope, $http, $stateParams, UserService, $gravatar, InquiryActivityLogService, $rootScope, $filter, InquiryActivityStatusService, $location, InquiryActivityService) {
 
 
     $scope.saveCoverButtonDisabled = true;
@@ -123,7 +123,9 @@ angular.module('arkofinquiryApp')
      *
      */
 
-    $scope.recommendedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $stateParams.id, status: 1}, function(){});
+    InquiryActivityService.getRecommendations({}, function(res){
+      $scope.recommendedActivities = res;
+    });
 
     $scope.startedActivities = InquiryActivityStatusService.searchByStatus({learnerID: $stateParams.id, status: 4}, function(response){
       for(var i = 0; i < response.length; i++){

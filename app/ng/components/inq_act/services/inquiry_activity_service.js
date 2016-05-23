@@ -118,6 +118,18 @@ angular.module("arkofinquiryApp")
         transformResponse: [angular.fromJson, function(data, headers){
           return _.values(data); // Removes keys from response
         }]
+      },
+      getRecommendations:{
+        url: appConfig.apiUrl + 'wp-admin/admin-ajax.php',
+        method: 'GET',
+        params: {
+          action: 'get_my_recommendations'
+        },
+        isArray: true,
+        transformResponse: [angular.fromJson, function (data) {
+          return _.flatten(data);
+        }],
+        cache: true
       }
     });
 

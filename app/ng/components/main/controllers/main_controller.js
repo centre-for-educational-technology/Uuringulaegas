@@ -32,9 +32,9 @@ angular.module('arkofinquiryApp')
         // Redirect to complete profile, if needed
         if(!data.profileCompleted){
           $state.go('user.edit.profile', {forced: true})
-        } /*else if (!data.extraInfoCompleted){
+        } else if (!data.extraInfoCompleted){
           $state.go('user.edit.extra', {forced: true})
-        }*/
+        }
 
       }, function(error){
         // Error (not logged in)

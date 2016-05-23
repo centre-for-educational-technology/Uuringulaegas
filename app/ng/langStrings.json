@@ -442,7 +442,8 @@
         "activities": "Activities",
         "subTabs": {
           "started": "Started",
-          "completed": "Completed"
+          "completed": "Completed",
+          "recommended": "Recommended"
         },
         "groups": "Groups",
         "comments": "Comments"

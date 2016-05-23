@@ -84,6 +84,14 @@
                             </li>
                         </ul>
                     </tab>
+                    <tab heading="{{ ::$root.langStrings.user.passport.tabHeadings.subTabs.recommended }}" ng-if="ownProfile">
+                        <div class="list-group">
+                            <a class="list-group-item" ng-repeat="act in recommendedActivities" ui-sref="inq_act.details({id: act.id})">
+                                <h4 class="list-group-item-heading">{{ ::act.post_title }}</h4>
+                                <p class="list-group-item-text" ng-bind-html="act.post_content | limitParagraph"></p>
+                            </a>
+                        </div>
+                    </tab>
                 </tabset>
             </tab>
             <tab heading="{{ ::$root.langStrings.user.passport.tabHeadings.groups }}">
