@@ -8,7 +8,7 @@
         <div class="col-sm-4">
             <img ng-src='{{ gravatarUrl(user) }}' alt="User profile picture" class="img-responsive img-circle center-block user-passport-gravatar">
             <h3 class="text-center">{{ ::user.display_name }}</h3>
-                <h3 class="text-center"><span class="label" ng-class="{ 'label-primary': user.roles[0] == 'learner', 'label-danger': user.roles[0] == 'teacher', 'label-success': user.roles[0] == 'administrator' }">{{ ::$root.langStrings.user.roles[user.roles[0]] }}</span></h3>
+                <h3 class="text-center"><span class="badge" ng-class="{ 'badge-learner': user.roles[0] == 'learner', 'badge-teacher': user.roles[0] == 'teacher' }">{{ ::$root.langStrings.user.roles[user.roles[0]] }}</span></h3>
         </div>
         <div class="col-sm-8" id="user-passport-details">
             <dl class="dl-horizontal">
@@ -25,9 +25,15 @@
             </dl>
 
             <hr/>
-            <h4>{{ ::$root.langStrings.user.passport.titleBadges }}</h4>
+            <h4>
+                {{ ::$root.langStrings.user.passport.titleBadges }}
+                <button ng-if="ownProfile && user.display_name" class="btn btn-primary btn-xs" type="button" ng-click="openBackpackModal()">{{ ::$root.langStrings.user.passport.sendToBackpack }}</button>
+            </h4>
+            <div class="alert alert-success" role="alert" collapse="!backpackSuccess">
+                {{ ::$root.langStrings.user.passport.backpackModal.success }}{{ backpackSuccess }}
+            </div>
             <div class="group-user-grid-pic" ng-repeat="badge in user.badges">
-                <img ng-src='{{ badge.image.guid }}' alt="Badge - {{ badge.description }}" class="img-responsive" tooltip="{{ badge.post_title }} - {{ badge.description }}">
+                <img ng-src='{{ ::badge.image.guid }}' alt="Badge - {{ ::badge.description }}" class="img-responsive" tooltip="{{ ::badge.post_title }} - {{ ::badge.description }}">
             </div>
 
 

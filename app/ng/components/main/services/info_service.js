@@ -45,6 +45,15 @@ angular.module("arkofinquiryApp")
         transformResponse: [angular.fromJson, function(data, headers){
           return _.values(data); // Removes keys from response
         }]
+      },
+      getBadgeInfo: {
+        url: appConfig.apiUrl + 'wp-admin/admin-ajax.php',
+        method: 'GET',
+        params: {
+          action: 'get_badge_json',
+          badgeKey: '@badgeKey'
+        },
+        isArray: false
       }
     });
 

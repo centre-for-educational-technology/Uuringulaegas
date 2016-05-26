@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{ ::$root.langStrings.user.passport.backpackModal.title }}</h3>
+</div>
+<div class="modal-body">
+    <p class="lead">{{ ::$root.langStrings.user.passport.backpackModal.info }} <a href="http://openbadges.org">Mozilla OpenBadges</a></p>
+
+    <p class="small text-muted">{{ ::$root.langStrings.user.passport.backpackModal.emailInfo }}{{ ::email }}</p>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="badge in badges" ng-click="toggleCheck(badge.key)">
+            <input type='checkbox' ng-checked="checkedBadges.indexOf(badge.key) != -1" />
+            <img ng-src='{{ ::badge.image.guid }}' alt="Badge - {{ ::badge.description }}" class="backpack-list-image">
+            <span>{{ ::badge.post_title }} - {{ ::badge.description }}</span>
+        </li>
+    </ul>
+    <div class="alert alert-danger" role="alert" collapse="!backpackError">
+        {{ ::$root.langStrings.user.passport.backpackModal.issueErrors }}
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="cancel()">{{ ::$root.langStrings.inqAct.modals.startActivity.cancelButton}}</button>
+    <button class="btn btn-success" ng-click="issueBadges()" ng-disabled="!checkedBadges[0]">{{ ::$root.langStrings.user.passport.backpackModal.submitButton }}</button>
+</div>

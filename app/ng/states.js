@@ -35,6 +35,12 @@ angular.module('arkofinquiryApp')
         templateUrl: base + 'ng/components/main/views/help.html',
         controller: 'HelpPageCtrl'
       })
+      .state('badge', {
+        url: "/badge/:key",
+        templateUrl: base + 'ng/components/main/views/badge_info.html',
+        controller: 'BadgeInfoCtrl'
+      })
+
 
 
 

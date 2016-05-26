@@ -1,9 +1,9 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="arkofinquiryApp">
     <head>
         <meta charset="utf-8">
         <base href="/" />
-        <title>Ark of Inquiry</title>
+        <title ng-bind="$root.langStrings.general.arkOfInquiry"></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css">
         <!-- endbuild -->
     </head>
-    <body ng-app="arkofinquiryApp">
+    <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -154,6 +154,7 @@
                 <script src="ng/components/main/controllers/main_controller.js"></script>
                 <script src="ng/components/main/controllers/titlepage_ctrl.js"></script>
                 <script src="ng/components/main/controllers/help_page_ctrl.js"></script>
+                <script src="ng/components/main/controllers/badge_info_ctrl.js"></script>
                 <script src="ng/components/main/controllers/announcement_ctrl.js"></script>
                 <script src="ng/components/main/controllers/login_controller.js"></script>
                 <script src="ng/components/main/services/login_service.js"></script>
@@ -199,6 +200,7 @@
                 <script src="ng/components/user/controllers/user_comments_ctrl.js"></script>
                 <script src="ng/components/user/controllers/user_survey_ctrl.js"></script>
                 <script src="ng/components/user/controllers/user_list.js"></script>
+                <script src="ng/components/user/controllers/modal/backpack_modal.js"></script>
                 <script src="ng/components/user/services/user_service.js"></script>
                 <script src="ng/components/user/services/user_register_service.js"></script>
                 <script src="ng/components/user/services/user_comment_service.js"></script>

@@ -1,5 +1,6 @@
 {
   "general": {
+    "arkOfInquiry": "Ark of Inquiry",
     "nextItem": "Next",
     "previousItem": "Previous",
     "showMore": "Show more",
@@ -458,7 +459,17 @@
       "titleChangeCover": "Change skin",
       "titleSaveCover": "Save",
       "titleSaveCoverSaved": "Saved",
-      "titleSaveCoverFailed": "Failed"
+      "titleSaveCoverFailed": "Failed",
+      "sendToBackpack": "Send to Mozilla Backpack",
+      "backpackModal": {
+        "title": "Send badges to Mozilla backpack",
+        "info": "Here you can send your earned badges to Mozilla Backpack. To learn more about OpenBadges and Mozilla Backpack, click here:",
+        "emailInfo": "Your Mozilla Backpack account must match with your email address: ",
+        "issueErrors": "No badges added to Backpack. You already have all the selected badges or there was some other error.",
+        "success": "Success! Badges added to Backpack: ",
+        "singleBadgeTitle": "Badge",
+        "submitButton": "Send to Backpack"
+      }
     },
     "roles": {
       "teacher": "Teacher",

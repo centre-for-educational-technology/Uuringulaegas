@@ -369,7 +369,6 @@ function get_group_list() {
         ];
 
         $podsGroups = pods('group', $params)->rows;
-        $groups = [];
         
         echo json_encode($podsGroups);
     }

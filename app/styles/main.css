@@ -328,6 +328,19 @@ body {
     margin-bottom: 15px;
 }
 
+.badge-learner {
+    background-color: #00bbd5;
+    font-size: 16px;
+}
+
+.badge-teacher {
+    background-color: #f59b45;
+}
+
+.backpack-list-image {
+    max-width: 20px;
+    max-height: 20px;
+}
 
 /* Fix label wrapping and spacing when repeating labels with ngRepeat */
 .label-spaced {

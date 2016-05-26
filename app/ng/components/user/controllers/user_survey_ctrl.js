@@ -10,11 +10,7 @@
 angular.module('arkofinquiryApp')
   .controller('UserSurveyCtrl', function ($scope, $http, $document, UserService, $rootScope, $stateParams) {
 
-    /*
-    OpenBadges.issue(['http://www.tlu.ee/~aido/badges/test.json'], function(errors, successes) {
-      //...
-    });*/
-
+    
     $scope.forced = $stateParams.forced;
 
     // Set up empty userData object

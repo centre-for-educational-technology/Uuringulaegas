@@ -8,7 +8,7 @@
  * Controller of the arkofinquiryApp
  */
 angular.module('arkofinquiryApp')
-  .controller('UserPassportCtrl', function ($scope, $http, $stateParams, UserService, $gravatar, InquiryActivityLogService, $rootScope, $filter, InquiryActivityStatusService, $location, InquiryActivityService) {
+  .controller('UserPassportCtrl', function ($scope, $http, $stateParams, UserService, $gravatar, InquiryActivityLogService, $rootScope, $filter, InquiryActivityStatusService, $location, InquiryActivityService, $modal, appConfig) {
 
 
     $scope.saveCoverButtonDisabled = true;
@@ -112,6 +112,26 @@ angular.module('arkofinquiryApp')
         $scope.saveCoverButtonText = $scope.langStrings.user.passport.titleSaveCoverFailed;
       });
 
+    };
+
+    $scope.openBackpackModal = function () {
+
+      var modalInstance = $modal.open({
+        templateUrl: appConfig.appBase + 'ng/components/user/views/modal/backpack_modal.html',
+        controller: 'BackpackModalCtrl',
+        resolve: {
+          badges: function () {
+            return $scope.user.badges;
+          },
+          email: function () {
+            return $scope.user.user_email;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (count) {
+        $scope.backpackSuccess = count;
+      });
     };
 
 

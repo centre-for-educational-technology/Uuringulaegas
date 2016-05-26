@@ -48,6 +48,14 @@ angular.module("arkofinquiryApp")
             str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
           return str.join("&");
         }
+      },
+      getBadgeAssertions: {
+        url: appConfig.apiUrl + 'wp-admin/admin-ajax.php',
+        method: 'GET',
+        params: {
+          action: 'get_badge_assertions'
+        },
+        isArray: false
       }
     });
 
