@@ -24,19 +24,16 @@ add_action('wp_ajax_nopriv_get_badge_assertions', 'not_logged_in_error2');
 
 function return_assertions() {
     $badgeKeys = $_REQUEST[badgeKeys];
-    error_log(print_r($badgeKeys, true));
     $assertions = [];
     foreach ($badgeKeys as $badgeKey){
         if(check_badge_status($badgeKey)){
             $assertion = generate_assertion($badgeKey);
             $signed = sign_assertion($assertion);
             array_push($assertions, $signed);
-            error_log(print_r($signed, true));
         }
     }
 
     if (!empty($assertions)){
-        error_log(print_r($assertions, true));
         wp_send_json(array("assertions" => $assertions));
     } else {
         header('HTTP/1.0 404 Not Found'); // Set header to 404 (defaults to 200)
@@ -123,7 +120,6 @@ function get_badge_json(){
     $badgeData->issuer = get_site_url() . "/wp-admin/admin-ajax.php?action=get_badge_issuer_json";
     $badgeData->criteria = get_ark_base_url() . "/#/badge/" . $badgeKey;
     unset($badgeData->imageID);
-    error_log(print_r($badgeData, true));
     wp_send_json($badgeData);
 }
 
