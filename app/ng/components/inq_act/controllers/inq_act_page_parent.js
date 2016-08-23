@@ -19,10 +19,10 @@ angular.module('arkofinquiryApp')
     });
 
     var mainHelpCookie = $cookies.showInqActHelp;
-    if(mainHelpCookie == 0){
-      $scope.helpCollapsed = true;
-    } else {
+    if(mainHelpCookie == 1){
       $scope.helpCollapsed = false;
+    } else {
+      $scope.helpCollapsed = true;
     }
 
     $scope.toggleMainHelp = function () {
