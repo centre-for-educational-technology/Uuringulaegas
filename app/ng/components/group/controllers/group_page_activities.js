@@ -14,10 +14,6 @@
 angular.module('arkofinquiryApp')
   .controller('GroupPageActivitiesCtrl', function ($scope, $http, $stateParams, UserService, $gravatar, GroupService, appConfig, $modal, $location, InquiryActivityLogService, $q, $rootScope) {
 
-    $scope.showActivityDetailPage = function(activity){
-      $location.path('inq_act/' + activity.id)
-    };
-
     $scope.group = GroupService.get({id: $stateParams.id}, function(success){
       // Success
 

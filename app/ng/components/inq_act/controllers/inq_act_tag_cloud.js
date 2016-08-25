@@ -39,7 +39,8 @@ angular.module('arkofinquiryApp')
     });
 
     function searchKeyword(keywordText){
-      $location.path('/inq_act/list').search('keyword', keywordText);
+      //$location.path('/inq_act/list').search('keyword', keywordText);
+      window.open('/#/inq_act/list?keyword=' + keywordText);
       $scope.$apply(); // Needed (just in case) for Angular to recognize change in path
   }
 

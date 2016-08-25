@@ -6,7 +6,7 @@
 
     <spinner class="mt20" ng-if="!listLoaded"></spinner>
 
-    <a class="list-group-item" ng-repeat="act in inqActList | orderBy:'post_date':true" ng-if="listLoaded" ng-click="showDetailPage(act)">
+    <a class="list-group-item" ng-repeat="act in inqActList | orderBy:'post_date':true" ng-if="listLoaded" ui-sref="inq_act.details({id: getID(act)})" target="_blank">
         <h4 class="list-group-item-heading">{{ ::act.post_title }}{{ ::act.title }}
             <small class="glyphicon glyphicon-map-marker pull-right" ng-if="_.contains(act.location, '1')" aria-hidden="true" tooltip="{{ ::$root.langStrings.inqAct.general.tooltipPhysical }}"></small>
             <small class="glyphicon glyphicon-globe pull-right" ng-if="_.contains(act.location, '0')" aria-hidden="true" tooltip="{{ ::$root.langStrings.inqAct.general.tooltipOnline }}"></small>

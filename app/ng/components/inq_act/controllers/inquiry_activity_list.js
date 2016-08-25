@@ -41,11 +41,11 @@ angular.module('arkofinquiryApp')
 
 
 
-    $scope.showDetailPage = function(activity){
+    $scope.getID = function(activity){
       if (activity.ID){
-        $location.path('inq_act/' + activity.ID)
+        return activity.ID
       } else {
-        $location.path('inq_act/' + activity.id)
+        return activity.id
       }
 
     };
