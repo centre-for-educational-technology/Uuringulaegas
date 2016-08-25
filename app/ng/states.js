@@ -208,7 +208,7 @@ angular.module('arkofinquiryApp')
 
     //$locationProvider.html5Mode(true);
   })
-  .run(function ($rootScope, $state, $timeout) {
+  .run(function ($rootScope, $state, $timeout, $location, $window, appConfig) {
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
       if(!$rootScope.userLoaded) {
         $timeout(checkAuth, 1000)
@@ -224,5 +224,11 @@ angular.module('arkofinquiryApp')
         }
       }
 
+    });
+
+    $window.ga('create', appConfig.gaTrackingId, 'auto');
+
+    $rootScope.$on('$stateChangeSuccess', function(){
+      ga('send', 'pageview', $location.path());
     });
   });
