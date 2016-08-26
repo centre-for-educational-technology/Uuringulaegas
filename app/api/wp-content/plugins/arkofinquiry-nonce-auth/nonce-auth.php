@@ -742,3 +742,12 @@ function aoi_api_return_groups_background_image() {
 }
 add_action('wp_ajax_get_groups_background_image', 'aoi_api_return_groups_background_image');
 add_action('wp_ajax_nopriv_get_groups_background_image', 'aoi_api_return_groups_background_image');
+
+
+function no_admin_access() {
+    $redirect = site_url( '/' );
+    if ( ! ( current_user_can( 'manage_options' ) || current_user_can( 'edit_pages' ) ) ){
+        exit( wp_redirect( $redirect ) );
+    }
+}
+add_action( 'admin_menu', 'no_admin_access', 100 );
