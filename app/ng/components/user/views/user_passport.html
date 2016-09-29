@@ -51,6 +51,7 @@
                     <small class="text-muted">
                         <small><a ui-sref="inq_act.details({id: log.inq_activity[0].ID})" target="_blank">{{ ::log.inq_activity[0].post_title }}</a></small> <!-- double small -->
                     </small>
+                    <a ng-if="log.status == 8" ui-sref="badge({key: log.badge[0].key})" tooltip="{{ ::log.badge[0].description }}" target="_blank">{{ ::log.badge[0].post_title }} <img ng-src='{{ ::log.badge[0].image.guid }}' alt="User profile picture" class="img-responsive img-circle activity-feed-badge"></a>
                 </span>
                         <footer class="text-muted">- {{ ::log.created | date : 'dd.MM.yy HH:mm'}}</footer>
                     </div>

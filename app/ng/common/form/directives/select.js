@@ -13,7 +13,8 @@ angular.module('arkofinquiryApp')
                 label: '@',
                 model: '=',
                 options: '=',
-                req: '@'
+                req: '@',
+                order: '='
             },
           link: function(scope){
             scope.optionsArray = [];
