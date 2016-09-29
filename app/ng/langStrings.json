@@ -48,7 +48,7 @@
       "5": "Completed activity",
       "6": "reviewed evidence for",
       "7": "graded activity",
-      "8": "Received a badge for",
+      "8": "Earned the badge",
       "9": "Advanced to level"
     },
     "groupPageStatus": {
@@ -59,7 +59,7 @@
       "5": "completed activity",
       "6": "reviewed evidence for",
       "7": "graded activity",
-      "8": "received a badge for",
+      "8": "Earned the badge",
       "9": "Advanced to level",
       "51": "edited evidence for"
     }

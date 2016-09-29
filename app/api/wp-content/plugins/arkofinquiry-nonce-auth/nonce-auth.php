@@ -11,34 +11,20 @@
 
 // Custom filter to allow learners read group info but not edit
 add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $pod ) {
-  if ( $pod == 'inq_activity' && current_user_can('read_inq')) {
+    $access = false;
+
+    if ( current_user_can('read')) {
     $access = true;
-  } else if ( $pod == 'inq_log' && current_user_can( 'read_inq_log' ) ) {
-    $access = true;
-  } else if ( $pod == 'inq_status' && current_user_can( 'read_inq_status' ) ) {
-      $access = true;
-  } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
-    $access = true;
-  } else if ( $pod == 'group_comment' && current_user_can( 'read_group_comment' ) ) {
-      $access = true;
-  } else if ( $pod == 'user_comment' && current_user_can( 'read_user_comment' ) ) {
-      $access = true;
-  } else if ( $pod == 'inq_keywords' && current_user_can( 'read_inq' ) ) {
+  }
+  if ( $pod == 'user' && current_user_can( 'list_users' ) ) {
      $access = true;
-  } else if ( $pod == 'user' && current_user_can( 'list_users' ) ) {
+  }
+  if ( $pod == 'completed_activity' && is_user_logged_in() ) {
      $access = true;
-  } else if ( $pod == 'completed_activity' && is_user_logged_in() ) {
-     $access = true;
-  } else if ( $pod == 'inq_evidence' && current_user_can( 'read_inq_evidence' ) ) {
+  }
+
+  if ( $pod == 'page' ) {
       $access = true;
-  } else if ( $pod == 'peer_review' && current_user_can( 'read_peer_review' ) ) {
-      $access = true;
-  } else if ( $pod == 'teacher_review' && current_user_can( 'read_teacher_review' ) ) {
-      $access = true;
-  } else if ( $pod == 'page' ) {
-      $access = true;
-  } else {
-     $access = false;
   }
 
  return $access;
@@ -46,39 +32,34 @@ add_filter( 'pods_json_api_access_pods_get_items', function( $access, $method, $
 
 // Custom filter to allow learners to view single users
 add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $pod ) {
-  global $arkPodsUserRegisterHack;
-  if ( $pod == 'user' && current_user_can( 'read_user' ) ) {
-     $access = true;
-  } else if ($pod == 'user' && $arkPodsUserRegisterHack === true){
-     $access = true;
-  } else if ( $pod == 'inq_activity' && current_user_can( 'read_inq' ) ) {
-     $access = true;
-  } else if ( $pod == 'inq_keywords' && current_user_can( 'read_inq' ) ) {
-      $access = true;
-  } else if ( $pod == 'inq_log' && current_user_can( 'read_inq_log' ) ) {
-     $access = true;
-  } else if ( $pod == 'inq_status' && current_user_can( 'read_inq_status' ) ) {
-      $access = true;
-  } else if ( $pod == 'group' && current_user_can( 'read_group' ) ) {
-     $access = true;
-  } else if ( $pod == 'group_comment' && current_user_can( 'read_group_comment' ) ) {
-      $access = true;
-  } else if ( $pod == 'user_comment' && current_user_can( 'read_user_comment' ) ) {
-      $access = true;
-  } else if ( $pod == 'inq_evidence' && current_user_can( 'read_inq_evidence' ) ) {
-      $access = true;
-  } else if ( $pod == 'peer_review' && current_user_can( 'read_peer_review' ) ) {
-      $access = true;
-  } else if ( $pod == 'teacher_review' && current_user_can( 'read_teacher_review' ) ) {
-      $access = true;
-  } else if ( $pod == 'page' ) {
-      $access = true;
-  } else {
-     $access = false;
-  }
+    global $arkPodsUserRegisterHack;
+    $access = false;
+    if ( current_user_can( 'read' ) ) {
+        $access = true;
+    } else if ($pod == 'user' && $arkPodsUserRegisterHack === true){
+        $access = true;
+    }
+    if ( $pod == 'page' ) {
+        $access = true;
+    }
+
 
  return $access;
 }, 10, 3 );
+
+add_action('user_register', function($user_id){
+    giveBadgeToLearner($user_id, "welcome");
+});
+
+function giveBadgeToLearner($learnerID, $badgeKey){
+    $badgeID = pods('badge')->first_id(array('where' => 'key.meta_value = "' . $badgeKey . '"'));
+    pods('user', $learnerID)->add_to('badges', $badgeID);
+    pods('inq_log')->add(array(
+        'learner' => $learnerID,
+        'status' => 8,
+        'badge' => $badgeID
+    ));
+}
 
 // Filter to let everyone register a new user
 add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $pod ) {
@@ -88,10 +69,7 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
      * @param $learnerID
      * @param $badgeKey - key/identifier of the Badge, to find the correct ID
      */
-    function giveBadgeToLearner($learnerID, $badgeKey){
-        $badgeID = pods('badge')->first_id(array('where' => 'key.meta_value = "' . $badgeKey . '"'));
-        pods('user', $learnerID)->add_to('badges', $badgeID);
-    }
+
 
     if ( $pod == 'user' ){
         $arkPodsUserRegisterHack = true;
@@ -360,7 +338,7 @@ add_action('wp_ajax_get_group_list', 'get_group_list');
 add_action('wp_ajax_nopriv_get_group_list', 'not_logged_in_error');
 
 function get_group_list() {
-    if (current_user_can('read_group')) {
+    if (current_user_can('read')) {
 
         $params = [
             'select' => 't.id, t.name, GROUP_CONCAT(teachers.display_name SEPARATOR " | ") as teachers',
@@ -370,6 +348,112 @@ function get_group_list() {
 
         $podsGroups = pods('group', $params)->rows;
         
+        echo json_encode($podsGroups);
+    }
+    die();
+}
+
+add_action('wp_ajax_get_group_feed', 'get_group_feed');
+add_action('wp_ajax_nopriv_get_group_feed', 'not_logged_in_error');
+
+function get_group_feed() {
+    if (current_user_can('read')) {
+
+        $groupID = $_REQUEST[groupID];
+
+        if(isset($_REQUEST[page])){
+            $feedPage = $_REQUEST[page];
+        } else {
+            $feedPage = 1;
+        }
+
+        $learnerQueryParams = [
+            'select' => 'learners.ID',
+            'where' => 't.id = '. $groupID
+        ];
+
+        $learnersPods = pods('group', $learnerQueryParams);
+
+        $learners = [];
+        while ($learnersPods->fetch()){
+            array_push($learners, intval($learnersPods->field('ID')));
+        }
+
+        $learnerIDs = join("','",$learners);
+
+
+        error_log(print_r($learners, true));
+
+        //echo json_encode($learners);
+
+
+        $logParams = [
+            'select' => '
+                t.id, 
+                learner.id as learnerID, 
+                learner.display_name as learnerName, 
+                learner.user_email as learnerEmail, 
+                teacher.id as teacherID, 
+                teacher.display_name as teacherName, 
+                teacher.user_email as teacherEmail, 
+                peer.id as peerID, 
+                peer.display_name as peerName, 
+                peer.user_email as peerEmail, 
+                badge.key.meta_value as badgeKey, 
+                badge.post_title as badgeTitle, 
+                badge.description.meta_value as badgeDescription, 
+                badge.image.guid as badgeImage, 
+                t.created, 
+                inq_activity.id as inqID, 
+                inq_activity.post_title as inqTitle, 
+                t.status',
+            'orderby' => '-t.created',
+            'limit' => 30,
+            'page' => $feedPage,
+            'where'=> "learner.id IN ('$learnerIDs')"
+        ];
+
+        $logs = pods('inq_log', $logParams)->rows;
+
+        echo json_encode($logs);
+
+        /*
+        $activities = [];
+        foreach ($interests as $interest) {
+            $actQuery = [
+                'select' => 't.id, t.post_title, t.post_content',
+                'where' => 'domains.meta_value = "' . $interest . '"'
+            ];
+            $act = pods('inq_activity', $actQuery)->rows;
+            array_push($activities, $act);
+        }
+
+        echo json_encode($activities);
+        */
+    }
+    die();
+}
+
+add_action('wp_ajax_search_learners', 'search_learners');
+add_action('wp_ajax_nopriv_search_learners', 'not_logged_in_error');
+
+function search_learners() {
+    if (current_user_can('read')) {
+
+        if(isset($_REQUEST[search])){
+            $searchParam = $_REQUEST[search];
+        } else {
+            die();
+        }
+
+        $params = [
+            'select' => '*',
+            'limit' => 15,
+            'where' => '(t.user_nicename LIKE "%'.$searchParam.'%" OR t.user_email LIKE "%'.$searchParam.'%")'
+        ];
+
+        $podsGroups = pods('user', $params);
+
         echo json_encode($podsGroups);
     }
     die();

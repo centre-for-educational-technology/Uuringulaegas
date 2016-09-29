@@ -9,25 +9,32 @@
  */
 
 angular.module('arkofinquiryApp')
-  .controller('TeacherReviewModalCtrl', function ($scope, $modalInstance, $rootScope, $q, InquiryActivityLogService, InquiryActivityStatusService, EvidenceService, PeerReviewService, TeacherReviewService, log, $modal, appConfig, InfoService) {
+  .controller('TeacherReviewModalCtrl', function ($scope, $modalInstance, $rootScope, $q, InquiryActivityLogService, InquiryActivityStatusService, EvidenceService, PeerReviewService, TeacherReviewService, log, $modal, appConfig, InfoService, InquiryActivityService) {
 
     $scope.log = log;
 
-    $scope.evidence = EvidenceService.searchByLearnerAndActivity({learnerID: log.learner.ID, activityID: log.inq_activity[0].id});
-    $scope.peerReviews = PeerReviewService.searchByLearnerAndActivity({learnerID: log.learner.ID, activityID: log.inq_activity[0].id});
+      $scope.review = {};
+      $scope.review.teacher = $rootScope.currentUserData.userID;
+      $scope.review.learner = log.learnerID;
+      $scope.review.inq_activity = log.inqID;
 
-    $scope.review = {};
-    $scope.review.teacher = $rootScope.currentUserData.userID;
-    $scope.review.learner = log.learner.ID;
-    $scope.review.inq_activity = log.inq_activity[0].id;
+    $scope.evidence = EvidenceService.searchByLearnerAndActivity({learnerID: $scope.review.learner, activityID: $scope.review.inq_activity});
+    $scope.peerReviews = PeerReviewService.searchByLearnerAndActivity({learnerID: $scope.review.learner, activityID: $scope.review.inq_activity});
+
+      $scope.inqPhases = {};
+
+      var inqAct;
+      InquiryActivityService.get({id: $scope.review.inq_activity}, function (res) {
+          inqAct = res;
+          for(var i = 1; i <= 5; i++){
+              if(inqAct['phase_' + i + '_level'] > 0){
+                  $scope.inqPhases[i] = inqAct['phase_' + i + '_level']
+              }
+          }
+          console.log(res);
+      });
 
     $scope.reviewPhases = {};
-    $scope.inqPhases = {};
-    for(var i = 1; i <= 5; i++){
-      if(log.inq_activity[0]['phase_' + i + '_level'] > 0){
-        $scope.inqPhases[i] = log.inq_activity[0]['phase_' + i + '_level']
-      }
-    }
 
     InfoService.getReviewGuide({}, function(response){
       $scope.review.post_content = response[0].post_content;
@@ -35,8 +42,8 @@ angular.module('arkofinquiryApp')
 
     var logData = {
       teacher: $rootScope.currentUserData.userID,
-      learner: log.learner.ID,
-      inq_activity: log.inq_activity[0].id,
+      learner: $scope.review.learner,
+      inq_activity: $scope.review.inq_activity,
       status: 7
     };
     var servicePromises = [];
@@ -48,7 +55,7 @@ angular.module('arkofinquiryApp')
       angular.forEach($scope.reviewPhases, function(value, key){
         $scope.review['phase_' + key + '_level'] = value;
       });
-      InquiryActivityStatusService.getCurrentStatus({learnerID: log.learner.ID, inqActID: log.inq_activity[0].id}, function(response){
+      InquiryActivityStatusService.getCurrentStatus({learnerID: $scope.review.learner, inqActID: $scope.review.inq_activity}, function(response){
           if(response[0].status == 5){
             updateExistingStatus(response[0]);
             createNewLog(logData);
@@ -87,7 +94,7 @@ angular.module('arkofinquiryApp')
 
     function updateExistingStatus(status){
       status.status = logData.status;
-      status.inq_activity = log.inq_activity[0].id; // Only send the key (id)
+      status.inq_activity = $scope.review.inq_activity; // Only send the key (id)
       var service = status.$update();
       servicePromises.push(service);
       return service;

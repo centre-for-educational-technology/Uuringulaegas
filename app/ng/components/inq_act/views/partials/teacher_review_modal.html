@@ -4,9 +4,9 @@
 <div class="modal-body">
     <dl class="dl-horizontal">
         <dt>{{ ::$root.langStrings.inqAct.modals.submitTeacherReview.learnerName }}</dt>
-        <dd>{{ log.learner.display_name }}</dd>
+        <dd>{{ log.learnerName }}</dd>
         <dt>{{ ::$root.langStrings.inqAct.modals.submitPeerReview.activity }}</dt>
-        <dd>{{ log.inq_activity[0].post_title }}</dd>
+        <dd>{{ log.inqTitle }}</dd>
         <div ng-if="evidence[0].evidence_link">
             <dt>{{ ::$root.langStrings.inqAct.modals.submitPeerReview.evidenceLink }}</dt>
             <dd><a href="{{ evidence[0].evidence_link }}" target="_blank">{{ evidence[0].evidence_link }}</a></dd>

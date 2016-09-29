@@ -9,56 +9,58 @@
         </div>
         <hr/>
     </div>
+
     <div class="col-sm-6">
         <h4>{{ $root.langStrings.group.infoPage.feed }}</h4>
         <spinner collapse="!loadingInqLog"></spinner>
         <div class="alert alert-info" role="alert" collapse="!noActivities"> {{ ::$root.langStrings.group.infoPage.noActivities }} </div>
 
-        <div class="activity-feed-row" ng-repeat="log in inqLog | orderBy:'created':true">
+        <div class="activity-feed-row" ng-repeat="log in feed">
             <!-- User own actions -->
             <div ng-if="_.contains(['4','8'], log.status)">
-                <img ng-src='{{ gravatarUrl(log.learner) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
-                <span><a ui-sref="user.details({ id: log.learner.ID })" target="_blank">{{ ::log.learner.display_name }}</a> {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
+                <img ng-src='{{ gravatarUrl(log.learnerEmail) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
+                <span><a ui-sref="user.details({ id: log.learnerID })" target="_blank">{{ ::log.learnerName }}</a> {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
                     <small class="text-muted">
-                        <small><a ui-sref="inq_act.details({id: log.inq_activity[0].ID})" target="_blank">{{ ::log.inq_activity[0].post_title }}</a></small>
+                        <small><a ui-sref="inq_act.details({id: log.inqID})" target="_blank">{{ ::log.inqTitle }}</a></small>
                     </small>
+                    <a ng-if="log.status == 8" ui-sref="badge({key: log.badgeKey})" tooltip="{{ ::log.badgeDescription }}">{{ ::log.badgeTitle }} <img ng-src='{{ ::log.badgeImage }}' alt="Badge picture" class="img-responsive img-circle activity-feed-badge"></a>
                 </span>
                 <footer class="text-muted"><small>- {{ ::log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
             </div>
-            <!-- User completed activity -->
+            <!-- User completed activity-->
             <div ng-if="log.status == 5">
-                <img ng-src='{{ gravatarUrl(log.learner) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
-                <span><a ui-sref="user.details({ id: log.learner.ID })" target="_blank">{{ ::log.learner.display_name }}</a> {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
+                <img ng-src='{{ gravatarUrl(log.learnerEmail) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-left">
+                <span><a ui-sref="user.details({ id: log.learnerID })" target="_blank">{{ ::log.learnerName }}</a> {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
                     <small class="text-muted">
-                        <small><a ui-sref="inq_act.details({id: log.inq_activity[0].ID})" target="_blank">{{ ::log.inq_activity[0].post_title }}</a></small>
+                        <small><a ui-sref="inq_act.details({id: log.inqID})" target="_blank">{{ ::log.inqTitle }}</a></small>
                     </small>
                 </span>
-                <button ng-if="$root.currentUserData.userRole == 'learner' && $root.currentUserData.userID != log.learner.ID" class="btn btn-primary btn-xs" type="button" ng-click="openPeerReviewModal(log)">{{ $root.langStrings.group.infoPage.peerReviewButton }}</button>
+                <button ng-if="$root.currentUserData.userRole == 'learner' && $root.currentUserData.userID != log.learnerID" class="btn btn-primary btn-xs" type="button" ng-click="openPeerReviewModal(log)">{{ $root.langStrings.group.infoPage.peerReviewButton }}</button>
                 <button ng-if="$root.currentUserData.userRole == 'teacher'" class="btn btn-primary btn-xs" type="button" ng-click="openTeacherReviewModal(log)">{{ $root.langStrings.group.infoPage.reviewButton }}</button>
                 <footer class="text-muted"><small>- {{ log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
             </div>
 
-            <!-- Teacher actions for learner -->
+            <!-- Teacher actions for learner-->
             <div ng-if="_.contains(['1','3','7'], log.status)" class="text-right">
-                <img ng-src='{{ gravatarUrl(log.teacher) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
-                <span><a ui-sref="user.details({ id: log.teacher.ID })" target="_blank">{{ ::log.teacher.display_name }}</a> {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
+                <img ng-src='{{ gravatarUrl(log.teacherEmail) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
+                <span><a ui-sref="user.details({ id: log.teacherID })" target="_blank">{{ ::log.teacherName }}</a> {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
                     <small class="text-muted">
-                        <small><a ui-sref="inq_act.details({id: log.inq_activity[0].ID})" target="_blank">{{ ::log.inq_activity[0].post_title }}</a></small>
-                    </small> for <a ui-sref="user.details({ id: log.learner.ID })" target="_blank">{{ ::log.learner.display_name }}</a>
+                        <small><a ui-sref="inq_act.details({id: log.inqID})" target="_blank">{{ ::log.inqTitle }}</a></small>
+                    </small> for <a ui-sref="user.details({ id: log.learnerID })" target="_blank">{{ ::log.learnerName }}</a>
                 </span>
                 <footer class="text-muted"><small>- {{ ::log.created | date : 'dd.MM.yyyy HH:mm'}}</small></footer>
             </div>
 
             <!-- Peer actions for learner -->
             <div ng-if="log.status == 6" class="text-right">
-                <img ng-src='{{ gravatarUrl(log.peer) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
+                <img ng-src='{{ gravatarUrl(log.peerEmail) }}' alt="User profile picture" class="img-responsive img-circle activity-feed-avatar-right">
                 <span>
-                    <a ui-sref="user.details({ id: log.peer.ID })" target="_blank">{{ ::log.peer.display_name }}</a> {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
+                    <a ui-sref="user.details({ id: log.peerID })" target="_blank">{{ ::log.peerName }}</a> {{ ::$root.langStrings.inqLog.groupPageStatus[log.status] }}
                     <small class="text-muted">
                         <small>
-                            <a ui-sref="inq_act.details({id: log.inq_activity[0].ID})" target="_blank">{{ ::log.inq_activity[0].post_title }}</a>
+                            <a ui-sref="inq_act.details({id: log.inqID})" target="_blank">{{ ::log.inqTitle }}</a>
                         </small>
-                    </small> for <a ui-sref="user.details({ id: log.learner.ID })" target="_blank">{{ ::log.learner.display_name }}</a>
+                    </small> for <a ui-sref="user.details({ id: log.learnerID })" target="_blank">{{ ::log.learnerName }}</a>
                 </span>
                 <footer class="text-muted"><small>- {{ ::log.created | date : 'dd.MM.yy HH:mm'}}</small></footer>
 

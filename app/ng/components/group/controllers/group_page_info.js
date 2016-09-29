@@ -14,13 +14,17 @@ angular.module('arkofinquiryApp')
 
     $scope.inqLog = [];
     $scope.loadingInqLog = true;
-    var inqLogServicePromises = [];
 
     var activityListString = '';
 
     $scope.showActivityDetailPage = function(activity){
       $location.path('inq_act/' + activity.id)
     };
+    GroupService.getFeed({id: $stateParams.id, page: 1}, function (res) {
+        $scope.feed = res;
+        $scope.loadingInqLog = false;
+    });
+
 
     $scope.loadingLearners = true;
     $scope.group = GroupService.get({id: $stateParams.id}, function(success){
@@ -29,7 +33,6 @@ angular.module('arkofinquiryApp')
       $scope.group.author.gravatarUrl = getGravatarUrl($scope.group.author.user_email);
       for(var i = 0; i < $scope.group.learners.length; i++){
         $scope.group.learners[i].gravatarUrl = getGravatarUrl($scope.group.learners[i].user_email);
-        getUserLog($scope.group.learners[i]);
         if($scope.group.learners[i].ID == $rootScope.currentUserData.userID){
           $scope.alreadyJoined = true;
         }
@@ -46,22 +49,6 @@ angular.module('arkofinquiryApp')
 
       $scope.loadingLearners = false;
 
-      // Wait for all logs to be fetched (promises to resolve)
-      $q.all(inqLogServicePromises).then(function(response){
-        // Flatten the individual user log arrays to one big array
-        // that can be handled by ngRepeat
-        response = _.flatten(response);
-        for(var i = 0; i < response.length; i++){
-          // Convert Date strings to Date objects
-          response[i].created = new Date(moment(response[i].created, timeFormat));
-          // Convert inq_activity object to array (remove id key)
-          response[i].inq_activity = _.values(response[i].inq_activity);
-        }
-
-        $scope.loadingInqLog = false;
-        $scope.inqLog = response;
-      });
-      //
     });
 
     $scope.joinGroup = function(){
@@ -116,19 +103,9 @@ angular.module('arkofinquiryApp')
       }
     }
 
-    function getUserLog(user){
-      if(!_.isEmpty(activityListString)){
-        var log = InquiryActivityLogService.searchByLearnerWithActivities({learnerID: user.ID, activityList: activityListString});
-        inqLogServicePromises.push(log.$promise);
-        return log;
-      } else {
-        $scope.noActivities = true;
-      }
-    }
-
     // Get gravatarUrl
-    $scope.gravatarUrl = function(user) {
-      return $gravatar.generate(user.user_email);
+    $scope.gravatarUrl = function(email) {
+      return $gravatar.generate(email);
     };
 
     // Expose Underscore.js to scope

@@ -2,7 +2,7 @@
     <label for="act_{{ id }}" class="col-sm-4 control-label">{{ label }} <span ng-show="req">*</span></label>
     <div class="col-sm-8">
         <select id="act_{{ id }}" class="form-control" ng-model="model" ng-required="req">
-            <option ng-repeat="option in optionsArray | orderBy: 'value'" value="{{::option.key}}" ng-selected="option.key==model">{{::option.value}}</option>
+            <option ng-repeat="option in optionsArray | orderBy: order" value="{{::option.key}}" ng-selected="option.key==model">{{::option.value}}</option>
         </select>
     </div>
 </div>

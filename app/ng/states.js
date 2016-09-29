@@ -177,7 +177,7 @@ angular.module('arkofinquiryApp')
         url: '/:id',
         abstract: false,
         templateUrl: base + 'ng/components/group/views/group_detail_page_parent.html',
-        controller: 'GroupParentCtrl',
+        controller: 'GroupPageParentCtrl',
         authenticate: true
       })
       .state('group.detail.view', {

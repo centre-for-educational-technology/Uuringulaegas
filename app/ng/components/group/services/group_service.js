@@ -13,6 +13,7 @@ angular.module("arkofinquiryApp")
       method: 'GET',
       isArray: true,
       transformResponse: [angular.fromJson, function(data, headers){
+        console.log(data);
         return _.values(data); // Removes keys from response
       }]
     },
@@ -21,6 +22,16 @@ angular.module("arkofinquiryApp")
       method: 'GET',
       params: {
         action: 'get_group_list'
+      },
+      isArray: true
+    },
+    getFeed:{
+      url: appConfig.apiUrl + 'wp-admin/admin-ajax.php?groupID=:id&page=:page',
+      method: 'GET',
+      groupID: '@id',
+      page: '@page',
+      params: {
+        action: 'get_group_feed'
       },
       isArray: true
     },

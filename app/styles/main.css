@@ -216,6 +216,11 @@ body {
 
 /* User profile update log profile picture */
 
+.activity-feed-badge {
+    max-width: 50px;
+    display: inline;
+}
+
 .activity-feed-avatar-left,
 .activity-feed-avatar-right {
   max-width: 50px;

@@ -13,7 +13,7 @@ angular.module('arkofinquiryApp')
     // Expose Underscore.js to scope
     $scope._ = _;
 
-    $scope.groupList = GroupService.getList({}, function(){
+    $scope.groupList = GroupService.getList({}, function(res){
       $scope.listLoaded = true;
     });
 

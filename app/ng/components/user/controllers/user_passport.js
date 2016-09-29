@@ -31,6 +31,7 @@ angular.module('arkofinquiryApp')
             $scope.inqLog[i].created = $filter('stringToDate')($scope.inqLog[i].created);
             // Convert inq_activity object to array (remove id key)
             $scope.inqLog[i].inq_activity = _.values($scope.inqLog[i].inq_activity);
+            $scope.inqLog[i].badge = _.values($scope.inqLog[i].badge);
           }
         });
         $scope.displayedGroups = $scope.user.groups;

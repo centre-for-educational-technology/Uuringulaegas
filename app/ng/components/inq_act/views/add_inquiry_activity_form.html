@@ -8,7 +8,7 @@
 <div id="errorAlert" class="alert alert-danger" role="alert" collapse="postingState != 2"> {{ ::$root.langStrings.forms.inqAct.alertError }}</div>
 
 <form class="form-horizontal" novalidate>
-    <form-input-text id="title" label="{{ ::$root.langStrings.forms.inqAct.title }}" model="formData.title" req="true"></form-input-text>
+    <form-input-text id="title" label="{{ ::$root.langStrings.forms.inqAct.labels.title }}" model="formData.title" req="true"></form-input-text>
 
     <form-textarea id="description" label="{{ ::$root.langStrings.forms.inqAct.labels.description }}" rows="10" model="formData.description" req="true"></form-textarea>
 
@@ -26,7 +26,7 @@
 
     <form-select-multiple label="{{ ::$root.langStrings.forms.inqAct.labels.language }}" options="$root.langStrings.inqAct.languages" model="formData.extra.languages" req="true"></form-select-multiple>
 
-    <form-select id="level" label="{{ ::$root.langStrings.forms.inqAct.labels.level }}" options="$root.langStrings.inqAct.levels" model="formData.extra.proficiency_level" req="true"></form-select>
+    <form-select id="level" label="{{ ::$root.langStrings.forms.inqAct.labels.level }}" options="$root.langStrings.inqAct.levels" model="formData.extra.proficiency_level" req="true" order="key"></form-select>
 
     <div class="form-group">
         <label class="col-sm-4 control-label"> {{ ::$root.langStrings.forms.inqAct.labels.levelPhases }}<span ng-show="req">*</span></label>
