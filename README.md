@@ -5,23 +5,23 @@ Uurimislaegas on veebiportaal, mis koosneb kuuest omavahel integreeritud mooduli
 
 [Portaali esileht](http://lingid.ee/platform_mock_up), [mockup](https://projects.invisionapp.com/share/C81XU69TG#/screens)
 
-Paigaldusjuhend
+Installation guide
 ---------------
-* PHP 5.3+
+* PHP 5.4+
 * Wordpress (v 4.4+)
-* AngularJS (v1.3.12)
+* AngularJS (v1.3.12) (not newer because of some dependencies of modules)
 
-#####Vajalikud moodulid Wordpressile:
+#####Neede plugins for Wordpress:
   - WP REST API, v1.2.5
   - Pods - Custom Content Types and Fields (v2.6.1)
   - Wordpress Social Login (v2.3.0)
   
-    #######Järnevad 3 pluginat tulevad installeerimispakiga kaasa:
+    #######Wordpress plugin already included with install:
     - Ark of Inquiry Authentication and Settings
     - Pods JSON API (samanimelise plugina muudetud versioon)
     - Ark of Inquiry OpenBadges
   
-### Installation (in English)
+### Installation
 
 1. Download and unpack the webapp from the production branch to the server
 2. Install Wordpress in the same server in a subfolder called '/api'
@@ -39,9 +39,9 @@ Paigaldusjuhend
     5. Import Pods settings from the file 'pods_settings.txt' (Pods Admin -> Migrate Packages -> Import)
     6. Give the site administrator all the new extra capabilities (Pods Admin -> Roles & Capabilities -> Administrator -> Toggle All Capabilities on -> Save)
     7. Make the default new user role 'Learner' (Settings - General) and *disable* the 'Anyone can register' checkbox (this only makes sure noone can make accounts on the API(Wordpress) login screen, account creation from the frontend still works)
-    8. Under Settings - Ark of Inquiry Settings upload the corresponding images **TODO check if can be packaged along**
-    9. Under OpenBadges Settings follow the instructions on the settings page to fill the two inputs with public and private keys for signing badges for OpenBadges
-    10. Import Badges and **TODO import more data?**
+    8. Under Settings -> Ark of Inquiry Settings - upload the corresponding images
+    9. Under Settings -> Ark of Inquiry Settings - Click the Populate database button which fills Wordpress with help-pages, default Badges and fixes any Pods item relationship bindings
+    10. Under OpenBadges Settings follow the instructions on the settings page to fill the two inputs with public and private keys for signing badges for OpenBadges
     11. Configure Social login plugin
         * Facebook
             1. Go to address https://developers.facebook.com/apps/
@@ -66,7 +66,7 @@ Paigaldusjuhend
             2. Copy these keys to WP Social Login settings under Google (See Facebook step 2.)
 3. Make sure the webapp's configuration file ('ng/config.js') has the correct values for 'appBase' and 'apiUrl'. These should be relative Url's to your domain root, if you installed the app straight to the root (ex. sub.mydomain.com/) and not a subfolder then you probably don't have to change these.
 
-Veebilehitsejate tugi
+Browser support
 ---------------------
 
 Safari, Chrome, Firefox, Opera 15, IE9 ja mobiililehitsejad (Android, Chrome Mobile, iOS Safari)
