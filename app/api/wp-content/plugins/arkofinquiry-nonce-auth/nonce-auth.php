@@ -48,11 +48,24 @@ add_filter( 'pods_json_api_access_pods_get_item', function( $access, $method, $p
 }, 10, 3 );
 
 add_action('user_register', function($user_id){
-    giveBadgeToLearner($user_id, "welcome");
+    $badgeID = pods('badge')->first_id(array('where' => 'key.meta_value = "welcome"'));
+
+    pods('user', $user_id)->add_to('badges', $badgeID);
+    pods('inq_log')->add(array(
+        'learner' => $user_id,
+        'status' => 8,
+        'badge' => $badgeID
+    ));
 });
 
 function giveBadgeToLearner($learnerID, $badgeKey){
     $badgeID = pods('badge')->first_id(array('where' => 'key.meta_value = "' . $badgeKey . '"'));
+    $userBadges = pods('user', $learnerID)->field('badges');
+    foreach($userBadges as $badge){
+        if($badge['ID'] == $badgeID){
+            return;
+        }
+    }
     pods('user', $learnerID)->add_to('badges', $badgeID);
     pods('inq_log')->add(array(
         'learner' => $learnerID,
@@ -84,7 +97,7 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
         $access = true;
     } else if ( $pod == 'inq_evidence' && current_user_can( 'pods_add_inq_evidence' ) ) {
 
-        $learnerID = $_REQUEST[learner];
+        $learnerID = wp_get_current_user()->ID;
 
         $params = array(
             'where' => 'learner.id = ' . $learnerID . ' AND status >= 5'
@@ -119,7 +132,7 @@ add_filter( 'pods_json_api_access_pods_add_item', function( $access, $method, $p
         $access = true;
     } else if ( $pod == 'peer_review' && current_user_can( 'pods_add_peer_review' ) ) {
 
-        $peerID = $_REQUEST[peer];
+        $peerID = wp_get_current_user()->ID;
 
         $peerReviews = pods('peer_review', array(
             'where' => 'peer.id = ' . $peerID
@@ -183,6 +196,75 @@ add_filter('pods_api_pre_create_pod_item_group', function ($pieces) {
         pods_error( 'Missing fields!');
     }
 }, 10, 2);
+
+add_filter('pods_api_post_create_pod_item_inq_log', function ($pieces) {
+    if($pieces['fields']['status']['value'] == 5){
+        $learnerID = wp_get_current_user()->ID;
+
+        $currentInqAct = pods('inq_activity', array(
+            'where' => 't.id = ' . $pieces['fields']['inq_activity']['value']
+        ));
+
+        $inqActDomains = (array)$currentInqAct->field('domains.meta_value');
+
+        // set up domain counter
+        $domainCounter = array();
+        foreach ($inqActDomains as $domain){
+            $domainCounter[$domain] = 0;
+        }
+
+        // find all completed statuses
+        $params = array(
+            'where' => 'learner.id = ' . $learnerID . ' AND status = 5'
+        );
+        $completedActivities = pods('inq_status', $params);
+
+        //go through all statuses
+        while($completedActivities->fetch()){
+            // find connected inq_activity and it's domains
+            $pastInqActDomains = (array)pods('inq_activity', array(
+                'where' => 't.id = ' . $pieces['fields']['inq_activity']['value']
+            ))->field('domains.meta_value');
+            // compare each domain to the current completed activity's logs and if match, count up
+            foreach ($pastInqActDomains as $domain){
+                if(in_array($domain, $inqActDomains)){
+                    $domainCounter[$domain] += 1;
+                }
+            }
+        }
+
+        determineAndGiveDomainBadge($domainCounter, $learnerID);
+    };
+
+}, 10, 2);
+
+function determineAndGiveDomainBadge ($domainCounts, $learnerID){
+    giveDomainBadgeIfGranted(['astronomy'], $domainCounts, 'domain_astronomy', $learnerID);
+    giveDomainBadgeIfGranted(['biology','ecology','botany','anatomy'], $domainCounts, 'domain_biology', $learnerID);
+    giveDomainBadgeIfGranted(['evolution','paleontology'], $domainCounts, 'domain_evolution', $learnerID);
+    giveDomainBadgeIfGranted(['chemistry'], $domainCounts, 'domain_chemistry', $learnerID);
+    giveDomainBadgeIfGranted(['physics','materials_science'], $domainCounts, 'domain_physics', $learnerID);
+    giveDomainBadgeIfGranted(['probability','statistics'], $domainCounts, 'domain_probability', $learnerID);
+    giveDomainBadgeIfGranted(['computer_science','engineering','technology'], $domainCounts, 'domain_computer_science', $learnerID);
+    giveDomainBadgeIfGranted(['arts'], $domainCounts, 'domain_arts', $learnerID);
+    giveDomainBadgeIfGranted(['geophysics','geology'], $domainCounts, 'domain_geology', $learnerID);
+    giveDomainBadgeIfGranted(['algebra','calculus','trigonometry','mathematics','geometry'], $domainCounts, 'domain_algebra', $learnerID);
+    giveDomainBadgeIfGranted(['logic','grammar','social_sciences'], $domainCounts, 'domain_logic', $learnerID);
+}
+
+function giveDomainBadgeIfGranted($domains, $counts, $badgeKey, $learnerID){
+    $granted = true;
+    foreach ($domains as $domain){
+        if(!$counts[$domain]){
+            $granted = false;
+        } else if($counts[$domain] < 3){
+            $granted = false;
+        }
+    }
+    if($granted){
+        giveBadgeToLearner($learnerID, $badgeKey);
+    }
+}
 
 
 /*
