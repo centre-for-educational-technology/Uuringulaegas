@@ -382,7 +382,6 @@ function get_group_feed() {
         $learnerIDs = join("','",$learners);
 
 
-        error_log(print_r($learners, true));
 
         //echo json_encode($learners);
 
@@ -835,3 +834,46 @@ function no_admin_access() {
     }
 }
 add_action( 'admin_menu', 'no_admin_access', 100 );
+
+/*
+ * Register country column for users list
+ */
+
+// Register the column
+function country_column_register( $columns ) {
+    unset($columns['posts']);
+    $columns['country'] = __( 'Country', aoi_get_text_domain() );
+
+    return $columns;
+}
+add_filter( 'manage_users_columns', 'country_column_register' );
+
+// Display the column content
+function country_column_display($value, $column_name, $user_id ) {
+    if ( 'country' == $column_name ) {
+        //$country = get_user_meta($user_id, 'country_of_residence', true);
+        $country = pods('user', $user_id)->display('country_of_residence');
+        if ( !$country ){
+            $country = '<em>' . __( 'undefined', 'my-plugin' ) . '</em>';
+        }
+        return $country;
+    }
+    return $value;
+}
+add_action( 'manage_users_custom_column', 'country_column_display', 10, 3 );
+
+// Register the column as sortable
+function country_column_register_sortable( $columns ) {
+    $columns['country'] = 'country_of_residence';
+
+    return $columns;
+}
+add_filter( 'manage_users_sortable_columns', 'country_column_register_sortable' );
+
+function country_column_orderby($userquery){
+    if ( 'country_of_residence'==$userquery->query_vars['orderby'] ) {
+        $userquery->query_vars['meta_key'] = 'country_of_residence';
+        error_log(print_r($userquery, true));
+    }
+}
+add_filter( 'pre_get_users', 'country_column_orderby' );
