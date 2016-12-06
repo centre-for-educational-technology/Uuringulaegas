@@ -3,7 +3,9 @@ node_modules
 test/tmp
 .tmp
 app/api
-!app/api/wp-content/plugins
+!app/api/wp-content/plugins/arkofinquiry-nonce-auth
+!app/api/wp-content/plugins/json-rest-api
+!app/api/wp-content/plugins/pods-json-api-where-fix
 app/.htaccess
 .idea
 
