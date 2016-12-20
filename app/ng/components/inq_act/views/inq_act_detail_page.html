@@ -59,11 +59,18 @@
                     <dt>{{ ::$root.langStrings.forms.inqAct.labels.evidenceDescription }}</dt>
                     <dd class="multi-line-text">{{ ::activity.evidence_description }}</dd>
 
-                    <div ng-if="::activity.rights_restrictions == 1">
+                    <div ng-if="activity.rights_restrictions == 1 || activity.rights_description.length > 0">
                         <dt>{{ ::$root.langStrings.forms.inqAct.labels.rights }}</dt>
                         <dd><span class="label label-warning">{{ ::$root.langStrings.inqAct.booleanValues[1] }}</span></dd>
-                        <dt>{{ ::$root.langStrings.forms.inqAct.labels.rightsDescription }}</dt>
-                        <dd>{{ ::activity.rights_description }}</dd>
+                        <dt ng-if-start="::activity.rights_description.length > 0">{{ ::$root.langStrings.forms.inqAct.labels.rightsDescription }}</dt>
+                        <dd ng-if-end>{{ ::activity.rights_description }}</dd>
+                    </div>
+
+                    <div ng-if="activity.rri_component == 1 || activity.rri_description.length > 0">
+                        <dt>{{ ::$root.langStrings.forms.inqAct.labels.rri }}</dt>
+                        <dd><span class="label label-warning">{{ ::$root.langStrings.inqAct.booleanValues[1] }}</span></dd>
+                        <dt ng-if-start="activity.rri_description.length > 0">{{ ::$root.langStrings.forms.inqAct.labels.rriDescription }}</dt>
+                        <dd ng-if-end>{{ ::activity.rri_description }}</dd>
                     </div>
 
                     <hr/>
