@@ -837,13 +837,70 @@ function aoi_download_users_badges_csv() {
  * Admin menu pages
  */
 function aoi_add_menu_pages() {
-  if ( current_user_can('manage_options') ) {
-    add_options_page( __( 'Arc of Inquiry settings', aoi_get_text_domain() ), __( 'Arc of Inquiry settings', aoi_get_text_domain() ), 'manage_options', 'aoi-settings', 'aoi_load_settings_page' );
-    add_submenu_page( NULL, '', '', 'manage_options', 'aoi-download-users-groups-csv', 'aoi_download_users_groups_csv' );
-    add_submenu_page( NULL, '', '', 'manage_options', 'aoi-download-users-badges-csv', 'aoi_download_users_badges_csv' );
-  }
+    if ( current_user_can('manage_options') ) {
+        add_options_page( __( 'Arc of Inquiry settings', aoi_get_text_domain() ), __( 'Arc of Inquiry settings', aoi_get_text_domain() ), 'manage_options', 'aoi-settings', 'aoi_load_settings_page' );
+        add_submenu_page( NULL, '', '', 'manage_options', 'aoi-download-users-groups-csv', 'aoi_download_users_groups_csv' );
+        add_submenu_page( NULL, '', '', 'manage_options', 'aoi-download-users-badges-csv', 'aoi_download_users_badges_csv' );
+    }
+
 }
 add_action('admin_menu', 'aoi_add_menu_pages');
+
+add_action('admin_menu', function(){
+    add_submenu_page( null, 'listcsv', 'listcsv', 'create_users', 'aoi-download-user-list-csv', 'aoi_download_user_list_csv' );
+}, 15);
+
+function aoi_add_user_list_download_button()
+{
+    if ('users' != get_current_screen()->id && !current_user_can('pods_add_inq_evidence')) {
+        return;
+    }
+    $csv_link = admin_url('admin.php?page=aoi-download-user-list-csv&noheader=true');
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready( function($)
+        {
+            jQuery(jQuery(".wrap h1")[0]).append("<a  id='doc_popup' class='add-new-h2' href='<?php echo $csv_link; ?>'>Download user list as CSV</a>");
+        });
+    </script>
+    <?php
+}
+
+add_action('admin_head','aoi_add_user_list_download_button');
+
+/**
+ * Starts user list CSV file download
+ * @return [type] [description]
+ */
+function aoi_download_user_list_csv() {
+    if ( !current_user_can( 'create_users' ) ) {
+        wp_die( __( 'Insufficient permissions.', aoi_get_text_domain() ) );
+    }
+
+    $csv_data = array();
+
+    // Add titles to first row of csv
+    $csv_data [] = array('id','email','name','country','role','date_created');
+
+    $user = pods('user', array(
+        'limit' => -1,
+    ));
+
+    while( $user->fetch() ) {
+        $csv_data []= array(
+            'id' => $user->id(),
+            'email' => $user->field('user_email'),
+            'name' => $user->field('display_name'),
+            'country' => $user->display('country_of_residence'),
+            'role' => $user->field('roles')[0],
+            'created' => $user->field('user_registered')
+        );
+    }
+
+    _aoi_start_csv_download($csv_data, 'user_list');
+}
+
+
 
 /**
  * Responds with activities background image data in JSON.
